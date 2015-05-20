@@ -1,4 +1,0 @@
-; until web version of NetLogo supports clear-drawing
-
-to clear-drawing-replacement
-end

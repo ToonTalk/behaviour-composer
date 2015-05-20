@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 jarsExcludedFromWebInfLib=
 lastWarOutDir=C\:/eclipse/workspace/Modeller/war
+launchConfigExternalUrlPrefix=
 warSrcDir=war
 warSrcDirIsOutput=false
