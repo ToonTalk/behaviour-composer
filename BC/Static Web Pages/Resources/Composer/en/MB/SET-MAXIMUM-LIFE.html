@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<title>SET-MAXIMUM-LIFE</title>
+</head>
+
+<body>
+
+	<h3><i>I initialise an attribute used as my maximum life expectancy.</i> 
+	</h3>
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>SET-MAXIMUM-LIFE </b></p>
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-at-setup
+   [set my-maximum-life random-number-between <textarea cols="4" rows="1" name="minimum-lifespan" title="Click here to edit the minimum lifetime.">80</textarea> <textarea cols="4" rows="1" name="maximum-lifespan" title="Click here to edit the maximum lifetime.">100</textarea>]
+</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+	<p>You can use a constant or a different distribution of values for <i>
+	my-maximum-life</i>. </p>
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+	<p><a title="DIE-WHEN-TOO-OLD" href="DIE-WHEN-TOO-OLD.html">DIE-WHEN-TOO-OLD</a> 
+	uses this. </p>
+	<h2><span class="mw-headline">How this works </span></h2>
+	<p>It picks a random number between 80 and 100 and saves it in <i>
+	my-maximum-life</i>. </p>
+	<h2><span class="mw-headline">History </span></h2>
+	<p>This was implemented by Ken Kahn. </p>
+
+</body>
+
+</html>

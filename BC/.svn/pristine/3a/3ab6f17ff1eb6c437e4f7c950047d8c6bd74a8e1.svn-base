@@ -1,0 +1,23 @@
+package uk.ac.lkl.client;
+
+import com.google.gwt.user.client.ui.Button;
+
+/**
+ * A button that doesn't have spaces on both sides of the text
+ * 
+ * @author Ken  Kahn
+ *
+ */
+public class ModellerButton extends Button {
+    public ModellerButton(String html) {
+	super(html);
+	setWidth("100%");
+	addStyleName("modeller-modeller-button");
+    }
+    
+    public void onLoad() {
+	setWidth("100%");
+	super.onLoad();	
+    }
+
+}

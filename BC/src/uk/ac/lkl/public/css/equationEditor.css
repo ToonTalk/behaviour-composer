@@ -1,0 +1,38 @@
+
+
+.hor-input-panel {
+	color: dodgerblue;
+	margin: 2px;
+	padding: 1px;
+	border: 2px solid #3366CC;
+	font-weight: bold;
+	background-color: lightskyblue;
+}
+.panel { 
+        padding: 5px; 
+        width: 100%; 
+        background-color: white; 
+        border: 2px solid #000; 
+
+
+} 
+
+
+        } 
+
+
+}
+.gwt-Button {
+	background-color: lavender;
+}
+.gwt-MenuItem {
+	border-top: thin outset lightblue;
+	border-right: thin outset lightblue;
+	border-bottom: medium outset lightblue;
+	border-left: thin outset lightblue;
+}
+.gwt-ListBox {
+	margin-left: 5px;
+	border-left: thick outset lavender;
+	background-color: lavender;
+}

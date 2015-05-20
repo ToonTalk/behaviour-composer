@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<title>INFORMED-NOISE</title>
+
+</head>
+
+<body>
+
+	<h3><i>I compute the noise/uncertainty I have for what direction I think we 
+
+	should move.</i> </h3>
+
+	<p><font size="2" color="gray">Begin micro-behaviour</font></p>
+	<p><b>INFORMED-NOISE</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for informed-noise-standard-deviation 0.01
+substitute-text-area-for cycle-duration 1                      
+          
+do-every cycle-duration
+   [set my-next-informed-noise
+        random-normal 0.0 informed-noise-standard-deviation * radian] 
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>Change the standard deviation from .01 radians. Or use a different random 
+
+	number distribution.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="INFORMED-DIRECTION" href="INFORMED-DIRECTION.html">
+
+	INFORMED-DIRECTION</a> uses the &quot;informed-noise&quot; computed here.
+
+	<a title="DIRECTION-NOISE" href="DIRECTION-NOISE.html">
+
+	DIRECTION-NOISE</a> models sensory/movement errors.</p>
+
+	<h2>How this works</h2>
+
+	<p>On every cycle this computes a new random angle. The mean is zero and the 
+
+	standard deviation is .01 radians.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.
+</body>
+
+</html>
+

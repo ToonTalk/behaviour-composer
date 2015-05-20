@@ -1,0 +1,188 @@
+<html>
+<body>
+<a name="top"></a>
+<table border="1" bgcolor="#F5F5F5" width="1000">
+<tr>
+  <th><font color="#4682b4" size="5" face="Arial"> MoPiX 2.0 </font></th>
+  <th colspan="4"><font color="#4682b4" size="5" face="Arial"> Equation Editor </font></th>
+  <th colspan="4"><font color="#4682b4" size="5" face="Arial"> Creating Animations </font></th>
+  
+</tr>
+<tr>
+  <td><!--<center> <img border="0" src="Manual_pictures/Web.ico" width="30" height="30"></center> -->
+	<font color="#a9a9a9" size="3" face="Arial">
+	<a href ="about.html">
+	<center>
+ 	About  </center>
+	</a> </font>
+ </td>
+
+  <td><!--<center> <img border="0" src="Manual_pictures/Info.ico" width="30" height="30"></center> -->
+      <font color="#a9a9a9" size="3" face="Arial">
+      <a href ="intro.html" >
+      <center>
+      Introduction </center></a> </font>
+ </td>
+
+  <td><!--<center> <img border="0" src="Manual_pictures/Text.ico" width="30" height="30"></center> -->
+	<font color="#a9a9a9" size="3" face="Arial"><a href= "new_eq.html"><center>
+	How to Create New Equations </a></center>
+  </font>
+  </td>
+
+
+  <td><!--<center> <img border="0" src="Manual_pictures/Edit.ico" width="30" height="30"></center> -->
+  	<font color="#a9a9a9" size="3" face="Arial"><a href = "open_eq.html"><center>
+  	Opening Existing Equations</a></center>
+	</font>
+  </td>
+
+  <td><!--<center> <img border="0" src="Manual_pictures/Trash.ico" width="30" height="30"></center> -->
+  	<font color="#a9a9a9" size="3"  face="Arial"><a href = "del_eq.html"> 
+	<center>Deleting Equations</a></center>
+	</font>
+ </td>
+
+  <td><!--<center>  <img border="0" src="Manual_pictures/Hand.ico" width="30" height="30"> </center> -->
+  	<font color="#a9a9a9" size="3" face="Arial">
+	<a href ="new_model.html">
+	<center>
+ 	Creating your Model
+	</center>
+	</a> </font>
+   </td>
+
+  <td><!-- <center> <img border="0" src="Manual_pictures/Star.ico" width="30" height="30"> </center> -->
+      <font color="#a9a9a9" size="3" face="Arial"><a href= "play_model.html"><center>
+	Playing Animations</a></center>
+	</font>
+  </td>
+
+  <td> <!--<center> <img border="0" src="Manual_pictures/Save.ico" width="30" height="30"> </center> -->
+	<font color="#a9a9a9" size="3" face="Arial"><a href = "save_mathml.html"><center>
+	Viewing, Editing and Saving MathML
+	</a></center>
+	</font>
+  </td>
+  <td><!--<center><img border="0" src="Manual_pictures/Restart.ico" width="30" height="30"></center>-->
+	 <font color="#a9a9a9" size="3"  face="Arial"><a href = "save_eq.html">
+		<center>Saving, Retrieving  Models and Equations
+	</a></center>
+	</font>
+  </td>
+
+</tr>
+</table>
+<table border="1" width="1000">
+<tr>
+  <td> 
+
+
+<div class=Section1>
+
+<p align="center">
+<img border="0" src="Manual_pictures/Hand.ico" width="30" height="30"> 
+<b>
+<font color="#4682b4" size="5" face="Arial">Creating your Model</font>
+</b>
+</p>
+
+<b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='font-size:14.0pt;line-height:150%'>
+ 
+
+
+
+<span lang=EN-GB>
+
+
+
+
+<p><font color="#4682b4" size="4" face="Arial"> <i>Creating a new Model</i></font></p>
+<p>Elements of your model begin as black squares. Click on the <i>Add new object</i> button on the Stage as many times  as you need to get 
+the objects. They have no behaviour, colour, or other attributes other than the initial position. When you run your model each 
+element or object <i>i</i> is displayed where its attributes are defined as: </p>
+<ul>
+<li>   <i>  x</i>(i , t) – the horizontal coordinate of the centre of object <i>i</i> at time t </li>
+<li>   <i> y</i>(i , t) – the vertical coordinate of the centre of object <i>i</i> at time t</li>
+<li>   <i> width</i>(i , t) – the width of object <i> i</i> at time t</li>
+<li>  <i> height</i>(i , t) – the height of object <i>i</i> at time t</li>
+<li>  <i>rotation</i>(i , t) – the number of degrees object<i> i</i> at time t is rotated</li>
+<li> <i>redColour</i>(i , t) – the percentage of red in the colour of object <i>i</i> at time t</li>
+<li> <i>greenColour</i>(i , t) – the percentage of green in the colour of object <i>i</i> at time t</li>
+<li> <i> blueColour</i>(i , t) – the percentage of blue in the colour of object <i>i</i> at time t</li>
+<li> <i> transparency</i>(i , t) – the percentage of opacity of object <i>i</i> at time t 
+(100 is fully opaque, while 0 is fully transparent) </li>
+<li> <i> appearance</i>(i , t) – the shape of object <i>i</i> at time t 
+(currently only Circle and Square are supported).</li>
+<li> <i>x0</i>(i , t), <i>x1</i>(i , t), <i>x2</i>(i , t), … <i>x359</i>(i , t) – the horizontal 
+coordinate of a point on the perimeter of object <i>i</i> at
+ time t (x0 represents the x coordinate of point on the perimeter at a heading of 0 degrees from the 
+entre, x90 is x coordinate of the point on the perimeter reached by a ray emanating from the 
+centre at an angle of 90 degrees, and so on) </li>
+<li> <i>y0</i>(i , t), <i>y1</i>(i , t), <i>y2</i>(i , t), … <i>y359</i>(i , t) – the vertical 
+coordinate of a point on the perimeter 
+of object <i>i</i> at time t (y0 represents the y coordinate of point on the perimeter at a heading of 0 
+degrees from the centre, x90 is the y coordinate of point on the perimeter reached by a ray 
+emanating from the centre at an angle of 90 degrees, and so on) </li>
+<li> <i>penDown</i>(i , t) – only when it has a value of 1 will object <i>i</i> at time t leave a trail 
+when it moves </li>
+<li> <i>thicknessPen</i>(i , t) – if <i>penDown</i>(i , t) is equal to 1 then the trail drawn when 
+object <i>i</i> at time t moves 
+has a thickness controlled by this function</li>
+<li> <i>redColourPen</i>(i , t) – if <i>penDown</i>(i , t) is equal to 1 then the trail drawn 
+when object <i>i</i> at time t moves 
+has a colour whose red component is the percentage specified by this function </li>
+<li> <i>greenColourPen</i>(i , t) – if <i>penDown</i>(i , t) is equal to 1 then the trail drawn 
+when object <i> i</i> at time t 
+moves has a colour whose green component is the percentage specified by this function </li>
+<li> <i>blueColourPen</i>(i , t) – if <i>penDown</i>(i , t) is equal to 1 then the trail drawn 
+when object <i>i</i> at time 
+t moves has a colour whose blue component is the percentage specified by this function </li>
+<li> <i> transparencyPen</i>(i , t) – if <i>penDown</i>(i , t) is equal to 1 then the trail drawn 
+when object <i>i </i> at time t moves 
+has a percentage of opaqueness specified by this function </li>
+</ul>
+<p>
+In addition to the objects you drag out to the construction area there are special built-in objects:</p>
+<ul>
+<li>	<i>mouse</i> – is an object that is not displayed whose <i>x</i>(mouse,t) and 
+<i>y</i>(mouse,t) correspond to the position of the computer mouse at time t </li>
+<li> a, b, c, … z, A, B, C, … Z– are the names of objects that are not displayed whose 
+<i>keyDown</i>(<key>,t) is equal to 1 if and only if the keyboard button labelled key is 
+depressed at time t (<i>keyDown</i>(mouse,t) is defined similarly to be 1 when the left 
+mouse button is depressed at time t)</li>
+</ul>
+<p>
+All of the functions controlling the appearance, position, orientation, size, colour, and trail of objects 
+can be defined 
+directly to have a value such as:</p>
+<p>
+<center>
+<font size="4" color="#4682b4" face="Arial"> 
+<p type="equation" version="2.0.0" replaceAppearance="equation" equationMathML="<apply><eq/><apply><mo>rotation</mo><ci>ME</ci><ci>t</ci></apply><apply><times/><ci>t</ci><cn>2</cn></apply></apply>">
+rotation(ME,t)=t×2 </p></font> 
+</center>
+
+</p>
+
+which specifies that object to which we refer as ME should rotate at 2 degrees per time unit. </p>
+<p>Alternatively, functions can be defined in terms of other functions such as:</p>
+<center><i>x</i>(object <i>i</i> , t) = <i>x</i>(object <i>i</i> , t-1) + <i>Vx</i>(object <i>i</i> , t)</center></i>
+<p>where <i>Vx </i>is a function of objects and time that has no built-in meaning to MoPiX and must be defined by other equations.</p>
+<p>Partial functions can also be defined, for example,</p>
+<center><i>Vx</i>(object <i>i</i> , 3) = 5</center></i>
+<p>Defines a value of 5 for Vx of object <i>i </i> only at time 3.</p>
+<p><i>All undefined values are assumed for convenience to have the value of zero in MoPiX.</i></p>
+
+
+<p>See <a href = "play_model.html">  Playing Animations </a></p>
+<center><a href ="#top">Top</a> </center> 
+</div>
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

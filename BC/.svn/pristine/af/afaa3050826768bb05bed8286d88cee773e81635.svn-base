@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>REMOVE-LINK-ERROR-ODDS-SLIDER</title>
+
+</head>
+
+<body>
+
+	<h3><i>I create a slider controlling the odds of making an error when 
+	deciding to remove a link.</i>
+	</h3>
+	<p><font size="2" color="gray">Begin micro-behaviour</font></p>
+	<p><b>REMOVE-LINK-ERROR-ODDS-SLIDER</b></p>
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>create-slider 
+  &quot;the-odds-of-remove-link-error&quot; 
+  "625" "10"<i>&nbsp;; lower left corner </i>
+  "875" "50"&nbsp;<i>; upper right corner</i>
+  &quot;0&quot; &quot;1&quot;&nbsp;<i>; minimum and maximum value</i>
+  &quot;.01&quot;&nbsp;<i>; increment </i>
+  &quot;.1&quot;&nbsp;<i>; initial value</i>
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>You can change the location, minimum and maximum values, increment, and 
+
+	initial value. The values should be positive integers.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a href="ADD-LINK-ERROR-ODDS-SLIDER.html">ADD-LINK-ERROR-ODDS-SLIDER</a> -- 
+	I add a slider for the odds of making a mistake when deciding to add a link.</p>
+	<p>
+
+	<a title="TOTAL-NUMBER-OF-PLAYERS-SLIDER" href="TOTAL-NUMBER-OF-PLAYERS-SLIDER.html">
+
+	TOTAL-NUMBER-OF-PLAYERS-SLIDER</a> -- I add a slider for the number of 
+
+	players.</p>
+
+	<p>
+
+	<a title="DIRECT-LINK-BENEFIT-SLIDER" href="DIRECT-LINK-BENEFIT-SLIDER.html">
+
+	DIRECT-LINK-BENEFIT-SLIDER</a> -- I add a slider for the benefit of a direct 
+
+	link.</p>
+
+	<p>
+
+	<a title="DIRECT-LINK-COST-SLIDER" href="DIRECT-LINK-COST-SLIDER.html">
+
+	DIRECT-LINK-COST-SLIDER</a> -- I add a slider for the cost of a direct link.
+
+	</p>
+
+	<p>
+
+	<a title="INDIRECT-LINK-BENEFIT-DECAY-SLIDER" href="INDIRECT-LINK-BENEFIT-DECAY-SLIDER.html">
+
+	INDIRECT-LINK-BENEFIT-DECAY-SLIDER</a> -- I add a slider for the decay 
+
+	factor for indirect links.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.
+
+
+
+</body>
+
+
+
+</html>
+

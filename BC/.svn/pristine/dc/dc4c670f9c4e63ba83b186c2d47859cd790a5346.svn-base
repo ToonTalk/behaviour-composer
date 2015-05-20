@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>REMOVE-BEHAVIOURS</title>
+<meta http-equiv="Content-Language" content="en-gb">
+</head>
+<body>
+	<h3><i>I remove behaviours by name. </i><span style="font-weight: 400">I 
+	remove each scheduled behaviour that has the same name as any of those added 
+	to the &quot;Behaviours to remove&quot; list below.</span></h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>REMOVE-BEHAVIOURS</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>remove-behaviours list-of-micro-behaviours "Behaviours to remove" []</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>You can add micro-behaviours to be removed from me by clicking on the 
+	micro-behaviour and navigating back to the list on this page.</p>
+
+	<h2>Related Micro-behaviours</h2>
+	<p><a href="ADD-BEHAVIOURS.html">ADD-BEHAVIOURS</a> -- Adds behaviours</p>
+	<p><a href="ADD-BEHAVIOURS-TO.html">ADD-BEHAVIOURS-TO</a> -- Adds behaviours 
+	immediately to a specified agent or set of agents</p>
+	<p><a href="REMOVE-BEHAVIOURS.html">REMOVE-BEHAVIOURS</a> -- Removes 
+	behaviours</p>
+	<p><a href="REMOVE-BEHAVIOURS-FROM.html">REMOVE-BEHAVIOURS-FROM</a> -- Removes 
+	specified behaviours from an agent or set of agents</p>
+<p><a href="REMOVE-ALL-BEHAVIOURS.html">REMOVE-ALL-BEHAVIOURS</a> 
+-- Remove all behaviours</p>
+
+	<p><a href="REMOVE-ALL-BEHAVIOURS-FROM.html">REMOVE-ALL-BEHAVIOURS-FROM</a> -- Removes 
+	all behaviours from an agent or set of agents</p>
+
+	<p><a href="DO-WITH-PROBABILITY.html">DO-WITH-PROBABILITY</a> -- Adds 
+	behaviours probabilistically</p>
+	<p><a href="DO-WITH-PROBABILITIES.html">DO-WITH-PROBABILITIES</a>&nbsp; -- 
+	Choose which 
+set of behaviours to add probabilistically</p>
+	<p><a href="REPEATEDLY-DO-BEHAVIOURS.html">REPEATEDLY-DO-BEHAVIOURS</a> -- 
+	Adds behaviours repeatedly</p>
+	<p><a href="DO-AFTER.html">DO-AFTER</a> -- Delays the addition of a list of 
+	micro-behaviours</p>
+<p><a href="DO-AFTER-SETUP.html">DO-AFTER-SETUP</a> -- Delays the addition of a list of 
+micro-behaviours until setup has completed</p>
+	<p><a href="DO-AT-TIME.html">DO-AT-TIME</a> -- Schedules the addition of a list of 
+	micro-behaviours</p>
+	<p><a href="DO-IF.html">DO-IF</a> -- Runs actions if condition is true</p>
+	<p><a href="DO-IF-ELSE.html">DO-IF-ELSE</a> -- Runs one set of actions if 
+	condition is true and another set if condition is false</p>
+<p><a href="WHEN.html">WHEN</a> -- Adds and removes micro-behaviours the first 
+time that conditions are true</p>
+<p><a href="WHENEVER.html">WHENEVER</a> -- Adds and removes micro-behaviours 
+every time conditions are true</p>
+	
+
+	<p>
+
+	<a href="ADD-BEHAVIOURS-TO-LINKS.html">ADD-BEHAVIOURS-TO-LINKS</a> -- Adds 
+	micro-behaviours to links (rather than agents)</p>
+
+	<h2>
+
+	How this Works</h2>
+	<p>
+
+	This removes the first micro-behaviour found with the same underlying URL. A 
+	copy of a micro-behaviour with the same URL is removed if it has the same 
+	name.</p>
+
+	<h2>History</h2>
+	<p>This was first implemented by Ken Kahn on 6 October 2009. 
+
+</body>
+</html>
+

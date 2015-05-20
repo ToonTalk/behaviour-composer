@@ -1,0 +1,2 @@
+serviceClass: uk.ac.lkl.client.rpc.HistoryService
+path: BB7764E9EAD470AAE8DB2E3C86FE9E12.gwt.rpc

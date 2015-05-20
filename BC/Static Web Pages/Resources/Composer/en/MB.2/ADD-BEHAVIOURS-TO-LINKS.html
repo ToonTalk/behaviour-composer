@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>ADD-BEHAVIOURS-TO-LINKS</title>
+<meta http-equiv="Content-Language" content="en-gb">
+</head>
+<body>
+	<h3><i>I add link behaviours to some of my links.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>ADD-BEHAVIOURS-TO-LINKS</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for the-links in-link-from the-other                   
+substitute-text-area-for delay 0                              
+ask the-links 
+    [add-link-behaviours-after delay 
+      list-of-micro-behaviours "Link Behaviours" []]</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>Just add micro-behaviours to the list by clicking on the micro-behaviour 
+	and navigating back to this page. You can delay this by editing the field 
+	that contains 0. You can change the expression that 
+	specifies the link or links involved. See the NetLogo section of the
+	<a target="_blank" href="http://ccl.northwestern.edu/netlogo/docs/dictionary.html#linkgroup">
+	manual on links</a> for details.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+	<p>
+
+	<a href="ADD-BEHAVIOURS.html">ADD-BEHAVIOURS</a> 
+	adds behaviours to this agent instead of its links. It uses 
+	<b>
+	<a target="_blank" href="http://resources.modelling4all.org/documents/programming-guide#toc2">the-other</a></b> 
+	to refer to another agent.</p>
+<p>
+
+	Note only some behaviours make sense for a link. For example,
+	<a href="SET-COLOR.html">SET-COLOR</a> works fine but
+	<a href="SET-SHAPE.html">SET-SHAPE</a> makes no sense.</p>
+
+	<h2>History</h2>
+	<p>This was first implemented by Ken Kahn on 6 October 2009. 
+
+</body>
+</html>
+

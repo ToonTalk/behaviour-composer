@@ -1,0 +1,5 @@
+# Module Model
+# RPC service class, partial path of RPC policy file
+uk.ac.lkl.client.rpc.ResourcePageService, 23E3AD1E33435B23D2A6F9BD8B5C5CAB.gwt.rpc
+com.allen_sauer.gwt.log.client.RemoteLoggerService, 9395117A7B8A08800A042BDFFE48FE8C.gwt.rpc
+uk.ac.lkl.client.rpc.HistoryService, BB7764E9EAD470AAE8DB2E3C86FE9E12.gwt.rpc

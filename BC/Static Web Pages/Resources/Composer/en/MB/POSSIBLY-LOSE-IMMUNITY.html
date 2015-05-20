@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<title>POSSIBLY-LOSE-IMMUNITY</title>
+</head>
+
+<body>
+	
+	<h3><i>I possibly lose my vaccination and become susceptible.</i> </h3>
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>POSSIBLY-LOSE-IMMUNITY </b></p>
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-every 1
+   [do-with-probability reciprocal the-average-duration-of-vaccination
+       [add-behaviour <a href="SET-STATE-SUSCEPTIBLE.html">SET-STATE-SUSCEPTIBLE</a>
+        remove-behaviour <a href="POSSIBLY-LOSE-IMMUNITY.html">POSSIBLY-LOSE-IMMUNITY</a>]]
+</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+	<p><a title="POSSIBLY-RECOVER" href="POSSIBLY-RECOVER.html">POSSIBLY-RECOVER</a> 
+	works in a similar manner. </p>
+	<h2><span class="mw-headline">How this works </span></h2>
+	<p>Every time unit (i.e. week), with probability of 1 / 
+	<i>the-average-duration-of-vaccination</i> this resets my state to &quot;susceptible&quot;. Once 
+	susceptible I no longer need to run this micro-behaviour anymore. </p>
+	<h2><span class="mw-headline">History </span></h2>
+	<p>This was implemented by Ken Kahn. </p>
+
+</body>
+
+</html>

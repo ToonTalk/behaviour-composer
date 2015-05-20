@@ -1,0 +1,25 @@
+<h3>Go to a place</h3>
+<p>Move agents to a place.</p>
+<p><font color="#808080" size="2">Begin micro-behaviour</font></p>
+<p><strong>GO-TO-A-PLACE</strong></p>
+<p><font color="#808080" size="2">Begin NetLogo code:</font></p>
+<p><font size="2">substitute-text-area-for start-time 9</font></p>
+<p><font size="2">substitute-text-area-for end-time 18</font></p>
+<p><font size="2">substitute-text-area-for location department</font></p>
+<pre>do-every delta-t [</pre>
+<pre>if hour-in-day &gt; start-time and hour-in-day &lt; end-time</pre>
+<pre>[ set my-whereabouts one-of patches with [ place-of-patch = &quot;location&quot; ]</pre>
+<pre>move-to my-whereabouts ]</pre>
+<pre>]</pre>
+<pre> </pre>
+<p><font color="#808080" size="2">End NetLogo code</font></p>
+<h2>Variants</h2>
+<p>You can edit the duration field to any positive number. You can add micro-behaviours 
+to the list.</p>
+<h2>Related Micro-behaviours</h2>
+<p>Provide links and short descriptions of similar or related micro-behaviours. 
+And those referenced in the code.</p>
+<h2>How this works</h2>
+<p>Explain how this works to a non-programming audience.</p>
+<h2>History</h2>
+<p>Who implemented this? Was it based upon some other micro-behaviours?</p>

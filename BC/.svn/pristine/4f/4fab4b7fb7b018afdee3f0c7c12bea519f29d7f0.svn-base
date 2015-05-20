@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>TOGGLE-VISIBILITY-OF-NETWORK</title>
+</head>
+<body>
+<h3><i>This makes my semantic network hidden if it is showing and shows it if it 
+is hidden.</i></h3>
+<h3><font size="2" color="gray">Begin micro-behaviour</font>
+</h3>
+<p><b>TOGGLE-VISIBILITY-OF-NETWORK</b></p>
+<p><font size="2" color="gray">Begin NetLogo code:</font> </p>
+<pre>set my-network-visibility my-network-visibility != true
+ask turtle-set all-nodes-reachable-from my-list-of-anchor-points
+    [set my-visibility not my-visibility
+     set hidden? not hidden?]
+ask link-set all-links-reachable-from my-list-of-anchor-points
+    [set hidden? not hidden?]</pre>
+<font size="2" color="gray">End NetLogo code</font> 
+<h2>Related Micro-behaviours</h2>
+<p><a href="SHOW-MY-NETWORK.html">SHOW-MY-NETWORK</a> displays my network.
+<a href="HIDE-MY-NETWORK.html">HIDE-MY-NETWORK</a> hides it.
+<a href="TOGGLE-VISIBILITY-OF-NETWORK.html">TOGGLE-VISIBILITY-OF-NETWORK</a> 
+switches its visibility. <a href="HIDE-ALL-NETWORKS.html">HIDE-ALL-NETWORKS</a> 
+hides all nodes and links.</p>
+<h2>How this works</h2>
+<p><span style="background-color: #FFFF00">To do</span></p>
+<h2>History</h2>
+<p>This was implemented by Ken Kahn on 7 August 2010.</p>
+</body>
+</html>

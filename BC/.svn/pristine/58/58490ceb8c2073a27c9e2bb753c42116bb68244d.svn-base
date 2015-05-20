@@ -1,0 +1,75 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-gb">
+<title>Guide to Modelling Epidemic Interventions</title>
+</head>
+
+<body>
+<font face="Arial">
+<h1>Guide to Modelling Epidemic Interventions</h1>
+<h2>Step 0. Create or load the Susceptible/Infected Model 
+with a social network following a power law</h2>
+<p>Create a model using <a href="Epidemic-Guide.html">
+this guide for modelling epidemics</a> or  
+<a href="http://modelling4all.nsms.ox.ac.uk/Model?frozen=Y_8asKjj4wBtrim6Wdxz48&MforAllModel=1">Load this Epidemic Model</a> corresponding 
+to completing step 7 in the guide. If you do load the model we recommend you 
+read <a href="Epidemic-Guide.html">the guide for modelling epidemics</a> before 
+proceeding.</p>
+<h2>Step 1. Introduce Recovery to the model</h2>
+<p>The model does not implement recovery from an infection. To remedy this add
+<a href="RECOVERY-POSSIBLE-AFTER-INFECTION.html">
+RECOVERY-POSSIBLE-AFTER-INFECTION</a> to <b>Person</b> in your model. This 
+micro-behaviour needs a slider to 
+define the average duration of an infection. Add this
+<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB/CREATE-SLIDER.html#changes=7P9C7Kzm099dRHAXpWM97g">slider customised for this purpose</a> to the 
+<b>Observer</b>. 
+Run your model. Click on the SETUP button to generate new initial conditions.</p>
+<h2>
+Step 2. Introduce limited random vaccinations</h2>
+<p>Next we model a public health authority with only a limited amount of a 
+vaccine. (If you created your model from scratch then you need to create a new prototype for the public health 
+authority and add <a href="HIDE.html">HIDE</a> to it since it shouldn't be seen 
+when animating the model.) Add to the <b>Public Health Authority</b> a
+<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/CREATE-SLIDER.html#changes=m6_gme31ihtT5wExl65H79">slider to define the amount of vaccine available</a>. The vaccine may only be 
+effective for a fraction of those that receive it. To model this add a
+<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/CREATE-SLIDER.html#changes=BYSgqKc1uL4WVIscIEJ-6f">slider customised to define the fraction of vaccinations that take</a> 
+to <b>Public Health Authority</b>.</p>
+<p>One intervention strategy would be to distribute the 
+available vaccine randomly among those who are susceptible. 
+<a href="VACCINATE-N-RANDOM-INDIVIDUALS.html">VACCINATE-N-RANDOM-INDIVIDUALS</a> 
+does this after
+<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/CREATE-SLIDER.html#changes=4CbZFuiAlddDTmXtA1aM56">a delay defined by this slider</a>. Add both of them to <b>Public Health Authority.</b></p>
+<p>To plot the vaccinations you should 
+add 
+<a href="ADD-VACCINATED-TO-POPULATIONS-PLOT.html">
+ADD-VACCINATED-TO-POPULATIONS-PLOT</a> to the
+<b>Observer</b>.<p>Run your model.<h2>
+Step 3. Introduce 
+targeted vaccinations</h2>
+<p>
+It would be better to vaccinate those who are susceptible <i>and</i> acquaintances of those currently 
+infected. But it may take longer to reach these people so we can model this by 
+replacing&nbsp; 
+<a href="VACCINATE-N-RANDOM-INDIVIDUALS.html">VACCINATE-N-RANDOM-INDIVIDUALS</a> 
+(best to inactivate it to simplify comparisons) with 
+<a href="VACCINATE-N-RANDOM-SUSCEPTIBLE-ACQUAINTANCES-OF-THE-INFECTED.html">
+VACCINATE-N-RANDOM-SUSCEPTIBLE-ACQUAINTANCES-OF-THE-INFECTED</a>.
+<a href="VACCINATE-N-RANDOM-SUSCEPTIBLE-ACQUAINTANCES-OF-THE-INFECTED.html">
+VACCINATE-N-RANDOM-SUSCEPTIBLE-ACQUAINTANCES-OF-THE-INFECTED</a> is by default 
+delayed one time unit more than
+<a href="VACCINATE-N-RANDOM-INDIVIDUALS.html">VACCINATE-N-RANDOM-INDIVIDUALS</a> 
+to model the delay caused by finding the acquaintances of those infected.</p>
+<p>
+Run your model.</p>
+<h2>Step 4. Explore the trade-offs</h2>
+<p>Which strategy leads to smaller epidemics? Does it always better? Run 
+variants of your model several times to explore these questions. Keep records of 
+the results to add to the classroom whiteboard.&nbsp; Does the best policy 
+depend upon the timing of the intervention? On the size of additional delay 
+caused by targeting?</p>
+</font>
+</body>
+
+</html>

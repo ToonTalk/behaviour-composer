@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>PLOT-AVERAGE-DIRECTION</title>
+
+</head>
+
+
+
+<body>
+	<h3><i>I set up and maintain a plot of average heading versus elapsed time.</i>
+
+	</h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>PLOT-AVERAGE-DIRECTION </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>create-plot
+  &quot;Average Direction&quot;&nbsp;<i>; unique name (and label) for this plot</i>
+  &quot;time&quot;&nbsp;<i>; X axis label</i>
+  &quot;mean direction&quot;&nbsp;<i>; Y axis label</i>
+  time&nbsp;<i>; X axis value</i>
+  mean all-values &quot;my-heading&quot;&nbsp;<i>; Y axis value</i>
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>One can plot other attributes. They need not have time as the x-axis. You 
+
+	can construct multiple plots using the NetLogo interface. </p>
+
+	<p>For example, if you change the word &quot;mean&quot; to &quot;variance&quot; above you'll 
+
+	have a plot of the variance of the headings. </p>
+
+	<p><i>Note that currently the system is limited to interpreting calls to 
+
+	start-plot where each argument is on a different line.</i> </p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="CREATE-PLOT" href="CREATE-PLOT.html">
+
+	CREATE-PLOT</a> is a simpler example. </p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn. </p>
+
+</body>
+
+</html>

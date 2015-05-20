@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<title>DEFINE-PARAMETER</title>
+</head>
+
+<body>
+
+<h3><i>I define a parameter.</i> Optionally can create a slider or input box for 
+an interface to update the value at run time.</h3>
+<font size="2" color="gray">Begin micro-behaviour</font>
+<p><b>DEFINE-PARAMETER</b></p>
+<font size="2" color="gray">Begin NetLogo code:</font>
+<pre>define-parameter
+ 
+<input type="radio" id="no interface radio button" name="interface" checked onclick="
+var siblings = parentNode.childNodes;
+for (var i = 0; i < siblings.length; i++) {
+  var tag = siblings[i].id;
+  if (tag == 'location' ||
+      tag == 'slider' ||
+      tag == 'inputbox') {
+      siblings[i].style.display = 'none';
+  } else if (tag == 'name_of_variable') {
+      var nameOfVariableElement = siblings[i].firstChild;
+      var parenthesisStart = nameOfVariableElement.value.indexOf(' (');
+      if (parenthesisStart > 0) {
+          nameOfVariableElement.value = nameOfVariableElement.value.substring(0, parenthesisStart);
+      }
+      if (nameOfVariableElement.onchange != null) {
+          nameOfVariableElement.onchange(event);
+      }
+  }
+};"> no interface</input>
+<input type="radio" id="slider radio button" name="interface" onclick="
+var siblings = parentNode.childNodes;
+for (var i = 0; i < siblings.length; i++) {
+  var tag = siblings[i].id;
+  if (tag == 'location' ||
+      tag == 'slider') {
+      siblings[i].style.display = 'block';
+  } else if (tag == 'inputbox') {
+      siblings[i].style.display = 'none';
+  } else if (tag == 'name_of_variable') {
+      var nameOfVariableElement = siblings[i].firstChild;
+      var parenthesisStart = nameOfVariableElement.value.indexOf(' (');
+      if (parenthesisStart > 0) {
+          nameOfVariableElement.value = nameOfVariableElement.value.substring(0, parenthesisStart);
+      }
+      nameOfVariableElement.value = nameOfVariableElement.value + ' (controlled by a slider)';
+      if (nameOfVariableElement.onchange != null) {
+          nameOfVariableElement.onchange(event);
+      }
+  }
+};"> add slider</input>
+<input type="radio" id="input box radio button" name="interface" onclick="
+var siblings = parentNode.childNodes;
+for (var i = 0; i < siblings.length; i++) {
+  var tag = siblings[i].id;
+  if (tag == 'location' ||
+      tag == 'inputbox') {
+      siblings[i].style.display = 'block';
+  } else if (tag == 'slider') {
+      siblings[i].style.display = 'none';
+  } else if (tag == 'name_of_variable') {
+      var nameOfVariableElement = siblings[i].firstChild;
+      var parenthesisStart = nameOfVariableElement.value.indexOf(' (');
+      if (parenthesisStart > 0) {
+          nameOfVariableElement.value = nameOfVariableElement.value.substring(0, parenthesisStart);
+      }
+      nameOfVariableElement.value = nameOfVariableElement.value + ' (controlled by an input box)';
+      if (nameOfVariableElement.onchange != null) {
+          nameOfVariableElement.onchange(event);
+      }
+  }
+};"> add input box</input>
+
+name: <span id="name_of_variable"><textarea cols="60" rows="1" name="name_of_variable" title="Click here to edit the variable name.">the-parameter</textarea></span>
+initial value: <textarea cols="6" rows="1" name="initial_value" title="Click here to edit the initial value.">42</textarea>
+<span id="location" style="display: none">lower left corner:  <textarea cols="8" rows="1" name="lower_left_corner" title="Click here to edit the lower left corner.">625 10</textarea>
+upper right corner: <textarea cols="8" rows="1" name="upper_right_corner" title="Click here to edit the upper right corner.">875 50</textarea></span>
+<span id="slider" style="display: none">minimum value: <textarea cols="6" rows="1" name="minimum_value" title="Click here to edit the minimum value.">0</textarea>
+maximum value: <textarea cols="6" rows="1" name="maximum_value" title="Click here to edit the maximum value.">100</textarea>
+increment:     <textarea cols="6" rows="1" name="increment" title="Click here to edit the increment.">1</textarea>
+units:         <textarea cols="6" rows="1" name="units" title="Click here to edit the units."></textarea> <i>Units displayed on the slider</i>
+horizontal:    <textarea cols="6" rows="1" name="horizontal title="Click here to edit whether ths slider is horizontal (true or false).">true</textarea> <i>Displayed horizontally rather than vertically (true or false)</i>
+</span>
+<span id="inputbox" style="display: none">Type check: <textarea cols="20" rows="1" name="type check" title="Click here to edit the input box type.">Number</textarea> <i>Can be <b>Number</b>, <b>String</b>, <b>Color</b>, <b>String (reporter)</b>, or <b>String (commands)</b>. The last two check if the code is runnable.</i>
+Multi-line: <textarea cols="2" rows="1" name="multi-line" title="Click here to indicate if multi-line values are OK.">0</textarea> <i><b>1</b> for multi-line, <b>0</b> for single line.</i></span></pre>
+<font size="2" color="gray">End NetLogo code</font>
+<h2>Variants</h2>
+<p>All the text areas can be changed. By clicking on the radio buttons you can choose 
+whether the parameter should have an interface for user control and whether it should 
+be a slider or an input box.</p>
+<p>The BehaviourComposer can provide more support if the parameter name begins 
+with &quot;the-&quot;. If multiple interface elements have the same location they are placed 
+one under another.</p>
+<h2>Related Micro-behaviours</h2>
+<p><a title="CREATE-PLOT" href="CREATE-PLOT.html">CREATE-PLOT</a>,
+<a title="CREATE-BUTTON" href="CREATE-LEFT-TURN-BUTTON.html">CREATE-LEFT-TURN-BUTTON</a>, 
+and <a title="CREATE-MONITOR" href="CREATE-MONITOR.html">CREATE-MONITOR</a> also 
+create interface elements. <a href="INITIALISE-ATTRIBUTE.html">INITIALISE-ATTRIBUTE</a> 
+creates an attribute that can have different values for different agents.</p>
+<h2>How this works</h2>
+<p>This creates a NetLogo global variable. The global variable can optionally be 
+controlled by a
+<a href="http://ccl.northwestern.edu/netlogo/docs/interface.html#interfaceelements">
+NetLogo slider or input box</a>. Note that define-parameter is not a NetLogo command. 
+NetLogo does not provide support for creating interface elements on the fly. Instead 
+this adds the appropriate element to the NLOGO file. Interface elements are added 
+at load time and cannot be added or removed later.</p>
+<h2>History</h2>
+<p><a href="DEFINE-PARAMETER.html">DEFINE-PARAMETER</a> was implemented by Ken Kahn on 28 September 2009.</p>
+
+</body>
+
+</html>

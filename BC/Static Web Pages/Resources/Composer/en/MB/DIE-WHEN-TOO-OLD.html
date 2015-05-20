@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>DIE-WHEN-TOO-OLD</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I die when I get too old.</i> </h3>
+
+	<p><font size="2" color="gray">Begin micro-behaviour</font>
+	</p>
+	<p><b>DIE-WHEN-TOO-OLD </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>when [time - my-birth &gt; my-maximum-life]
+     [add-behaviour <a title="DIE" href="DIE.html">DIE</a>]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+
+	<p>You can change this to add behaviours other than <i>die</i> when an age 
+
+	is exceeded. </p>
+
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>
+
+	<a title="AGE-IS-ZERO" href="AGE-IS-ZERO.html">
+
+	AGE-IS-ZERO</a> should be used to record the time of birth.
+
+	<a title="DIE-WHEN-TOO-HUNGRY" href="DIE-WHEN-TOO-HUNGRY.html">
+
+	DIE-WHEN-TOO-HUNGRY</a> has a similar function but uses <i>my-hunger</i> 
+
+	rather than computing my age by subtracting <i>my-birth</i> from now. </p>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>When the difference between now and <i>my-birth</i> exceeds a number set 
+
+	by
+
+	<a title="SET-MAXIMUM-LIFE" href="SET-MAXIMUM-LIFE.html">
+
+	SET-MAXIMUM-LIFE</a> then I add the
+
+	<a title="DIE" href="DIE.html">DIE</a> 
+
+	behaviour to myself. </p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </p>
+
+
+
+</body>
+
+
+
+</html>

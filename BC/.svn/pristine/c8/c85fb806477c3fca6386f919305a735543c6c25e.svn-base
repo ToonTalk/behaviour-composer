@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+
+<title>UTILITY-OF-NETWORK</title>
+</head>
+<body>
+	<h3><i>I report my utility of the network, possibly with additions or 
+
+	deletions.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>UTILITY-OF-NETWORK</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>to-report utility-of-network [additions removals]
+   let new-link-neighbors sort link-neighbors
+   forEach removals [set new-link-neighbors remove ? new-link-neighbors]
+   forEach additions [set new-link-neighbors fput ? new-link-neighbors]
+   let total-benefit 
+       sum map [benefit-of-link-with-distance ?]
+               [minimum-distance new-link-neighbors 0 (list myself)] 
+                of all-others with [kind = "Player"] 
+   report precision (total-benefit - total-cost new-link-neighbors) 3
+end</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	
+	<h2><span class="mw-headline">Related Reporters </span></h2>
+
+	<p>This uses
+
+	<a title="BENEFIT-OF-LINK-WITH-DISTANCE" href="BENEFIT-OF-LINK-WITH-DISTANCE.html">
+
+	BENEFIT-OF-LINK-WITH-DISTANCE</a>, <a href="TOTAL-COST.html">TOTAL-COST</a> and
+
+	<a title="MINIMUM-DISTANCE" href="MINIMUM-DISTANCE.html">
+
+	MINIMUM-DISTANCE</a>.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p><a href="ADD-NETWORK-FORMATION-PROCEDURES.html">ADD-NETWORK-FORMATION-PROCEDURES</a> 
+	adds this reporter to the program.</p>
+
+	<h2>How this works</h2>
+
+	<p>This computes a player's utility of the network formed by taking the 
+	current network and adding links in the <i>additions</i> list and removing 
+	those in the <i>removals</i> list. It computes the minimum network distance 
+	between all other players and this player and applies the <i>
+	benefit-of-link-with-distance</i> to each distance. It reports the sum of 
+	these benefits minus the cost of maintaining direct links.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+</body>
+</html>

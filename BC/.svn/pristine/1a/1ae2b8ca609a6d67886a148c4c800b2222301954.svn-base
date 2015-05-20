@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>ALL-REACHABLE-NODES</title>
+</head>
+<body>
+<h3><i>This computes all the nodes that reachable from an initial list of nodes.</i></h3>
+<font size="2" color="gray">Begin micro-behaviour</font>
+<p><b>ALL-REACHABLE-NODES</b></p>
+<font size="2" color="gray">Begin NetLogo code:</font>
+<pre>to-report all-nodes-reachable-from [nodes]
+ report all-nodes-reachable-from-2 nodes []
+end
+
+to-report all-nodes-reachable-from-2 [nodes nodes-already-visited]
+ if nodes = [] [report nodes-already-visited]
+ let new-nodes-already-visited sentence nodes nodes-already-visited
+ let new-nodes []
+ forEach nodes
+    [ask ? 
+         [ask link-neighbors
+              [if not member? self new-nodes-already-visited and 
+                  not member? self new-nodes 
+                  [set new-nodes fput self new-nodes]]]]        
+ report all-nodes-reachable-from-2 new-nodes new-nodes-already-visited
+end</pre>
+<font size="2" color="gray">End NetLogo code</font>
+<h2>How this works</h2>
+<p>This repeatedly searches for the nodes reachable from the initial list of 
+nodes or the most recent nodes found accumulating them all into a list.</p>
+<h2>History</h2>
+<p><b><a href="ALL-REACHABLE-NODES.html">ALL-REACHABLE-NODES</a> </b>was 
+implemented by Ken Kahn on 8 July, 2010.</p>
+<p>&nbsp;
+</body>
+</html>
+

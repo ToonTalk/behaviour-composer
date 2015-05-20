@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>FILE-OPEN</title>
+
+</head>
+
+
+
+<body>
+
+
+
+<div id="bodyContent">
+
+	
+
+	<h3><i>I open a file. I create it if doesn't exist. I add to it if already 
+
+	does.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>FILE-OPEN </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-at-setup
+
+ [file-open &quot;sample.txt&quot;]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+
+	<p>You can use any file name. </p>
+
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>
+
+	<a class="new" title="FILE-READ" href="FILE-READ.html">FILE-READ</a>,
+
+	<a title="FILE-TYPE" href="FILE-TYPE.html">
+
+	FILE-TYPE</a>,
+
+	<a class="new" title="FILE-WRITE" href="FILE-WRITE.html">FILE-WRITE</a>, and
+
+	<a class="new" title="FILE-CLOSE" href="FILE-CLOSE.html">FILE-CLOSE</a> can be used to read, write, or close a file. </p>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>It calls the NetLogo
+
+	<a class="external text" title="http://ccl.northwestern.edu/netlogo/docs/dictionary.html#file-open" rel="nofollow" href="http://ccl.northwestern.edu/netlogo/docs/dictionary.html#file-open">
+
+	file-open</a> primitive. </p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </div>
+
+
+
+</body>
+
+
+
+</html>
+

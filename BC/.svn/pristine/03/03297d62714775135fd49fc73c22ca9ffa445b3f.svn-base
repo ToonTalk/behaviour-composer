@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>SHOW-LINK</title>
+<meta http-equiv="Content-Language" content="en-gb">
+</head>
+<body>
+	<h3><i>I am a link and I become visible (if I was hidden).</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>SHOW-LINK </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>show-link
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Related Micro-behaviours</h2>
+	<p><a title="SHOW" href="HIDE-LINK.html">HIDE-LINK</a> makes me invisible. 
+
+	<a href="ADD-BEHAVIOURS-TO-LINK-FROM.html">ADD-BEHAVIOURS-TO-LINK-FROM</a> 
+	and <a href="ADD-BEHAVIOURS-TO-LINK-TO.html">ADD-BEHAVIOURS-TO-LINK-TO</a> 
+	add behaviours to links.</p>
+	<h2>How this works</h2>
+	<p>This uses NetLogo's
+	<a target="_blank" href="http://ccl.northwestern.edu/netlogo/docs/dictionary.html#show-link">
+	show-link</a> command.</p>
+	<h2>History</h2>
+	<p>This was implemented by Ken Kahn. </p>
+</body>
+
+</html>

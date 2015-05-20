@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>MOVE-TO-NEAREST-PREFERRED-VISIBL</title>
+
+</head>
+
+<body>
+	<h3><i>I move to the unoccupied site with the most sugar that I can see. My 
+
+	vision is restricted to a maximum distance north/south and east/west. In the 
+
+	case of equally good sites, I move to the nearest.</i> </h3>
+
+	<p>This <b>requires</b> another micro-behaviour to implement the <i>
+
+	preferred-patch</i> procedure. You can use
+
+	<a title="PREFER-PATCH-WITH-MORE-SUGAR" href="PREFER-PATCH-WITH-MORE-SUGAR.html">
+
+	PREFER-PATCH-WITH-MORE-SUGAR</a> or
+
+	<a title="PREFER-PATCH-WITH-GREATER-SUGAR-TO-POLLUTION-RATIO" href="PREFER-PATCH-WITH-GREATER-SUGAR-TO-POLLUTION-RATIO.html">
+
+	PREFER-PATCH-WITH-GREATER-SUGAR-TO-POLLUTION-RATIO</a>. </p>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>MOVE-TO-NEAREST-PREFERRED-VISIBLE-PATCH </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-every 1   
+   [let sites 
+        union patches-between (my-x - my-vision-level) (my-x + my-vision-level) my-y my-y
+              patches-between my-x my-x (my-y - my-vision-level) (my-y + my-vision-level)
+    set sites fput patch-here unoccupied-patches sites
+    set sites sort-by [preferred-patch&nbsp;?1&nbsp;?2] sites
+    if not empty? sites
+       [set my-x [pxcor] of first sites
+        set my-y [pycor] of first sites]]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>One can model vision as seeing anything within a radius rather than only 
+
+	in the four compass directions. The preference is implemented by <i>
+
+	preferred-patch</i> and one can provide alternative implementations such as
+
+	<a title="PREFER-PATCH-WITH-MORE-SUGAR" href="PREFER-PATCH-WITH-MORE-SUGAR.html">
+
+	PREFER-PATCH-WITH-MORE-SUGAR</a> and
+
+	<a title="PREFER-PATCH-WITH-GREATER-SUGAR-TO-POLLUTION-RATIO" href="PREFER-PATCH-WITH-GREATER-SUGAR-TO-POLLUTION-RATIO.html">
+
+	PREFER-PATCH-WITH-GREATER-SUGAR-TO-POLLUTION-RATIO</a>. </p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="INITIALISE-VISION-LEVEL" href="INITIALISE-VISION-LEVEL.html">
+
+	INITIALISE-VISION-LEVEL</a> initialises <i>my-vision-level</i>. </p>
+
+	<h2>How this works</h2>
+
+	<p>First this computes the <i>sites</i> that can be seen. It then updates 
+
+	the sites to include where I am and removes all sites that are currently 
+
+	occupied. The first of these sites, if there are any, is where I move. Note 
+
+	that sites are produced in order of distance so in the case of equally 
+
+	preferred sites the closest one is chosen. </p>
+
+	<h2>Source</h2>
+	<p>Based upon page 25 of [1]. </p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn. </p>
+
+	<h2>References</h2>
+
+	<p>[1] <i>Growing Artificial Societies</i> by Joshua M. Epstein and Robert 
+
+	Axtell, Brookings Institute Press, The MIT Press, 1996. </p>
+
+</body>
+
+</html>

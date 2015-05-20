@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<META content="text/html; charset=windows-1252" http-equiv="Content-Type">
+
+
+<TITLE>NETLOGO-CODE</title>
+
+
+</HEAD>
+<BODY>
+
+<title>REPORT-ALL-LIVING</title>
+<h3>
+
+<i>I calculate the set of agents that are not dead.</i> 
+
+</h3>
+	
+<font size="2" color="gray">Begin micro-behaviour</font>
+<p>
+<b>REPORT-ALL-LIVING</b>
+</p>
+<font size="2" color="gray">Begin NetLogo code:</font>
+
+<pre>to-report all-living
+   report all-individuals with [my-state != &quot;dead&quot; and self != myself]
+end</pre>
+	
+<font size="2" color="gray">End NetLogo code</font>
+
+<h2>Related Micro-Behaviours</h2>
+<p><a href="REPORT-ALL-INFECTED.html">REPORT-ALL-INFECTED</a> reports all 
+individuals that are infected. <a href="REPORT-ALL-SUSCEPTIBLES.html">
+REPORT-ALL-SUSCEPTIBLES</a> reports all individuals that are susceptible to 
+infection.</p>
+
+<h2>
+<span class="mw-headline">How this works </span>
+</h2>
+	
+<p>This adds to your model a new NetLogo reporter that can be used by any 
+micro-behaviour. Here it returns the set of agents that are not dead and doesn't 
+include &quot;myself&quot;.</p>
+	
+<h2>
+<span class="mw-headline">History </span>
+</h2>
+<p>This was implemented by Ken Kahn. </p>
+
+</BODY>
+</HTML>

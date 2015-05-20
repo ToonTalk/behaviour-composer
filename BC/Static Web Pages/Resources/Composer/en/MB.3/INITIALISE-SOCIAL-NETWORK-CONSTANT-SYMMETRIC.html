@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>INITIALISE-SOCIAL-NETWORK-SYMMET</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I create an entire social network where everyone has the same number of acquaintances.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>INITIALISE-SOCIAL-NETWORK-CONSTANT-SYMMETRIC</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for average-acquaintance-count-in-constant-symmetric-network 4   
+do-after-setup
+   [let average-acquaintance-count average-acquaintance-count-in-constant-symmetric-network
+    output-print (word "Initialising the social network so everyone has exactly &quot; average-acquaintance-count &quot; acquaintances.")
+    let total-population count all-individuals
+    if total-population &lt; average-acquaintance-count + 1 [stop]
+    ask all-individuals [set my-acquaintances []
+                         set my-acquaintances-needed average-acquaintance-count]
+    ask all-individuals 
+        [set my-acquaintances-needed average-acquaintance-count - length my-acquaintances
+         let me self
+         while [my-acquaintances-needed &gt; 0]
+               [let x one-of all-individuals 
+                             with [my-acquaintances-needed &gt; 0 and 
+                                   not member? me my-acquaintances and 
+                                   self&nbsp;!= me]
+                if x = nobody [stop]
+                set my-acquaintances fput x my-acquaintances
+                ask x [set my-acquaintances fput me my-acquaintances]
+                set my-acquaintances-needed my-acquaintances-needed - 1
+                ask x [set my-acquaintances-needed my-acquaintances-needed - 1]]
+         set my-acquaintances-needed 0]
+    ask all-individuals [set my-acquaintances corresponding-agentset my-acquaintances]
+    output-print "Initialisation completed."]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>Change the <i>average-acquaintance-count</i> from <i>4</i> to any other 
+
+	value.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-SYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-SYMMETRIC.html">
+
+	INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-SYMMETRIC</a> differs from 
+
+	this one in that the distribution of the number of acquaintances is normal.
+
+	<a title="INITIALISE-SOCIAL-NETWORK-POWER-LAW-DISTRIBUTION-SYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-POWER-LAW-DISTRIBUTION-SYMMETRIC.html">
+
+	INITIALISE-SOCIAL-NETWORK-POWER-LAW-DISTRIBUTION-SYMMETRIC</a> instead has a 
+
+	power law distribution.</p>
+	<p>
+
+	<a href="INITIALISE-SOCIAL-NETWORK-CONSTANT-ASYMMETRIC.html">INITIALISE-SOCIAL-NETWORK-CONSTANT-ASYMMETRIC</a> 
+	can be used to create directional links to model <i>A</i> relating to <i>B</i> 
+	when <i>B</i> does not necessarily relate to <i>A</i>.</p>
+
+	<p>
+
+	<a title="DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES" href="DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES.html">
+
+	DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES</a> draws line between 
+
+	acquaintances.
+
+	<a title="SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES" href="SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES.html">
+
+	SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES</a> sets the size of the 
+
+	display of individuals to be proportional to the number of acquaintances.
+
+	</p>
+
+	<h2>How this works</h2>
+
+	<p>This goes through each individual and finds new acquaintances that aren't 
+
+	already know and don't already have a full list of acquaintances. It adds 
+
+	these new acquaintances to <i>my-acquaintances</i> and makes the link in the 
+
+	other direction as well.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+
+
+
+</body>
+
+
+
+</html>

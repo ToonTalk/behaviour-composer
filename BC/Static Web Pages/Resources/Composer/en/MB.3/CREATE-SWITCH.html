@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>CREATE-SWITCH</title>
+
+</head>
+<body>
+	<h3><i>I create a switch that can be on or off. </i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>CREATE-SWITCH</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for switch-variable the-switch-name                    
+substitute-text-area-for lower-left-corner-x 625    
+substitute-text-area-for lower-left-corner-y 10 
+substitute-text-area-for upper-right-corner-x 875    
+substitute-text-area-for upper-right-corner-y 50
+substitute-text-area-for switch-initial-state true   
+create-switch 
+  &quot;switch-variable&quot;<i>&nbsp;; name of global variable</i>
+  &quot;lower-left-corner-x&quot; &quot;lower-left-corner-y&quot;&nbsp;<i>; lower left corner </i>
+  &quot;upper-right-corner-x&quot; &quot;upper-right-corner-y&quot;&nbsp;<i>; upper right corner</i>
+  &quot;switch-initial-state&quot;&nbsp;<i>; true (on) or false (off)</i></pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>All the parameters can be changed. </p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="CREATE-PLOT" href="CREATE-PLOT.html">
+
+	CREATE-PLOT</a>,
+
+	<a title="CREATE-SLIDER" href="CREATE-SLIDER.html">
+
+	CREATE-SLIDER</a>,
+
+	<a href="CREATE-CHOOSER.html">CREATE-CHOOSER</a>,
+
+	<a title="CREATE-MONITOR" href="CREATE-MONITOR.html">
+
+	CREATE-MONITOR</a> and
+
+	<a title="CREATE-BUTTON" href="CREATE-LEFT-TURN-BUTTON.html">
+	CREATE-BUTTON</a> also create interface elements.</p>
+
+	<h2>How this works</h2>
+
+	<p>This creates a NetLogo switch for a global variable. In this example the 
+
+	variable is named <i>switch-name</i> and it is initially on.</p>
+
+	<h2>History</h2>
+	<p>This was implemented by Ken Kahn on 19 December 2009.
+</body>
+</html>

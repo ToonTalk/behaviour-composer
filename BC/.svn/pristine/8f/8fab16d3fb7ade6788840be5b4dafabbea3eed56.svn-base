@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>STOP-EVERYTHING-WHEN-NONE-INFECTED</title>
+
+</head>
+
+
+
+<body>
+	<h3><i>I pause the simulation when no one is infected.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>PAUSE-WHEN-NONE-INFECTED </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for no-one-infected-message (word &quot;Paused because no one is infected. Time is " time)               
+when [not any? all-infected and time &gt;= 1]
+     [set stop-running true
+      output-print no-one-infected-message]
+</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>How this works</h2>
+
+	<p>When the set of <i>all-infected</i> is empty it sets a flag telling the 
+
+	program to pause at the end of this step. </p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn. </p>
+</body>
+</html>

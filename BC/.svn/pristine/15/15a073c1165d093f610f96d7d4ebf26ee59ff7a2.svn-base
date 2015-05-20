@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="CONSUME-SUGAR,Browse MicroBehaviours,CONSUME-SUGAR-DELAYED,DIE-IF-NO-SUGAR,INITIALISE-SUGAR-CONSUMPTION" />
+
+			<title>CONSUME-SUGAR</title>
+
+			</head>
+<body >
+ 
+				<div id="bodyContent">
+			
+<h3><i>I consume sugar at my rate of metabolism.</i>
+</h3>
+<font size="2" color="gray">Begin micro-behaviour</font>
+<p><b>
+CONSUME-SUGAR
+</b>
+</p>
+<font size="2" color="gray">Begin NetLogo code:</font>
+<pre>
+do-every delta-t
+   [set my-sugar my-sugar - (my-sugar-consumption * delta-t)]
+</pre>
+<font size="2" color="gray">End NetLogo code</font>
+<p><a href="CONSUME-SUGAR-DELAYED.html" title="CONSUME-SUGAR-DELAYED">CONSUME-SUGAR-DELAYED</a> runs this after I'm finished collecting sugar. <a href="DIE-IF-NO-SUGAR.html" title="DIE-IF-NO-SUGAR">DIE-IF-NO-SUGAR</a> causes me to die if <i>my-sugar</i> becomes non-positive. <a href="INITIALISE-SUGAR-CONSUMPTION.html" title="INITIALISE-SUGAR-CONSUMPTION">INITIALISE-SUGAR-CONSUMPTION</a> initialises <i>my-sugar-consumption</i>.
+</p>
+<p>This decrements <i>my-sugar</i> by sugar consumption rate.
+</p>
+<p>Based upon page 24 of [1].
+</p>
+<p>This was implemented by Ken Kahn.
+</p>
+<p>[1] <i>Growing Artificial Societies</i> by Joshua M. Epstein and Robert Axtell, Brookings Institute Press, The MIT Press, 1996.
+</p>		
+		</div>
+	
+</body>
+</html>

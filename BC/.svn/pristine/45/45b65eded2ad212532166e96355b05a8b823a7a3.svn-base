@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>SET-COLOR</title>
+</head>
+<body>
+	<h3><i>I change my colour.</i> </h3>
+
+	<p><font size="2" color="gray">Begin micro-behaviour</font></p>
+	<p><b>SET-COLOR</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for columns: 70 rows: 3 color-of-prototype red
+substitute-text-area-for columns: 80 rows: 5 comment ; Notes                                                                                     
+set color color-of-prototype
+comment</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>Named colours are black, white, gray, red, 
+
+	orange, brown, yellow, green, lime, turquoise, cyan, sky, blue, violet, 
+
+	magenta, and pink.
+	<a target="_blank" href="http://ccl.northwestern.edu/netlogo/docs/programming.html#colors">More colors can be specified</a>.</p>
+
+	<p>To pick a random colour replace the contents of the edit box with</p>
+
+<pre>
+(list random-integer-between 0 255  <i>; red</i>
+      random-integer-between 0 255 <i> ; green</i>
+      random-integer-between 0 255) <i>; blue</i>
+</pre>
+
+	<h2>Related Micro-behaviours</h2>
+	<p>
+
+	<a href="SET-PATCH-COLOR.html">SET-PATCH-COLOR</a> changes the color of my 
+	patch.
+
+	<a title="SET-SHAPE" href="SET-SHAPE.html">
+
+	SET-SHAPE</a> is for changing the shape of an object.</p>
+
+	<h2>How this works</h2>
+
+	<p>This sets the NetLogo primitive attribute <i>color</i> to the NetLogo 
+
+	defined colour named <i>red</i>.</p>
+
+	<h2>History</h2>
+	<p>This was implemented by Ken Kahn.</p>
+
+</body>
+</html>
+

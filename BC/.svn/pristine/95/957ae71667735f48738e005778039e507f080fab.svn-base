@@ -1,0 +1,79 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-gb">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<script type="text/javascript">
+function loadGame(serialNumber) {
+ window.location = "../../m/?model=" + serialNumber + "&EGM=1";
+}
+</script>
+<title>Can you build an Epidemic Game?</title>
+<link rel="stylesheet" type="text/css" href="sse.css">
+</head>
+
+<body>
+
+<img border="0" src="../ImagesEGM/oxfordwall_can_you.png" width="800" height="102">
+<font face="Verdana">
+<table border="0" width="800" cellspacing="0" cellpadding="0">
+	<tr>
+		<td><p>You will have the opportunity to 
+build and play games where an epidemic is spreading and you need to stop it. 
+Starting from a simple game you'll be able to change the way the simulated people and viruses behave 
+		and add buttons for different ways of trying to stop the epidemic. By 
+		building and playing with these models you'll be doing and learning real 
+		science. </font><b><font face="Verdana">
+		<a href="../../m/?EGM=1">Try it now</a>. (Or
+       <a href="../../m/translate.html?EGM=1" target="_blank" title="Click here to run the Epidemic Game Maker in any of over 60 languages"
+       >try it translated from English</a>)
+</b></p>
+<p>If you encounter problems running Java applets in your browser you can download the <a href='https://sites.google.com/site/modelling4allproject/guides/behaviour-composer-direct-to-netlogo-guide'>version of the Epidemic Game Maker that connects the game maker in your browser with NetLogo</a>.
+</td>
+	</tr>
+</table>
+</font>
+		<p align="left">
+		<font face="Verdana">If you have already made a game you want to revisit or improve enter its serial number 
+		here: </p>
+		<font size="3"> 
+<form>
+<textarea NAME="serialNumber" rows='1' VALUE="" CLASS="textarea" onkeydown="var e = event; if (!e) e = window.event; if (e.keyCode == 13 || e.which == 13) loadGame(form.serialNumber.value);" ></textarea>
+<BUTTON TYPE="button" NAME="button1" CLASS="button" onClick="loadGame(form.serialNumber.value)"><font size= "3" face="Verdana"><b>Go to your game</b></font></BUTTON>
+</form>
+
+<p align="left">
+<a href="../../m/?EGM=1">
+<img border="0" src="../ImagesEGM/EGM.png" width="747" height="530"></a></p>
+<table border="0" width="800" cellspacing="0" cellpadding="0">
+	<tr>
+		<td><p><font face="Verdana">This was created by the
+<a href="index.html">Modelling4All Project</a> at the 
+Learning Technologies Group of the Oxford University Computing Services. Ken 
+Kahn, Howard Noble, Arthur Hjorth, and Fabio Ferrentini Sampaio.
+It was originally developed as part of the <i>Emerging 
+Infections: Viruses that come in from the Wild</i> exhibit at the <a href="http://royalsociety.org/sse/">
+Royal Society Summer Science Exhibition</a>.
+</font></p>
+</td></tr>
+<tr><td>
+<br><p><font face="Verdana">We wrote the following paper about the Epidemic Game Maker:</font></p>
+<div style="text-align:-webkit-auto"><font color="#000000" face="Tahoma"><span style="line-height:normal;white-space:pre-wrap">Ken Kahn, </span></font><span style="line-height:normal;white-space:pre-wrap;color:rgb(0,0,0);font-family:Tahoma">Howard Noble, </span><span style="line-height:normal;white-space:pre-wrap;color:rgb(0,0,0);font-family:Tahoma">Arthur Hjorth, and </span><span style="line-height:normal;white-space:pre-wrap;color:rgb(0,0,0);font-family:Tahoma">Fabio Ferrentini Sampaio, </span><span style="color:rgb(0,0,0);font-family:Tahoma;background-color:transparent;line-height:normal;white-space:pre-wrap"><a href="https://sites.google.com/site/modelling4allproject/publications" target="_blank">Three-minute Constructionist Experiences</a>. <i>Constructionism </i>2012, Athens, August 2012.</span></div>
+<b style="color:rgb(0,0,0);line-height:normal;text-align:-webkit-auto"><span style="font-family:Tahoma;font-size:13px;background-color:transparent;font-weight:normal;vertical-align:baseline;white-space:pre-wrap">
+<div><br>
+</div>
+</td></tr>
+</table>
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-7427524-2']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+
+</html>

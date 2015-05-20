@@ -1,0 +1,66 @@
+to-report canonical-vector [v]
+ let x first v
+ let y second v
+ if horizontally-wrapping [set x remainder x world-width]
+ if vertically-wrapping [set y remainder y world-height]
+ report (list x y)          
+end
+
+to-report heading-towards [x y]
+ if xcor = x and ycor = y [report heading]
+ report towardsxy x y
+end
+
+to-report heading-towards-another [another]
+ if is-patch? another 
+    [if xcor = [pxcor] of another and ycor = [pycor] of another [report heading]
+     report towards another]
+ if not is-agent? another [report heading]
+ if xcor = [xcor] of another and ycor = [ycor] of another [report heading]
+ report towards another
+end
+
+to-report make-location [x y]
+ if horizontally-wrapping [set x canonical-coordinate x min-pxcor world-width]
+ if vertically-wrapping [set y canonical-coordinate y min-pycor world-height]
+ report (list x y) 
+end
+
+to-report my-location
+ report make-location xcor ycor
+end
+
+to-report location [obj]
+ report make-location [xcor] of obj [ycor] of obj
+end
+
+to-report heading-to-direction [h]
+ report list sin h cos h
+end
+
+to-report direction-to-heading [direction]
+ if direction = 0 [report heading]
+ if direction = [0 0] [report heading]
+ if direction = [0 0 0] [report heading]
+ let x first direction
+ let y second direction
+ ask pens [setxy 0 0]
+ let new-heading [towardsxy x y] of one-of pens
+ report new-heading
+end
+
+to-report direction-vector [obj]
+ report heading-to-direction [heading] of obj
+end
+
+to-report turn-by [direction angle]
+ report heading-to-direction (direction-to-heading direction + angle)
+end
+
+to-report angle-from-me
+ if distance myself = 0 [report 0]
+ report canonical-heading (towards myself - heading)
+end
+
+
+

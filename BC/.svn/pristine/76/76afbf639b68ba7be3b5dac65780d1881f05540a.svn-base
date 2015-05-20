@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>INITIALISE-AGENT</title>
+
+</head>
+<body>
+	<h3><i>I initialise myself by initialising my sugar level, sugar consumption, 
+
+	vision level, age, and life expectancy.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>INITIALISE-AGENT</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>add-behaviours list-of-micro-behaviours "Initial Behaviours" [INITIALISE-SUGAR-CONSUMPTION.html
+                                                              INITIALISE-VISION-LEVEL.html
+                                                              INITIALISE-SUGAR-ENDOWMENT.html
+                                                              INITIALISE-AGE.html
+                                                              INITIALISE-LIFETIME.html]</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>If the attributes initialised by these micro-behaviours are not used then 
+
+	the micro-behaviours can be removed from the list. Other micro-behaviours 
+
+	can be added to the list.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="CREATE-NEW-AGENT" href="CREATE-NEW-AGENT.html">
+
+	CREATE-NEW-AGENT</a> and
+
+	<a title="CREATE-INITIAL-POPULATION" href="CREATE-INITIAL-POPULATION.html">
+
+	CREATE-INITIAL-POPULATION</a> use this micro-behaviour.
+
+	<a title="INITIALISE-SUGAR-CONSUMPTION" href="INITIALISE-SUGAR-CONSUMPTION.html">
+
+	INITIALISE-SUGAR-CONSUMPTION</a>,
+
+	<a title="INITIALISE-VISION-LEVEL" href="INITIALISE-VISION-LEVEL.html">
+
+	INITIALISE-VISION-LEVEL</a>,
+
+	<a title="INITIALISE-SUGAR-ENDOWMENT" href="INITIALISE-SUGAR-ENDOWMENT.html">
+
+	INITIALISE-SUGAR-ENDOWMENT</a>,
+
+	<a title="INITIALISE-AGE" href="INITIALISE-AGE.html">
+
+	INITIALISE-AGE</a>, and
+
+	<a title="INITIALISE-LIFETIME" href="INITIALISE-LIFETIME.html">
+
+	INITIALISE-LIFETIME</a> are added by this micro-behaviour. It also adds 
+	sliders controlling the range of values chosen within
+
+	<a title="INITIALISE-SUGAR-CONSUMPTION" href="INITIALISE-SUGAR-CONSUMPTION.html">
+
+	INITIALISE-SUGAR-CONSUMPTION</a> and
+
+	<a title="INITIALISE-VISION-LEVEL" href="INITIALISE-VISION-LEVEL.html">
+
+	INITIALISE-VISION-LEVEL</a>.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn. 
+
+</body>
+</html>
+

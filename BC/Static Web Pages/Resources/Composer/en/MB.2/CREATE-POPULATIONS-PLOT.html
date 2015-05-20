@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+
+<title>CREATE-POPULATIONS-PLOT</title>
+
+</head>
+<body>
+
+	<h3><i>I set up and label a plot that other micro-behaviours can draw upon.</i>
+
+	</h3>
+
+	<p><font size="2" color="gray">Begin micro-behaviour</font> </p>
+	<p><b>CREATE-POPULATIONS-PLOT </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for lower-left-corner-x 5    
+substitute-text-area-for lower-left-corner-y 550 
+substitute-text-area-for upper-right-corner-x 605  
+substitute-text-area-for upper-right-corner-y 809 
+substitute-text-area-for x-axis-label time          
+substitute-text-area-for y-axis-label people        
+
+create-plot
+  &quot;lower-left-corner-x&quot; &quot;lower-left-corner-y&quot;&nbsp;<i>; lower left corner </i>
+  &quot;upper-right-corner-x&quot; &quot;upper-right-corner-y&quot;&nbsp;<i>; upper right corner</i>
+  &quot;Populations&quot;&nbsp;<i>; unique name (and label) for this plot</i>
+  &quot;x-axis-label&quot;&nbsp;<i>; X axis label</i>
+  &quot;y-axis-label&quot;&nbsp;<i>; Y axis label</i></pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>All the labels can be changed. </p>
+
+	<p><i>Note that currently the system is limited to interpreting calls to 
+
+	start-plot where each argument is on a different line.</i> </p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT" href="ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT.html">
+
+	ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT</a>,
+
+	<a title="ADD-VACCINATED-TO-POPULATIONS-PLOT" href="ADD-VACCINATED-TO-POPULATIONS-PLOT.html">
+
+	ADD-VACCINATED-TO-POPULATIONS-PLOT</a>,
+
+	<a title="ADD-INFECTED-TO-POPULATIONS-PLOT" href="ADD-INFECTED-TO-POPULATIONS-PLOT.html">
+
+	ADD-INFECTED-TO-POPULATIONS-PLOT</a>,
+
+	<a title="ADD-RECOVERED-TO-POPULATIONS-PLOT" href="ADD-RECOVERED-TO-POPULATIONS-PLOT.html">
+
+	ADD-RECOVERED-TO-POPULATIONS-PLOT</a>, and
+
+	<a title="ADD-TOTAL-TO-POPULATIONS-PLOT" href="ADD-TOTAL-TO-POPULATIONS-PLOT.html">
+
+	ADD-TOTAL-TO-POPULATIONS-PLOT</a> can add to this plot. </p>
+
+	<h2>History</h2>
+	<p>This was implemented by Ken Kahn.
+</body>
+
+
+
+</html>
+

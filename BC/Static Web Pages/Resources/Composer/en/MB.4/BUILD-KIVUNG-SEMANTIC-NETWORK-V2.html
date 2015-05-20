@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>BUILD-KIVUNG-SEMANTIC-NETWORK</title>
+</head>
+<body>
+<h3><i>I build the semantic network of the leaders of the
+<a target="_blank" href="http://www.oup.com/us/catalog/general/subject/Anthropology/SocialCultural/?view=usa&ci=9780198279815">
+Pomio Kivung cult</a>.</i></h3>
+<font size="2" color="gray">Begin micro-behaviour</font>
+<p><b>BUILD-KIVUNG-SEMANTIC-NETWORK</b></p>
+<font size="2" color="gray">Begin NetLogo code:</font>
+<pre>let mind-body-dualism one-of my-anchor-points with [my-name = "Mind-body dualism"]
+let promiscuous-teleology one-of my-anchor-points with [my-name = "Promiscuous teleology"]
+let hazard-precaution one-of my-anchor-points with [my-name = "Hazard precaution"]
+let immanent-justice one-of my-anchor-points with [my-name = "Immanent justice"]
+let god make-belief-node-v2 "God" 40 1 1 7 12
+link-nodes god mind-body-dualism
+let ancestors make-belief-node-v2 "Ancestors" 40 1 1 8 14
+link-nodes ancestors mind-body-dualism
+let village-government make-belief-node-v2 "Village Government" 40 1 1 11 12
+link-nodes ancestors village-government
+let return-from-the-dead make-belief-node-v2 "Return from the dead" 40 1 -1 12 15
+link-nodes ancestors return-from-the-dead
+link-nodes village-government return-from-the-dead
+let time-bilong-kampani make-belief-node-v2 "Time bilong kampani" 40 10 -1 16 12
+link-nodes time-bilong-kampani return-from-the-dead
+let taim-bilong-gavman make-belief-node-v2 "Taim bilong Gavman" 40 10 -1 16 10
+link-nodes time-bilong-kampani taim-bilong-gavman
+let cemetery-rituals make-belief-node-v2 "Cemetery rituals" 30 1 -1 3 11
+link-nodes ancestors cemetery-rituals 
+let paradise-garden-and-rituals make-belief-node-v2 "Paradise garden & rituals" 30 30 -1 4 8
+link-nodes paradise-garden-and-rituals cemetery-rituals
+let ten-laws make-belief-node-v2 "Ten laws" 20 1 1 12 9
+link-nodes god ten-laws
+link-nodes return-from-the-dead ten-laws
+let creation make-belief-node-v2 "Creation" 20 10 0 15 6
+link-nodes god creation 
+link-nodes paradise-garden-and-rituals creation
+let ban-on-betel-chewing make-belief-node-v2 "Ban on betel chewing" 10 10 1 20 7
+link-nodes ban-on-betel-chewing creation
+let menstrating-women-cant-cook make-belief-node-v2 "Menstrating women can't cook" 10 30 1 14 2
+link-nodes ban-on-betel-chewing menstrating-women-cant-cook
+let laying-out-temple-offerings make-belief-node-v2 "Laying out Temple offerings" 30 1 -1 7 5
+link-nodes ancestors laying-out-temple-offerings
+link-nodes menstrating-women-cant-cook laying-out-temple-offerings
+let absolution-and-catharsis-rituals make-belief-node-v2 "Absolution & catharsis rituals" 20 1 1 10 3
+link-nodes taim-bilong-gavman absolution-and-catharsis-rituals
+link-nodes promiscuous-teleology god
+link-nodes promiscuous-teleology creation
+link-nodes hazard-precaution cemetery-rituals
+link-nodes hazard-precaution paradise-garden-and-rituals
+link-nodes hazard-precaution laying-out-temple-offerings
+link-nodes hazard-precaution absolution-and-catharsis-rituals
+link-nodes hazard-precaution menstrating-women-cant-cook
+link-nodes immanent-justice ban-on-betel-chewing
+link-nodes immanent-justice time-bilong-kampani
+link-nodes immanent-justice taim-bilong-gavman
+link-nodes immanent-justice ten-laws
+link-nodes immanent-justice ancestors 
+link-nodes immanent-justice god
+set my-nodes 
+   (turtle-set god ancestors village-government time-bilong-kampani taim-bilong-gavman return-from-the-dead
+               cemetery-rituals paradise-garden-and-rituals 
+               ten-laws creation ban-on-betel-chewing laying-out-temple-offerings menstrating-women-cant-cook 
+               absolution-and-catharsis-rituals
+               my-anchor-points)
+</pre>
+<font size="2" color="gray">End NetLogo code</font>
+<h2>Related Micro-behaviours</h2>
+<p><a href="BUILD-KIVUNG-SPLINTER-GROUP-SEMANTIC-NETWORK-V2.html">
+BUILD-KIVUNG-SPLINTER-GROUP-SEMANTIC-NETWORK</a> builds a splinter group of the 
+standard Pomio Kivung network.</p>
+<h2>How this works</h2>
+<p>This creates each node in
+<a target="_blank" href="images/Kivung%20semantic%20network%20001.jpg">this diagram</a> and the 
+links between them and the anchor points.</p>
+<h2>History</h2>
+<p>Ken Kahn implemented this on 20 July, 2010.
+</body>
+</html>

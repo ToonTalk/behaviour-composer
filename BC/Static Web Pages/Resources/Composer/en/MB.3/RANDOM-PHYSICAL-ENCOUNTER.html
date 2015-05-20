@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>RANDOM-PHYSICAL-ENCOUNTER</title>
+
+</head>
+<body>
+	<h3><i>If I'm infected then individuals that come to my location may become 
+
+	infected.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>RANDOM-PHYSICAL-ENCOUNTER</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-every 1
+   [do-if my-state = &quot;infected&quot; 
+       [do-for-n the-encounter-rate
+                 other-objects-here
+           [set my-last-encounter the-other
+            add-behaviours list-of-micro-behaviours &quot;Encounter Behaviours&quot; [POSSIBLE-INFECTION.html]]]]</pre>
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<p>Note that if there are fewer than <i>the-encounter-rate</i> individuals at my 
+
+	location then only those are possibly infected.</p>
+
+	<h2>Variants</h2><p>Additional encounter behaviours can be added.</p><h2>Related Micro-behaviours</h2><p>This relies upon the
+
+	<a title="POSSIBLE-INFECTION" href="POSSIBLE-INFECTION.html">
+
+	POSSIBLE-INFECTION</a> micro-behaviour to possibly infect the other.
+
+	<a title="CREATE-ENCOUNTER-RATE-SLIDER" href="CREATE-ENCOUNTER-RATE-SLIDER.html">
+
+	CREATE-ENCOUNTER-RATE-SLIDER</a> defines the <i>the-encounter-rate</i> variable 
+
+	used here.</p>
+
+	<p>The doesn't make much sense unless the agents move around.
+
+	<a title="WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS" href="WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS.html">
+
+	WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS</a> and
+
+	<a title="WANDER-RANDOMLY-BY-TURNING" href="WANDER-RANDOMLY-BY-TURNING.html">
+
+	WANDER-RANDOMLY-BY-TURNING</a> can be used to cause them to move. If you use
+
+	<a title="WANDER-RANDOMLY-BY-TURNING" href="WANDER-RANDOMLY-BY-TURNING.html">
+
+	WANDER-RANDOMLY-BY-TURNING</a> you probably should start them off facing in 
+
+	different directions by adding
+
+	<a title="SET-RANDOM-HEADING" href="SET-RANDOM-HEADING.html">
+
+	SET-RANDOM-HEADING</a> to <i>add-copies</i> so each copy starts off with a 
+
+	different heading.</p>
+
+	<p>
+
+	<a title="RANDOM-SPATIAL-ENCOUNTER" href="RANDOM-SPATIAL-ENCOUNTER.html">
+
+	RANDOM-SPATIAL-ENCOUNTER</a> differs from this micro-behaviour in biasing 
+
+	the selection of the other individual to those close by.</p>
+
+	<p>
+
+	<a title="RANDOM-SOCIAL-ENCOUNTER" href="RANDOM-SOCIAL-ENCOUNTER.html">
+
+	RANDOM-SOCIAL-ENCOUNTER</a> selects among my acquaintances.</p>
+
+	<p>
+
+	<a title="RANDOM-ENCOUNTER" href="RANDOM-ENCOUNTER.html">
+
+	RANDOM-ENCOUNTER</a> selects any individual.</p>
+
+	<h2>How this works</h2><p>This models individuals that have <i>the-encounter-rate</i> encounters per 
+
+	unit time period (e.g., a simulated week). Every second, if I'm still infected (i.e., <i>
+
+	my-state = &quot;infected&quot;</i>) then I pick <i>the-encounter-rate</i> other 
+
+	individuals at my patch of land (who are not dead) and give them the micro-behaviour
+
+	<a title="POSSIBLE-INFECTION" href="POSSIBLE-INFECTION.html">
+
+	POSSIBLE-INFECTION</a>. If <i>the-encounter-rate</i> is a non-integer then the 
+
+	remainder is compared with a random number probabilistically to possibly 
+
+	include one additional individual. I also sets the <i>my-last-encounter</i> 
+
+	variable of the other individuals to me in order to keep track of how many 
+
+	infections I cause.</p><p><a target="_blank" href="http://resources.modelling4all.org/documents/programming-guide#toc1">do-for-n</a> selects n agents and sets 
+	<b>
+	<a target="_blank" href="http://resources.modelling4all.org/documents/programming-guide#toc2">the-other</a></b> to refer to each one.</p><h2>History</h2><p>This was implemented by Ken Kahn.</p>
+
+</body>
+
+</html>

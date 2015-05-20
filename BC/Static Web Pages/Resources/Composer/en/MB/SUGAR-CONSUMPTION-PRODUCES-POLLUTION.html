@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+
+
+
+<title>SUGAR-CONSUMPTION-PRODUCES-POLLUTION </title>
+
+</head>
+<body>
+	<h3><i>I produce pollution due to sugar consumption.</i> </h3>
+
+	<p><font size="2" color="gray">Begin micro-behaviour</font>
+	</p>
+	<p><b>SUGAR-CONSUMPTION-PRODUCES-POLLUTION </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-after 50.003
+   [do-every delta-t
+       [set next-pollution-of-patch
+            next-pollution-of-patch +
+            my-sugar-consumption * my-pollution-due-to-consumption]]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+
+	<p>This delays the onset of pollution by 50 time units -- other delays are 
+
+	possible. </p>
+
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>
+
+	<a title="INITIALISE-POLLUTION-DUE-TO-CONSUMPTION-RATE" href="INITIALISE-POLLUTION-DUE-TO-CONSUMPTION-RATE.html">
+
+	INITIALISE-POLLUTION-DUE-TO-CONSUMPTION-RATE</a> initialises <i>
+
+	my-pollution-due-to-consumption</i> and
+
+	<a title="INITIALISE-SUGAR-CONSUMPTION" href="INITIALISE-SUGAR-CONSUMPTION.html">
+
+	INITIALISE-SUGAR-CONSUMPTION</a> initialises <i>my-sugar-consumption</i>. <i>
+
+	pollution-of-patch</i> is used to influence where agents move in
+
+	<a title="PREFER-PATCH-WITH-GREATER-SUGAR-TO-POLLUTION-RATIO" href="PREFER-PATCH-WITH-GREATER-SUGAR-TO-POLLUTION-RATIO.html">
+
+	PREFER-PATCH-WITH-GREATER-SUGAR-TO-POLLUTION-RATIO</a>. </p>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>After a delay this repeatedly increases the next value of <i>
+
+	pollution-of-patch</i> of the patch where I am. The increment is the product 
+
+	of my sugar consumption and my pollution rate. It is delayed an addition 
+
+	.003 time units so this runs after sugar is consumed. </p>
+
+	<h2><span class="mw-headline">Source </span></h2>
+
+	<p>Based upon page 47 of [1]. </p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </p>
+
+	<h2><span class="mw-headline">References </span></h2>
+
+	<p>[1] <i>Growing Artificial Societies</i> by Joshua M. Epstein and Robert 
+
+	Axtell, Brookings Institute Press, The MIT Press, 1996. </p>
+</body>
+</html>

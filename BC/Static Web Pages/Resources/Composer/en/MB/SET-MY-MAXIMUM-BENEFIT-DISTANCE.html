@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+
+<title>SET-MY-MAXIMUM-BENEFIT-DISTANCE</title>
+</head>
+<body>
+	<h3><i>I set the maximum distance in the network that I acquire any benefit.</i></h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>SET-MY-MAXIMUM-BENEFIT-DISTANCE </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-at-setup
+   [set my-maximum-benefit-distance 9007199254740992] <i>; infinity for practical purposes</i>
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+
+	<p>Change <i>9007199254740992</i> to expression that computes a random 
+	distribution such as <i>random-integer-between 2 5</i> (choose an integer 
+	between 2 and 5 inclusive with equal probability). Or compute the maximum 
+	benefit distance 
+	with other random distributions.</p>
+	<h2>Related Micro-behaviours</h2>
+	<p><b><a href="BENEFIT-OF-LINK-WITH-DISTANCE.html">BENEFIT-OF-LINK-WITH-DISTANCE</a></b> 
+	uses <i>my-maximum-benefit-distance</i> that is defined here.</p>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>This sets the value of <i>my-maximum-benefit-distance</i> for each player 
+	to an integer much larger than any distance in the network (9007199254740992 
+	is the largest integer in NetLogo).</p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn.
+
+</body>
+</html>
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 1.7.0//EN" "http://google-web-toolkit.googlecode.com/svn/tags/1.7.0/distro-source/core/src/gwt-module.dtd">
+<module rename-to='Model'>
+<source path="client"
+        excludes="mopix/** 
+                  editor/** 
+                  expression/** 
+                  graphics/**" /> 
+<source path="shared" />
+<!-- Inherit the core Web Toolkit stuff.                        -->
+  <inherits name='com.google.gwt.user.User' />
+  <inherits name="com.google.gwt.xml.XML" />
+  <inherits name="com.google.gwt.http.HTTP" />
+  <inherits name="com.google.gwt.i18n.I18N" />
+  <inherits name="com.google.gwt.appengine.channel.Channel" />
+  <!-- Inherit the default GWT style sheet.  I didn't like Dark, Chrome, or Clean -->  
+  <inherits name='com.google.gwt.user.theme.standard.Standard' />
+  <inherits name="com.google.gwt.user.Debug"/>
+  <stylesheet src="css/modelling4all.css" />
+
+<!-- For development, a default of `DEBUG` is recommended -->
+  <inherits name="com.allen_sauer.gwt.log.gwt-log-DEBUG" />
+  <set-property name="log_DivLogger" value="DISABLED" />
+  <inherits name="com.allen_sauer.gwt.log.gwt-log-RemoteLogger" />
+
+  <!-- Specify the app entry point class.                         -->
+  <entry-point class='uk.ac.lkl.client.BehaviourComposer' />
+
+  <set-property name="locale" value="default" />
+  
+  <!-- just FireFox and Chrome/Safari -->
+  <set-property name="user.agent" value="gecko1_8,safari" />
+
+<!-- enable GWT Super Dev mode -->
+  <add-linker name="xsiframe"/>
+<set-configuration-property name="devModeRedirectEnabled" value="true"/>
+
+<set-property name="compiler.useSourceMaps" value="true"/> 
+</module>

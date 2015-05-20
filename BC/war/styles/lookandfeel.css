@@ -1,0 +1,696 @@
+
+
+
+
+
+/*
+
+This stylesheet should be used to implement the look and feel of your site. The styles for implementing the basic layout of elements within the page can be found in the layout.css file.
+
+this stylesheet expect the following divs to be present in the HTML, in the order specified:
+
+body
+	div#all
+
+		div#header
+		div#content
+		div#mainnav
+		div#sidebar
+		div#footer
+
+*/
+
+
+
+
+/* specify colours for all major areas of the page  */
+
+
+body
+{
+
+
+}
+
+div#all {
+
+
+}
+
+div#header
+{
+  
+}
+
+ div#mainnav
+ {
+
+
+ }
+ 
+ h1
+ {
+ color: #2a0d41;
+ background-color: #d0c7f5;
+
+  border-top: 1px solid #fff;
+margin-top: 0px;
+padding: 0px;
+padding-top: 10px;
+padding-bottom: 10px;
+margin-left: 150px;
+margin-right: 0px;
+ }
+ 
+
+
+/* HEADER STYLES  */
+/* styles for arranging the two images in the header */  
+div#header 
+{
+text-align: right;
+}
+
+
+img#logo
+{
+position: absolute;
+top: 20px;
+left: 0px;
+
+}
+
+a#oxcrest img
+{
+/* give some space around the oxford crest image*/
+margin-top: 20px;
+/* give a margin-left equal to the width of the logo image, to stop the two overlapping on narrow screens*/
+margin-left: 650px;
+border-right: 40px solid white;
+
+}
+
+
+/* FOOTER STYLES  */
+
+div#footer, div#footer a
+{
+color: #7f8d8f;
+}
+
+div#footer p
+{
+
+/* centre-align the footer text, and make it a little smaller and paler than normal text  */
+text-align: center;
+line-height: 1.5em;
+
+
+padding: 0.3em;
+}
+
+
+
+a#oxcrest img
+{
+/* give some space around the oxford crest image*/
+
+}
+
+
+
+/* INLINE CONTENT IMAGES  */
+
+/* often when you place images in the page as content, you want the surrounding textual content to wrap around it. If this is the case, give the img tag a class of 'inline' so that th styles below will be applied */
+
+.inline
+{
+border: 1px solid #000;
+float:left;
+margin-right: 7px;
+margin-bottom: 7px;
+}
+
+
+/* styling for code snippets divs */
+
+
+code{
+font-size: 1.3em;
+padding: 0.3em;
+}
+
+
+/* increase line-heights in lists in the main content  */ 
+
+
+div#content ul li
+{
+line-height: 1.5em;
+
+
+}
+
+
+/*headline links  - styles for displaying links as a headline with associated image beneath*/
+
+
+a.headline-link
+{
+text-align: center;
+display: block;
+float: left;
+margin: 10px;
+font-family: lucida grande;
+font-style: normal;
+letter-spacing: 0.2em;
+width: 194px;
+background-color: #222; 
+border: 2px solid #222;
+color: #fff;
+padding: 3px;
+padding-bottom: 203px;
+text-decoration: none;
+
+}
+/*  change the background and border colour on mouseover or focus */
+a:hover.headline-link, a:focus.headline-link
+	{
+background-color: #000;
+border-color: #000;
+	}
+/* for every headline link, give it an id and then specify an appropriate image*/
+#headline-1
+{
+background-image: url('../images/chameleon.jpg');
+background-repeat: no-repeat;
+background-position: bottom left;
+}
+#headline-2
+{
+background-image: url('../images/flower.jpg');
+background-repeat: no-repeat;
+background-position: bottom left;
+}
+#headline-3
+{
+background-image: url('../images/chillies.jpg');
+background-repeat: no-repeat;
+background-position: bottom left; 
+}
+
+/* panels stuff */
+/*style a div with a border around it. Set padding to 0px so that the h2 contained within the div can appear flush to the border of the div */
+div.panel
+{
+background-color:white;
+padding: 0px;
+clear: both;
+border: 2px solid #999;
+margin: 1em;
+margin-top: 2.5em;
+}
+/* set the  border-bottom  of the  h2 within the panel div to be the same as the  border for the div 
+Set the background colour of the h2 to a dark colour that's similar to the div border colour, but a bit lighter 
+*/
+div.panel h2
+{
+border-bottom: 2px solid  #999;
+color: #fff;
+background-color:  #aaa;
+padding: 2px;
+margin: 0px;
+text-align: center;
+font-size: 1.1em;
+}
+/* add some margin to any element that's likely to appear in the panel div - this is done individually so that the h2 within the panel div remains flush to the border */
+div.panel p, div.panel img, div.panel h3, div.panel h4, div.panel table, div.panel ul, div.panel form, div.panel div
+{
+margin: 10px;
+}
+/*  a general class to apply to elemnts that you want to clear (for example, a paragrpah that ocurs before or after the floated headline links) */
+.clear
+{
+clear: both;
+}
+
+/* table styles */
+table
+{
+width: 36em;
+}
+table td, table th
+{
+padding: 0.4em;
+margin: 0.2em;
+border: 1px solid #ccc;
+vertical-align: top;
+line-height: 1.3em;
+}
+table td p
+{
+padding: 0px;
+margin: 0px;
+padding-bottom: 0.5em;
+}
+
+table tr th
+{
+position: absolute;
+left: 3600px;
+font-weight: bold;
+color: #369;
+background-color: #8ab1b8;
+}
+table td.date, table td.name
+{
+width: 10em;
+font-weight: bold;
+color: #369;
+}
+
+table td.name
+{
+width: 12em;
+}
+
+h2.faq
+{
+/*color: #036;
+*/
+}
+
+dl.contact
+{
+}
+dl.contact dt
+{
+font-weight: bold;
+float: left;
+margin-right: 0.5em;
+}
+dl.contact dd 
+{
+margin: 0px;
+padding-bottom: 1em;
+}
+dl.contact dd address
+{
+font-style: normal;
+padding-top: 0.5em;
+display: block;
+line-height: 1.5em;
+clear: both;
+}
+ul.links
+{
+margin: 0.5em;
+}
+ul.links li
+{
+list-style: none;
+}
+h2.strapline
+{
+font-style: italic;
+font-size: 1.1em;
+}
+h2.case
+{
+font-size: 1.15em;
+text-align: center;
+line-height: 2em;
+}
+div#case-pic 
+{
+padding: 1em;
+color: #333;
+font-style: italic;
+}
+div#case-pic img
+{
+display: block;
+border: 10px solid #f8a228;
+margin: 0.5em;
+}
+
+span.label
+{
+font-weight: bold;
+}
+
+dl.clarifications dd, dl.clarifications dt
+{
+display: block;
+margin: 1em;
+padding: 0px;
+line-height: 1.5em;
+}
+
+table#winners tr th, table#bestIndivOrals tr th
+{
+position: inherit;
+}
+div#content img
+{
+margin: 0.5em;
+}
+
+div#content div.album  a:focus img, div#content div.album  a:hover img
+{
+border-color: #c3d5dd;
+}
+
+div.personprofile
+{
+
+clear: both;
+margin-left: 0px;
+padding-left: 0px;
+margin-top: 3em;
+}
+
+
+
+/* hide definition term tags in dl list in events listings */
+
+
+div.event dl dt
+{
+position: absolute;
+top:-2000px;
+left:-20000px;
+}
+
+/* counter the default mindentation on dd tags*/
+div.event dl dd
+{
+margin-top: 1em;
+margin-left: 0px;
+}
+
+div.event dl dd.date, div.event dl dd.venue
+{
+font-weight: bold;
+font-size: 0.9em;
+color: #22424d;
+}
+
+p.announce
+{
+
+text-align: center;
+}
+
+
+/* style stuff for people entries */
+
+
+div.person img
+{
+float: right;
+margin-top: 0px;
+margin-left: 20px;
+margin-bottom: 20px;
+}
+
+
+/* remove bulletss from lists in people entries */
+div.person ul li
+{
+list-style: none;
+}
+
+
+div#sponsor
+
+{
+
+/* centre-align the text, and make it a little smaller and paler than normal text  */
+text-align: center;
+font-size: 0.89em;
+color: #999;
+margin-top: 1.5em;
+}
+
+/* add the mcdonald agape foundation logo the link to the foundation */
+a#McApe
+{
+/*
+padding-bottom: 120px;
+padding-left: 120px;
+background-color: white;
+background-image: url('../images/mc-agapr-fnd-shield.png');
+background-repeat: no-repeat;
+background-position: 0px 0px ;
+
+background-color: green;
+border: 1px solid red;
+*/
+}
+
+
+div.newspic
+{
+text-align: center;
+
+}
+div.newspic p
+{
+color: #666;
+
+}
+
+
+
+/*  commTool styling starts here  */
+
+div.commTools p
+{
+clear: both;
+
+}
+
+div.commTool
+{
+background-color: #999;
+color: #fff;
+padding: 0px;
+float:left;
+width: 200px;
+margin: 5px;
+min-height: 7em;
+}
+
+div.commTool p
+{
+padding: 10px;
+margin: 0px;
+}
+
+div.commTool h2
+{
+font-size: 1.1em;
+padding: 0px;
+margin: 0px;
+}
+div.commTool ul
+{
+padding: 0px;
+margin: 3px;
+margin-top: 0px;
+list-style-position: inside;
+list-style-type: square;
+}
+
+div.commTool ul li
+{
+padding: 2px;
+}
+
+div.commTool a, div.commTool a:link, div.commTool a:active, div.commTool a:visited, div.commTool a:focus, div.commTool a:hover
+{
+padding: 5px;
+text-decoration: underline;
+display: block;
+color: #fff;
+background-color: #333;
+
+}
+
+div.commTool a:focus, div.commTool a:hover
+{
+color: #333;
+background-color: #98f2b7;
+}
+
+div.commTool#googleGroup
+{
+/* width: 250px; */
+background-color: #91509d;
+}
+
+div.commTool#wikiDot
+{
+background-color: #607cbf;
+}
+
+div.commTool#issueLog
+{
+background-color: #c16e2b;
+}
+
+div.commTool#blog
+{
+background-color: #b04f66;
+}
+
+div.commTool#facebook
+{
+background-color: #578f99;
+}
+
+div.commTool#youTube
+{
+background-color: #4f8e65;
+}
+
+div#content div.onthispage
+{
+    width: 270px;
+    margin-bottom: 10px;
+    margin-right: 3em;
+    float: left;
+background-color:  #dfc7cd;
+border-bottom: 10px solid #c96a81;
+}
+
+div#content div.onthispage h2
+{
+ color:#fff;
+  background-color: #b04f66;
+  padding: 2px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 1em;
+  text-align: center;
+  
+}
+div#content div.onthispage ul
+{
+margin: 0px;
+   list-style: none; 
+   margin-left: 0.2em;
+    padding: 0px;
+}
+
+div#content div.onthispage a
+{
+color:#300;
+text-decoration: none;
+}
+
+div#content div.onthispage a:hover, div#content div.onthispage a:focus
+{
+color:#300;
+text-decoration: underline;
+}
+
+
+
+
+a#softwarelink,
+a#softwarelink:link,
+a#softwarelink:active,
+a#softwarelink:visited,
+a#softwarelink:focus,
+a#softwarelink:hover
+
+{
+font-family: Century Gothic, lucida grande,  lucida sans, bitstream vera sans, Verdana, Arial, sans-serif;
+letter-spacing: 0.2em;
+display: block;
+width: 250px;
+background-color: #5d93d2;
+float: right;
+color: #fff;
+text-decoration: none;
+font-weight: bold;
+
+text-align: center;
+margin: 0px;
+margin-left: 10px;
+margin-bottom: 10px;
+
+
+  }
+  
+  span#tryout
+  {
+  padding: 3px;
+  font-size: 1.3em;
+  display: block;
+text-decoration: underline;
+/*  text-align: right;
+*/
+  }
+
+  span#createandrun
+  {
+padding: 3px;
+  padding-top: 136px;
+  background-image: url('../images/site/softwarelink.jpg');
+background-repeat: no-repeat;
+background-position: bottom left;
+border-bottom: 25px solid  #5d93d2;
+  }
+  
+ a#softwarelink span#tryout, a#softwarelink span#createandrun
+  {
+    display: block;
+  }
+  
+a#softwarelink:hover,
+ a#softwarelink:focus
+  {
+
+
+	background-color:#447a8b;
+  }
+  
+     a#softwarelink:hover span#createandrun,
+     a#softwarelink:focus span#createandrun
+     {
+     border-color: #447a8b;
+     }
+pre
+{
+font-size:1.2em;
+}
+
+div.screenshot
+{
+text-align: center;
+}
+
+div.screenshot img
+{
+border: 3px solid #d0c7f5;
+}
+
+blockquote
+{
+/* margin:1em; */
+min-width: 40em; 
+max-width: 60em; 
+text-align: justify;
+font-family: georgia, times, serif;
+color: #666;
+font-size: 0.9em;
+}
+
+blockquote cite
+{
+color: #000;
+text-align: right;
+}

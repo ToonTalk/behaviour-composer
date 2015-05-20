@@ -1,0 +1,9 @@
+# robots.txt for http://modelling4all.nsms.ox.ac.uk
+
+User-agent: *
+Disallow: /User/ # User models and applets are private unless "published" elsewhere
+Disallow: /Model/ # AJAX dynamic pages
+Disallow: /ModelTest/ # AJAX dynamic pages (test version)
+Disallow: /ModelOldVersion/ # AJAX dynamic pages (old version)
+Disallow: /MoPiX2.12/ # Static version of very old MoPiX/BC
+

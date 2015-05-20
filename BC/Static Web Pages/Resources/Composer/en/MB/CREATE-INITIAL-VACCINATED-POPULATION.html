@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>CREATE-INITIAL-VACCINATED-POPULA</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I create a number of individuals that are vaccinated.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>CREATE-INITIAL-VACCINATED-POPULATION </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-at-setup
+   [add-copies the-initial-vaccinated-population
+               [<a title="SET-STATE-VACCINATED" href="SET-STATE-VACCINATED.html">SET-STATE-VACCINATED</a>
+                <a title="POSSIBLY-LOSE-IMMUNITY" href="POSSIBLY-LOSE-IMMUNITY.html">POSSIBLY-LOSE-IMMUNITY</a> 
+                <a title="SET-RANDOM-POSITION" href="SET-RANDOM-POSITION.html">SET-RANDOM-POSITION</a>]]</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>
+
+	<a title="CREATE-INITIAL-VACCINATED-COUNT-SLIDER" href="CREATE-INITIAL-VACCINATED-COUNT-SLIDER.html">
+
+	CREATE-INITIAL-VACCINATED-COUNT-SLIDER</a> controls <i>
+
+	the-initial-vaccinated-population</i>. This micro-behaviour relies upon
+
+	<a title="SET-STATE-VACCINATED" href="SET-STATE-VACCINATED.html">
+
+	SET-STATE-VACCINATED</a> to set the state of the copies to &quot;vaccinated&quot;.
+
+	<a title="POSSIBLY-LOSE-IMMUNITY" href="POSSIBLY-LOSE-IMMUNITY.html">
+
+	POSSIBLY-LOSE-IMMUNITY</a> probabilistically restores susceptibility.
+
+	<a title="SET-RANDOM-POSITION" href="SET-RANDOM-POSITION.html">
+
+	SET-RANDOM-POSITION</a> is used to initialise the location. </p>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>This creates <i>the-initial-vaccinated-population</i> copies of me that also 
+
+	run the
+
+	<a title="SET-STATE-VACCINATED" href="SET-STATE-VACCINATED.html">
+
+	SET-STATE-VACCINATED</a>,
+
+	<a title="POSSIBLY-LOSE-IMMUNITY" href="POSSIBLY-LOSE-IMMUNITY.html">
+
+	POSSIBLY-LOSE-IMMUNITY</a>, and
+
+	<a title="SET-RANDOM-POSITION" href="SET-RANDOM-POSITION.html">
+
+	SET-RANDOM-POSITION</a> micro-behaviour.
+
+	<a title="CREATE-INITIAL-INFECTED-POPULATION" href="CREATE-INITIAL-INFECTED-POPULATION.html">
+
+	CREATE-INITIAL-INFECTED-POPULATION</a> and
+
+	<a title="CREATE-INITIAL-SUSCEPTIBLE-POPULATION" href="CREATE-INITIAL-SUSCEPTIBLE-POPULATION.html">
+
+	CREATE-INITIAL-SUSCEPTIBLE-POPULATION</a> initialise other parts of the 
+
+	population. </p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </p>
+
+
+
+</body>
+
+
+
+</html>

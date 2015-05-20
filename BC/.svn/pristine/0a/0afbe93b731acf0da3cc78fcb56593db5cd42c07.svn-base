@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+
+<title>SET-RANDOM-POSITION</title>
+</head>
+
+<body>
+	<h3><i>I jump to a random location.</i> </h3>
+	
+	<p><font size="2" color="gray">Begin micro-behaviour</font> </p>
+	<p><b>SET-RANDOM-POSITION </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>set my-x random-xcor
+set my-y random-ycor
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	
+	<h2>Related Micro-behaviours</h2>
+
+	<p>
+
+	<a title="SET-RANDOM-HEADING" href="SET-RANDOM-HEADING.html">
+
+	SET-RANDOM-HEADING</a> sets my heading to a random value.
+
+	<a title="SET-RANDOM-UNOCCUPIED-POSITION" href="SET-RANDOM-UNOCCUPIED-POSITION.html">
+
+	SET-RANDOM-UNOCCUPIED-POSITION</a> also finds a random position but only if 
+
+	it is unoccupied. </p>
+
+	<h2>How this works</h2>
+
+	<p>This sets the value of <i>my-x</i> to a random coordinate and <i>my-y</i> 
+
+	to another random coordinate. </p>
+
+	<h2>History</h2>
+
+	<p>This was implemented by Ken Kahn</p>
+
+</body>
+</html>
+

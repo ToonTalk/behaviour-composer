@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-gb">
+ <head>
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8"/>
+
+  <link media="all" href="../styles/basic.css" rel="stylesheet" type="text/css"/>
+  <link media="print" href="../styles/print.css" rel="stylesheet" type="text/css"/>
+  <link media="screen,projection" href="../styles/layout.css" rel="stylesheet" type="text/css"/>
+  <link media="screen,projection" href="../styles/mainnav.css" rel="stylesheet" type="text/css"/>
+  <link media="screen,projection" href="../styles/lookandfeel.css" rel="stylesheet" type="text/css"/>
+  <link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
+  <link rel="top" href="../" title="Homepage"/>
+  <meta name="keywords"
+   content="Simulation, computer modelling, programming, computer modelling, education, collaboration, e-learning, NetLogo, Sugarscape, epidemic, social science, biology, business studies, University of Oxford, LTG, Oxford University IT Services"/>
+  <meta name="description"
+   content="Computer modelling is playing an increasingly important role in fields as varied as sociology, epidemiology, zoology, economics, archaeology, ecology, climate, and engineering. Currently, only researchers or students with sufficient programming skills are able to participate in this relatively new way of exploring and understanding real-world phenomena. This project aims to support an open, free to access community of teachers and learners in using the open source modelling4all software."/>
+  <meta name="author" content="University of Oxford"/>
+  <title>Modelling 4 All: Contact</title>
+  <meta name="google-translate-customization" content="da72cfbd818dc92b-5173b1fc131e1986-geef08f0d41c2a45d-11"></meta>
+ </head>
+ <body>
+  <!-- all div starts -->
+  
+  <div id="all">
+   <h1>Contact</h1>
+   <!-- content div starts -->
+   <div id="content">
+    <p>The <a href="../community/index.html">community page</a> describes many 
+	ways you can make contact with the modelling4all project team, and other 
+	people interested in using the BehaviourComposer. </p>
+    <p>You can also contact the project team directly by sending an email to <a
+      href="mailto:info@modelling4all.org"> info@modelling4all.org</a></p>
+   </div>
+   <!-- content div ends -->
+   <!--  mainnav div starts -->
+   <div id="mainnav">
+    <h2>Main sections</h2>
+    <ul>
+     <li>
+      <a href="../index.html">home</a>
+     </li>
+     <li>
+      <a href="../about/index.html">about</a>
+     </li>
+     <li>
+      <a href="../community/index.html">community</a>
+     </li>
+     <li class="currentsection">
+      <span class="youarehere">contact</span>
+     </li>
+     <li>
+      <a href="../legal/index.html">legal information</a>
+     </li>
+    </ul>
+ <div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true, gaId: 'UA-7427524-2'}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div id="sponsor"> Supported by <br/><a id="McApe" href="http://www.eduserv.org.uk">
+      <img src="../images/logos/eduserv.png" alt="Eduserv"/>
+     </a>
+    </div>
+   </div>
+   <!--  mainnav div ends -->
+   <!-- footer div starts -->
+   <div id="footer">
+    <p>
+     <a href="../legal/index.html#copyright">© University of Oxford 2014</a>
+    </p>
+   </div>
+   <!-- footer div ends -->
+  </div>
+  <!-- site-info div starts -->
+  <div id="site-info">
+   <dl>
+    <dt>Institution:</dt>
+    <dd id="instname">
+     <a href="http://www.ox.ac.uk/" title="University of Oxford homepage">
+      <img src="../images/crestsq.png" alt="University of Oxford"/>
+     </a>
+    </dd>
+    <dt>Site name:</dt>
+    <dd id="sitename">
+     <span class="scram">Modelling 4 All</span>
+    </dd>
+   </dl>
+  </div>
+  <!-- site-info div ends -->
+  <!-- all div ends -->
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-7427524-2']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+ </body>
+</html>

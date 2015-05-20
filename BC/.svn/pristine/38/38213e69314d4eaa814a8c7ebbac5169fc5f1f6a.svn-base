@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package uk.ac.lkl.server;
+
+/**
+ * 
+ * Exceptions thrown due to problems with the NetLogo code
+ * 
+ * @author Ken Kahn
+ *
+ */
+public class NetLogoException extends Exception {
+    
+    public NetLogoException(String message) {
+	super(message);
+    }
+
+}

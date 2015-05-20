@@ -1,0 +1,1092 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model version='5'>
+	<macrobehaviour>
+		<name><![CDATA[Person]]></name>
+		<microbehaviour databaseID='-1'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/LOG-INFECTION-ONSET.html]]></url>
+			<description><![CDATA[<b>LOG-INFECTION-ONSET</b>]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='-1'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/SET-SHAPE.html#changes=siH_qe0zmIBB7ImsRpuN4_]]></url>
+			<description><![CDATA[<b>SET-SHAPE-PERSON</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[person]]></textarea>
+			</textareas>
+		</microbehaviour>
+		<microbehaviour databaseID='1250'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/WHEN.html#changes=TltrLeVXhSncUHb83zUk5b]]></url>
+			<description><![CDATA[<b>WHEN-INFECTING-ADD-LINK</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[my-state = "infected" and is-object? my-last-encounter]]></textarea>
+			</textareas>
+			<macrobehaviours>
+				<macrobehaviour>
+					<name><![CDATA[Behaviours to add]]></name>
+					<microbehaviour databaseID='1255'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/ADD-DIRECTED-LINK-FROM.html#changes=RCRD7u3d9YvIr7XWC9Yv6g]]></url>
+						<description><![CDATA[<b>ADD-DIRECTED-LINK-FROM-INFECTOR</b>]]></description>
+					</microbehaviour>
+					<microbehaviour databaseID='1264' active='false'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/ADD-BEHAVIOURS-TO-LINKS.html#changes=wZFz9ub0u1FEks45Viyp49]]></url>
+						<description><![CDATA[<b>HIDE-LINK-AFTER-DELAY</b>]]></description>
+						<macrobehaviours>
+							<macrobehaviour>
+								<name><![CDATA[Link Behaviours]]></name>
+								<microbehaviour databaseID='1259'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/HIDE-LINK.html]]></url>
+									<description><![CDATA[<b>HIDE-LINK </b>]]></description>
+								</microbehaviour>
+							</macrobehaviour>
+						</macrobehaviours>
+					</microbehaviour>
+					<microbehaviour databaseID='1270'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/ADD-BEHAVIOURS-TO-LINKS.html#changes=eeMIDesGzm11hNMPugz04f]]></url>
+						<description><![CDATA[<b>CHANGE-LINK-COLOR</b>]]></description>
+						<textareas>
+							<textarea index='0'><![CDATA[in-link-from my-last-encounter]]></textarea>
+							<textarea index='1'><![CDATA[0]]></textarea>
+						</textareas>
+						<macrobehaviours>
+							<macrobehaviour>
+								<name><![CDATA[Link Behaviours]]></name>
+								<microbehaviour databaseID='1271'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/SET-COLOR.html#changes=LtHBqu8g6wqnj69HwI-f58]]></url>
+									<description><![CDATA[<b>SET-COLOR-RED</b>]]></description>
+								</microbehaviour>
+							</macrobehaviour>
+						</macrobehaviours>
+					</microbehaviour>
+				</macrobehaviour>
+				<macrobehaviour>
+					<name><![CDATA[Behaviours to remove]]></name>
+				</macrobehaviour>
+			</macrobehaviours>
+		</microbehaviour>
+		<microbehaviour databaseID='1267'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/WHEN.html#changes=iLvOd0zLxNbaWpvWmWBe5a]]></url>
+			<description><![CDATA[<b>WHEN-RECOVERING-CHANGE-LINK-COLOR</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[my-state = "recovered"]]></textarea>
+				<textarea index='1'><![CDATA[0]]></textarea>
+			</textareas>
+			<macrobehaviours>
+				<macrobehaviour>
+					<name><![CDATA[Behaviours to add]]></name>
+					<microbehaviour databaseID='1273'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/ADD-BEHAVIOURS-TO-LINKS.html#changes=4TvnFKAZt1UFgMYcd83l5b]]></url>
+						<description><![CDATA[<b>CHANGE-LINKS-COLOR</b>]]></description>
+						<macrobehaviours>
+							<macrobehaviour>
+								<name><![CDATA[Link Behaviours]]></name>
+								<microbehaviour databaseID='1274'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/SET-COLOR.html#changes=PZSH7uDa2JOE45w2LF1I4g]]></url>
+									<description><![CDATA[<b>SET-COLOR-GRAY</b>]]></description>
+								</microbehaviour>
+							</macrobehaviour>
+						</macrobehaviours>
+					</microbehaviour>
+				</macrobehaviour>
+				<macrobehaviour>
+					<name><![CDATA[Behaviours to remove]]></name>
+				</macrobehaviour>
+			</macrobehaviours>
+		</microbehaviour>
+		<microbehaviour databaseID='2006'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/REPEATEDLY-MOVE-TOWARDS-ANOTHER.html#changes=_uFbzKcAFFYU1uN4WUzq54]]></url>
+			<description><![CDATA[<b>MOVE-TO-DESTINATION</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[my-destination]]></textarea>
+				<textarea index='1'><![CDATA[100]]></textarea>
+			</textareas>
+		</microbehaviour>
+		<microbehaviour databaseID='2035'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/RECOVERY-POSSIBLE-AFTER-INFECTION.html#changes=zNf0kug9Dco6wmXTGDjT4d]]></url>
+			<description><![CDATA[<b>SCHEDULE-RECOVERY-AFTER-INFECTION</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[random-normal the-average-duration-of-infection the-average-duration-of-infection / 2]]></textarea>
+				<textarea index='1'><![CDATA[Schedules recovery with a normal distribution with the standard deviation of the half the average]]></textarea>
+			</textareas>
+			<macrobehaviours>
+				<macrobehaviour>
+					<name><![CDATA[Possible Recovery Behaviours]]></name>
+					<microbehaviour databaseID='2031'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DO-AFTER.html#changes=JExfVKmbAfGJiRpufJLb5e]]></url>
+						<description><![CDATA[<b>SCHEDULE-RECOVERY</b>]]></description>
+						<textareas>
+							<textarea index='0'><![CDATA[random-normal the-average-duration-of-infection (the-average-duration-of-infection / 2)]]></textarea>
+							<textarea index='1'><![CDATA[Schedules recovery with a normal distribution with the standard deviation of the half the average]]></textarea>
+						</textareas>
+						<macrobehaviours>
+							<macrobehaviour>
+								<name><![CDATA[Delayed Behaviours]]></name>
+								<microbehaviour databaseID='2033'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/REMOVE-BEHAVIOURS.html#changes=6us1X0jXKOv1pTWeIGE27-]]></url>
+									<description><![CDATA[<b>STOP-MODELLING-ENCOUNTERS</b>]]></description>
+									<macrobehaviours>
+										<macrobehaviour>
+											<name><![CDATA[Behaviours to remove]]></name>
+											<microbehaviour databaseID='2034'>
+												<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/RANDOM-PHYSICAL-ENCOUNTER.html#changes=3EwbxKJs7NL8xkDfgS7n54]]></url>
+												<description><![CDATA[<b>RANDOM-PHYSICAL-ENCOUNTER </b>]]></description>
+												<macrobehaviours>
+													<macrobehaviour>
+														<name><![CDATA[Encounter Behaviours]]></name>
+														<microbehaviour databaseID='910'>
+															<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/POSSIBLE-INFECTION.html]]></url>
+															<description><![CDATA[<b>POSSIBLE-INFECTION </b>]]></description>
+															<macrobehaviours>
+																<macrobehaviour>
+																	<name><![CDATA[Behaviours when infected]]></name>
+																	<microbehaviour databaseID='926'>
+																		<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/SET-STATE-INFECTED.html]]></url>
+																		<description><![CDATA[<b>SET-STATE-INFECTED </b>]]></description>
+																		<macrobehaviours>
+																			<macrobehaviour>
+																				<name><![CDATA[Additional Behaviours When Infected]]></name>
+																				<microbehaviour databaseID='925'>
+																					<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/INCREMENT-TRANSMISSION-COUNT.html]]></url>
+																					<description><![CDATA[<b>INCREMENT-TRANSMISSION-COUNT </b>]]></description>
+																				</microbehaviour>
+																			</macrobehaviour>
+																		</macrobehaviours>
+																	</microbehaviour>
+																</macrobehaviour>
+															</macrobehaviours>
+														</microbehaviour>
+													</macrobehaviour>
+												</macrobehaviours>
+											</microbehaviour>
+										</macrobehaviour>
+									</macrobehaviours>
+								</microbehaviour>
+								<microbehaviour databaseID='2032'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/SET-STATE-RECOVERED.html#changes=ruNTzKMo887Vh1G0swsn7h]]></url>
+									<description><![CDATA[<b>SET-STATE-RECOVERED </b>]]></description>
+								</microbehaviour>
+							</macrobehaviour>
+						</macrobehaviours>
+					</microbehaviour>
+					<microbehaviour databaseID='1913'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/RANDOM-PHYSICAL-ENCOUNTER.html#changes=BcT7r0JssREm7GuU_WWD5c]]></url>
+						<description><![CDATA[<b>RANDOM-PHYSICAL-ENCOUNTER </b><sub>2</sub>]]></description>
+						<textareas>
+							<textarea index='-1'><![CDATA[<b>RANDOM-PHYSICAL-ENCOUNTER </b><sub>2</sub>]]></textarea>
+						</textareas>
+						<macrobehaviours>
+							<macrobehaviour>
+								<name><![CDATA[Encounter Behaviours]]></name>
+								<microbehaviour databaseID='910'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/POSSIBLE-INFECTION.html]]></url>
+									<description><![CDATA[<b>POSSIBLE-INFECTION </b>]]></description>
+									<macrobehaviours>
+										<macrobehaviour>
+											<name><![CDATA[Behaviours when infected]]></name>
+											<microbehaviour databaseID='926'>
+												<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/SET-STATE-INFECTED.html]]></url>
+												<description><![CDATA[<b>SET-STATE-INFECTED </b>]]></description>
+												<macrobehaviours>
+													<macrobehaviour>
+														<name><![CDATA[Additional Behaviours When Infected]]></name>
+														<microbehaviour databaseID='925'>
+															<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/INCREMENT-TRANSMISSION-COUNT.html]]></url>
+															<description><![CDATA[<b>INCREMENT-TRANSMISSION-COUNT </b>]]></description>
+														</microbehaviour>
+													</macrobehaviour>
+												</macrobehaviours>
+											</microbehaviour>
+										</macrobehaviour>
+									</macrobehaviours>
+								</microbehaviour>
+							</macrobehaviour>
+						</macrobehaviours>
+					</microbehaviour>
+				</macrobehaviour>
+			</macrobehaviours>
+		</microbehaviour>
+		<microbehaviour databaseID='-1'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/CREATE-INITIAL-INFECTED-POPULATION.html]]></url>
+			<description><![CDATA[
+	
+	<b>CREATE-INITIAL-INFECTED-POPULATION </b>
+
+	]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[my-age]]></textarea>
+				<textarea index='1'><![CDATA[random-integer-between 0 80]]></textarea>
+			</textareas>
+			<macrobehaviours>
+				<macrobehaviour>
+					<name><![CDATA[Additional behaviours]]></name>
+					<microbehaviour databaseID='930'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/SET-STATE-INFECTED-DELAYED.html]]></url>
+						<description><![CDATA[<b>SET-STATE-INFECTED-DELAYED </b>]]></description>
+					</microbehaviour>
+					<microbehaviour databaseID='846'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/SET-RANDOM-POSITION.html]]></url>
+						<description><![CDATA[<b>SET-RANDOM-POSITION </b>]]></description>
+					</microbehaviour>
+					<microbehaviour databaseID='2056'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-BEHAVIOURS.html#changes=SfjeQeeQDnDbq3zRvk4p4-]]></url>
+						<description><![CDATA[<b>INITIALISE-PERSON</b><sub>2</sub><sub>.2</sub><sub>.2</sub>]]></description>
+						<textareas>
+							<textarea index='-1'><![CDATA[<b>INITIALISE-PERSON</b><sub>2</sub><sub>.2</sub>]]></textarea>
+						</textareas>
+						<macrobehaviours>
+							<macrobehaviour>
+								<name><![CDATA[Behaviours]]></name>
+								<microbehaviour databaseID='2045'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/UPDATE-ATTRIBUTE.html#changes=fL7v5uL7s8LG0HD2K69w5d]]></url>
+									<description><![CDATA[<b>INITIALISE-AGE</b>]]></description>
+									<textareas>
+										<textarea index='0'><![CDATA[my-age]]></textarea>
+										<textarea index='1'><![CDATA[random-integer-between 0 80]]></textarea>
+									</textareas>
+								</microbehaviour>
+								<microbehaviour databaseID='2064'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/SET-SIZE.html#changes=nJBwF0AdViQ3wvEoOpYN4d]]></url>
+									<description><![CDATA[<b>SET-SIZE-PROPORTIONAL-TO-AGE</b>]]></description>
+									<textareas>
+										<textarea index='0'><![CDATA[.5 + (my-age / 80)]]></textarea>
+									</textareas>
+								</microbehaviour>
+								<microbehaviour databaseID='2046'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DO-IF.html#changes=iMVUhKU4vv-PPo4-uzkE4h]]></url>
+									<description><![CDATA[<b>ASSIGN-WORK-IF-ADULT</b><sub>2</sub>]]></description>
+									<textareas>
+										<textarea index='0'><![CDATA[my-age > 18]]></textarea>
+										<textarea index='-1'><![CDATA[<b>ASSIGN-WORK-IF-ADULT</b><sub>2</sub>]]></textarea>
+									</textareas>
+									<macrobehaviours>
+										<macrobehaviour>
+											<name><![CDATA[Behaviours to add]]></name>
+											<microbehaviour databaseID='2028'>
+												<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DO-AFTER.html#changes=QEIrSulXa1YQ7RGiTTgY68]]></url>
+												<description><![CDATA[<b>ASSIGN-WORK</b>]]></description>
+												<textareas>
+													<textarea index='0'><![CDATA[.1]]></textarea>
+												</textareas>
+												<macrobehaviours>
+													<macrobehaviour>
+														<name><![CDATA[Delayed Behaviours]]></name>
+														<microbehaviour databaseID='2045'>
+															<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/UPDATE-ATTRIBUTE.html#changes=VjW570Zt0BfDKxgWc_LH48]]></url>
+															<description><![CDATA[<b>SET-WORK-PLACE</b><sub>2</sub><sub>.2</sub>]]></description>
+															<textareas>
+																<textarea index='0'><![CDATA[my-work-place]]></textarea>
+																<textarea index='1'><![CDATA[any-of-kind "Work Place"]]></textarea>
+																<textarea index='-1'><![CDATA[<b>SET-WORK-PLACE</b><sub>2</sub><sub>.2</sub>]]></textarea>
+															</textareas>
+														</microbehaviour>
+														<microbehaviour databaseID='2028'>
+															<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DO-AFTER.html#changes=3tK0RKW2KG1rl7NBmFAG74]]></url>
+															<description><![CDATA[<b>SCHEDULE-WORK</b><sub>2</sub><sub>.2</sub>]]></description>
+															<textareas>
+																<textarea index='0'><![CDATA[8]]></textarea>
+																<textarea index='-1'><![CDATA[<b>SCHEDULE-WORK</b><sub>2</sub><sub>.2</sub>]]></textarea>
+															</textareas>
+															<macrobehaviours>
+																<macrobehaviour>
+																	<name><![CDATA[Delayed Behaviours]]></name>
+																	<microbehaviour databaseID='2078'>
+																		<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/REPEATEDLY-DO-BEHAVIOURS.html#changes=uNjLs0nobRHsZ8fAcrDk74]]></url>
+																		<description><![CDATA[<b>REPEATEDLY-GO-TO-WORK</b>]]></description>
+																		<textareas>
+																			<textarea index='0'><![CDATA[24]]></textarea>
+																		</textareas>
+																		<macrobehaviours>
+																			<macrobehaviour>
+																				<name><![CDATA[Behaviours]]></name>
+																				<microbehaviour databaseID='2045'>
+																					<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/UPDATE-ATTRIBUTE.html#changes=MxR4JuVoulUSR5L6UE6e5g]]></url>
+																					<description><![CDATA[<b>SET-DESTINATION-WORK</b>]]></description>
+																					<textareas>
+																						<textarea index='0'><![CDATA[my-destination]]></textarea>
+																						<textarea index='1'><![CDATA[my-work-place]]></textarea>
+																					</textareas>
+																				</microbehaviour>
+																			</macrobehaviour>
+																		</macrobehaviours>
+																	</microbehaviour>
+																</macrobehaviour>
+															</macrobehaviours>
+														</microbehaviour>
+													</macrobehaviour>
+												</macrobehaviours>
+											</microbehaviour>
+										</macrobehaviour>
+									</macrobehaviours>
+								</microbehaviour>
+								<microbehaviour databaseID='982'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/DO-AFTER.html#changes=51KDX0zjU3M4YfzpOcJz4f]]></url>
+									<description><![CDATA[<b>ASSIGN-HOME</b>]]></description>
+									<textareas>
+										<textarea index='0'><![CDATA[.01]]></textarea>
+									</textareas>
+									<macrobehaviours>
+										<macrobehaviour>
+											<name><![CDATA[Delayed Behaviours]]></name>
+											<microbehaviour databaseID='1470'>
+												<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/UPDATE-ATTRIBUTE.html#changes=ZuFX7uP8fHr3GXvx3hGy5a]]></url>
+												<description><![CDATA[<b>SET-MY-HOME</b>]]></description>
+												<textareas>
+													<textarea index='0'><![CDATA[my-home]]></textarea>
+													<textarea index='1'><![CDATA[any-of-kind "Home"]]></textarea>
+												</textareas>
+											</microbehaviour>
+											<microbehaviour databaseID='1470'>
+												<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/UPDATE-ATTRIBUTE.html#changes=ZAgBwunBfLIdTfnyfFeu4_]]></url>
+												<description><![CDATA[<b>SET-DESTINATION-TO-HOME</b>]]></description>
+												<textareas>
+													<textarea index='0'><![CDATA[my-destination ]]></textarea>
+													<textarea index='1'><![CDATA[my-home]]></textarea>
+												</textareas>
+											</microbehaviour>
+											<microbehaviour databaseID='982'>
+												<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/DO-AFTER.html#changes=nLzOyeC8tyguGRyZd1ZY4c]]></url>
+												<description><![CDATA[<b>SCHEDULE-HEAD-HOME</b>]]></description>
+												<textareas>
+													<textarea index='0'><![CDATA[16]]></textarea>
+												</textareas>
+												<macrobehaviours>
+													<macrobehaviour>
+														<name><![CDATA[Delayed Behaviours]]></name>
+														<microbehaviour databaseID='1470'>
+															<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/UPDATE-ATTRIBUTE.html#changes=WX34tebO9VvrQ-LR-_Mh78]]></url>
+															<description><![CDATA[<b>SET-DESTINATION-TO-HOME</b><sub>2</sub>]]></description>
+															<textareas>
+																<textarea index='0'><![CDATA[my-destination ]]></textarea>
+																<textarea index='1'><![CDATA[my-home]]></textarea>
+																<textarea index='-1'><![CDATA[<b>SET-DESTINATION-TO-HOME</b><sub>2</sub>]]></textarea>
+															</textareas>
+														</microbehaviour>
+														<microbehaviour databaseID='1388'>
+															<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/REPEATEDLY-DO-BEHAVIOURS.html#changes=IoOu4uPSGHBisMLg3T395a]]></url>
+															<description><![CDATA[<b>REPEATEDLY-GO-HOME</b>]]></description>
+															<textareas>
+																<textarea index='0'><![CDATA[24]]></textarea>
+															</textareas>
+															<macrobehaviours>
+																<macrobehaviour>
+																	<name><![CDATA[Behaviours]]></name>
+																	<microbehaviour databaseID='1470'>
+																		<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/UPDATE-ATTRIBUTE.html#changes=EsOw6eDjxJL-Oir-1UHo44]]></url>
+																		<description><![CDATA[<b>SET-DESTINATION-TO-HOME</b><sub>2</sub><sub>.2</sub>]]></description>
+																		<textareas>
+																			<textarea index='0'><![CDATA[my-destination ]]></textarea>
+																			<textarea index='1'><![CDATA[my-home]]></textarea>
+																			<textarea index='-1'><![CDATA[<b>SET-DESTINATION-TO-HOME</b><sub>2</sub>]]></textarea>
+																		</textareas>
+																	</microbehaviour>
+																</macrobehaviour>
+															</macrobehaviours>
+														</microbehaviour>
+													</macrobehaviour>
+												</macrobehaviours>
+											</microbehaviour>
+										</macrobehaviour>
+									</macrobehaviours>
+								</microbehaviour>
+								<microbehaviour databaseID='2046'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DO-IF.html#changes=KL1youwHxESTg6VrU2gW5g]]></url>
+									<description><![CDATA[<b>ASSIGN-SCHOOL-IF-CHILD</b>]]></description>
+									<textareas>
+										<textarea index='0'><![CDATA[my-age > 4 and my-age < 18]]></textarea>
+									</textareas>
+									<macrobehaviours>
+										<macrobehaviour>
+											<name><![CDATA[Behaviours to add]]></name>
+											<microbehaviour databaseID='982'>
+												<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/DO-AFTER.html#changes=vOXSfunRkVSADVLUwBoT49]]></url>
+												<description><![CDATA[<b>ASSIGN-SCHOOL</b>]]></description>
+												<textareas>
+													<textarea index='0'><![CDATA[.1]]></textarea>
+												</textareas>
+												<macrobehaviours>
+													<macrobehaviour>
+														<name><![CDATA[Delayed Behaviours]]></name>
+														<microbehaviour databaseID='982'>
+															<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/DO-AFTER.html#changes=lg7ThKaPj9WwpubQ6Lcw4d]]></url>
+															<description><![CDATA[<b>SCHEDULE-HEAD-TO-SCHOOL</b><sub>2</sub>]]></description>
+															<textareas>
+																<textarea index='0'><![CDATA[8]]></textarea>
+																<textarea index='-1'><![CDATA[<b>SCHEDULE-HEAD-TO-SCHOOL</b><sub>2</sub>]]></textarea>
+															</textareas>
+															<macrobehaviours>
+																<macrobehaviour>
+																	<name><![CDATA[Delayed Behaviours]]></name>
+																	<microbehaviour databaseID='1388'>
+																		<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/REPEATEDLY-DO-BEHAVIOURS.html#changes=1kjpHK3GHLpeMCBkrZ2z4e]]></url>
+																		<description><![CDATA[<b>REPEATEDLY-GO-TO-SCHOOL</b>]]></description>
+																		<textareas>
+																			<textarea index='0'><![CDATA[24]]></textarea>
+																		</textareas>
+																		<macrobehaviours>
+																			<macrobehaviour>
+																				<name><![CDATA[Behaviours]]></name>
+																				<microbehaviour databaseID='2045'>
+																					<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/UPDATE-ATTRIBUTE.html#changes=w6YBKuadG9du9HpZF6-c79]]></url>
+																					<description><![CDATA[<b>SET-DESTINATION-SCHOOL</b><sub>2</sub>]]></description>
+																					<textareas>
+																						<textarea index='0'><![CDATA[my-destination]]></textarea>
+																						<textarea index='1'><![CDATA[my-school]]></textarea>
+																						<textarea index='-1'><![CDATA[<b>SET-DESTINATION-SCHOOL</b><sub>2</sub>]]></textarea>
+																					</textareas>
+																				</microbehaviour>
+																			</macrobehaviour>
+																		</macrobehaviours>
+																	</microbehaviour>
+																</macrobehaviour>
+															</macrobehaviours>
+														</microbehaviour>
+														<microbehaviour databaseID='1470'>
+															<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/UPDATE-ATTRIBUTE.html#changes=_VMjQKnSJ4TTX_gV3m6069]]></url>
+															<description><![CDATA[<b>SET-MY-SCHOOL</b>]]></description>
+															<textareas>
+																<textarea index='0'><![CDATA[my-school]]></textarea>
+																<textarea index='1'><![CDATA[min-one-of all-of-kind "School" [distance [my-home] of myself]]]></textarea>
+																<textarea index='2'><![CDATA[Assigned school closest to my home]]></textarea>
+															</textareas>
+														</microbehaviour>
+													</macrobehaviour>
+												</macrobehaviours>
+											</microbehaviour>
+										</macrobehaviour>
+									</macrobehaviours>
+								</microbehaviour>
+							</macrobehaviour>
+						</macrobehaviours>
+					</microbehaviour>
+				</macrobehaviour>
+			</macrobehaviours>
+		</microbehaviour>
+		<microbehaviour databaseID='2056'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-BEHAVIOURS.html#changes=yf0i10OZeBMy9qdqy46V6h]]></url>
+			<description><![CDATA[<b>CREATE-INITIAL-SUSCEPTIBLE-BEHAVIOURS</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[the-initial-susceptible-population]]></textarea>
+			</textareas>
+			<macrobehaviours>
+				<macrobehaviour>
+					<name><![CDATA[Behaviours]]></name>
+					<microbehaviour databaseID='2120'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-COPIES.html#changes=TAP5MuP6VxzfSZVNUFMt7g]]></url>
+						<description><![CDATA[<b>ADD-INITIAL-SUSCEPTIBLE-POPULATION</b>]]></description>
+						<textareas>
+							<textarea index='0'><![CDATA[the-initial-susceptible-population]]></textarea>
+						</textareas>
+						<macrobehaviours>
+							<macrobehaviour>
+								<name><![CDATA[Additional behaviours]]></name>
+								<microbehaviour databaseID='2121'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/SET-STATE-SUSCEPTIBLE.html#changes=yQoSOKy8g2EH_oqL64aW56]]></url>
+									<description><![CDATA[<b>SET-STATE-SUSCEPTIBLE </b><sub>2</sub>]]></description>
+								</microbehaviour>
+								<microbehaviour databaseID='2113'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/SET-RANDOM-POSITION.html]]></url>
+									<description><![CDATA[<b>SET-RANDOM-POSITION</b>]]></description>
+								</microbehaviour>
+								<microbehaviour databaseID='2122'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-BEHAVIOURS.html#changes=4Z2vn0GXTMiUHqp_UqMH5e]]></url>
+									<description><![CDATA[<b>INITIALISE-PERSON</b><sub>2</sub><sub>.3</sub><sub>.4</sub>]]></description>
+									<textareas>
+										<textarea index='0'><![CDATA[.5 + (my-age / 80)]]></textarea>
+									</textareas>
+									<macrobehaviours>
+										<macrobehaviour>
+											<name><![CDATA[Behaviours]]></name>
+											<microbehaviour databaseID='2045'>
+												<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/UPDATE-ATTRIBUTE.html#changes=fL7v5uL7s8LG0HD2K69w5d]]></url>
+												<description><![CDATA[<b>INITIALISE-AGE</b>]]></description>
+												<textareas>
+													<textarea index='0'><![CDATA[my-age]]></textarea>
+													<textarea index='1'><![CDATA[random-integer-between 0 80]]></textarea>
+												</textareas>
+											</microbehaviour>
+											<microbehaviour databaseID='2064'>
+												<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/SET-SIZE.html#changes=nJBwF0AdViQ3wvEoOpYN4d]]></url>
+												<description><![CDATA[<b>SET-SIZE-PROPORTIONAL-TO-AGE</b>]]></description>
+												<textareas>
+													<textarea index='0'><![CDATA[.5 + (my-age / 80)]]></textarea>
+												</textareas>
+											</microbehaviour>
+											<microbehaviour databaseID='982'>
+												<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/DO-AFTER.html#changes=51KDX0zjU3M4YfzpOcJz4f]]></url>
+												<description><![CDATA[<b>ASSIGN-HOME</b>]]></description>
+												<textareas>
+													<textarea index='0'><![CDATA[.01]]></textarea>
+												</textareas>
+												<macrobehaviours>
+													<macrobehaviour>
+														<name><![CDATA[Delayed Behaviours]]></name>
+														<microbehaviour databaseID='1470'>
+															<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/UPDATE-ATTRIBUTE.html#changes=ZuFX7uP8fHr3GXvx3hGy5a]]></url>
+															<description><![CDATA[<b>SET-MY-HOME</b>]]></description>
+															<textareas>
+																<textarea index='0'><![CDATA[my-home]]></textarea>
+																<textarea index='1'><![CDATA[any-of-kind "Home"]]></textarea>
+															</textareas>
+														</microbehaviour>
+														<microbehaviour databaseID='1470'>
+															<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/UPDATE-ATTRIBUTE.html#changes=ZAgBwunBfLIdTfnyfFeu4_]]></url>
+															<description><![CDATA[<b>SET-DESTINATION-TO-HOME</b>]]></description>
+															<textareas>
+																<textarea index='0'><![CDATA[my-destination ]]></textarea>
+																<textarea index='1'><![CDATA[my-home]]></textarea>
+															</textareas>
+														</microbehaviour>
+														<microbehaviour databaseID='982'>
+															<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/DO-AFTER.html#changes=nLzOyeC8tyguGRyZd1ZY4c]]></url>
+															<description><![CDATA[<b>SCHEDULE-HEAD-HOME</b>]]></description>
+															<textareas>
+																<textarea index='0'><![CDATA[16]]></textarea>
+															</textareas>
+															<macrobehaviours>
+																<macrobehaviour>
+																	<name><![CDATA[Delayed Behaviours]]></name>
+																	<microbehaviour databaseID='1470'>
+																		<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/UPDATE-ATTRIBUTE.html#changes=WX34tebO9VvrQ-LR-_Mh78]]></url>
+																		<description><![CDATA[<b>SET-DESTINATION-TO-HOME</b><sub>2</sub>]]></description>
+																		<textareas>
+																			<textarea index='0'><![CDATA[my-destination ]]></textarea>
+																			<textarea index='1'><![CDATA[my-home]]></textarea>
+																			<textarea index='-1'><![CDATA[<b>SET-DESTINATION-TO-HOME</b><sub>2</sub>]]></textarea>
+																		</textareas>
+																	</microbehaviour>
+																	<microbehaviour databaseID='1388'>
+																		<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/REPEATEDLY-DO-BEHAVIOURS.html#changes=IoOu4uPSGHBisMLg3T395a]]></url>
+																		<description><![CDATA[<b>REPEATEDLY-GO-HOME</b>]]></description>
+																		<textareas>
+																			<textarea index='0'><![CDATA[24]]></textarea>
+																		</textareas>
+																		<macrobehaviours>
+																			<macrobehaviour>
+																				<name><![CDATA[Behaviours]]></name>
+																				<microbehaviour databaseID='1470'>
+																					<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/UPDATE-ATTRIBUTE.html#changes=EsOw6eDjxJL-Oir-1UHo44]]></url>
+																					<description><![CDATA[<b>SET-DESTINATION-TO-HOME</b><sub>2</sub><sub>.2</sub>]]></description>
+																					<textareas>
+																						<textarea index='0'><![CDATA[my-destination ]]></textarea>
+																						<textarea index='1'><![CDATA[my-home]]></textarea>
+																						<textarea index='-1'><![CDATA[<b>SET-DESTINATION-TO-HOME</b><sub>2</sub>]]></textarea>
+																					</textareas>
+																				</microbehaviour>
+																			</macrobehaviour>
+																		</macrobehaviours>
+																	</microbehaviour>
+																</macrobehaviour>
+															</macrobehaviours>
+														</microbehaviour>
+													</macrobehaviour>
+												</macrobehaviours>
+											</microbehaviour>
+											<microbehaviour databaseID='2046'>
+												<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DO-IF.html#changes=iMVUhKU4vv-PPo4-uzkE4h]]></url>
+												<description><![CDATA[<b>ASSIGN-WORK-IF-ADULT</b><sub>2</sub>]]></description>
+												<textareas>
+													<textarea index='0'><![CDATA[my-age > 18]]></textarea>
+													<textarea index='-1'><![CDATA[<b>ASSIGN-WORK-IF-ADULT</b><sub>2</sub>]]></textarea>
+												</textareas>
+												<macrobehaviours>
+													<macrobehaviour>
+														<name><![CDATA[Behaviours to add]]></name>
+														<microbehaviour databaseID='2028'>
+															<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DO-AFTER.html#changes=QEIrSulXa1YQ7RGiTTgY68]]></url>
+															<description><![CDATA[<b>ASSIGN-WORK</b>]]></description>
+															<textareas>
+																<textarea index='0'><![CDATA[.1]]></textarea>
+															</textareas>
+															<macrobehaviours>
+																<macrobehaviour>
+																	<name><![CDATA[Delayed Behaviours]]></name>
+																	<microbehaviour databaseID='2045'>
+																		<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/UPDATE-ATTRIBUTE.html#changes=VjW570Zt0BfDKxgWc_LH48]]></url>
+																		<description><![CDATA[<b>SET-WORK-PLACE</b><sub>2</sub><sub>.2</sub>]]></description>
+																		<textareas>
+																			<textarea index='0'><![CDATA[my-work-place]]></textarea>
+																			<textarea index='1'><![CDATA[any-of-kind "Work Place"]]></textarea>
+																			<textarea index='-1'><![CDATA[<b>SET-WORK-PLACE</b><sub>2</sub><sub>.2</sub>]]></textarea>
+																		</textareas>
+																	</microbehaviour>
+																	<microbehaviour databaseID='2028'>
+																		<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DO-AFTER.html#changes=3tK0RKW2KG1rl7NBmFAG74]]></url>
+																		<description><![CDATA[<b>SCHEDULE-WORK</b><sub>2</sub><sub>.2</sub>]]></description>
+																		<textareas>
+																			<textarea index='0'><![CDATA[8]]></textarea>
+																			<textarea index='-1'><![CDATA[<b>SCHEDULE-WORK</b><sub>2</sub><sub>.2</sub>]]></textarea>
+																		</textareas>
+																		<macrobehaviours>
+																			<macrobehaviour>
+																				<name><![CDATA[Delayed Behaviours]]></name>
+																				<microbehaviour databaseID='2078'>
+																					<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/REPEATEDLY-DO-BEHAVIOURS.html#changes=uNjLs0nobRHsZ8fAcrDk74]]></url>
+																					<description><![CDATA[<b>REPEATEDLY-GO-TO-WORK</b>]]></description>
+																					<textareas>
+																						<textarea index='0'><![CDATA[24]]></textarea>
+																					</textareas>
+																					<macrobehaviours>
+																						<macrobehaviour>
+																							<name><![CDATA[Behaviours]]></name>
+																							<microbehaviour databaseID='2045'>
+																								<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/UPDATE-ATTRIBUTE.html#changes=MxR4JuVoulUSR5L6UE6e5g]]></url>
+																								<description><![CDATA[<b>SET-DESTINATION-WORK</b>]]></description>
+																								<textareas>
+																									<textarea index='0'><![CDATA[my-destination]]></textarea>
+																									<textarea index='1'><![CDATA[my-work-place]]></textarea>
+																								</textareas>
+																							</microbehaviour>
+																						</macrobehaviour>
+																					</macrobehaviours>
+																				</microbehaviour>
+																			</macrobehaviour>
+																		</macrobehaviours>
+																	</microbehaviour>
+																</macrobehaviour>
+															</macrobehaviours>
+														</microbehaviour>
+													</macrobehaviour>
+												</macrobehaviours>
+											</microbehaviour>
+											<microbehaviour databaseID='2046'>
+												<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DO-IF.html#changes=KL1youwHxESTg6VrU2gW5g]]></url>
+												<description><![CDATA[<b>ASSIGN-SCHOOL-IF-CHILD</b>]]></description>
+												<textareas>
+													<textarea index='0'><![CDATA[my-age > 4 and my-age < 18]]></textarea>
+												</textareas>
+												<macrobehaviours>
+													<macrobehaviour>
+														<name><![CDATA[Behaviours to add]]></name>
+														<microbehaviour databaseID='982'>
+															<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/DO-AFTER.html#changes=vOXSfunRkVSADVLUwBoT49]]></url>
+															<description><![CDATA[<b>ASSIGN-SCHOOL</b>]]></description>
+															<textareas>
+																<textarea index='0'><![CDATA[.1]]></textarea>
+															</textareas>
+															<macrobehaviours>
+																<macrobehaviour>
+																	<name><![CDATA[Delayed Behaviours]]></name>
+																	<microbehaviour databaseID='982'>
+																		<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/DO-AFTER.html#changes=lg7ThKaPj9WwpubQ6Lcw4d]]></url>
+																		<description><![CDATA[<b>SCHEDULE-HEAD-TO-SCHOOL</b><sub>2</sub>]]></description>
+																		<textareas>
+																			<textarea index='0'><![CDATA[8]]></textarea>
+																			<textarea index='-1'><![CDATA[<b>SCHEDULE-HEAD-TO-SCHOOL</b><sub>2</sub>]]></textarea>
+																		</textareas>
+																		<macrobehaviours>
+																			<macrobehaviour>
+																				<name><![CDATA[Delayed Behaviours]]></name>
+																				<microbehaviour databaseID='1388'>
+																					<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/REPEATEDLY-DO-BEHAVIOURS.html#changes=1kjpHK3GHLpeMCBkrZ2z4e]]></url>
+																					<description><![CDATA[<b>REPEATEDLY-GO-TO-SCHOOL</b>]]></description>
+																					<textareas>
+																						<textarea index='0'><![CDATA[24]]></textarea>
+																					</textareas>
+																					<macrobehaviours>
+																						<macrobehaviour>
+																							<name><![CDATA[Behaviours]]></name>
+																							<microbehaviour databaseID='2045'>
+																								<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/UPDATE-ATTRIBUTE.html#changes=w6YBKuadG9du9HpZF6-c79]]></url>
+																								<description><![CDATA[<b>SET-DESTINATION-SCHOOL</b><sub>2</sub>]]></description>
+																								<textareas>
+																									<textarea index='0'><![CDATA[my-destination]]></textarea>
+																									<textarea index='1'><![CDATA[my-school]]></textarea>
+																									<textarea index='-1'><![CDATA[<b>SET-DESTINATION-SCHOOL</b><sub>2</sub>]]></textarea>
+																								</textareas>
+																							</microbehaviour>
+																						</macrobehaviour>
+																					</macrobehaviours>
+																				</microbehaviour>
+																			</macrobehaviour>
+																		</macrobehaviours>
+																	</microbehaviour>
+																	<microbehaviour databaseID='1470'>
+																		<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/UPDATE-ATTRIBUTE.html#changes=_VMjQKnSJ4TTX_gV3m6069]]></url>
+																		<description><![CDATA[<b>SET-MY-SCHOOL</b>]]></description>
+																		<textareas>
+																			<textarea index='0'><![CDATA[my-school]]></textarea>
+																			<textarea index='1'><![CDATA[min-one-of all-of-kind "School" [distance [my-home] of myself]]]></textarea>
+																			<textarea index='2'><![CDATA[Assigned school closest to my home]]></textarea>
+																		</textareas>
+																	</microbehaviour>
+																</macrobehaviour>
+															</macrobehaviours>
+														</microbehaviour>
+													</macrobehaviour>
+												</macrobehaviours>
+											</microbehaviour>
+										</macrobehaviour>
+									</macrobehaviours>
+								</microbehaviour>
+							</macrobehaviour>
+						</macrobehaviours>
+					</microbehaviour>
+					<microbehaviour databaseID='2123'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DIE.html#changes=3SymfK-4NDNilgbKkKLu77]]></url>
+						<description><![CDATA[<b>DIE</b>]]></description>
+					</microbehaviour>
+				</macrobehaviour>
+			</macrobehaviours>
+		</microbehaviour>
+	</macrobehaviour>
+	<macrobehaviour>
+		<name><![CDATA[Observer]]></name>
+		<microbehaviour databaseID='1336'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/ADD-BEHAVIOURS.html#changes=9QSv8KjOCF0Ms_7-_X-n7h]]></url>
+			<description><![CDATA[<b>ADD-CHANGE-IN-NUMBER-INFECTED-BEHAVIOURS</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[the-change-in-number-infected]]></textarea>
+				<textarea index='1'><![CDATA[0]]></textarea>
+			</textareas>
+			<macrobehaviours>
+				<macrobehaviour>
+					<name><![CDATA[Behaviours]]></name>
+					<microbehaviour databaseID='1338'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/DEFINE-PARAMETER.html#changes=XY25GKsWfPx-wIMPf69f76]]></url>
+						<description><![CDATA[<b>DEFINE-CHANGE-IN-NUMBER-INFECTED</b>]]></description>
+						<textareas>
+							<textarea index='0'><![CDATA[the-change-in-number-infected]]></textarea>
+							<textarea index='1'><![CDATA[0]]></textarea>
+						</textareas>
+					</microbehaviour>
+					<microbehaviour databaseID='1343'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/CREATE-AUTO-PLOT.html#changes=_HYWmuUPqSCimx_0d1qt66]]></url>
+						<description><![CDATA[<b>CREATE-CHANGE-IN-NUMBER-INFECTED-PLOT</b>]]></description>
+						<textareas>
+							<textarea index='2'><![CDATA[605]]></textarea>
+							<textarea index='4'><![CDATA[Change in Number Infected Plot]]></textarea>
+							<textarea index='6'><![CDATA[the change in number infected]]></textarea>
+							<textarea index='8'><![CDATA[the-change-in-number-infected]]></textarea>
+						</textareas>
+					</microbehaviour>
+					<microbehaviour databaseID='1337'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/DEFINE-PARAMETER.html#changes=sH6ozutj0rzroIwG3hB46c]]></url>
+						<description><![CDATA[<b>DEFINE-NUMBER-INFECTED</b>]]></description>
+						<textareas>
+							<textarea index='0'><![CDATA[the-number-infected]]></textarea>
+							<textarea index='1'><![CDATA[0]]></textarea>
+						</textareas>
+					</microbehaviour>
+					<microbehaviour databaseID='1339'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/DO-AFTER.html#changes=fjKnKuql891iTX2yg0PK4a]]></url>
+						<description><![CDATA[<b>DELAY-UPDATE-NUMBER-INFECTED</b>]]></description>
+						<textareas>
+							<textarea index='0'><![CDATA[.02]]></textarea>
+						</textareas>
+						<macrobehaviours>
+							<macrobehaviour>
+								<name><![CDATA[Delayed Behaviours]]></name>
+								<microbehaviour databaseID='1340'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/UPDATE-PARAMETER-REPEATEDLY.html#changes=HdY28KzR-5i12JWsGiR966]]></url>
+									<description><![CDATA[<b>UPDATE-NUMBER-OF-INFECTED</b>]]></description>
+									<textareas>
+										<textarea index='0'><![CDATA[the-number-infected]]></textarea>
+										<textarea index='1'><![CDATA[count all-individuals with [my-state = "infected"]]]></textarea>
+									</textareas>
+								</microbehaviour>
+							</macrobehaviour>
+						</macrobehaviours>
+					</microbehaviour>
+					<microbehaviour databaseID='1341'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/DO-AFTER.html#changes=5SM180ADyKjKSJl2oJki6h]]></url>
+						<description><![CDATA[<b>DELAY-UPDATE-CHANGE-IN-NUMBER-INFECTED</b>]]></description>
+						<textareas>
+							<textarea index='0'><![CDATA[.01]]></textarea>
+						</textareas>
+						<macrobehaviours>
+							<macrobehaviour>
+								<name><![CDATA[Delayed Behaviours]]></name>
+								<microbehaviour databaseID='1342'>
+									<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/UPDATE-PARAMETER-REPEATEDLY.html#changes=i3UHkKPhQnanmxUrGoLV56]]></url>
+									<description><![CDATA[<b>UPDATE-CHANGE-IN-NUMBER-OF-INFECTED</b>]]></description>
+									<textareas>
+										<textarea index='0'><![CDATA[the-change-in-number-infected]]></textarea>
+										<textarea index='1'><![CDATA[count all-individuals with [my-state = "infected"] - the-number-infected]]></textarea>
+									</textareas>
+								</microbehaviour>
+							</macrobehaviour>
+						</macrobehaviours>
+					</microbehaviour>
+				</macrobehaviour>
+			</macrobehaviours>
+		</microbehaviour>
+		<microbehaviour databaseID='2140'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DEFINE-PARAMETER.html#changes=A-Al6uBppMR5x5gCesFJ6_]]></url>
+			<description><![CDATA[<b>DURATION-OF-INFECTION-SLIDER</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[the-average-duration-of-infection (controlled by a slider)]]></textarea>
+				<textarea index='1'><![CDATA[100]]></textarea>
+				<textarea index='5'><![CDATA[1000]]></textarea>
+			</textareas>
+		</microbehaviour>
+		<microbehaviour databaseID='2140'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DEFINE-PARAMETER.html#changes=08cLOKlB_o_NN681p-fC5-]]></url>
+			<description><![CDATA[<b>SUSCEPTIBLE-POPULATION-SLIDER</b>]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='2140'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DEFINE-PARAMETER.html#changes=GKUEMetS_SBDWy4mdH-47c]]></url>
+			<description><![CDATA[<b>INFECTION-ODDS-SLIDER</b>]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='2140'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DEFINE-PARAMETER.html#changes=2iZmuuxw0ZCfcWw8NSKB5d]]></url>
+			<description><![CDATA[<b>ENCOUNTER-RATE-SLIDER</b>]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='2140'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DEFINE-PARAMETER.html#changes=2d0F7KyBNUNl8oP28D0p49]]></url>
+			<description><![CDATA[<b>INFECTED-POPULATION-SLIDER</b>]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='2155'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/CREATE-EMPTY-AUTO-PLOT.html#changes=Oa2f50usIjgTKwf6xg2X4-]]></url>
+			<description><![CDATA[<b>CREATE-EMPTY-POPULATIONS-PLOT</b>]]></description>
+			<textareas>
+				<textarea index='2'><![CDATA[605]]></textarea>
+				<textarea index='4'><![CDATA[Populations]]></textarea>
+				<textarea index='6'><![CDATA[people]]></textarea>
+				<textarea index='7'><![CDATA[true ]]></textarea>
+			</textareas>
+		</microbehaviour>
+		<microbehaviour databaseID='2169'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-TO-PLOT.html#changes=s8IEk0GM4ClD73mT9-VM6c]]></url>
+			<description><![CDATA[<b>ADD-RECOVERED-TO-PLOT</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[Populations]]></textarea>
+				<textarea index='1'><![CDATA[gray]]></textarea>
+				<textarea index='2'><![CDATA[Recovered]]></textarea>
+				<textarea index='4'><![CDATA[count all-individuals with [my-state = "recovered"]]]></textarea>
+			</textareas>
+		</microbehaviour>
+		<microbehaviour databaseID='2169'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-TO-PLOT.html#changes=2R93Uey36nqs6g3i8IWI74]]></url>
+			<description><![CDATA[<b>ADD-SUSCEPTIBLE-TO-PLOT</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[Populations]]></textarea>
+				<textarea index='1'><![CDATA[blue]]></textarea>
+				<textarea index='2'><![CDATA[Susceptible]]></textarea>
+				<textarea index='4'><![CDATA[count all-individuals with [my-state = "susceptible"]]]></textarea>
+				<textarea index='-1'><![CDATA[<b>ADD-RECOVERED-TO-PLOT</b><sub>2</sub>]]></textarea>
+			</textareas>
+		</microbehaviour>
+		<microbehaviour databaseID='2169'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-TO-PLOT.html#changes=pKfJQKQVCpPEBKLcPgmZ4g]]></url>
+			<description><![CDATA[<b>ADD-INFECTED-TO-PLOT</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[Populations]]></textarea>
+				<textarea index='1'><![CDATA[red]]></textarea>
+				<textarea index='2'><![CDATA[Infected]]></textarea>
+				<textarea index='4'><![CDATA[count all-individuals with [my-state = "infected"]]]></textarea>
+				<textarea index='-1'><![CDATA[<b>ADD-RECOVERED-TO-PLOT</b><sub>2</sub>]]></textarea>
+			</textareas>
+		</microbehaviour>
+		<microbehaviour databaseID='-1'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/HIDE.html]]></url>
+			<description><![CDATA[<b>HIDE </b>]]></description>
+		</microbehaviour>
+	</macrobehaviour>
+	<macrobehaviour>
+		<name><![CDATA[Support]]></name>
+		<microbehaviour databaseID='-1'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/STOP-EVERYTHING-WHEN-NONE-INFECTED.html]]></url>
+			<description><![CDATA[<b>STOP-EVERYTHING-WHEN-NONE-INFECTED </b>]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='-1'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/REPORT-ALL-SUSCEPTIBLES.html]]></url>
+			<description><![CDATA[<b>REPORT-ALL-SUSCEPTIBLES</b> ]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='-1'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/REPORT-ENCOUNTER-RATE.html]]></url>
+			<description><![CDATA[<b>REPORT-ENCOUNTER-RATE</b> ]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='-1'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/REPORT-ALL-LIVING.html]]></url>
+			<description><![CDATA[<b id="BehaviourName">REPORT-ALL-LIVING </b>]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='-1'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/REPORT-ALL-INFECTED.html]]></url>
+			<description><![CDATA[<b id="BehaviourName">REPORT-ALL-INFECTED </b>]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='994' active='false'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/LAYOUT-SPRING.html]]></url>
+			<description><![CDATA[<b>LAYOUT-SPRING</b>]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='-1'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/HIDE.html]]></url>
+			<description><![CDATA[<b>HIDE </b>]]></description>
+		</microbehaviour>
+	</macrobehaviour>
+	<macrobehaviour>
+		<name><![CDATA[School]]></name>
+		<microbehaviour databaseID='849'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/SET-SHAPE.html#changes=Xf0Gw0JZR62QjT-wD4Nn44]]></url>
+			<description><![CDATA[<b>SET-SHAPE-SCHOOL</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[building institution]]></textarea>
+			</textareas>
+		</microbehaviour>
+		<microbehaviour databaseID='855'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/SET-COLOR.html#changes=afKiGKaUf815GJDHeL316_]]></url>
+			<description><![CDATA[<b>SET-SCHOOL-COLOR </b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[pink]]></textarea>
+			</textareas>
+		</microbehaviour>
+		<microbehaviour databaseID='845'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/ADD-COPIES.html#changes=1hqYAK1MK9cAkpHp5JuM78]]></url>
+			<description><![CDATA[<b>ADD-SCHOOLS</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[3]]></textarea>
+			</textareas>
+			<macrobehaviours>
+				<macrobehaviour>
+					<name><![CDATA[Additional behaviours]]></name>
+					<microbehaviour databaseID='846'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/SET-RANDOM-POSITION.html]]></url>
+						<description><![CDATA[<b>SET-RANDOM-POSITION </b>]]></description>
+					</microbehaviour>
+				</macrobehaviour>
+			</macrobehaviours>
+		</microbehaviour>
+		<microbehaviour databaseID='2126'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/LAYOUT-CIRCLE.html#changes=ZpYtPKtUQQGa9sf8qmDw6a]]></url>
+			<description><![CDATA[<b>LAYOUT-SCHOOLS</b>]]></description>
+		</microbehaviour>
+	</macrobehaviour>
+	<macrobehaviour>
+		<name><![CDATA[Home]]></name>
+		<microbehaviour databaseID='849'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/SET-SHAPE.html#changes=VWSgQKXQB8EjW95xg24C48]]></url>
+			<description><![CDATA[<b>SET-SHAPE-HOME</b>]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='855'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/SET-COLOR.html#changes=fnSp5uUIJqP1woVyySWg7-]]></url>
+			<description><![CDATA[<b>SET-HOUSE-COLOR</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[lime]]></textarea>
+			</textareas>
+		</microbehaviour>
+		<microbehaviour databaseID='845'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/ADD-COPIES.html#changes=cisQvKghxNzNiUYAGBNy57]]></url>
+			<description><![CDATA[<b>ADD-HOMES</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[(the-initial-susceptible-population + the-initial-infected-population) / 4]]></textarea>
+			</textareas>
+			<macrobehaviours>
+				<macrobehaviour>
+					<name><![CDATA[Additional behaviours]]></name>
+					<microbehaviour databaseID='846'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/SET-RANDOM-POSITION.html]]></url>
+						<description><![CDATA[<b>SET-RANDOM-POSITION </b>]]></description>
+					</microbehaviour>
+				</macrobehaviour>
+			</macrobehaviours>
+		</microbehaviour>
+		<microbehaviour databaseID='2126'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/LAYOUT-CIRCLE.html#changes=zvXBVKXsw1i12dSYn6iE55]]></url>
+			<description><![CDATA[<b>LAYOUT-HOMES</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[10]]></textarea>
+				<textarea index='1'><![CDATA[kind = "Home"]]></textarea>
+			</textareas>
+		</microbehaviour>
+	</macrobehaviour>
+	<macrobehaviour>
+		<name><![CDATA[Work Place]]></name>
+		<microbehaviour databaseID='2037'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/SET-SHAPE.html#changes=hW9wVKQ-hMZNL5jSn2P06h]]></url>
+			<description><![CDATA[<b>SET--WORKPLACE-SHAPE</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[factory]]></textarea>
+			</textareas>
+		</microbehaviour>
+		<microbehaviour databaseID='855'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/SET-COLOR.html#changes=xpB6ae2aKWuLNRedW7uv49]]></url>
+			<description><![CDATA[<b>SET-WORK-PLACE-COLOR </b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[violet]]></textarea>
+			</textareas>
+		</microbehaviour>
+		<microbehaviour databaseID='845'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/ADD-COPIES.html#changes=YN5D7uiJ34MMmGuSkY1P57]]></url>
+			<description><![CDATA[<b>ADD-WORK-PLACES</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[2]]></textarea>
+			</textareas>
+			<macrobehaviours>
+				<macrobehaviour>
+					<name><![CDATA[Additional behaviours]]></name>
+					<microbehaviour databaseID='846'>
+						<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/SET-RANDOM-POSITION.html]]></url>
+						<description><![CDATA[<b>SET-RANDOM-POSITION </b>]]></description>
+					</microbehaviour>
+				</macrobehaviour>
+			</macrobehaviours>
+		</microbehaviour>
+		<microbehaviour databaseID='2126'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/LAYOUT-CIRCLE.html#changes=kJHpx0COvm51e9ag_Vgy67]]></url>
+			<description><![CDATA[<b>LAYOUT-WORK-PLACES</b>]]></description>
+		</microbehaviour>
+	</macrobehaviour>
+	<macrobehaviour>
+		<name><![CDATA[<font class="Apple-style-span" size="3"><span class="Apple-style-span" style="font-size: 13px;">World</span></font>]]></name>
+		<microbehaviour databaseID='1016'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/SET-WORLD-TO-PLANE.html#changes=LhrC4KpL-t1Wkx4wsfba4d]]></url>
+			<description><![CDATA[<b>SET-WORLD-TO-PLANE </b>]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='2136'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/SET-BACKGROUND-COLOR.html#changes=FZexyemOSm995Xusxo2C69]]></url>
+			<description><![CDATA[<b>SET-BACKGROUND-COLOR</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[8]]></textarea>
+			</textareas>
+		</microbehaviour>
+		<microbehaviour databaseID='-1'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/HIDE.html#changes=onGPQ0lCF7Cuv-tPEBkU5g]]></url>
+			<description><![CDATA[
+	<b>HIDE </b>
+
+	]]></description>
+		</microbehaviour>
+	</macrobehaviour>
+		<macrobehaviour active='false'>
+		<name><![CDATA[Public Health Office]]></name>
+		<microbehaviour databaseID='-1'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/CREATE-SLIDER.html#changes=4CbZFuiAlddDTmXtA1aM56]]></url>
+			<description><![CDATA[<b>CREATE-TIME-OF-VACCINATION-SLIDER </b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[the-time-of-vaccination]]></textarea>
+				<textarea index='6'><![CDATA[100]]></textarea>
+				<textarea index='7'><![CDATA[1]]></textarea>
+				<textarea index='8'><![CDATA[20]]></textarea>
+			</textareas>
+		</microbehaviour>
+		<microbehaviour databaseID='-1'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/VACCINATE-N-RANDOM-SUSCEPTIBLE-ACQUAINTANCES-OF-THE-INFECTED.html]]></url>
+			<description><![CDATA[<b>VACCINATE-N-RANDOM-SUSCEPTIBLE-ACQUAINTANCES-OF-THE-INFECTED</b>]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='-1'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/VACCINATE-N-RANDOM-INDIVIDUALS.html]]></url>
+			<description><![CDATA[<b>VACCINATE-N-RANDOM-INDIVIDUALS</b>]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='2140'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DEFINE-PARAMETER.html#changes=uqpduKiQ57aPf-am_3yW7-]]></url>
+			<description><![CDATA[<b>VACCINE-COUNT-SLIDER</b>]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='2140'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/DEFINE-PARAMETER.html#changes=uNR1ueK0zUSmg5as1OqN6h]]></url>
+			<description><![CDATA[<b>FRACTION-OF-VACCINATIONS-THAT-TAKE-SLIDER</b>]]></description>
+		</microbehaviour>
+		<microbehaviour databaseID='2169'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-TO-PLOT.html#changes=DBpNcKmSAZOvMeW_KuUX5_]]></url>
+			<description><![CDATA[<b>ADD-VACCINATED-TO-PLOT</b>]]></description>
+			<textareas>
+				<textarea index='0'><![CDATA[Populations]]></textarea>
+				<textarea index='1'><![CDATA[green]]></textarea>
+				<textarea index='2'><![CDATA[Vaccinated]]></textarea>
+				<textarea index='4'><![CDATA[count all-individuals with [my-state = "vaccinated"]]]></textarea>
+				<textarea index='-1'><![CDATA[<b>ADD-INFECTED-TO-PLOT</b><sub>2</sub>]]></textarea>
+			</textareas>
+		</microbehaviour>
+		<microbehaviour databaseID='-1'>
+			<url><![CDATA[http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/HIDE.html]]></url>
+			<description><![CDATA[<b>HIDE </b>]]></description>
+		</microbehaviour>
+	</macrobehaviour>
+	
+</model>

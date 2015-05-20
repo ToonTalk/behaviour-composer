@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>CREATE-OPINION-PLOT</title>
+
+</head>
+
+
+
+<body>
+
+
+
+<div id="bodyContent">
+
+	
+
+	<h3><i>I set up a plot of opinion versus elapsed time.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>CREATE-OPINION-PLOT </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>create-plot  &quot;5&quot; &quot;550&quot;&nbsp;<i>; lower left corner</i>
+  &quot;420&quot; &quot;809&quot;&nbsp;<i>; upper right corner</i>
+  &quot;Opinion Plot&quot;&nbsp;<i>; unique name (and label) for this plot</i>
+  &quot;time&quot;&nbsp;<i>; X axis label</i>
+  &quot;opinion&quot;&nbsp;<i>; Y axis label</i>  
+  &quot;0&quot;&nbsp;<i>; minimum x value</i>
+  &quot;1&quot;&nbsp;<i>; maximum x value</i>
+  &quot;0&quot; &nbsp;<i>; minimum y value</i>
+  &quot;-1&quot;&nbsp;<i>; maximum y value</i>
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+
+	<p>One can plot other attributes. They need not have time as the x-axis. You 
+
+	can construct multiple plots using the NetLogo interface. </p>
+
+	<p><i>Note that currently the system is limited to interpreting calls to 
+
+	start-plot where each argument is on a different line.</i> </p>
+
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>
+
+	<a title="PLOT-MY-OPINION" href="PLOT-MY-OPINION.html">
+
+	PLOT-MY-OPINION</a> is the micro-behaviour that uses this graph.
+
+	<a title="CREATE-PLOT" href="CREATE-PLOT.html">
+
+	CREATE-PLOT</a> is another example. </p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </div>
+
+
+
+</body>
+
+
+
+</html>
+

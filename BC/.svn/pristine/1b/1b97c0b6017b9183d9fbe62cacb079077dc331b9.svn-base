@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>CREATE-SLIDERS-AND-INITIAL-POPUL</title>
+
+</head>
+<body>
+
+	<h3><i>I create an initial population controlled by several sliders.</i> 
+	</h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>CREATE-SLIDERS-AND-INITIAL-POPULATION</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>add-behaviours list-of-micro-behaviours "Behaviours" [CREATE-INITIAL-INFECTED-POPULATION.html 
+	                                              CREATE-INITIAL-SUSCEPTIBLE-POPULATION.html
+                                                      CREATE-INITIAL-VACCINATED-POPULATION.html
+                                                      CREATE-INITIAL-INFECTED-COUNT-SLIDER.html
+                                                      CREATE-INITIAL-SUSCEPTIBLE-COUNT-SLIDER.html
+                                                      CREATE-INITIAL-VACCINATED-COUNT-SLIDER.html 
+                                                      CREATE-INFECTION-ODDS-SLIDER.html
+                                                      CREATE-DEATH-RATE-SLIDER.html
+                                                      CREATE-RATE-OF-RECOVERY-SLIDER.html 
+                                                      CREATE-FRACTION-OF-VACCINATIONS-THAT-TAKE.html
+                                                      CREATE-RATE-OF-LOSS-OF-IMMUNITY-SLIDER.html 
+                                                      CREATE-FRACTION-VACCINATED-AT-BIRTH-SLIDER.html]</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>How this works</h2>
+
+	<p>This adds many sliders at once.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+
+</body>
+
+</html>

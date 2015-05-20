@@ -1,0 +1,141 @@
+<html>
+
+<head>
+<title>Session 3b</title>
+</head>
+
+<body>
+<a name="top"></a>
+<h2>
+
+
+<p align="center">
+<b>
+<font color="#000080" size="5">Session 3b: Straight Line Motion (2) – Bouncing 
+</font> </b></p>
+</h2>
+
+
+
+
+<p> 
+<font color="#008000" size="4">
+Make an object move horizontally.
+</p>
+<p>Will it ever stop or change its direction? What happens when it hits the edge of the screen?</p>
+
+<p>The object will wrap around the screen unless you let it know when it is hitting a side – 
+and what it should do when it hits a side. 
+Add these two equations onto your object.</p>
+
+
+
+
+</font>
+
+<center>
+<div style='border:solid windowtext 1.0pt;'>
+
+<p>
+<b>
+<font color="#008000" size="4">   
+<font color="#000000"> 
+<p type="equation" version="2.0.0" replaceAppearance="equation" equationMathML="<apply><eq/><apply><mo>amIHittingASide</mo><ci>ME</ci><ci>t</ci></apply><apply><and/><apply><or/><apply><leq/><apply><mo>x</mo><ci>ME</ci><ci>t</ci></apply><cn>0</cn></apply><apply><geq/><apply><mo>x</mo><ci>ME</ci><ci>t</ci></apply><cn>799</cn></apply></apply><apply><neq/><apply><mo>Vx</mo><ci>ME</ci><ci>t</ci></apply><cn>0</cn></apply></apply></apply>">
+amIHittingASide(ME, t) =
+(x(ME, t)&#8804;0) or (x(ME,t)&#8805;799) and (Vx(ME,t)&#8800;0) 
+</p></font>
+<font color="#000000"> 
+<p type="equation" version="2.0.0" replaceAppearance="equation" equationMathML="<apply><eq/><apply><mo>Vx</mo><ci>ME</ci><ci>t</ci></apply><apply><plus/><apply><times/><apply><not/><apply><mo>amIHittingASide</mo><ci>ME</ci><apply><minus/><ci>t</ci><cn>1</cn></apply></apply></apply><apply><plus/><apply><mo>Vx</mo><ci>ME</ci><apply><minus/><ci>t</ci><cn>1</cn></apply></apply><apply><mo>Ax</mo><ci>ME</ci><apply><minus/><ci>t</ci><cn>1</cn></apply></apply></apply></apply><apply><times/><apply><mo>amIHittingASide</mo><ci>ME</ci><apply><minus/><ci>t</ci><cn>1</cn></apply></apply><apply><times/><apply><mo>Vx</mo><ci>ME</ci><apply><minus/><ci>t</ci><cn>1</cn></apply></apply><cn>-1</cn></apply></apply></apply></apply>">
+Vx(ME, t) =
+not(amIHittingASide(ME,t-1))×(Vx(ME,t-1) + Ax(ME,t-1)) +
+amIHittingASide(ME,t-1) ×Vx(ME,t-1) ×-1 
+</p></font> 
+</font> 
+
+</b>
+
+</p>
+
+</div>
+</center>
+
+
+
+
+
+
+
+
+
+<p>
+<font color="#008000" size="4"> 
+
+<table border="1" width="100%" id="table12">
+	<tr>
+		<td width="185">
+		<img border="0" src="Sessions_images/image005.gif" width="168" height="173">
+		</td>
+
+		<td>
+		<b>
+		
+
+
+		<p>
+		<font color="#008000" size="4">
+		<i>Group
+		Challenge:</i> 
+		
+		</font>
+		</p>
+
+		<p>
+		<font color="#008000" size="4">
+		Make an object move horizontally 
+		between two vertical walls (try different positions for the walls). 
+		Discuss, predict and construct.
+		</font>
+		</p>
+
+		<p>
+		<font color="#008000" size="4">
+		Make an object move vertically that will bounce off the floor. 
+		Discuss, predict and construct.
+		</font>
+		</p>
+
+		</b>
+		</td>
+	</tr>
+</table>
+
+
+
+<p></p>
+
+<table border="1" width="100%" id="table13">
+	<tr>
+		<td width="114">
+		<img border="0" src="Sessions_images/image002.gif" width="41" height="68">
+		</td>
+		<td><b>
+
+		<p> 
+            <font color="#008000" size="4">
+       	<center> <i>Challenge:</i> Can you make an 
+		object that bounces off all the edges like a snooker ball?</center>
+		</font>
+		</p>
+
+		</td>
+	</tr>
+</table>
+
+<p></p>
+
+<center><a href="#top">Top</a></center>
+
+
+</body>
+
+</html>

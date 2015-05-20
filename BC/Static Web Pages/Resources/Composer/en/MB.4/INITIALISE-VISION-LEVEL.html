@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>INITIALISE-VISION-LEVEL</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I initialise the distance along grid lines that I can see the amount 
+
+	of sugar on a patch.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>INITIALISE-VISION-LEVEL</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>set my-vision-level random-integer-between the-minimum-vision-level the-maximum-vision-level</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>Vision level need not be selected uniformly from the interval [<i>the-minimum-vision-level</i>,
+	<i>the-maximum-vision-level</i>] but 
+
+	can be real numbers or have other distributions.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="MOVE-TO-NEAREST-VISIBLE-PATCH-WITH-MAXIMUM-SUGAR" href="MOVE-TO-NEAREST-PREFERRED-VISIBLE-PATCH.html">
+	MOVE-TO-NEAREST-PREFERRED-VISIBLE-PATCH</a> uses this to scan 
+
+	north/south and east/west a distance of <i>my-vision-level</i> to select the 
+
+	best patch to move to. <a href="INITIALISE-AGENT.html">INITIALISE-AGENT</a> 
+	adds this micro-behaviour.</p>
+
+	<h2>How this works</h2>
+
+	<p>This sets <i>my-vision-level</i> to a random integer between <i>
+	the-minimum-vision-level</i> and <i>the-maximum-vision-level</i> 
+
+	inclusive.</p>
+
+	<h2>Source</h2>
+	<p>This is based upon page 24 of [1].</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+
+	<h2>References</h2>
+
+	<p>[1] <i>Growing Artificial Societies</i> by Joshua M. Epstein and Robert 
+
+	Axtell, Brookings Institute Press, The MIT Press, 1996.</p>
+
+</body>
+
+</html>

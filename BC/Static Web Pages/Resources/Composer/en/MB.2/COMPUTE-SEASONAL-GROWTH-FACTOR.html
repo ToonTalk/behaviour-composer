@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>COMPUTE-SEASONAL-GROWTH-FACTOR</title>
+
+</head>
+<body>
+
+
+	<h3><i>I compute the appropriate growth factor for the season of each patch.</i>
+
+	</h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>COMPUTE-SEASONAL-GROWTH-FACTOR </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for season-length-edit-area 50 
+substitute-text-area-for winter-growth-factor-edit-area 1 / 8  
+
+to-report seasonal-growth-factor 
+   let season-length season-length-edit-area
+   let winter-growth-factor winter-growth-factor-edit-area
+   let northern-hemisphere (pycor &gt;= max-pycor / 2)
+   ifElse time mod (season-length * 2) &gt; season-length
+     [ifElse northern-hemisphere [report 1] [report winter-growth-factor]]
+     [ifElse northern-hemisphere [report winter-growth-factor] [report 1]]
+end</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>You can experiment with a different <i>season-length</i> or <i>
+
+	winter-growth-factor</i>. </p>
+
+	<h2>How this works</h2>
+
+	<p>This adds to your model a new NetLogo reporter that can be used by any 
+
+	micro-behaviour. Here it defines <i>seasonal-growth-factor</i> that computes 
+
+	the growth factor of each patch in the model. Every <i>season-length</i> 
+
+	time units it switches factors between the southern and northern halves of 
+
+	Sugarscape. It is used by
+
+	<a title="GROW-SUGAR-SEASONALLY" href="GROW-SUGAR-SEASONALLY.html">
+
+	GROW-SUGAR-SEASONALLY</a>. </p>
+
+	<h2>Source</h2>
+	<p>Based upon page 44 of [1]. </p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn. </p>
+
+	<h2>References</h2>
+
+	<p>[1] <i>Growing Artificial Societies</i> by Joshua M. Epstein and Robert 
+
+	Axtell, Brookings Institute Press, The MIT Press, 1996.
+
+
+</body>
+
+
+</html>

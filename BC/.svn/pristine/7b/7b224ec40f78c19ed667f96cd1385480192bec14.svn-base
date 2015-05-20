@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>CREATE-RATE-OF-LOSS-OF-IMMUNITY-</title>
+
+</head>
+
+
+
+<body>
+
+
+
+<div id="bodyContent">
+
+	
+
+	<h3><i>I create a slider controlling the duration of vaccination.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>CREATE-RATE-OF-LOSS-OF-IMMUNITY-SLIDER</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for slider-variable-name the-average-duration-of-vaccination               
+substitute-text-area-for slider-upper-left-corner-x 625 
+substitute-text-area-for slider-upper-left-corner-y 10  
+substitute-text-area-for slider-lower-right-corner-x 875 
+substitute-text-area-for slider-lower-right-corner-y 50  
+substitute-text-area-for slider-minimum-value 1   
+substitute-text-area-for slider-maximum-value 5200
+substitute-text-area-for slider-increment 52  
+substitute-text-area-for slider-initial-value 1040
+
+create-slider 
+  &quot;slider-variable-name&quot;<i>&nbsp;; the name of the parameter (a global variable)</i>
+  &quot;slider-upper-left-corner-x&quot; &quot;slider-upper-left-corner-y&quot;&nbsp;<i>; upper left corner (from the upper left corner of the applet) </i>
+  &quot;slider-lower-right-corner-x&quot; &quot;slider-lower-right-corner-y&quot;&nbsp;<i>; lower right corner </i>
+  &quot;slider-minimum-value&quot; &quot;slider-maximum-value&quot;&nbsp;<i>; minimum and maximum value</i>
+  &quot;slider-increment&quot;<i>&nbsp;; increment</i> 
+  &quot;slider-initial-value&quot;&nbsp;<i>; initial value</i></pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>You can change the location, minimum and maximum values, increment, and 
+
+	initial value. The units are in weeks.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="POSSIBLY-LOSE-IMMUNITY" href="POSSIBLY-LOSE-IMMUNITY.html">
+
+	POSSIBLY-LOSE-IMMUNITY</a> uses the parameter defined by this slider.
+
+	<a title="CREATE-INFECTION-ODDS-SLIDER" href="CREATE-INFECTION-ODDS-SLIDER.html">
+
+	CREATE-INFECTION-ODDS-SLIDER</a>,
+
+	<a title="CREATE-DEATH-RATE-SLIDER" href="CREATE-DEATH-RATE-SLIDER.html">
+
+	CREATE-DEATH-RATE-SLIDER</a>,
+
+	<a title="CREATE-RATE-OF-RECOVERY-SLIDER" href="CREATE-RATE-OF-RECOVERY-SLIDER.html">
+
+	CREATE-RATE-OF-RECOVERY-SLIDER</a> and
+
+	<a title="CREATE-FRACTION-VACCINATED-AT-BIRTH-SLIDER" href="CREATE-FRACTION-VACCINATED-AT-BIRTH-SLIDER.html">
+
+	CREATE-FRACTION-VACCINATED-AT-BIRTH-SLIDER</a> create related sliders.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+
+<!-- Saved in parser cache with key dfl_wiki:pcache:idhash:1463-0!1!0!!en!2!edit=0 and timestamp 20080423113519 -->
+
+	<div class="printfooter">
+
+&nbsp;</div>
+
+						<!-- end content -->
+
+			<div class="visualClear">
+
+&nbsp;</div>
+
+	<div id="footer">
+
+&nbsp;</div>
+
+</div>
+
+
+
+</body>
+
+
+
+</html>
+

@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>DO-WITH-PROBABILITIES</title>
+<meta http-equiv="Content-Language" content="en-gb">
+</head>
+<body>
+	<h3><i>I add different behaviours depending upon how a random number 
+	compares with the given odds.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>DO-WITH-PROBABILITIES</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for odds-of-branch-1 0.2 
+substitute-text-area-for odds-of-branch-2 0.3 
+substitute-text-area-for odds-of-branch-3 0.0 
+substitute-text-area-for odds-of-branch-4 0.0 
+substitute-text-area-for odds-of-branch-5 0.0 
+substitute-text-area-for odds-of-branch-6 0.0 
+substitute-text-area-for odds-of-branch-7 0.0 
+substitute-text-area-for odds-of-branch-8 0.0 
+substitute-text-area-for odds-of-branch-9 0.0 
+substitute-text-area-for comment ; Notes                                                                                
+do-with-probabilities 
+   [odds-of-branch-1 list-of-micro-behaviours "Behaviours 1" []
+    odds-of-branch-2 list-of-micro-behaviours "Behaviours 2" []
+    odds-of-branch-3 list-of-micro-behaviours "Behaviours 3" []
+    odds-of-branch-4 list-of-micro-behaviours "Behaviours 4" []
+    odds-of-branch-5 list-of-micro-behaviours "Behaviours 5" []
+    odds-of-branch-6 list-of-micro-behaviours "Behaviours 6" []
+    odds-of-branch-7 list-of-micro-behaviours "Behaviours 7" []
+    odds-of-branch-8 list-of-micro-behaviours "Behaviours 8" []
+    odds-of-branch-9 list-of-micro-behaviours "Behaviours 9" []
+    ]
+comment</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>You can edit the box containing the odds. You can add micro-behaviours to 
+	either list by clicking on the micro-behaviour 
+	and navigating back to this page.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+	<p><a href="ADD-BEHAVIOURS.html">ADD-BEHAVIOURS</a> -- Adds behaviours</p>
+<p><a href="ADD-BEHAVIOURS-TO.html">ADD-BEHAVIOURS-TO</a> -- Adds behaviours 
+immediately to a specified agent or set of agents</p>
+	<p>
+
+	<a href="ADD-BEHAVIOURS-TO-LINKS.html">ADD-BEHAVIOURS-TO-LINKS</a> -- Adds 
+	micro-behaviours to links (rather than agents)</p>
+	<p><a href="REMOVE-BEHAVIOURS.html">REMOVE-BEHAVIOURS</a> -- Removes 
+	behaviours</p>
+<p><a href="REMOVE-BEHAVIOURS-FROM.html">REMOVE-BEHAVIOURS-FROM</a> -- Removes 
+	specified behaviours from an agent or set of agents</p>
+<p><a href="REMOVE-ALL-BEHAVIOURS.html">REMOVE-ALL-BEHAVIOURS</a> 
+-- Remove all behaviours</p>
+
+	<p><a href="REMOVE-ALL-BEHAVIOURS-FROM.html">REMOVE-ALL-BEHAVIOURS-FROM</a> -- Removes 
+	all behaviours from an agent or set of agents</p>
+
+	<p><a href="DO-WITH-PROBABILITY.html">DO-WITH-PROBABILITY</a> -- Adds 
+	behaviours probabilistically</p>
+<p><a href="DO-WITH-PROBABILITIES.html">DO-WITH-PROBABILITIES</a>&nbsp; -- 
+Choose which 
+set of behaviours to add probabilistically</p>
+	<p><a href="REPEATEDLY-DO-BEHAVIOURS.html">REPEATEDLY-DO-BEHAVIOURS</a> -- 
+	Adds behaviours repeatedly</p>
+	<p><a href="DO-AFTER.html">DO-AFTER</a> -- Delays the addition of a list of 
+	micro-behaviours</p>
+<p><a href="DO-AFTER-SETUP.html">DO-AFTER-SETUP</a> -- Delays the addition of a list of 
+micro-behaviours until setup has completed</p>
+	<p><a href="DO-AT-TIME.html">DO-AT-TIME</a> -- Schedules the addition of a list of 
+	micro-behaviours</p>
+	<p><a href="DO-IF.html">DO-IF</a> -- Runs actions if condition is true</p>
+	<p><a href="DO-IF-ELSE.html">DO-IF-ELSE</a> -- Runs one set of actions if 
+	condition is true and another set if condition is false</p>
+	<p><a href="WHEN.html">WHEN</a> -- Adds and removes micro-behaviours the first 
+time that conditions are true</p>
+<p><a href="WHENEVER.html">WHENEVER</a> -- Adds and removes micro-behaviours 
+every time conditions are true</p>
+	
+
+	<h2>How this works</h2>
+	<p>This relies upon the <b>
+	<a target="_blank" href="http://resources.modelling4all.org/documents/programming-guide#toc0">
+	do-with-probabilities</a></b> Modelling4All extension to NetLogo that produces a 
+	uniform random number between 0 and 1 and if it is less than or equal to
+	the first odds adds the first list of micro-behaviours otherwise if it is 
+	less than or equal to the sum of the first two odds the second list of 
+	micro-behaviours is added and so on..</p>
+	<h2>History</h2>
+	<p><a href="DO-WITH-PROBABILITIES.html">DO-WITH-PROBABILITIES</a> 
+	was first implemented by Ken Kahn on 21 February 2010. 
+
+</body>
+</html>

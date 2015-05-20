@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+
+
+
+<title>SIMPLE-REMOVE-LINK-DECISION</title>
+
+</head>
+<body>
+	<h3><i>I decide whether to break a link with another player.</i> </h3>
+
+	<p><font size="2" color="gray">Begin micro-behaviour</font>
+	</p>
+	<p><b>SIMPLE-REMOVE-LINK-DECISION </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-after .001
+   [if link-neighbor? my-other-player
+       [set my-remove-link-utility-gain
+            utility-of-network [] (list my-other-player) -
+            utility-of-network [] []
+        set my-decision-to-unlink my-remove-link-utility-gain &gt; 0
+        add-behaviours list-of-micro-behaviours "Remove Link if Agreed Behaviours" [REMOVE-A-LINK-IF-DECIDED.html]]]
+</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Related Micro-behaviours</h2>
+	<p>
+	<a title="SIMPLE-ADD-LINK-DECISION" href="SIMPLE-ADD-LINK-DECISION.html">
+	SIMPLE-ADD-LINK-DECISION</a> decides whether to add a link if none exists.
+	This uses
+
+	<a title="UTILITY-OF-NETWORK" href="UTILITY-OF-NETWORK.html">
+
+	UTILITY-OF-NETWORK</a> to compute the utility of the current network and the 
+	network with some additions and removals.</p>
+	<h2>How this works</h2>
+
+	<p>If the player I'm paired with is one of my links then if the utility of 
+	the network without the other player is greater I arrange for the link to be 
+	broken when <a href="REMOVE-A-LINK-IF-DECIDED.html">REMOVE-A-LINK-IF-DECIDED</a>
+	runs. This also records <i>my-remove-link-utility-gain</i> which can be used 
+	to gather statistics.</p>
+	<h2>History</h2>
+
+	<p>This was implemented by Ken Kahn.
+</body>
+</html>
+

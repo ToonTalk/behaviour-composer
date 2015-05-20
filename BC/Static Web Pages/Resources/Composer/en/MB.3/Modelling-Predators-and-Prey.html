@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-gb">
+
+<title>Guide to Modelling Predator-Prey Ecosystems</title>
+</head>
+
+<body>
+<font face="Arial">
+<h1>Guide to Modelling Predators-Prey Ecosystems</h1>
+<p>Here we describe how to build a model of a simple ecosystem consisting of 
+predators, prey, and plants using the
+<a target="_blank" href="http://modelling4all.nsms.ox.ac.uk/">BehaviourComposer</a>.</p>
+<p>This document has links to all the micro-behaviours needed to construct the 
+model. Additional behaviours are needed for building variants and enhancements. 
+They can be found in <a href="Full-Library.html">the full library of 
+micro-behaviours</a>.</p>
+<h2>Step 1. Create a prototypical predator</h2>
+<ol>
+	<li><font color="#800000">Rename</font> Prototype<sub>1</sub> to Wolf (or 
+	your favourite predator). Click on <a href="#_BehaviourComposer_">Composer Area</a> 
+	to go to the area containing Prototype<sub>1</sub>. Rename it by clicking on 
+	the button labelled Prototype<sub>1</sub>.&nbsp; After doing that return here by 
+	clicking on the <font color="#800000">Resources Area</font> at the top of 
+	the screen.</li>
+	<li>To set the shape of the wolf prototype go to the
+	<a href="SET-SHAPE.html">SET-SHAPE</a> micro-behaviour. Replace 'fish' with one of the supported shapes (e.g. 
+	'wolf 2' -- note that the space between the 'f' and the '2' is required). Click on the 'SET-SHAPE' micro-behaviour button and from the menu 
+	select <font color="#800000">Rename</font>. Edit the name to something more informative such as 
+	SET-WOLF-SHAPE and click <font color="#800000">Save</font>. Click on the 
+	renamed behaviour button to <font color="#800000">Add 
+	it to your prototype</font>.</li>
+	<li><font color="#800000">Open</font> <a href="SET-COLOR.html">SET-COLOR</a> 
+	and edit the colour. <font color="#800000">Rename</font> the behaviour to 
+	something more informative such as SET-WOLF-COLOR.
+	<font color="#800000">Add it to your prototype</font>.</li>
+	<li>Click on the <font color="#800000">Run</font> button in the
+	<a href="#_BehaviourComposer_">Composer Area</a>. A new window or tab will 
+	appear. Click on <font color="#800000">Setup</font> to see your predator.</li>
+	<li>(Optionally you may wish to use <a href="SET-SIZE.html">SET-SIZE</a> to 
+	make the appearance of your prey larger.)</li>
+</ol>
+<h2>Step 2. Create a prototypical prey</h2>
+<ol>
+	<li>Click on <font color="#800000">New Prototype</font> in the the
+	<a href="#_BehaviourComposer_">Composer Area</a>. <font color="#800000">
+	Rename</font> Prototype<sub>2</sub> to Sheep (or if you pick a different 
+	name then use that name later in the
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/INTERACT-WITH-ANOTHER.html#changes=kwj2SuB0UXPme_lmTsBs5h">EAT-A-SHEEP-ONCE</a> 
+	and
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-TO-PLOT.html#changes=EbqHCKp9Yc8ntu5Jum_V57">ADD-SHEEP-TO-PLOT</a>  
+	micro-behaviours).</li>
+	<li>Repeat step 1.2 with a different shape.</li>
+	<li>Repeat step 1.3.</li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>.</li>
+	<li>The location of the prototypes wasn't specified so they both begin in 
+	the centre on top of each other. <font color="#800000">Add</font>
+	<a href="SET-RANDOM-POSITION.html">SET-RANDOM-POSITION</a> to both to fix 
+	this.</li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>.</li>
+</ol>
+<p>You should end up with your Composer Build tab looking something like this:</p>
+<img border="0" src="images/predator-prey-guide-1.png" width="369" height="262"><h2>Step 3. Create an environment</h2>
+<p>Depending upon the colours and shapes you chose the agents may be hard to 
+see. Later we will model a renewable resource such as grass but for now just use
+<a href="SET-BACKGROUND-COLOR.html">SET-BACKGROUND-COLOR</a> to provide a good 
+background colour. <font color="#800000">Add it</font> to a
+<font color="#800000">New Prototype</font> and <font color="#800000">Rename</font> 
+it 'World', 'Environment', or the like. <font color="#800000">Add</font> <a href="HIDE.html">HIDE</a> 
+to your world prototype so you don't see its default 
+shape when running your model.</p>
+<h2>Step 4. Make the predators and prey move</h2>
+<p>We are planning on having interactions between agents occur when they occupy 
+the same space. At least one kind of agent needs to move to enable these 
+interactions. They could move in a goal-directed manner but for simplicity we 
+will make them all wander randomly.</p>
+<ol>
+	<li><font color="#800000">Add</font>
+	<a href="WANDER-RANDOMLY-BY-TURNING.html">WANDER-RANDOMLY-BY-TURNING</a> to 
+	both of your prototypes. With this behaviour they will turn randomly and 
+	move forward a constant amount each time step. (Optionally you can experiment 
+	with other <a href="Full-Library.html#Movement_section">movement behaviours</a>.)</li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>. Within the simulation 
+	applet you will see a 'switch' labelled
+	<font color="#800000">clocked</font>. If you toggle it to off then the applet will 
+	run as fast as possible.</li>
+</ol>
+<h2>Step 5. Make many predators and prey</h2>
+<p>We need an initial population of predators and prey.</p>
+<ol>
+	<li><font color="#800000">Open</font> <a href="ADD-COPIES.html">ADD-COPIES</a> 
+	and edit the 9 to the number of additional predators (in addition to the 
+	prototypical predator). <font color="#800000">Rename</font> the behaviour to 
+	something like ADD-INITIAL-WOLVES. (Optionally you can use
+	<a href="DEFINE-PARAMETER.html">DEFINE-PARAMETER</a> to define a parameter 
+	that specifies the number of predators to ease experimentation. Then replace 
+	the 9 with your parameter minus one.)</li>
+	<li>Repeat for the prey prototype.</li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>.</li>
+</ol>
+<h2>Step 6. Model the eating of prey by predators</h2>
+<p>To model predation we will have each predator eat one of they prey at the 
+same patch of the environment (if there is one). For simplicity we will have the 
+predators do this on every tick of the simulated clock. If we think of patches 
+as fairly large and clock ticks as several days this isn't so unrealistic. We 
+will model eating as the death of the prey and later will model the acquisition 
+of energy as the result of eating.</p>
+<ol>
+	<li>We have already constructed an
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/INTERACT-WITH-ANOTHER.html#changes=kwj2SuB0UXPme_lmTsBs5h">EAT-A-SHEEP-ONCE</a> 
+	micro-behaviour by customising a copy of <b><span style="font-weight: 400">
+	<a href="INTERACT-WITH-ANOTHER.html">INTERACT-WITH-ANOTHER</a> to 
+	randomly pick a prey at the patch the predator is occupying and if there is 
+	one to add the <a href="DIE.html">DIE</a> behaviour to it.
+	</span> </b></li>
+	<li>To cause the predators to repeatedly eat prey open
+	<a href="REPEATEDLY-DO-BEHAVIOURS.html">REPEATEDLY-DO-BEHAVIOURS</a>, click 
+	on
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/INTERACT-WITH-ANOTHER.html#changes=kwj2SuB0UXPme_lmTsBs5h">EAT-A-SHEEP-ONCE</a> and select the <font color="#800000">Add to a List
+	</font>menu item, and navigate back to  
+	REPEATEDLY-DO-BEHAVIOURS, and add it to the 'Behaviours'. It should look 
+	like this:<br>
+	<img border="0" src="images/predator-prey-2.png" width="590" height="249"></li>
+	<li><font color="#800000">Rename</font> REPEATEDLY-DO-BEHAVIOURS to 
+	EAT-SHEEP or the like. <font color="#800000">Add</font> your behaviour to 
+	the predator.</li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>. We have a problem. Because 
+	the ADD-INITIAL-WOLVES is run before the EAT-SHEEP behaviour is added the 
+	wolf copies don't have the EAT-SHEEP behaviour -- only the original 
+	prototypical wolf does. To fix this click on EAT-SHEEP and select
+	<font color="#800080">Move Up</font>. <font color="#800000">Run</font> your model 
+	again in the
+	<a href="#_BehaviourComposer_">Composer Area</a>.</li>
+</ol>
+<h2>Step 7. Model energy collection and consumption</h2>
+<p>We can model energy by introducing an attribute of each predator that is the 
+amount of energy it has. Predators lose energy each time step and gain energy when eating some prey. 
+We will start the model with the energy of predators uniformly distributed.</p>
+<ol>
+	<li>Customise and <font color="#800000">rename</font> <a href="UPDATE-ATTRIBUTE.html">
+	UPDATE-ATTRIBUTE</a> so that the first text boxes defines an attribute named 'my-energy'. (The 
+	BehaviourComposer automates the task of declaring attributes if their name 
+	begins with &quot;my-&quot;.) Add it to the predator prototype and the list of of
+	<font color="#800000">Additional Behaviours</font> in the behaviour that 
+	produces many copies of the predator prototype. To give predators different 
+	amounts of initial energy the initial value can be an expression such as <i>
+	random-integer-between 1 40. </i>Alternatively, you can specify a parameter 
+	using<i> </i>
+	<a href="DEFINE-PARAMETER.html">DEFINE-PARAMETER</a> so the 40 can be 
+	changed at run time. It should look something like this:<br>
+	<img border="0" src="images/predator-prey-guide-3.png" width="663" height="262"></li>
+<li>Customise and <font color="#800000">rename</font> 
+
+	<a href="UPDATE-ATTRIBUTE-REPEATEDLY.html">UPDATE-ATTRIBUTE-REPEATEDLY</a> 
+	so that <i>my-energy</i> is set to <i>my-energy - 1</i>. (Note that NetLogo 
+requires spaces on both sides of the minus sign.) Add it to the predator 
+prototype. <font color="#800000">Move</font> this behaviour so it is before the 
+ADD-INITIAL-WOLVES behaviour. It should look like this:<br>
+<img border="0" src="images/predator-prey-guide-4.png" width="487" height="270"></li>
+	<li>Customise and <font color="#800000">rename</font> <a href="UPDATE-ATTRIBUTE.html">
+	UPDATE-ATTRIBUTE</a> again. Specify that <i>my-energy</i> is set to <i>
+	my-energy + 20.</i> <font color="#800000">Add</font> this micro-behaviour to the
+	'My Additional Behaviours' list in the
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/INTERACT-WITH-ANOTHER.html#changes=kwj2SuB0UXPme_lmTsBs5h">EAT-A-SHEEP-ONCE</a> behaviour.</li>
+	<li>
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/WHENEVER.html#changes=rdDlm0GB9Swu0d5uaNVL44">DIE-WHEN-NO-ENERGY</a> was created by customising
+	<a href="WHENEVER.html">WHENEVER</a>. <font color="#800000">Add</font> it to 
+	the predator prototype<font color="#800000">. </font><font color="#800080">
+	Move</font> this behaviour so it is before the ADD-INITIAL-WOLVES behaviour.</li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>. Can any predators survive? 
+	Can any prey?</li>
+</ol>
+<h2>Step 8. Draw population graphs as the model unfolds</h2>
+<ol>
+	<li>First to create an empty graph we <font color="#800000">add</font> to
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/CREATE-EMPTY-AUTO-PLOT.html#changes=3aGpMKqA__AQoB-vfx5J47">CREATE-EMPTY-POPULATIONS-PLOT</a> to a 
+	<font color="#800000">new prototype</font>
+	<font color="#800000">renamed</font> to Observer or the like.
+	<font color="#800000">Add</font> <a href="HIDE.html">HIDE</a> to the 
+	prototype so you don't see it in the model animation.</li>
+<li><font color="#800000">Add</font>
+<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-TO-PLOT.html#changes=THK8oK06xUZg4I7y6oU15d">ADD-WOLVES-TO-PLOT</a> and
+<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-TO-PLOT.html#changes=hnZwH05Ae4idK-5iYA0548">ADD-SHEEP-TO-PLOT</a> to the Observer prototype.</li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>. </li>
+</ol>
+<h2>Step 9. Model predator reproduction</h2>
+<p>A very simple way to model reproduction is that each individual reproduces 
+with some odds on each time step. For many purposes of studying predators and 
+prey there is no need to model gender, sexual maturity, and sexual encounters.</p>
+<ol>
+	<li><font color="#800000">Open </font> <a href="DO-WITH-PROBABILITY.html">
+	DO-WITH-PROBABILITY</a><font color="#800000">, </font>edit the probability field, and
+	<font color="#800000">rename</font> to something like WOLF-REPRODUCE-ONCE . We will 
+	split the energy between the parent and offspring. To do so
+	customise, and <font color="#800000">rename</font> <a href="UPDATE-ATTRIBUTE.html">
+	UPDATE-ATTRIBUTE</a> again. Specify that <i>my-energy</i> is set to <i>
+	my-energy / 2</i>. Add this behaviour to the Behaviours list on 
+	WOLF-REPRODUCE-ONCE. <font color="#800000">Open</font> <a href="ADD-COPIES.html">ADD-COPIES</a> 
+	and change the 9 to 1. <font color="#800000">Rename</font> the behaviour to 
+	something like ADD-A-WOLF. Add it to the the Behaviours list on 
+	WOLF-REPRODUCE-ONCE. It is important the energy is halved before the agent 
+	is copied so that the copy also gets half the energy.</li>
+	<li><font color="#800000">Open</font>
+	<a href="REPEATEDLY-DO-BEHAVIOURS.html">REPEATEDLY-DO-BEHAVIOURS</a>,
+	<font color="#800000">rename</font> it to WOLF-REPRODUCE, add 
+	WOLF-REPRODUCE-ONCE its list of behaviours. <font color="#800000">Add</font> 
+	WOLF-REPRODUCE to the predator prototype.</li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>. </li>
+</ol>
+<h2>Step 10. Model prey reproduction</h2>
+<p>Do the same as step 9 possibly with a different probability or parameter. You 
+can reuse the behaviour for splitting the energy.</p>
+<h2>Step 11. Model vegetation</h2>
+<p>We can introduce plants that the prey eats. After being eaten plants 
+replenish themselves after a delay.</p>
+<ol>
+	<li>Create a <font color="#800000">new prototype</font> called Grass and
+	<font color="#800000">add</font>
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/ADD-COPIES.html#changes=UhQhp0RzVmSanFj1wVfa68">
+	MAKE-GRASS</a> to it. This creates one grass agent for each patch of the 
+	world.</li>
+	<li>Because grass doesn't move we will display it by setting the colour of 
+	the underlying patch. <font color="#800000">Add</font>
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/SET-SIZE.html#changes=HNk1OK9GAAuZrxhRJR7P44">GRASS-IS-ZERO-SIZE</a> to the prototype. Move it before the MAKE-GRASS 
+	behaviour so that all grass agents have zero size.</li>
+	<li>To spread the grass out one per patch <font color="#800000">add</font>
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/DO-AFTER-SETUP.html#changes=zhD19utsADivGcmbD4oh58">
+	LAYOUT-GRASS-AFTER-SETUP</a> to <b>the prototype that sets the grass green</b>. 
+	(If you were to add this to the grass prototype then this would be run 
+	hundreds of times -- once for each grass agent.)</li>
+	<li><font color="#800000">Add</font>
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/REPEATEDLY-DO-BEHAVIOURS.html#changes=CaGc90nBM5l4kHKLH0Bn4d">EAT-GRASS</a> to your prey prototype. This repeatedly eats any green grass 
+	that is in the same patch as the prey. Eating entails gaining energy, 
+	setting the grass brown, and scheduling its recovery.</li>
+	<li><font color="#800000">Add</font>
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/WHENEVER.html#changes=rdDlm0GB9Swu0d5uaNVL44">DIE-WHEN-NO-ENERGY</a> 
+	to the prey prototype. Make sure that the ADD-SHEEP micro-behaviour is last 
+	so that these micro-behaviours are added to all the prey.</li>
+	<li>Add
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-TO-PLOT.html#changes=4U8yK0VoPg1zeh7B71gB6a">ADD-GRASS-TO-PLOT</a> to the Observer prototype to graph the amount of green 
+	grass (divided by 4 to have comparable scales).</li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>. Compare the fluctuations 
+	of the predator and prey with and without plants.</li>
+</ol>
+<h2>Step 12. Help us improve this course</h2>
+<p>Please fill in this
+<a target="_blank" href="https://spreadsheets.google.com/viewform?formkey=dDdzSGdQOER0djJHdVUybXpGZ2hwLXc6MA">
+short questionnaire</a>.</p>
+<p>This guide was inspired by the
+
+
+<a target="_blank" href="http://ccl.northwestern.edu/netlogo/models/WolfSheepPredation">
+NetLogo Wolf Sheep Predation model</a>. It runs significantly faster than the 
+model constructed here. You may wish to experiment with it.</p>
+<p>Here is a
+<a href="http://modelling4all.nsms.ox.ac.uk/Model/?frozen=Wvqk5urvlG-EM0Nktwj654&MforAllModel=1">sample model</a> that adds sliders for several of the parameters of this model 
+for easy experimentation.</p>
+</font>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+
+<title>VACCINATE-N-RANDOM-SUSCEPTIBLE-ACQUAINTANCES-OF-THE-INFECTED </title>
+
+</head>
+<body>
+
+	<h3><i>After a delay I vaccinate some number of susceptible individuals who 
+	have an acquaintance who is infected.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>VACCINATE-N-RANDOM-SUSCEPTIBLE-ACQUAINTANCES-OF-THE-INFECTED</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-after the-time-of-vaccination - 0.001
+   [do-for-n the-vaccine-count all-susceptibles-who-have-an-infected-acquaintance
+       [do-with-probability the-fraction-of-vaccinations-that-take
+           [add-behaviours list-of-micro-behaviours "Behaviours when vaccinated" [SET-STATE-VACCINATED.html]]]]</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants</span></h2>
+<p><span class="mw-headline">The 
+<a href="http://resources.modelling4all.org/documents/programming-guide#toc0">do-after</a> command could be replaced by a 
+<a target="_blank" href="http://resources.modelling4all.org/documents/programming-guide#toc0">when</a> command that specifies a 
+condition, e.g. when the number of infected individuals exceeds a threshold.</span></p>
+<h2>Related Micro-behaviours</h2>
+	<p>
+
+	<a title="CREATE-INITIAL-VACCINATED-COUNT-SLIDER" href="CREATE-VACCINE-COUNT-SLIDER.html">
+	CREATE-VACCINE-COUNT-SLIDER</a> controls <i>
+
+	the-initial-vaccine-count</i>. 
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB/CREATE-SLIDER.html#changes=MgW-oKsyl_xg3q1aAwmQ5h">
+	CREATE-TIME-OF-VACCINATION-SLIDER</a> is customised to control <i>
+	the-time-of-vaccination</i>.</p>
+	<p>
+
+	This micro-behaviour relies upon
+
+	<a title="SET-STATE-VACCINATED" href="SET-STATE-VACCINATED.html">
+
+	SET-STATE-VACCINATED</a> to set the state of the copies to &quot;vaccinated&quot;.&nbsp;
+<a href="REPORT-ALL-SUSCEPTIBLES-WHO-HAVE-AN-INFECTED-ACQUAINTANCE.html">
+	REPORT-ALL-SUSCEPTIBLES-WHO-HAVE-AN-INFECTED-ACQUAINTANCE</a> computes the 
+	set of individuals who are susceptible to infection who have an acquaintance 
+	that is already infected.
+
+	</p>
+<p>
+
+<a href="VACCINATE-N-RANDOM-INDIVIDUALS.html">VACCINATE-N-RANDOM-INDIVIDUALS</a> 
+	differs from this in that it doesn't target those who have acquaintances who 
+	are infected.</p>
+
+	<h2>How this works</h2>
+
+	<p>This selects <i>the-vaccine-count</i> from the population of all susceptible individuals 
+	who have at least one acquaintance that is infected and adds the
+
+	<a title="SET-STATE-VACCINATED" href="SET-STATE-VACCINATED.html">SET-STATE-VACCINATED</a> 
+	micro-behaviour to each of them with a probability of <i>the-fraction-of-vaccinations-that-take</i>. 
+	Note that this assumes that the social network is symmetric so that all 
+	acquaintance relations are bi-directional. This simplifies the coding since 
+	we don't need to find the individuals to vaccinate starting with those 
+	infected. The actions are delayed by the value of <i>the-time-of-vaccination</i> 
+	which has a tiny number subtracted from it in order to ensure that this runs 
+	before the next encounter event.</p>
+	<p>
+	<a target="_blank" href="http://resources.modelling4all.org/documents/programming-guide#toc1">
+	do-for-n</a> selects n agents and
+	<a target="_blank" href="http://resources.modelling4all.org/documents/programming-guide#toc1">
+	do-with-probability</a> does the action probabilistically.</p>
+
+	<h2>History</h2>
+	<p>This was implemented by Ken Kahn.</p>
+</body>
+</html>

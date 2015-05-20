@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<title>UPDATE-PATCH-COLOUR</title>
+
+</head>
+
+<body>
+	<h3><i>Each patch of the Sugarscape repeatedly compute their colour depending 
+
+	upon how much sugar has accumulated.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>UPDATE-PATCH-COLOUR </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-every 1
+   [ask-every-patch
+        [set pcolor 49 - sugar-of-patch]]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>You could use the colour to depict other attributes or use a different 
+
+	colour scheme. </p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="GROW-SUGAR-DELAYED" href="GROW-SUGAR-DELAYED.html">
+
+	GROW-SUGAR-DELAYED</a> is the process that updates the accumulated sugar of 
+
+	each patch. </p>
+
+	<h2>How this works</h2>
+
+	<p>In
+
+	<a target="_blank" class="external text" title="http://ccl.northwestern.edu/netlogo/docs/programming.html#colors" rel="nofollow" href="http://ccl.northwestern.edu/netlogo/docs/programming.html#colors">
+
+	NetLogo's colour scheme</a> yellow is represented by the number 45. Lighter 
+
+	shades of yellow range between 45 and 49. On every <i>tick</i> every 
+
+	patch sets it colour to a shade of yellow. This code assumes that 
+
+	accumulated sugar ranges from 0 to 4. </p>
+
+	<h2>Source</h2>
+	<p>Based upon page 21 of [1]. </p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn. </p>
+
+	<h2>References</h2>
+
+	<p>[1] <i>Growing Artificial Societies</i> by Joshua M. Epstein and Robert 
+
+	Axtell, Brookings Institute Press, The MIT Press, 1996. </p>
+
+</body>
+</html>

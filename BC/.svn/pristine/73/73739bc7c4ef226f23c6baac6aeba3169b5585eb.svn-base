@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>REPRODUCE</title>
+
+</head>
+
+<body>
+
+	<h3><i>If I'm old enough then I reproduce whenever I come close to a 
+
+	conspecific (an organism of the same species) with some probability.</i> 
+	</h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>REPRODUCE</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>
+substitute-text-area-for odds-expression random-number-between 0 1 &lt; .333                                                              
+substitute-text-area-for age-expression (time - my-birth) &gt; my-minimum-reproduction-age                                               
+substitute-text-area-for distance-expression can-pick-one all-individuals with [distance-to-me &lt; 2 and my-species = [my-species] of myself]
+whenever [odds-expression and
+          age-expression and
+          distance-expression]
+  [add-behaviours list-of-micro-behaviours "Reproduction Behaviours" [UPDATE-MINIMUM-REPRODUCTION-AGE.html ADD-SOME-OFFSPRING.html]]</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<p>This code expects objects to have attributes called <i>my-species</i>, <i>
+
+	my-birth</i>, and <i>minimum-reproduction-age</i>. These can be set by and
+
+	<a title="SET-SPECIES" href="SET-SPECIES.html">
+
+	SET-SPECIES</a>,
+
+	<a title="AGE-IS-ZERO" href="AGE-IS-ZERO.html">
+
+	AGE-IS-ZERO</a>, and
+
+	<a title="UPDATE-MINIMUM-REPRODUCTION-AGE" href="UPDATE-MINIMUM-REPRODUCTION-AGE.html">
+
+	UPDATE-MINIMUM-REPRODUCTION-AGE</a>.</p>
+
+	<h2>Variants</h2>
+
+	<p>You can change the probability, add other conditions (e.g. age and 
+
+	gender), and change the minimum distance of an encounter from 2. You can 
+
+	also change the
+
+	<a title="ADD-SOME-OFFSPRING" href="ADD-SOME-OFFSPRING.html">
+
+	ADD-SOME-OFFSPRING</a> micro-behaviour to change the number and properties of 
+
+	the offspring. Or change
+
+	<a title="UPDATE-MINIMUM-REPRODUCTION-AGE" href="UPDATE-MINIMUM-REPRODUCTION-AGE.html">
+
+	UPDATE-MINIMUM-REPRODUCTION-AGE</a> to control how soon again this can 
+
+	reproduce.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>This relies upon the
+
+	<a title="ADD-SOME-OFFSPRING" href="ADD-SOME-OFFSPRING.html">
+
+	ADD-SOME-OFFSPRING</a> and
+
+	<a title="UPDATE-MINIMUM-REPRODUCTION-AGE" href="UPDATE-MINIMUM-REPRODUCTION-AGE.html">
+
+	UPDATE-MINIMUM-REPRODUCTION-AGE</a> micro-behaviours.</p>
+
+	<h2>How this works</h2>
+
+	<p>The conditions between &quot;whenever&quot; and &quot;do-now&quot; are evaluated whenever the 
+
+	time changes. In this case it evaluates to true if random number is less 
+
+	than one third, my age is old enough, anyone is close to me that is of my 
+
+	species. If this is true then this objects gets two new behaviours:
+
+	<a title="ADD-SOME-OFFSPRING" href="ADD-SOME-OFFSPRING.html">
+
+	ADD-SOME-OFFSPRING</a> and
+
+	<a title="UPDATE-MINIMUM-REPRODUCTION-AGE" href="UPDATE-MINIMUM-REPRODUCTION-AGE.html">
+
+	UPDATE-MINIMUM-REPRODUCTION-AGE</a>.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+
+</body>
+</html>

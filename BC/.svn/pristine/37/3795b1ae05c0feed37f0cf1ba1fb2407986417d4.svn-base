@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>ADD-BEHAVIOURS-TO-LINK-FROM</title>
+<meta http-equiv="Content-Language" content="en-gb">
+</head>
+<body>
+	<h3><i>I add behaviours to the link from another to me.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>ADD-BEHAVIOURS-TO-LINK-FROM</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for other-end-of-the-link the-other                     
+add-behaviours-to-link-from list-of-micro-behaviours "Behaviours" [] other-end-of-the-link</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>Just add micro-behaviours to the list by clicking on the micro-behaviour 
+	and navigating back to this page. You can change the expression that 
+	specifies who is at the other end of the link.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+	<p>
+
+	<a href="ADD-BEHAVIOURS-TO-LINK-TO.html">ADD-BEHAVIOURS-TO-LINK-TO</a> 
+	add behaviours to the link to another from me. <a href="ADD-BEHAVIOURS.html">ADD-BEHAVIOURS</a> 
+	adds behaviours to the agent.</p>
+<p>
+
+	Note only some behaviours make sense for a link. For example,
+	<a href="SET-COLOR.html">SET-COLOR</a> works fine but
+	<a href="SET-SHAPE.html">SET-SHAPE</a> makes no sense.</p>
+
+	<h2>History</h2>
+	<p>This was first implemented by Ken Kahn on 6 October 2009. 
+
+</body>
+</html>
+

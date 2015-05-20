@@ -1,0 +1,105 @@
+
+to-report distancexyz [x y z]
+ report 0
+end
+
+to-report distancexyz-nowrap [x y z]
+ report 0
+end
+
+to-report dz
+ report 0
+end
+
+to-report patch-at-heading-pitch-and-distance [h p d]
+ report 0
+end
+
+to tilt-down [n]
+end
+
+to tilt-up [n]
+end
+
+to roll-left [n]
+end
+
+to roll-right [n]
+end
+
+to setxyz [x y z]
+end
+
+to-report towards-pitch [a]
+ report 0
+end
+
+to-report towards-pitch-nowrap [a]
+ report 0
+end
+
+to-report towards-pitch-xyz [x y z]
+ report 0
+end
+
+to-report towards-pitch-xyz-nowrap  [x y z]
+ report 0
+end
+
+to-report neighbors6
+ report 0
+end
+
+to-report max-pzcor
+ report 0
+end
+
+to-report min-pzcor
+ report 0
+end
+
+to-report random-pzcor
+ report 0
+end
+
+to-report random-zcor
+ report 0
+end
+
+to-report world-depth
+ report 0
+end
+
+to facexyz [x y z]
+end
+
+to orbit-down [n]
+end
+
+to orbit-left [n]
+end
+
+to orbit-right [n]
+end
+
+to orbit-up [n]
+end
+
+to-report oxcor
+ report 0
+end
+
+to-report oycor
+ report 0
+end
+
+to-report ozcor
+ report 0
+end
+
+to zoom [n]
+end
+
+to-report link-pitch
+ report 0
+end

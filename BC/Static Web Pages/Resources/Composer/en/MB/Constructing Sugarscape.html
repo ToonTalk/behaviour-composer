@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<title>Constructing Sugarscape</title>
+</head>
+
+<body>
+
+<h1 class="firstHeading">Constructing Sugarscape</h1>
+<div id="bodyContent">
+	<!-- start content -->
+			<p>Issues that arose while constructing Sugarscape in the 
+			BehaviourComposer: </p>
+	<ul>
+		<li>Geography of Sugarscape not specified precisely. My version looks 
+		pretty close but is it? And it is not a good terrain given that it wraps 
+		since there are artefacts in the upper left and lower right corners.
+		</li>
+	</ul>
+	<ul>
+		<li>Sequential update in the implementation of move. The parallel 
+		version is better but as footnote 12 points out then conflict resolution 
+		needs to be addressed.
+		</li>
+	</ul>
+	<ul>
+		<li>Some agents in
+		<a class="external free" title="http://www.brook.edu/es/dynamics/sugarscape/animations/AnimationII.mov" rel="nofollow" href="http://www.brook.edu/es/dynamics/sugarscape/animations/AnimationII.mov">
+		http://www.brook.edu/es/dynamics/sugarscape/animations/AnimationII.mov</a> 
+		don't move or die. It took a while to understand why. Since the 
+		grow-back happens before move there is no need to move unless you see 
+		better capacity sites.
+		</li>
+	</ul>
+	<ul>
+		<li>The seasonal migration on page 44 isn't reproducible. Since the 
+		agents can only see in compass directions they don't know there is 
+		something better at a diagonal. Not clear if they mixed up versions.
+		</li>
+	</ul>
+	<ul>
+		<li>When pollution diffusion begins the agents move to patches with 
+		neighbours that have a lower sugar capacity since they have less 
+		pollution. No mention of this in the book. Perhaps because I do a 
+		simultaneous update in the code for diffusion?
+		</li>
+	</ul>
+	<ul>
+		<li>Pollution seems to produce a more equal distribution of wealth. 
+		Maybe since it forces agents to move off of high sugar capacity</li>
+	</ul>
+</div>
+
+</body>
+
+</html>

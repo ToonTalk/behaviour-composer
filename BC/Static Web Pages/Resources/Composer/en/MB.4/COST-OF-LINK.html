@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+
+<title>COST-OF-LINK</title>
+</head>
+<body>
+	<h3><i>I report the direct cost of a link taking into account group 
+	membership.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>COST-OF-LINK</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>to-report cost-of-link [group1 group2]
+   ifElse group1 = group2
+     [report the-same-group-direct-link-cost]
+     [report the-direct-link-cost]
+end
+</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>Other cost functions can replace this one.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+	<p>This is used by
+
+	<a href="TOTAL-COST.html">TOTAL-COST</a>. <a href="SET-MY-GROUP.html">SET-MY-GROUP</a> defines
+	<i>my-group</i>. <a href="DIRECT-LINK-SAME-GROUP-COST-SLIDER.html">DIRECT-LINK-SAME-GROUP-COST-SLIDER</a> 
+	and <a href="DIRECT-LINK-BENEFIT-SLIDER.html">DIRECT-LINK-BENEFIT-SLIDER</a> 
+	define the parameters of this function.
+</p>
+
+	<h2>How this works</h2>
+
+	<p>If the groups are the same it uses <i>the-same-group-direct-link-cost</i> 
+	parameter, otherwise <i>the-direct-link-cost</i>.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was first implemented by Ken Kahn on 1 September 2008.</p>
+
+</body>
+</html>

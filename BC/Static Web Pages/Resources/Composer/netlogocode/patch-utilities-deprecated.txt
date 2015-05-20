@@ -1,0 +1,38 @@
+; should replace the following with code that uses agentsets instead
+to-report unoccupied-patches [list-of-patches]
+ let result []
+ foreach list-of-patches
+         [if not any? (objects-on ?) with [not hidden?] [set result fput ? result]]
+ report result
+end
+
+; should replace the following with code that uses agentsets instead
+to-report patches-between [min-x max-x min-y max-y]
+ ; patches are ordered most distance first but ties are ordered randomly
+ set min-x int min-x
+ set min-y int min-y
+ set max-x int max-x
+ set max-y int max-y
+ if min-x > max-x [report []]
+ if min-y > max-y [report []]
+ if min-x = max-x [if min-y = max-y [report (list patch-with-coordinates min-x min-y)]
+                   report add-both-to-list patch-with-coordinates min-x min-y 
+                                           patch-with-coordinates min-x max-y
+                                           patches-between min-x max-x (min-y + 1) (max-y - 1)]
+ if min-y = max-y [report add-both-to-list patch-with-coordinates min-x min-y 
+                                           patch-with-coordinates max-x min-y
+                                           patches-between (min-x + 1) (max-x - 1) min-y max-y]
+ ; to do -- need to go around the outside so that the list is sorted by distance to the center
+end
+
+to-report add-both-to-list [a b l]
+ if-else random 2 = 0 
+    [report fput a fput b l]
+    [report fput b fput a l]
+end
+
+to-report patch-with-coordinates [x y]
+ if horizontally-wrapping [set x canonical-coordinate x min-pxcor world-width]
+ if vertically-wrapping [set y canonical-coordinate y min-pycor world-height]
+ report patch x y
+end

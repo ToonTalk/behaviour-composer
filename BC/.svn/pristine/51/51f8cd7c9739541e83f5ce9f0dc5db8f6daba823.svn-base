@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Modeller</title>	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+		<!--  Using IE8 compatibility due to bug with iframe of applet causing reload of entire page  -->
+		<meta http-equiv="X-UA-Compatible" content="IE=8" />
+		<!--                                           -->
+		<!-- This script loads your compiled module.   -->
+		<!-- If you add any GWT meta tags, they must   -->
+		<!-- be added before this line.                -->
+		<!--                                           -->
+		<script language='javascript' src='/Model/Model.nocache.js'></script>
+		<LINK REL=StyleSheet HREF="/Model/css/modelling4all.css" TYPE="text/css">
+		<meta name="google-translate-customization" content="da72cfbd818dc92b-5173b1fc131e1986-geef08f0d41c2a45d-11"></meta>
+	</head>
+	<body>
+	    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+    <noscript>
+      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+        Your web browser must have JavaScript enabled
+        in order for this application to function correctly.
+      </div>
+    </noscript>
+<div id="google_translate_element"></div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true, gaId: 'UA-7427524-2'}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	    <span id="initialloadingmessage" style="font-size: large; font-weight: bold;">&nbsp;Modelling4All's Behaviour Composer is loading. Please wait.</span>
+		<iframe src="javascript:''" id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-7427524-2']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+	</body>
+</html>

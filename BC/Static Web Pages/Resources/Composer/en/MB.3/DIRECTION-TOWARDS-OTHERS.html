@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>DIRECTION-TOWARDS-OTHERS</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I update my desired direction to head toward those in my local 
+
+	interaction zone if not in my personal space.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>DIRECTION-TOWARDS-OTHERS</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for cycle-duration 1                      
+       
+do-every cycle-duration
+   [ask all-individuals with [distance-between the-personal-space the-local-interaction]
+        [set my-next-desired-direction
+             add my-next-desired-direction
+                 unit-vector subtract location myself my-location]]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>The variable <i>the-personal-space</i> in the above is the value of &#945; in [1]. 
+
+	It can be defined and changed by a slider defined in
+
+	<a title="CREATE-SLIDER-FOR-PERSONAL-SPACE" href="CREATE-SLIDER-FOR-PERSONAL-SPACE.html">
+
+	CREATE-SLIDER-FOR-PERSONAL-SPACE</a>. The variable <i>the-local-interaction</i> 
+
+	is the zone of local interaction or the value of &#961; in [1]. It is defined by 
+
+	the slider in
+
+	<a title="CREATE-SLIDER-FOR-LOCAL-INTERACTION" href="CREATE-SLIDER-FOR-LOCAL-INTERACTION.html">
+
+	CREATE-SLIDER-FOR-LOCAL-INTERACTION</a>.</p>
+
+	<p>If you add <i>and abs angle-from-me &lt;= cone-of-vision</i> to <i>
+
+	distance-between the-personal-space the-local-interaction</i> then only those who 
+
+	are within my cone of vision will be considered. <i>cone-of-vision</i> can 
+
+	be defined by a slider as a variable that ranges from 0 to 180 degrees.</p>
+	<p>You can change the frequency that this runs by changing the <i>1</i>.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="DIRECTION-TO-AVOID-OTHERS" href="DIRECTION-TO-AVOID-OTHERS.html">
+
+	DIRECTION-TO-AVOID-OTHERS</a> sets my desired direction away from those too 
+
+	close to me.
+
+	<a title="DIRECTION-TO-ALIGN-WITH-OTHERS" href="DIRECTION-TO-ALIGN-WITH-OTHERS.html">
+
+	DIRECTION-TO-ALIGN-WITH-OTHERS</a> aligns with those within my local 
+
+	interaction range and
+
+	<a title="INFORMED-DIRECTION" href="INFORMED-DIRECTION.html">
+
+	INFORMED-DIRECTION</a> implements a preferred direction.</p>
+
+	<p>Note that the desired-direction is used by
+
+	<a title="TURN-IN-DIRECTION-AT-MAXIMUM-SPEED" href="TURN-IN-DIRECTION-AT-MAXIMUM-SPEED.html">
+
+	TURN-IN-DIRECTION-AT-MAXIMUM-SPEED</a> to turn me.</p>
+
+	<p>
+
+	<a title="DIRECTION-TOWARDS-OTHERS-DELAYED" href="DIRECTION-TOWARDS-OTHERS-DELAYED.html">
+
+	DIRECTION-TOWARDS-OTHERS-DELAYED</a> runs this with a delay.</p>
+
+	<h2>How this works</h2>
+
+	<p>This adds a vector to me from each of the others whose distance is 
+
+	between the <i>the-personal-space</i> and <i>the-local-interaction</i>. It 
+	implements part of equation 2 in [1].</p>
+
+	<p>
+
+	<img alt="Image:couzin_formula2.png" src="images/Couzin_formula2.png" border="0" width="431" height="56">
+
+	</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+
+	<h2>References</h2>
+
+	<p>[1] Couzin, I.D., Krause, J., Franks, N.R. &amp; Levin, S.A.(2005)
+
+	<a class="external text" title="http://www.princeton.edu/~icouzin/Couzinetal2005.pdf" rel="nofollow" href="http://www.princeton.edu/~icouzin/Couzinetal2005.pdf">
+
+	Effective leadership and decision making in animal groups on the move</a> 
+
+	Nature 433, 513-516.</p>
+
+
+</body>
+
+</html>

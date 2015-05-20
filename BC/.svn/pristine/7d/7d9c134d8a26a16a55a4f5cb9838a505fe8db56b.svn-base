@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Language" content="en-gb">
+<title>DO-AFTER-SETUP</title>
+</head>
+<body>
+<h3><i>This delays the execution of a list of micro-behaviours until after setup 
+completes.</i></h3>
+<p><font size="2" color="gray">Begin micro-behaviour</font>
+</p>
+<p><b>DO-AFTER-SETUP</b></p>
+<font size="2" color="gray">Begin NetLogo code:</font>
+<pre>do-after-setup
+  [add-behaviours list-of-micro-behaviours "Post-setup Behaviours" []]</pre>
+<font size="2" color="gray">End NetLogo code</font>
+<h2>Variants</h2>
+<p>You can add micro-behaviours to the list. </p>
+<h2>Related Micro-behaviours</h2>
+<p><a href="DO-AFTER.html">DO-AFTER</a> adds behaviours after a specified delay.</p>
+<h2>How this works</h2>
+<p>This relies upon the Behaviour Composer scheduling extensions to NetLogo to 
+run the list of micro-behaviours after setup completes.</p>
+<h2>History</h2>
+<p>This was implemented by Ken Kahn on 10 November 2009.
+</body>
+</html>

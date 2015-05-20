@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>BENEFIT-OF-LINK-WITH-DISTANCE</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I report the benefit of a connection given the minimum distance between the players.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>BENEFIT-OF-LINK-WITH-DISTANCE </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>to-report benefit-of-link-with-distance [node-distance]
+   if uninitialised? my-maximum-benefit-distance
+      [output-print "my-maximum-benefit-distance has a value of zero."
+       output-print "Perhaps you forgot to initialise it and need to add <a href="SET-MY-MAXIMUM-BENEFIT-DISTANCE.html">SET-MY-MAXIMUM-BENEFIT-DISTANCE</a>&quot;]
+   ifElse node-distance &gt; my-maximum-benefit-distance 
+     [report 0]
+     [report the-direct-link-benefit * (the-indirect-link-benefit-decay ^ node-distance)]
+end
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>This is used by
+
+	<a title="UTILITY-OF-NETWORK" href="UTILITY-OF-NETWORK.html">
+
+	UTILITY-OF-NETWORK</a>. <a href="MINIMUM-DISTANCE.html">MINIMUM-DISTANCE</a> 
+	can be used to compute the shortest distance between two nodes.
+	<a href="SET-MY-MAXIMUM-BENEFIT-DISTANCE.html">SET-MY-MAXIMUM-BENEFIT-DISTANCE</a> 
+	sets the value of <i>my-maximum-benefit-distance</i>.&nbsp;
+	<a href="ADD-NETWORK-FORMATION-PROCEDURES.html">ADD-NETWORK-FORMATION-PROCEDURES</a> 
+	adds this reporter to the program.</p>
+
+	<h2>How this works</h2>
+
+	<p>If two players are not connected (and hence have an &quot;infinite&quot; distance) 
+	or the distance is greater than the value of <i>my-maximum-benefit-distance</i> then 
+	this reports zero benefit. Otherwise the benefit is defined to be
+	<i>the-direct-link-benefit</i> (defined by
+
+<a title="DIRECT-LINK-BENEFIT-SLIDER" href="DIRECT-LINK-BENEFIT-SLIDER.html">
+
+DIRECT-LINK-BENEFIT-SLIDER</a>) discounted exponentially by the <i>node-distance</i>.
+
+	<a title="INDIRECT-LINK-BENEFIT-DECAY-SLIDER" href="INDIRECT-LINK-BENEFIT-DECAY-SLIDER.html">
+	INDIRECT-LINK-BENEFIT-DECAY-SLIDER</a> defines the decay factor: <i>
+	the-indirect-link-benefit-decay</i>.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn. 
+
+</body>
+
+</html>
+

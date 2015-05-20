@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>CREATE-NUMBER-OF-SUPER-NODES-SLIDER</title>
+
+</head>
+<body>
+	<h3><i>I create a slider controlling the number of super nodes (those with 
+	the most acquaintances) that should be removed from the model.</i></h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>CREATE-NUMBER-OF-SUPER-NODES-REMOVED-SLIDER </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for slider-lower-left-corner-x 625 
+substitute-text-area-for slider-lower-left-corner-y 10  
+substitute-text-area-for slider-upper-right-corner-x 875 
+substitute-text-area-for slider-upper-right-corner-y 50  
+substitute-text-area-for slider-minimum-value 0   
+substitute-text-area-for slider-maximum-value 100 
+substitute-text-area-for slider-increment 1   
+substitute-text-area-for slider-initial-value 5
+create-slider 
+  &quot;the-number-of-super-nodes-removed&quot; 
+  "slider-lower-left-corner-x" "slider-lower-left-corner-y" ; lower left corner 
+  "slider-upper-right-corner-x" "slider-upper-right-corner-y" ; upper right corner 
+  "slider-minimum-value" "slider-maximum-value" ; minimum and maximum value
+  "slider-increment" ; increment 
+  "slider-initial-value" ; initial value
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>You can change the location, minimum, maximum, increment, and 
+
+	initial value. </p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	This used by <a href="REMOVE-SUPER-NODES.html">REMOVE-SUPER-NODES</a><b>.</b></p>
+
+	<h2>History</h2>
+	<p>This was implemented by Ken Kahn. </p>
+</body>
+</html>
+

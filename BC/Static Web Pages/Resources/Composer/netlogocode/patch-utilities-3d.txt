@@ -1,0 +1,14 @@
+
+to-report random-unoccupied-location [min-xcor max-xcor min-ycor max-ycor min-zcor max-zcor]
+  let unoccupied-patch one-of patches with 
+                                      [min-xcor <= pxcor and
+                                       max-xcor >= pxcor and
+                                       min-ycor <= pycor and
+                                       max-ycor >= pycor and
+                                       min-zcor <= pzcor and
+                                       max-zcor >= pzcor and
+                                       not any? objects-here with [not hidden?]]
+ if-else is-patch? unoccupied-patch
+   [report [(list pxcor pycor pzcor)] of unoccupied-patch]
+   [report (list xcor ycor zcor)]
+end

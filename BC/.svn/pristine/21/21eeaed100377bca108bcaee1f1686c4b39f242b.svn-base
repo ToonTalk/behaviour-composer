@@ -1,0 +1,15 @@
+to-report canonical-distance [v]
+ let x first v
+ let y second v
+ let z third v
+ let half-world-width world-width / 2
+ let half-world-height world-height / 2
+ let negative-half-world-width (- half-world-width)
+ let negative-half-world-height (- half-world-height)
+ if horizontally-wrapping [if-else x > half-world-width [set x x - world-width] [if x < negative-half-world-width [set x x + world-width]]]
+ if vertically-wrapping [if-else y > half-world-height [set y y - world-height] [if y < negative-half-world-height [set y y + world-height]]]
+ if horizontally-wrapping and vertically-wrapping [if-else z > world-depth / 2 [set z z - world-depth] [if z < world-depth / -2 [set z z + world-depth]]]
+ report (list x y z)          
+end
+
+

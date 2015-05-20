@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>PREFER-PATCH-WITH-GREATER-SUGAR-</title>
+
+</head>
+
+
+
+<body>
+	<h3><i>I report which patch I prefer due to a larger sugar to pollution 
+
+	ratio.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>PREFER-PATCH-WITH-GREATER-SUGAR-TO-POLLUTION-RATIO
+
+	</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>to-report preferred-patch [patch-1 patch-2]
+   report ([sugar-of-patch] of patch-1 / (1 + [pollution-of-patch] of patch-1) &gt;=
+         [sugar-of-patch] of patch-2 / (1 + [pollution-of-patch] of patch-2))
+end
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>
+
+	<a title="PREFER-PATCH-WITH-MORE-SUGAR" href="PREFER-PATCH-WITH-MORE-SUGAR.html">
+
+	PREFER-PATCH-WITH-MORE-SUGAR</a> implements a preference for more sugar 
+
+	without regard to pollution levels..</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>This can be used by
+
+	<a title="MOVE-TO-NEAREST-PREFERRED-VISIBLE-PATCH" href="MOVE-TO-NEAREST-PREFERRED-VISIBLE-PATCH.html">
+
+	MOVE-TO-NEAREST-PREFERRED-VISIBLE-PATCH</a>.</p>
+
+	<h2>How this works</h2>
+
+	<p>It reports TRUE if the sugar to pollution ratio of the first patch is 
+
+	greater than or equal to the second patch. Since pollution may be zero, 1 is 
+
+	added to avoid a division by zero.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+
+</body>
+
+</html>

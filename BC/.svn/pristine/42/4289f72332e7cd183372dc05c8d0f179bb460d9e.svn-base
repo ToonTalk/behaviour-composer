@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-gb">
+
+<title>ADD-BEHAVIOUR</title>
+</head>
+
+<body>
+
+<div id="bodyContent">
+	
+	<p>Documentation to come</p>
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p>ADD-BEHAVIOUR<b> </b></p>
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>
+</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<p>
+	<a class="new" title="WHEN" href="WHEN.html">WHEN</a>,
+	<a title="DO-NOW" href="DO-NOW.html">DO-NOW</a>, 
+	and
+	<a class="new" title="ADD-BEHAVIOUR" href="ADD-BEHAVIOUR.html">ADD-BEHAVIOUR</a> are the BehaviourComposer's enhancements to NetLogo. </p>
+	<h2><span class="mw-headline">Variants </span></h2>
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+	<h2><span class="mw-headline">How this works </span></h2>
+	<h2><span class="mw-headline">History </span></h2>
+</div>
+
+</body>
+
+</html>

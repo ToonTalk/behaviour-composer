@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>WANDER-RANDOMLY-BY-TURNING</title>
+
+</head>
+<body>
+	<h3><i>I repeatedly turn left or right and move forward.</i> </h3>
+
+	<p><font size="2" color="gray">Begin micro-behaviour</font>
+	</p>
+	<p><b>WANDER-RANDOMLY-BY-TURNING</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>add-behaviours list-of-micro-behaviours "Behaviours" [TURN-RANDOMLY.html MOVE-FORWARD.html] 
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>This combines
+
+	<a title="TURN-RANDOMLY" href="TURN-RANDOMLY.html">
+
+	TURN-RANDOMLY</a> and
+
+	<a title="MOVE-FORWARD" href="MOVE-FORWARD.html">
+
+	MOVE-FORWARD</a> to create a wandering behaviour.
+
+	<a title="WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS" href="WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS.html">
+
+	WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS</a> moves up, down, left, or right 
+
+	rather than moving forward while turning a random amount.</p>
+
+	<h2>How this works</h2>
+
+	<p>The
+
+	<a title="TURN-RANDOMLY" href="TURN-RANDOMLY.html">
+
+	TURN-RANDOMLY</a> changes my heading repeatedly while the
+
+	<a title="MOVE-FORWARD" href="MOVE-FORWARD.html">
+
+	MOVE-FORWARD</a> micro-behaviours makes me move forward in the direction I'm 
+
+	headed.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>BUILD-KIVUNG-SPLINTER-GROUP-SEMANTIC-NETWORK</title>
+<meta http-equiv="Content-Language" content="en-gb">
+</head>
+<body>
+<h3><i>I build the semantic network of the leaders of a splinter group of the
+<a target="_blank" href="http://www.oup.com/us/catalog/general/subject/Anthropology/SocialCultural/?view=usa&ci=9780198279815">
+Pomio Kivung cult</a>.</i></h3>
+<font size="2" color="gray">Begin micro-behaviour</font>
+<p><b>BUILD-KIVUNG-SPLINTER-GROUP-SEMANTIC-NETWORK</b></p>
+<font size="2" color="gray">Begin NetLogo code:</font>
+<pre>let mind-body-dualism one-of my-anchor-points with [my-name = "Mind-body dualism"]
+let promiscuous-teleology one-of my-anchor-points with [my-name = "Promiscuous teleology"]
+let hazard-precaution one-of my-anchor-points with [my-name = "Hazard precaution"]
+let immanent-justice one-of my-anchor-points with [my-name = "Immanent justice"]
+<i>; first remove any existing network</i>
+ask mind-body-dualism [ask my-links [die]]
+ask promiscuous-teleology [ask my-links [die]]
+ask hazard-precaution [ask my-links [die]]
+ask immanent-justice [ask my-links [die]]
+<i>; first construct the part of the network shared by the splinter group and the mainstream</i>
+let god make-belief-node "God" 40 1 1
+link-nodes god mind-body-dualism
+let ancestors make-belief-node "Ancestors" 40 1 1
+link-nodes ancestors mind-body-dualism
+let village-government make-belief-node "Village Government" 40 1 1
+link-nodes ancestors village-government
+let return-from-the-dead make-belief-node "Return from the dead" 40 1 -1
+link-nodes ancestors return-from-the-dead
+link-nodes village-government return-from-the-dead
+let time-bilong-kampani make-belief-node "Time bilong kampani" 40 10 -1
+link-nodes time-bilong-kampani return-from-the-dead
+let taim-bilong-gavman make-belief-node "Taim bilong Gavman" 40 10 -1
+link-nodes time-bilong-kampani taim-bilong-gavman
+link-nodes promiscuous-teleology god
+link-nodes immanent-justice time-bilong-kampani
+link-nodes immanent-justice taim-bilong-gavman
+link-nodes immanent-justice ancestors 
+link-nodes immanent-justice god
+set my-mainstream-nodes 
+    (turtle-set god ancestors village-government time-bilong-kampani taim-bilong-gavman return-from-the-dead)
+<i>; now add the non-mainstream beliefs</i>
+let ring-rituals make-belief-node "Ring rituals" 100 7 1
+ask ring-rituals [set my-repeat-maximum 32] ; 8 months
+link-nodes hazard-precaution ring-rituals
+let mass-marriage make-belief-node "Mass marriage" 100 1 0
+ask mass-marriage [set my-repeat-maximum 1]
+link-nodes ring-rituals mass-marriage
+let discarding-clothes make-belief-node "Discarding clothes" 50 1 0
+link-nodes mass-marriage discarding-clothes
+link-nodes ring-rituals ancestors
+link-nodes ring-rituals return-from-the-dead
+let round-house make-belief-node "Round house" 50 1 0
+ask round-house [set my-repeat-maximum 10] ; "short duration"
+link-nodes ring-rituals round-house
+let feasts make-belief-node "Feasts" 80 30 0
+ask feasts [set my-repeat-maximum 8]
+link-nodes round-house feasts
+let vigils-and-rituals-to-welcome-ancestors make-belief-node "Vigils and rituals to welcome the ancestors" 50 1 0
+ask vigils-and-rituals-to-welcome-ancestors [set my-repeat-maximum 10] ; "short duration"
+link-nodes round-house vigils-and-rituals-to-welcome-ancestors
+link-nodes feasts vigils-and-rituals-to-welcome-ancestors
+link-nodes discarding-clothes vigils-and-rituals-to-welcome-ancestors
+link-nodes ancestors vigils-and-rituals-to-welcome-ancestors
+link-nodes return-from-the-dead vigils-and-rituals-to-welcome-ancestors
+let black-skin-will-peel-away make-belief-node "Black skin will peel away" 40 1 0
+link-nodes black-skin-will-peel-away vigils-and-rituals-to-welcome-ancestors
+link-nodes promiscuous-teleology black-skin-will-peel-away 
+link-nodes time-bilong-kampani black-skin-will-peel-away
+let no-more-skin-soars make-belief-node "No more skin sores" 40 1 0
+link-nodes hazard-precaution no-more-skin-soars 
+link-nodes black-skin-will-peel-away no-more-skin-soars 
+let spirit-possession make-belief-node "Spirit possession" 50 1 0
+ask spirit-possession [set my-repeat-maximum 1]
+link-nodes mind-body-dualism spirit-possession
+link-nodes ancestors spirit-possession
+let reports-in-temples make-belief-node "Reports in temples" 50 1 0
+link-nodes reports-in-temples ancestors
+link-nodes reports-in-temples return-from-the-dead
+let devil-blocks-the-way make-belief-node "Devil blocks the way" 50 1 0
+ask devil-blocks-the-way [set my-repeat-maximum 1]
+link-nodes mind-body-dualism devil-blocks-the-way
+link-nodes immanent-justice devil-blocks-the-way
+link-nodes taim-bilong-gavman devil-blocks-the-way
+link-nodes god devil-blocks-the-way
+let tolai-will-be-punished make-belief-node "Tolai will be punished" 50 1 0
+link-nodes immanent-justice tolai-will-be-punished
+link-nodes taim-bilong-gavman tolai-will-be-punished
+let wicked-tolai-will-squander-the-cargo make-belief-node "Wicked Tolai will squander the cargo" 50 1 0
+link-nodes immanent-justice wicked-tolai-will-squander-the-cargo
+link-nodes taim-bilong-gavman wicked-tolai-will-squander-the-cargo
+let cargo-will-be-shared make-belief-node "Cargo will be shared" 50 1 0
+link-nodes immanent-justice cargo-will-be-shared
+link-nodes wicked-tolai-will-squander-the-cargo cargo-will-be-shared
+let forest-will-be-flattened make-belief-node "Forest will be flattened" 50 1 0
+link-nodes forest-will-be-flattened cargo-will-be-shared
+link-nodes promiscuous-teleology forest-will-be-flattened
+link-nodes time-bilong-kampani forest-will-be-flattened
+let new-paradise make-belief-node "New Paradise" 50 1 0
+link-nodes promiscuous-teleology new-paradise 
+link-nodes taim-bilong-gavman new-paradise 
+set my-non-mainstream-nodes 
+   (turtle-set ring-rituals mass-marriage discarding-clothes round-house feasts vigils-and-rituals-to-welcome-ancestors 
+               black-skin-will-peel-away no-more-skin-soars spirit-possession reports-in-temples devil-blocks-the-way
+               tolai-will-be-punished wicked-tolai-will-squander-the-cargo cargo-will-be-shared forest-will-be-flattened new-paradise)
+set my-nodes (turtle-set my-mainstream-nodes my-non-mainstream-nodes my-anchor-points)
+</pre>
+<font size="2" color="gray">End NetLogo code</font>
+<h2>Related Micro-behaviours</h2>
+<p><a href="BUILD-KIVUNG-SEMANTIC-NETWORK.html">BUILD-KIVUNG-SEMANTIC-NETWORK</a> 
+builds the mainstream Pomio Kivung network.</p>
+<h2>How this works</h2>
+<p>This creates each node in
+<a target="_blank" href="images/Kivung%20semantic%20network_splinter%20group.jpg">this diagram</a> and the 
+links between them and the anchor points. The nodes coloured black are new 
+nodes.</p>
+<h2>History</h2>
+<p>Ken Kahn implemented this on 3 August, 2010.
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-gb">
+
+<title>Guide to Modelling Network Formation</title>
+</head>
+
+<body>
+<font face="Verdana">
+<h1>Guide to Modelling Network Formation</h1>
+<p>Here we describe how to build a model of an economic model of
+<a target="_blank" href="http://www.economics.ox.ac.uk/index.php/staff/gallo/">
+network formation by Edoardo Gallo</a> using the
+<a target="_blank" href="http://modelling4all.nsms.ox.ac.uk/">BehaviourComposer</a>.</p>
+<p>This document has links to all the micro-behaviours needed to construct the 
+model. Additional behaviours are needed for building variants and enhancements. 
+They can be found in <a href="Full-Library.html">the full library of 
+micro-behaviours</a>.</p>
+<h2>Introduction to the model</h2>
+<p><span style="background-color: #FFFF00">Edoardo should write this.</span></p>
+<h2>Step 0. You don't need to start completely from scratch</h2>
+<p>
+<a href="http://modelling4all.nsms.ox.ac.uk/Model?frozen=ycWozu47Jq2UTmU4LhTr5h&MforAllModel=1">Load the initial model</a>. By clicking on this button you start with a model 
+that contains <b>Players</b>, <b>Observer, </b> and<b> Sliders</b> with no 
+behaviours. <b>Support</b> has some behaviours needed only for technical reasons.</p>
+<h2>Step 1. Create a prototypical player</h2>
+<p>Players will have a shape for animating the model execution. A number of 
+copies of the prototype need to be added.</p>
+<ol>
+	<li>To set the shape of players go to the
+	<a href="SET-SHAPE.html">SET-SHAPE</a> micro-behaviour. Replace 'fish' with one of the supported shapes (e.g. 
+	'person'). Click on the 'SET-SHAPE' micro-behaviour button and from the menu 
+	select&nbsp; <font color="#800000">Add 
+	it to your prototype</font>. Click on <b>Player</b> to add it there.</li>
+	<li><font color="#800000">Open</font> <a href="ADD-COPIES.html">ADD-COPIES</a> 
+	and edit the 9 to the expression <i>the-total-number-of-players - 1</i>. 
+	We subtract one because the prototype itself will also be part of the model.</li>
+	<li>
+	<p>You need to define <i>the-total-number-of-players </i>by customising
+	<a href="DEFINE-PARAMETER.html">DEFINE-PARAMETER</a>. Selecting
+	<font color="#800000">add slider</input>
+</font>will ease experimentation.&nbsp;Click on the 'DEFINE-PARAMETER' button 
+	and select <font color="#800000">rename</font> and type a new name. Click on 
+	the button again to add this to <b>Sliders</b>. The micro-behaviour should look like 
+	this:
+	<p align="center"><img border="0" src="images/network_formation_number_of_players.png" width="711" height="547"></p></li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>. A new window or tab will 
+	appear. Click on <font color="#800000">Setup</font> to see your predator. 
+	Try moving the slider and clicking on <font color="#800000">Setup</font> again.</li>
+	<li>You will see that the people are rotated randomly. This is part of the 
+	default behaviour of ADD-COPIES that we don't need. Navigate to the 
+	ADD-COPIES tab and click on 'SET-RANDOM-HEADING' and select
+	<font color="#800000">Remove</font>.</li>
+	<li><font color="#800000">Run</font> your model again in the
+	<a href="#_BehaviourComposer_">Composer Area</a>.</li>
+</ol>
+<h2>Step 2. Get pairs of players to decide whether to link</h2>
+<p>Eventually the players will decide to add and remove links, possibly making 
+errors. Here we start with a simplified model without errors or removal of 
+links. A pair of players decide whether to add a link to the other and then the 
+link is added if they have both decided to add the link.</p>
+<ol>
+	<li><a href="REPEATEDLY-ADD-BEHAVIOURS-TO-TWO-RANDOM-PLAYERS.html">
+	REPEATEDLY-ADD-BEHAVIOURS-TO-TWO-RANDOM-PLAYERS</a> chooses two random 
+	players. Add it to <b>Player</b>. (Note that it is important that this 
+	behaviour is after ADD-COPIES, otherwise each copy will do this repeatedly.)</li>
+	<li>The following behaviours require some functions and parameters that are 
+	defined in
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-NETWORK-FORMATION-PROCEDURES.html#changes=n_J5N0ihn-lik56meJeP48">
+	ADD-NETWORK-FORMATION-PROCEDURES</a>. Add this to <b>Support</b>.</li>
+	<li>We need to indicate which behaviours the players should perform. We 
+	start by renaming <a href="ADD-BEHAVIOURS.html">ADD-BEHAVIOURS</a> to 
+	'TAKE-A-TURN' or the like.</li>
+	<li>The <a href="SIMPLE-ADD-LINK-DECISION.html">SIMPLE-ADD-LINK-DECISION</a> 
+	micro-behaviour compares the utility of the current network with the utility 
+	of the network with the other player added. The player attribute <i>
+	my-add-link-utility-gain</i> records the difference in utility of the two 
+	networks. The 'gain' can be 
+	negative. <i>my-desire-to-link</i> records the &quot;decision&quot;. 
+	<font color="#800000">Add</font> it to your 
+	'TAKE-A-TURN' micro-behaviour list.</li>
+	<li>
+	<p>We want <a href="ADD-A-LINK-IF-IN-AGREEMENT.html">ADD-A-LINK-IF-IN-AGREEMENT</a> 
+	to run after both players have completed SIMPLE-ADD-LINK-DECISION. To 
+	express this we use <a href="DO-AFTER.html">DO-AFTER</a>. Since the main 
+	action happens every integer tick of the simulation we should change the 
+	first text area to be <i>.5</i> to ensure this happens between cycles. 
+	<font color="#800000">Add</font>
+	<a href="ADD-A-LINK-IF-IN-AGREEMENT.html">ADD-A-LINK-IF-IN-AGREEMENT</a>&nbsp; 
+	to DO-AFTER. To avoid confusion rename DO-AFTER to 'ADD-LINKS'. Your 
+	micro-behaviour should look like this:
+	<p align="center"><img border="0" src="images/network_formation_add_links..png" width="469" height="285"></p></li>
+	<li><font color="#800000">Add</font> 'ADD-LINKS' to the 'TAKE-A-TURN' micro-behaviour list.</li>
+	<li><font color="#800000">Add</font> 'TAKE-A-TURN' to both players in 
+	REPEATEDLY-ADD-BEHAVIOURS-TO-TWO-RANDOM-PLAYERS.</li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>. </li>
+</ol>
+<h2>Step 3. A good layout of the players helps see patterns</h2>
+<p>The players are scattered randomly in the model. If, instead, we use a layout 
+such as a circle (<a href="LAYOUT-CIRCLE.html">LAYOUT-CIRCLE</a>) or a dynamic 
+one that models links as springs (<a href="LAYOUT-SPRING.html">LAYOUT-SPRING</a>) 
+then it will be easier to see the structure of the emerging network.</p>
+<ol>
+	<li><font color="#800000">Add</font> <a href="LAYOUT-CIRCLE.html">LAYOUT-CIRCLE</a> to <b>Player</b> (be 
+	sure it is after ADD-COPIES).</li>
+<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>. </li>
+	<li>Click on 'LAYOUT-CIRCLE' on <b>Player</b> 
+	and select <font color="#800000">Inactivate</font> to temporarily remove it 
+	from the model.</li>
+	<li>Add <a href="LAYOUT-SPRING.html">LAYOUT-SPRING</a> to <b>Player.</b></li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>. </li>
+	<li>If you prefer <font color="#800000">inactivate</font> 'LAYOUT-SPRING' 
+	and <font color="#800000">activate</font> 'LAYOUT-CIRCLE'.</li>
+</ol>
+<h2>Step 4. Players should decide whether to drop links</h2>
+<p>Players should be able to unilaterally choose to drop a link.</p>
+<ol>
+	<li><font color="#800000">Add</font>
+
+	<a title="SIMPLE-REMOVE-LINK-DECISION" href="SIMPLE-REMOVE-LINK-DECISION.html">
+
+	SIMPLE-REMOVE-LINK-DECISION</a> to 'TAKE-A-TURN' (inside 'REPEATEDLY-ADD-BEHAVIOURS-TO-TWO-RANDOM-PLAYERS'). 
+	Click on the behaviour after adding it to <font color="#800000">Move it up</font> 
+	since it is important to make the decisions before acting.</li>
+<li><font color="#800000">Add</font>
+
+	<a href="REMOVE-A-LINK-IF-DECIDED.html">REMOVE-A-LINK-IF-DECIDED</a> to 
+'ADD-LINKS' (and perhaps rename 'ADD-LINKS' to 'ADD-AND-REMOVE-LINKS').</li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>. </li>
+</ol>
+<h2>Step 5. Log the decisions the players make</h2>
+<p>We can produce a log of every decision to add or remove links for analyse and 
+debugging.</p>
+<ol>
+	<li><font color="#800000">Add</font>
+
+	<a href="LOG-DESIRE-TO-ADD-A-LINK.html">LOG-DESIRE-TO-ADD-A-LINK</a> to 
+	'TAKE-A-TURN'. <font color="#800000">Move</font> it so it runs immediately 
+	after 'SIMPLE-ADD-LINK-DECISION'.</li>
+<li><font color="#800000">Add</font>
+
+	<a href="LOG-DESIRE-TO-REMOVE-A-LINK.html">LOG-DESIRE-TO-REMOVE-A-LINK</a> 
+	to 'TAKE-A-TURN'. <font color="#800000">Move</font> it so it runs 
+immediately after 'SIMPLE-REMOVE-LINK-DECISION'.</li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>. The log will appear in the 
+	narrow area at the bottom of the applet. We recommend you click there, type 
+	control-a to select all and then control-c to copy it to the clip board to 
+	inspect in a text editor.</li>
+</ol>
+<h2>Step 6. Graph the changes in utility</h2>
+<ol>
+	<li><font color="#800000">Add</font>
+
+	<a href="CREATE-TOTAL-UTILITY-PLOT.html">CREATE-TOTAL-UTILITY-PLOT</a> to <b>
+	Observer</b> to add a plot of total utility over time.</li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>.</li>
+</ol>
+<h2>Step 7. Add sliders to facilitate experimentation</h2>
+<p>We can replace any of the model parameters with sliders that can be altered 
+before or during model execution.</p>
+<ol>
+	<li><font color="#800000">Open</font>
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-NETWORK-FORMATION-PROCEDURES.html#changes=n_J5N0ihn-lik56meJeP48">
+	ADD-NETWORK-FORMATION-PROCEDURES</a> and <font color="#800000">open</font> 
+	'DIRECT-LINK-COST' and select <font color="#800000">add slider</font>. Edit 
+	the fields so that the maximum value is <i>1</i> and the increment is <i>.01</i>.</li>
+<li>Do the same for 'DIRECT-LINK-BENEFIT'.</li>
+	<li>Do the same for 'INDIRECT-BENEFIT-LINK-DECAY'.</li>
+<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>.</li>
+	<li><span style="background-color: #FFFF00">Experiment with ...</span></li>
+</ol>
+<h2>Step 8. Model players making mistakes</h2>
+<p>We can add noise to our model by randomly flipping the decisions of players. 
+This can help jog the system off of local optima.</p>
+<ol>
+	<li><font color="#800000">Add</font>
+
+	<a href="ADD-LINK-DECISION-ERROR.html">ADD-LINK-DECISION-ERROR</a> to 
+	'TAKE-A-TURN'. <font color="#800000">Move it</font> so it occurs before 
+	'ADD-AND-REMOVE-LINKS'.</li>
+<li><font color="#800000">Add</font>
+
+	<a href="REMOVE-LINK-DECISION-ERROR.html">REMOVE-LINK-DECISION-ERROR</a> to 
+'TAKE-A-TURN'. <font color="#800000">Move it</font> so it occurs before 
+'ADD-AND-REMOVE-LINKS'.</li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>.</li>
+<li><font color="#800000">Open</font>
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-NETWORK-FORMATION-PROCEDURES.html#changes=n_J5N0ihn-lik56meJeP48">
+	ADD-NETWORK-FORMATION-PROCEDURES</a> and <font color="#800000">open</font> 
+'ODDS-OF-ADD-LINK-ERROR' and select <font color="#800000">add slider</font>. 
+Edit the fields so that the maximum value is <i>1</i> and the increment is <i>
+.01</i>.</li>
+	<li>Do the same for 'ODDS-OF-REMOVE-LINK-ERROR'.</li>
+<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>.</li>
+<li><span style="background-color: #FFFF00">Observe ...</span></li>
+</ol>
+<h2>Step 9. Assign players to different 'groups'</h2>
+<p>We can enhance our model by introducing the concept of groups that players 
+belong to. We can model different costs for links within a group than across 
+groups.</p>
+<ol>
+	<li>Add 
+
+	<a href="SET-MY-GROUP.html">SET-MY-GROUP</a> to <b>Player</b and to the 
+	list in 'ADD-COPIES'. This by default creates 3 groups and randomly assigns 
+	each player to a group.</li>
+<li><font color="#800000">Open</font>
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.3/ADD-NETWORK-FORMATION-PROCEDURES.html#changes=n_J5N0ihn-lik56meJeP48">
+	ADD-NETWORK-FORMATION-PROCEDURES</a> and <font color="#800000">open</font> 
+'SAME-GROUP-DIRECT-LINK-COST' and select <font color="#800000">add slider</font>. 
+Edit the fields so that the maximum value is <i>1</i> and the increment is <i>
+.01</i>.</li>
+	<li><span style="background-color: #00FFFF">Add instructions for adding 
+	switch and number of group slider</span></li>
+	<li><font color="#800000">Run</font> your model in the
+	<a href="#_BehaviourComposer_">Composer Area</a>.</li>
+<li><span style="background-color: #FFFF00">Observe ...</span></li>
+</ol>
+<h2>Step 10.  Benefits 
+truncated when a maximum distance is exceeded</h2>
+<h2>Step 11. Give some players limited knowledge about the network</h2>
+<h2>Step 12. Help us improve this session and guide</h2>
+<p>Please fill in this
+
+<a target="_blank" href="https://spreadsheets.google.com/viewform?formkey=dDdzSGdQOER0djJHdVUybXpGZ2hwLXc6MA">
+short questionnaire</a>.</p>
+<p>Here is a
+<a href="http://modelling4all.nsms.ox.ac.uk/Model/?frozen=hYdpH0-AQBVcUtr-P3aG7_&MforAllModel=1">sample model</a> that adds sliders for several of the parameters of this model 
+for easy experimentation.</p>
+</font>
+</body>
+
+</html>

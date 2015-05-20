@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>INITIALISE-SOCIAL-NETWORK-ASYMME</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I initialise my social network with a constant number of 
+
+	acquaintances. A link from me to another does not mean there is a link back 
+
+	to me.</i> </h3>
+
+	<p><font size="2" color="gray">Begin micro-behaviour</font>
+	</p>
+	<p><b>INITIALISE-SOCIAL-NETWORK-CONSTANT-ASYMMETRIC</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for maximum-acquaintances-constant-asymmetric-network 5
+do-after-setup
+   [set my-acquaintances 
+        n-of minimum count all-individuals maximum-acquaintances-constant-asymmetric-network 
+             all-individuals]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>You can change the 5 to any other number to initialise the subset of the 
+
+	&quot;objects&quot; (or agents) that I know. This can have a distribution of different 
+
+	number of acquaintances by replacing the &quot;5&quot; with something like &quot;round 
+
+	within-range 1 10 random-normal 5 2&quot; to create a distribution with a mean of 
+
+	5 and a standard deviation of 2 truncated to values between 1 and 10 
+
+	inclusive.</p>
+
+	<p>Or you may wish to replace the &quot;5&quot; with a variable defined by a slider 
+
+	for easy experimentation. See
+
+	<a title="CREATE-SLIDER" href="CREATE-SLIDER.html">
+
+	CREATE-SLIDER</a>.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-ASYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-ASYMMETRIC.html">
+
+	INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-ASYMMETRIC</a> is similar to 
+
+	this one except the number of acquaintances is normally distributed. An 
+
+	example of the use of this micro-behaviour is
+
+	<a title="CHANGE-OPINION-SOCIAL-NETWORK" href="CHANGE-OPINION-SOCIAL-NETWORK.html">
+
+	CHANGE-OPINION-SOCIAL-NETWORK</a>.</p>
+	<p>
+
+	<a href="INITIALISE-SOCIAL-NETWORK-CONSTANT-SYMMETRIC.html">INITIALISE-SOCIAL-NETWORK-CONSTANT-SYMMETRIC</a> 
+	creates an entire network where if <i>A</i> relates to <i>B</i> then <i>B</i> 
+	also relates to <i>A</i>.</p>
+
+	<h2>How this works</h2>
+
+	<p>It randomly selects 5 individuals as <i>my-acquaintances</i>. It is 
+
+	careful to avoid creating more acquaintances than there are individuals by 
+
+	taking the minimum of 5 and the number of individuals. This code is run 
+
+	after setup has completed since it is typically during setup that copies are 
+
+	created.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+
+
+
+</body>
+
+
+
+</html>

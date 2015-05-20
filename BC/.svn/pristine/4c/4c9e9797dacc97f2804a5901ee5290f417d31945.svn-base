@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<title>SIZE-IS-FUNCTION-OF-AGE</title>
+
+</head>
+
+<body>
+	<h3><i>I increase my size with age until I reach full size.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>SIZE-IS-FUNCTION-OF-AGE</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for size-expression minimum (.5 + 0.01 * my-age) 3            
+substitute-text-area-for cycle-duration 1                      
+          
+do-every cycle-duration
+   [set size size-expression]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>You can change the initial size (.5 in this example) or the maximum size 
+
+	(3 here). Or the growth rate (0.01 here). Size may be a more complex 
+
+	function of age (or other factors).</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="GROW-OLDER" href="GROW-OLDER.html">
+
+	GROW-OLDER</a> increases the age of an object.</p>
+
+	<h2>How this works</h2>
+
+	<p>After every time unit this sets my size to a function of <i>
+
+	my-age</i> with a maximum value of 3.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+</body>
+</html>

@@ -1,0 +1,10 @@
+to-report update-turtle-state
+ report false
+end
+
+to initialise-previous-state
+end
+
+to update-all-turtle-states
+end
+

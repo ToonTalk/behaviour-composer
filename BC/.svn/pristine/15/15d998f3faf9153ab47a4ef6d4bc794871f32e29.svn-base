@@ -1,0 +1,104 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-gb">
+<title>Guidance in using the Epidemic Game Maker</title>
+</head>
+
+<body>
+
+<h3><font face="Verdana">Background</font></h3>
+<p><font face="Verdana">Scientists use computer models to help understand how a 
+virus might spread through a population. You can use this model to experiment 
+with ways to slow or even stop the spread of an infection. Think about how the 
+model relates to the real world, what assumptions does the model make, can you 
+give us suggestions for improving it?</font></p>
+<h3><font face="Verdana">Explore the model</font></h3>
+<p><font face="Verdana">If you click on the <i>Make Your Game</i> button, you'll 
+be able run the current model. It starts off where every day students go to 
+school and then home again. One student is infected (displayed as yellow with 
+red virus). In the model every hour infected people look at how many people are 
+at the their location. Using a parameter called <i>the-encounter-rate</i> 
+(default value is 1) they choose randomly <i>the-encounter-rate</i> number of 
+people. For each person <i>the-infection-odds</i> is used to determine if the 
+disease has been transmitted. The default value is .04, i.e., a 4% chance of 
+getting infected from this encounter.</font></p>
+<p><font face="Verdana">To run the model click the <i>Go</i> button. To start 
+over again press the <i>Setup</i> button. Each time it is run a new plot is 
+drawn. Here's the result of running the basic model for three trials:</font></p>
+<p><img border="0" src="../ImagesEGM/plots3.png" width="613" height="182"></p>
+<p><font face="Verdana">Things to think about:</font></p>
+<ul>
+	<li><font face="Verdana">Why is each run different? </font></li>
+	<li><font face="Verdana">What do they have in common? </font></li>
+	<li><font face="Verdana">How predictable is the simulation?</font></li>
+</ul>
+<p><font face="Verdana">You might find it interesting to see how <i>the-encounter-rate </i>
+and<i> the-infection-odds </i>influences how the disease spreads. Go back to the
+<i>Epidemic Game Maker</i> and click on the check boxes labelled <i>
+<font size="4">Infection odds slider</font></i> and <i><font size="4">Encounter 
+rate slider</font></i>. Click the <i>Make Your Game</i> button to make the 
+modified simulation. Now you can experiment with different settings for these 
+parameters.</font></p>
+<h3><font face="Verdana">Change the model</font></h3>
+<ul>
+	<li><font face="Verdana">Explore enhancement to the model by clicking on <i>
+	<font size="4">Add more schools</font></i>. See what happens if you also add
+	<i><font size="4">Students go to closest school</font></i>. Are their some 
+	students that can't get infected? Why? What happens to those students if you 
+	also <i><font size="4">Add work places</font></i>?</font></li>
+	<li><font face="Verdana">Explore <font size="4">virus trails</font> that are 
+	left behind as infected people move around. The trails are modelling viruses 
+	left on surfaces, door knobs, etc. People can now become infected by 
+	encountering either infected people or the viruses they left behind. The 
+	viruses go away after a while. It may be hard to experiment with everything 
+	at once - try removing the extra schools and the work places. Consider 
+	changing the infection odds since people are being infected directly and by 
+	viruses left behind.</font></li>
+</ul>
+<h3><font face="Verdana">Turn your model into a game</font></h3>
+<p><font face="Verdana">You can add up to four buttons to the model to make it a 
+game where the player is trying to stop the epidemic within economic 
+constraints.</font></p>
+<ul>
+	<li><font face="Verdana"><b><i>School closing</i></b> Adds a 
+	button that closes all the schools. Pressing it again opens the schools. 
+	Students stay home when their school is closed. School closing hurts the 
+	economy so the player can only keep them closed while there is money left. 
+	What effects does it have on the way the disease spreads?</font></li>
+	<li>
+	<font face="Verdana"><i><b>Voluntary quarantine ad campaign</b></i>
+	Adds a button that each time it is pressed runs an advertising campaign to 
+	encourage people to stay home when they are ill. Note that there is a delay 
+	from when someone becomes infected and infectious and when they are symptoms 
+	and they become aware that they are ill. Each press reaches a random 4% of 
+	the population causing them to change their behaviour. See the
+	advanced options section below for how to change the 4% 
+	value. Each campaign costs one money unit.</font></li>
+	<li>
+	<font face="Verdana"><i><b>Hand washing ad campaign</b></i> Adds a button that </span></span>runs an advertising 
+	campaign to encourage people to wash their hands. For those reached by the 
+	advert (5%) their odds of getting infected by encountering virus trails is 
+	reduced by 50%. See advanced options section below for how 
+	to change these parameters.</font></li>
+	<li><font face="Verdana">
+	<i><b>Catch It, Bin It, Kill It ad campaign</b></i>
+	Adds a button that reaches 5% of the population who then leave a trail every 
+	5 hours instead of every hour. </span></span>See
+	advanced options section below for how to change these 
+	parameters.</li>
+</ul>
+</font><font face="Verdana" size="4">
+<h3><font face="Verdana"><a name="Advanced_options">Advanced options</a></font></h3>
+</font><font face="Verdana">
+<p>You can click on the name of a model element and select
+<i>Show Details</i>. If you do this for <i>Parameters</i> you'll see all the 
+constants. You can <i>Open</i> them and change them. The <i>Observer</i> 
+contains behaviours that determine things about the plots, output area, and the 
+display of the simulated date.</p>
+<p>You can also click on the <i>Advanced Mode</i> check box 
+at the bottom of the <i>Epidemic Game Maker</i> to do very advanced things such 
+as finding and adding new behaviours (for modelling vaccinations and recovery).</p>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+
+<title>UTILITY-OF-NETWORK</title>
+</head>
+<body>
+	<h3><i>I report my utility of the network, possibly with additions or 
+
+	deletions.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>UTILITY-OF-NETWORK </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>to-report utility-of-network [additions removals]
+   let hypothetical-links my-player-links
+   forEach removals [set hypothetical-links remove&nbsp;? hypothetical-links]
+   forEach additions [set hypothetical-links fput&nbsp;? hypothetical-links]
+   let new-number-of-links length hypothetical-links
+   if new-number-of-links > the-maximum-number-of-links
+      [report -9007199254740992] <i>; not allowed report negative infinity</i>
+   let total-benefit 
+       reduce [?1 +&nbsp;?2]
+              map [benefit-of-link-with-distance&nbsp;?]
+                  [minimum-distance hypothetical-links 0 [] removals] of all-individuals with [kind = &quot;Player&quot;] 
+   report total-benefit - total-cost hypothetical-links
+end 
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	
+	<h2><span class="mw-headline">Related Reporters </span></h2>
+
+	<p>This uses
+
+	<a title="BENEFIT-OF-LINK-WITH-DISTANCE" href="BENEFIT-OF-LINK-WITH-DISTANCE.html">
+
+	BENEFIT-OF-LINK-WITH-DISTANCE</a>, <a href="TOTAL-COST.html">TOTAL-COST</a> and
+
+	<a title="MINIMUM-DISTANCE" href="MINIMUM-DISTANCE.html">
+
+	MINIMUM-DISTANCE</a>. </p>
+
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p><a href="ADD-NETWORK-FORMATION-PROCEDURES.html">ADD-NETWORK-FORMATION-PROCEDURES</a> 
+	adds this reporter to the program.</p>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>This computes a player's utility of the network formed by taking the 
+	current network and adding links in the <i>additions</i> list and removing 
+	those in the <i>removals</i> list. It computes the minimum network distance 
+	between all other players and this player and applies the <i>
+	benefit-of-link-with-distance</i> to each distance. It reports the sum of 
+	these benefits minus the cost of maintaining direct links.</p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn.</p>
+</body>
+</html>

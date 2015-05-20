@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<title>INITIALISE-POLLUTION-PRODUCTION-</title>
+</head>
+
+<body>
+	
+	<h3><i>I initialise the rate pollution is produced due to sugar production.</i>
+	</h3>
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>INITIALISE-POLLUTION-PRODUCTION-RATE </b></p>
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-at-setup
+   [ask-every-patch
+        [set pollution-production-of-patch 1]]
+</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+	<p>The <i>1</i> can be changed to any numeric value. </p>
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+	<p>
+	<a title="INITIALISE-SUGAR-GROWTH-RATE" href="INITIALISE-SUGAR-GROWTH-RATE.html">
+	INITIALISE-SUGAR-GROWTH-RATE</a> and
+	<a title="INITIALISE-SUGAR-CAPACITY" href="INITIALISE-SUGAR-CAPACITY.html">
+	INITIALISE-SUGAR-CAPACITY</a> also initialise attributes of patches.
+	<a title="INITIALISE-POLLUTION-DUE-TO-CONSUMPTION-RATE" href="INITIALISE-POLLUTION-DUE-TO-CONSUMPTION-RATE.html">
+	INITIALISE-POLLUTION-DUE-TO-CONSUMPTION-RATE</a> sets the rate of pollution 
+	produced by consumption. </p>
+	<h2><span class="mw-headline">How this works </span></h2>
+	<p>It sets the patch attribute <i>pollution-production-of-patch</i> of each 
+	patch to 1. </p>
+	<h2><span class="mw-headline">Source </span></h2>
+	<p>Based upon page 48 of [1] where &#945; (<i>pollution-production-of-patch</i>) 
+	is 1. </p>
+	<h2><span class="mw-headline">History </span></h2>
+	<p>This was implemented by Ken Kahn. </p>
+	<h2><span class="mw-headline">References </span></h2>
+	<p>[1] <i>Growing Artificial Societies</i> by Joshua M. Epstein and Robert 
+	Axtell, Brookings Institute Press, The MIT Press, 1996. </p>
+
+</body>
+
+</html>

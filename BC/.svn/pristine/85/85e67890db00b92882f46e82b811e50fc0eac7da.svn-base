@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-gb">
+
+<title>REMOVE-LINK</title>
+</head>
+
+<body>
+
+<h3><i>I remove a link to another.</i></h3>
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>REMOVE-LINK</b></p>
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for other-end-of-link the-other               
+let other-end other-end-of-link
+if link-with other-end != nobody [ask link-with other-end [die]]</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+You can specify the other end of the link by editing the text area.
+<h2>Related Micro-behaviours</h2>
+	<p><a href="ADD-DIRECTED-LINK.html">ADD-DIRECTED-LINK</a> creates a directed 
+	link. <a href="ADD-UNDIRECTED-LINK.html">ADD-UNDIRECTED-LINK</a> creates an 
+	undirected link.</p>
+	<h2>How this works</h2>
+	<p>This uses the NetLogo <b>
+	<a target="_blank" href="http://ccl.northwestern.edu/netlogo/docs/dictionary.html#link-with">
+	link-with</a></b> primitive with the value 
+	<b>
+	<a target="_blank" href="http://resources.modelling4all.org/documents/programming-guide#toc2">the-other</a></b> to get the link and then removes it using the NetLogo
+	<a target="_blank" href="http://ccl.northwestern.edu/netlogo/docs/dictionary.html#die">die</a> 
+	command.</p>
+	<h2>History</h2>
+	<p>This was implemented by Ken Kahn.
+
+</body>
+
+</html>

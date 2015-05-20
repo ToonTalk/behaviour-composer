@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>ADD-BUTTON</title>
+</head>
+<body>
+	<h3><i>I create a button with an associated action.</i> </h3>
+
+	<p><font size="2" color="gray">Begin micro-behaviour</font>
+	</p>
+	<p><b>ADD-BUTTON</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for lower-left-corner-x 5   
+substitute-text-area-for lower-left-corner-y 225  
+substitute-text-area-for upper-right-corner-x 107   
+substitute-text-area-for upper-right-corner-y 255 
+substitute-text-area-for columns: 77 button-label Add Behaviours
+substitute-text-area-for columns: 35 recipients all-individuals
+substitute-text-area-for keyboard-shortcut A
+substitute-text-area-for columns: 80 rows: 5 comment ; Notes                                                                                      
+substitute-text-area-for columns: 77 repeat-forever false
+add-button 
+  'upper-left-corner-x' 'upper-left-corner-y'&nbsp;<i>; upper left corner (from the upper left corner of the applet) </i>
+  'lower-right-corner-x' 'lower-right-corner-y'&nbsp;<i>; lower right corner</i>
+  'button-label'&nbsp;<i>; label (cannot contain single quotes)</i>
+  'add-behaviours-to recipients list-of-micro-behaviours "Behaviours added by button" []'&nbsp;<i>; action</i>
+  'keyboard-shortcut'&nbsp;<i>; keyboard shortcut
+  'repeat-forever' ; if true then this button will repeat its action forever</i>
+comment</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>All the parameters can be changed. If you don't want a keyboard shortcut 
+	then remove the last line of code. </p>
+
+	<h2>Related Micro-behaviours</h2>
+
+	<p>
+
+	<a title="CREATE-PLOT" href="CREATE-PLOT.html">
+
+	CREATE-PLOT</a> and
+
+	<a title="CREATE-SLIDER" href="CREATE-SLIDER.html">
+
+	CREATE-SLIDER</a> also create an interface element.</p>
+
+	<h2>How this works</h2>
+
+	<p>This creates a NetLogo button. The last parameter, <i>the action</i>, is 
+
+	available to micro-behaviours such as
+
+	<a title="DO-BUTTON-COMMAND" href="DO-BUTTON-COMMAND.html">
+
+	DO-BUTTON-COMMAND</a> as the value of the <i>button-command</i> variable.
+
+	</p>
+
+	<h2>History</h2>
+	<p>This was implemented by Ken Kahn.
+</body>
+</html>
+

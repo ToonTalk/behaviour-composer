@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Language" content="en-gb">
+<title>TURN-TOWARDS-OTHERS</title>
+</head>
+<body>
+	<h3><i>I turn towards other agents.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>TURN-TOWARDS-OTHERS</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for columns: 72 expression-for-others other all-individuals
+substitute-text-area-for columns: 71 cycle-duration 1                      
+substitute-text-area-for columns: 72 weight-expression 1
+substitute-text-area-for columns: 80 rows: 5 comment ; Notes                                                                                     
+do-every cycle-duration
+   [let weight 
+        weight-expression
+    ask expression-for-others
+        [ask myself 
+            [set my-desired-headings 
+                 my-desired-headings + 
+                 weight * canonical-heading heading-towards-another myself
+            set my-desired-headings-count my-desired-headings-count + weight]]]
+comment</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>This updates <i>my-desired-headings</i> by adding the headings towards 
+	each of the others. You can 
+
+	replace it an expression such as <i>all-of-kind &quot;Prototype1&quot;</i>.&nbsp; 
+	Or if you wish to limit this to only those within 3 units use <i>
+	(all-of-kind &quot;Prototype1&quot;) in-radius 3</i>.</p>
+	<p>You can change the weight expression if you want this to count more or less 
+	than other micro-behaviours that update <i>my-desired-headings.</i></p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p><a href="TURN-AWAY-FROM-OTHERS.html">TURN-AWAY-FROM-OTHERS</a> updates 
+	the desired heading to turn away from others.</p>
+<p><a href="TURN-IN-DESIRED-DIRECTION.html">TURN-IN-DESIRED-DIRECTION</a> - 
+turns in the desired direction computed by <a href="TURN-TOWARDS-OTHERS.html">
+TURN-TOWARDS-OTHERS</a> and <a href="TURN-AWAY-FROM-OTHERS.html">
+TURN-AWAY-FROM-OTHERS</a>.</p>
+
+
+	<p><a title="TURN-TOWARDS-GOAL" href="TURN-TOWARDS-GOAL.html">TURN-TOWARDS-GOAL</a> -- I turn towards a goal.</p>
+		<p><a title="TURN-TOWARDS-ANOTHER" href="TURN-TOWARDS-ANOTHER.html">TURN-TOWARDS-ANOTHER</a> -- I turn towards another individual
+
+	to move towards a goal or another.</p>
+	<p>
+
+	<a href="MOVE-TOWARDS-ANOTHER.html">MOVE-TOWARDS-ANOTHER</a> 
+	-- moves towards another moving only in horizontal or vertical steps.</p>
+<p>
+
+	<a title="MOVE-FORWARD" href="MOVE-FORWARD.html">MOVE-FORWARD</a> can be 
+	used together with these behaviours to implement chasing and fleeing.</p>
+
+	<h2>How this works</h2>
+
+	<p>This updates <i>my-desired-headings</i> by adding all the headings to the 
+	others. It adds 180 since for convenience it computes the angle from the 
+	others to me rather than the other way around. <i>my-desired-headings/my-desired-headings-count</i> 
+	computes the average desired heading. <b>canonical-heading</b> ensures that 
+	equivalent headings (e.g. -30 and 330) are treated the same.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn on 13 August 2010.</p>
+</body>
+</html>

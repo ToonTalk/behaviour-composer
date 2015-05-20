@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>ADD-A-LINK-IF-IN-AGREEMENT</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I add a link if the other player also wants to add the link.</i> 
+	</h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>ADD-A-LINK-IF-IN-AGREEMENT </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-after .002
+   [do-if my-desire-to-link = true and [my-desire-to-link] of my-other-player = true
+       [add-link-to my-other-player
+        ask my-other-player [add-link-to myself]
+        set my-desire-to-link false
+        set my-accumulated-add-link-utility-gains 
+            my-accumulated-add-link-utility-gains + my-add-link-utility-gain
+        set my-add-links-count my-add-links-count + 1]] </pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>This uses
+
+	<a title="ADD-LINK-TO" href="ADD-LINK-TO.html">
+
+	ADD-LINK-TO</a>. <a href="SIMPLE-ADD-LINK-DECISION.html">SIMPLE-ADD-LINK-DECISION</a> 
+	sets <i>my-desire-to-link</i>.</p>
+
+	<h2><espan class="mw-headline">How this works </span></h2>
+
+	<p>If I want to create a link and so does the other player then we form the 
+	link.</p>
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. 
+
+
+
+</body>
+
+
+
+</html>
+

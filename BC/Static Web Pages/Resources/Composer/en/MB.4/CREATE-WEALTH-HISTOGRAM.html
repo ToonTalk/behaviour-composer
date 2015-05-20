@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>CREATE-WEALTH-HISTOGRAM</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I set up and maintain a histogram of the distribution of sugar in the 
+
+	population.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>CREATE-WEALTH-HISTOGRAM</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>create-histogram
+  &quot;270&quot; &quot;450&quot;&nbsp;<i>; upper left corner (from the upper left corner of the applet)</i>
+  &quot;520&quot; &quot;709&quot;&nbsp;<i>; lower right corner</i>
+  &quot;Wealth Histogram&quot;&nbsp;<i>; unique name (and label) for this plot</i>
+  &quot;Wealth (tens of sugar)&quot;&nbsp;<i>; X axis label</i>
+  &quot;Number of individuals&quot;&nbsp;<i>; Y axis label</i>
+  all-individuals
+  (round (my-sugar / 10))&nbsp;<i>; value being displayed</i>
+  &quot;0&quot;&nbsp;<i>; minimum x value</i>
+  &quot;20&quot;&nbsp;<i>; maximum x value</i>
+  &quot;0&quot; &nbsp;<i>; minimum y value</i>
+  &quot;100&quot;&nbsp;<i>; maximum y value</i>
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>All the labels and parameters can be changed.</p>
+
+	<p><i>Note that currently the system is limited to interpreting calls to 
+
+	create-histogram where each argument is on a different line.</i></p>
+
+	<h2>How this works</h2>
+
+	<p>It computes the number of tens of sugar units each individual has by 
+
+	dividing the sugar by ten and rounding.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="CREATE-POPULATION-PLOT" href="CREATE-POPULATION-PLOT.html">
+
+	CREATE-POPULATION-PLOT</a> creates a plot of the population.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+
+
+
+</body>
+
+
+
+</html>

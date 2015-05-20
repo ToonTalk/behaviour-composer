@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+<meta http-equiv="Content-Language" content="en-gb">
+
+
+
+<title>SET-RANDOM-UNOCCUPIED-POSITION</title>
+
+</head>
+<body>
+
+	<h3><i>I jump to a random unoccupied location.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>SET-RANDOM-UNOCCUPIED-POSITION </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>let unoccupied-location random-location-found-to-be-unoccupied min-pxcor max-pxcor
+                                                               min-pycor max-pycor
+                                                               1000000
+set my-x first unoccupied-location
+set my-y second unoccupied-location
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="SET-RANDOM-POSITION" href="SET-RANDOM-POSITION.html">
+
+	SET-RANDOM-POSITION</a> sets my position to a random value even if occupied.
+
+	<a title="WANDER-TO-AN-UNOCCUPIED-LOCATION" href="WANDER-TO-AN-UNOCCUPIED-LOCATION.html">
+
+	WANDER-TO-AN-UNOCCUPIED-LOCATION</a> moves to an unoccupied location within 
+
+	a region. </p>
+
+	<h2>How this works</h2>
+
+	<p>This calls <i>random-location-found-to-be-unoccupied</i> tries random 
+
+	coordinates until an unoccupied location is found or it gives up if 1000000 
+
+	attempts fail to find an unoccupied spot. The location is then used to set 
+
+	the values of <i>my-x</i> and <i>my-y</i>. </p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+
+</body>
+</html>

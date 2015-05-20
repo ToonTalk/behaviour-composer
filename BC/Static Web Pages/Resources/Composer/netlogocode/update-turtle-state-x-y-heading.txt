@@ -1,0 +1,69 @@
+to update-all-turtle-states
+ if camera-tracks-centroid
+  [let visible-objects all-individuals
+   if any? visible-objects
+     [set mean-x mean [ my-x ] of visible-objects
+      set mean-y mean [ my-y ] of visible-objects]]
+ ; used to only do the following with objects-with-something-to-do but 
+ ; state may have been set by a different agent
+ let ignore objects with [update-turtle-state]
+end
+
+to-report update-turtle-state
+ update-turtle-position
+ if-else ( heading = previous-heading )
+    [set heading my-heading ]
+    [set my-heading heading ]
+ set previous-heading heading 
+ ; e.g. 365 and 5
+ if heading != my-heading [set my-next-heading heading set my-next-heading-set true]
+ ; colour and pen could be added
+ report false
+end
+
+to update-turtle-position
+ if-else ( xcor = previous-xcor ) and ( ycor = previous-ycor )
+ [set previous-xcor my-x 
+  set previous-ycor my-y 
+  if camera-tracks-centroid
+     [set previous-xcor previous-xcor - mean-x
+      set previous-ycor previous-ycor - mean-y]
+  ; check if there is patch where I'm going (delta from where I am)
+  if-else patch-at ( previous-xcor - xcor ) ( previous-ycor - ycor ) = nobody
+    [set hidden? true]
+    [setxy previous-xcor previous-ycor 
+     ; reset previous-xcor since there may be a very tiny round-off error
+     set previous-xcor xcor 
+     set previous-ycor ycor ]]
+ [set my-x xcor 
+  set my-y ycor 
+  set my-next-x xcor 
+  set my-next-y ycor 
+  set previous-xcor my-x 
+  set previous-ycor my-y ]
+end
+
+to go-forward [steps]
+ let angle 90 - my-next-heading 
+ ; subtract from 90 since if heading is straight up that is "really" -90
+ set my-next-x-set true
+ set my-next-x my-next-x + cos angle * steps
+ set my-next-y-set true
+ set my-next-y my-next-y + sin angle * steps
+end
+
+to turn-right [angle]
+ set my-next-heading-set true
+ set my-next-heading canonical-heading ( my-next-heading + angle )
+end
+
+to turn-left [angle]
+ set my-next-heading-set true
+ set my-next-heading canonical-heading ( my-next-heading - angle )
+end
+
+to initialise-previous-state
+ set previous-xcor xcor 
+ set previous-ycor ycor 
+ set previous-heading heading 
+end

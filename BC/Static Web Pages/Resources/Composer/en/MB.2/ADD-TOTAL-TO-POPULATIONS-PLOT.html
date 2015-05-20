@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+<head>
+
+<title>ADD-TOTAL-TO-POPULATIONS-PLOT</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I add to the Populations Plot a plot of total number of individuals 
+
+	versus elapsed time.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>ADD-TOTAL-TO-POPULATIONS-PLOT </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for total-population-pen-color black   
+substitute-text-area-for cycle-duration 1         
+do-after-setup
+   [do-every cycle-duration
+       [set-current-plot &quot;Populations&quot;
+        create-temporary-plot-pen &quot;Total pen&quot;
+        set-current-plot-pen &quot;Total pen&quot;  
+        set-plot-pen-color total-population-pen-color
+        plotxy time 
+               count all-individuals]]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Required Micro-behaviours</h2>
+	<p>This expects
+
+	<a title="CREATE-EMPTY-POPULATIONS-PLOT" href="CREATE-EMPTY-POPULATIONS-PLOT.html">
+
+	CREATE-EMPTY-POPULATIONS-PLOT</a> to be included to add the &quot;Populations&quot; 
+	plot. </p>
+
+	<h2>Variants</h2>
+
+	<p>You can edit the text box to have a different
+	<a target="_blank" href="http://ccl.northwestern.edu/netlogo/docs/programming.html#colors">
+	color</a>.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT" href="ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT.html">
+	ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT</a>,
+
+	<a title="ADD-VACCINATED-TO-POPULATIONS-PLOT" href="ADD-VACCINATED-TO-POPULATIONS-PLOT.html">ADD-VACCINATED-TO-POPULATIONS-PLOT</a>,
+
+	<a title="ADD-RECOVERED-TO-POPULATIONS-PLOT" href="ADD-RECOVERED-TO-POPULATIONS-PLOT.html">ADD-RECOVERED-TO-POPULATIONS-PLOT</a>, and
+
+	<a title="ADD-INFECTED-TO-POPULATIONS-PLOT" href="ADD-INFECTED-TO-POPULATIONS-PLOT.html">ADD-INFECTED-TO-POPULATIONS-PLOT</a> can also add to the &quot;Populations&quot; plot.
+
+	</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.
+
+
+
+</body>
+
+
+
+</html>
+

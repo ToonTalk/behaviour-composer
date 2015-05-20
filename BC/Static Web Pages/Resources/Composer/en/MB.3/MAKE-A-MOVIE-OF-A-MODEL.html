@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>MAKE-A-MOVIE-OF-A-MODEL</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I record a movie of a model's execution.</i> </h3>
+	<p><i>Warning -- this does not 
+
+	compress the movie so the file will be very large. You probably want to 
+
+	compress the movie with some other tool subsequently. The movie is made in 
+	Apple's <a target="_blank" href="http://en.wikipedia.org/wiki/QuickTime">QuickTime</a> 
+	format but can be converted to other formats.</i></p>
+	<p><i>This only works 
+	when the model is run from within NetLogo. Applets can't create movies.</i></p>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>MAKE-A-MOVIE-OF-A-MODEL</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for movie-file-name test-movie.mov                 
+substitute-text-area-for movie-duration 50  
+do-after-setup
+   [create-movie &quot;movie-file-name&quot; movie-duration true]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Related Micro-behaviours</h2>
+	<p><a href="SET-FRAME-DURATION.html">SET-FRAME-DURATION</a> can be used to set the 
+	duration of each frame (in seconds).</p>
+	<h2>Variants</h2>
+
+	<p>You can change the file name of the movie (&quot;test-movie.mov&quot; here) and 
+
+	the number of frames to record (50 in this example). Changing <i>true</i> to
+	<i>false</i> will cause the movie to include the entire interface.</p>
+
+	<h2><span class="mw-headline">How it works </span></h2>
+
+	<p>This produces a QuickTime movie file named &quot;test-movie.mov&quot;. 
+	The file will be created relative to the folder where the NLOGO file was 
+	downloaded unless an absolute file name is given.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<meta http-equiv="Content-Language" content="en-gb">
+
+<title>ADD-RANDOM-POPULATION</title>
+
+</head>
+
+<body>
+	<h3><i>I create copies of myself at setup with random opinions.</i></h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>ADD-RANDOM-POPULATION </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for number-of-copies 9  
+add-copies number-of-copies list-of-micro-behaviours "Additional behaviours" [SET-RANDOM-POSITION.html SET-RANDOM-OPINION.html]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>Replace the contents of the edit box by any positive integer to make a 
+	different number of copies. </p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	This is intended to be used together with other micro-behaviours for 
+	modelling <a href="Full-Library.html#Relative_Agreement_Models__">relative 
+	agreement</a>.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn 
+	in March 2009.
+</body>
+
+</html>
+

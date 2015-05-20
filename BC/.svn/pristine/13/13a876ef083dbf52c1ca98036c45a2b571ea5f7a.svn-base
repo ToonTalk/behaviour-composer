@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<title>SET-WORLD-LOCATION</title>
+
+</head>
+
+<body>
+	<h3><i>I change the location of the display of the world.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>SET-WORLD-LOCATION</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for upper-left-world-x 200 
+substitute-text-area-for upper-left-world-y 10
+substitute-text-area-for lower-right-world-x 650 
+substitute-text-area-for lower-right-world-y 550
+set-world-location upper-left-world-x upper-left-world-y lower-right-world-x lower-right-world-y</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p><i>set-world-location</i> expects 4 numbers: upper left corner x, lower 
+
+	left corner y, lower right corner x, and lower right corner y. This example 
+
+	creates a 100x100 grid since -49 to 50 inclusive is 100 integers including 
+
+	0.</p>
+
+	<h2>How this works</h2>
+
+	<p>Due to current limitations of NetLogo this specifies only the <i>initial</i> 
+
+	location of the world display and cannot be used to change the world 
+
+	location during execution.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+
+</body>
+
+</html>

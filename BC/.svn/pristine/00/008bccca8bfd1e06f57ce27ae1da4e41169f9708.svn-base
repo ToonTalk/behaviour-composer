@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+
+
+<title>REMOVE-LINK-DECISION-ERROR</title>
+
+</head>
+
+<body>
+	<h3>I sometimes flip the decision as to whether to remove a link.</h3>
+	<p><font size="2" color="gray">Begin micro-behaviour</font>
+	</p>
+	<p><b>REMOVE-LINK-DECISION-ERROR</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>
+do-after .0025
+   [do-every delta-t
+       [do-with-probability the-odds-of-remove-link-error
+           [if not uninitialised? my-decision-to-unlink
+               [set my-decision-to-unlink not my-decision-to-unlink]]]]
+</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>
+
+	<a href="REMOVE-LINK-ERROR-ODDS-SLIDER.html">REMOVE-LINK-ERROR-ODDS-SLIDER</a> 
+	adds a slider for <i>the-odds-of-remove-link-error</i>.
+
+	This adds noise (a decision error) to
+	<a href="SIMPLE-REMOVE-LINK-DECISION.html">SIMPLE-REMOVE-LINK-DECISION</a><b>. </b>
+
+	<a href="ADD-LINK-DECISION-ERROR.html">ADD-LINK-DECISION-ERROR</a> adds to 
+	the decision to add links.</p>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>After <a href="SIMPLE-REMOVE-LINK-DECISION.html">
+	SIMPLE-REMOVE-LINK-DECISION</a> 
+	has set <i>my-decision-to-unlink</i> this probabilistically flips the decision. 
+	It runs before <a href="REMOVE-A-LINK-IF-DECIDED.html">
+	REMOVE-A-LINK-IF-DECIDED</a> looks the values of <i>my-decision-to-unlink.</i></p>
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was first implemented by Ken Kahn on 2 September 2008. 
+
+</body>
+
+</html>
+

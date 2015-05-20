@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META content="text/html; charset=windows-1252" http-equiv="Content-Type">
+
+<title>REPORT-ALL-SUSCEPTIBLES</title>
+
+<h3>
+
+<i>I calculate the set of individuals who are susceptible to infection.</i> 
+
+</h3>
+	
+<font size="2" color="gray">Begin micro-behaviour</font>
+
+<p>
+
+<b>REPORT-ALL-SUSCEPTIBLES</b>
+
+</p>
+	
+<font size="2" color="gray">Begin NetLogo code:</font>
+
+<pre>to-report all-susceptibles
+   report all-individuals with [my-state = &quot;susceptible&quot;  and self != myself]
+end</pre>
+
+<font size="2" color="gray">End NetLogo code</font>
+
+<h2>Related Micro-Behaviours</h2>
+<p><a href="REPORT-ALL-LIVING.html">REPORT-ALL-LIVING</a> reports all the 
+individuals that are alive. <a href="REPORT-ALL-INFECTED.html">
+REPORT-ALL-INFECTED</a> reports all the individuals that are infected.
+<a href="REPORT-ALL-SUSCEPTIBLES-WHO-HAVE-AN-INFECTED-ACQUAINTANCE.html">
+REPORT-ALL-SUSCEPTIBLES-WHO-HAVE-AN-INFECTED-ACQUAINTANCE</a> computes the set 
+of individuals who are susceptible to infection who have an acquaintance that is 
+already infected except &quot;myself&quot;.</p>
+
+<h2>How this works</h2>
+	
+<p>This adds to your model a new NetLogo reporter that can be used by any 
+micro-behaviour. This 'reporter' returns the set of agents that are susceptible.</p>
+	
+<h2>History</h2>
+	
+<p>This was implemented by Ken Kahn.</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</BODY>
+</HTML>

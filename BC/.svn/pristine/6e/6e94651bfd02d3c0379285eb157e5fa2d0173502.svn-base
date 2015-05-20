@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>BUILD-LEADER-SEMANTIC-NETWORK</title>
+</head>
+<body>
+<h3><i>I build the semantic network of the leaders of a religion.</i></h3>
+<font size="2" color="gray">Begin micro-behaviour</font>
+<p><b>BUILD-LEADER-SEMANTIC-NETWORK</b></p>
+<font size="2" color="gray">Begin NetLogo code:</font>
+<pre>let belief-nodes objects with [kind = "Belief Node" and my-prototype = self]
+let list-of-belief-node-copies [copy-agent self] of belief-nodes
+set my-nodes turtle-set list-of-belief-node-copies
+let node-count count my-nodes
+let number-directly-connected the-fraction-connected-to-anchors * node-count
+let directly-connected-nodes select-n number-directly-connected my-nodes
+let anchor-points my-anchor-points
+ask directly-connected-nodes
+    [ask one-of anchor-points 
+        [create-link-with myself 
+         ; leader's links don't decay
+         ask link-with myself [set permanent-of-link true]]
+     set my-visibility true]
+let indirectly-connected-nodes 
+    my-nodes with [not member? self directly-connected-nodes]
+ask indirectly-connected-nodes
+    [ask one-of directly-connected-nodes
+        [create-link-with myself 
+         ; leader's links don't decay
+         ask link-with myself [set permanent-of-link true]]
+     set my-visibility true]
+; there are now one link between nodes
+let addition-link-count node-count * (the-number-of-links-per-node - 1)
+repeat addition-link-count
+  [let pair n-of 2 my-nodes
+   let node-1 one-of pair
+   let node-2 [one-of other pair] of node-1
+   ask node-1 [create-link-with node-2
+               ask link-with node-2 [set permanent-of-link true]]]
+
+</pre>
+<font size="2" color="gray">End NetLogo code</font>
+<h2>How this works</h2>
+<p><span style="background-color: #FFFF00">To do.</span></p>
+<h2>History</h2>
+<p>Ken Kahn implemented this on 9 July, 2010.
+</body>
+</html>

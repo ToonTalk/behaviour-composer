@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>DIE</title>
+
+</head>
+<body>
+	<h3><i>I die, i.e., I am removed from the simulation.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>DIE</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>set dead true
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>If you want an agent to remain (perhaps for generating statistics) but to 
+
+	leave the model then use
+
+	<a title="HIDE" href="HIDE.html">HIDE</a> 
+
+	instead. Note that, unlike this micro-behaviour,
+
+	<a title="HIDE" href="HIDE.html">HIDE</a> 
+
+	will not recycle the computational resources used.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p><a title="KILL" href="KILL.html">KILL</a> 
+
+	uses DIE on another agent.</p>
+
+	<h2>How this works</h2>
+
+	<p>At the end of every simulation step all agents marked as <i>dead</i> are 
+
+	removed from the simulation.</p>
+
+	<h2>History</h2>
+
+	<p>This was implemented by Ken Kahn</p>
+</body>
+</html>

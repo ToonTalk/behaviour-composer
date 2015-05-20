@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>WANDER-TO-AN-UNOCCUPIED-LOCATION</title>
+
+</head>
+
+
+
+<body>
+	<h3><i>I repeatedly move to a nearby position that is unoccupied (or state 
+
+	put if there are none).</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>WANDER-TO-AN-UNOCCUPIED-LOCATION</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for cycle-duration 1                      
+          
+do-every cycle-duration
+   [let unoccupied-location random-selection-of-unoccupied-locations (xcor - 1) (xcor + 1)
+                                                                     (ycor - 1) (ycor + 1)
+    set my-x first unoccupied-location
+    set my-y second unoccupied-location]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>The 1s in the code specify a range of movement plus or minus one unit 
+
+	horizontally and vertically. You can use other numbers to specify a 
+
+	different range. You can specify any region of the world by specifying the 
+
+	minimum x, maximum x, minimum y, and maximum x.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="WANDER-TO-RANDOM-LOCATION-UNTIL-EMPTY" href="WANDER-TO-RANDOM-LOCATION-UNTIL-EMPTY.html">
+
+	WANDER-TO-RANDOM-LOCATION-UNTIL-EMPTY</a> behaves the same as this 
+
+	micro-behaviour if there are unoccupied locations in the region. It takes 
+
+	less computation but will loop forever if the region is full.</p>
+
+	<p>
+
+	<a title="WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS" href="WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS.html">
+
+	WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS</a> moves in a similar fashion but 
+
+	allows movement to occupied locations.
+
+	<a title="SET-RANDOM-UNOCCUPIED-POSITION" href="SET-RANDOM-UNOCCUPIED-POSITION.html">
+
+	SET-RANDOM-UNOCCUPIED-POSITION</a> moves to any unoccupied location.</p>
+
+	<h2>How this works</h2>
+
+	<p>It uses <i>random-selection-of-unoccupied-locations</i> to compute a list 
+
+	of all unoccupied locations within the coordinate range and selects a random 
+
+	element. If there are no unoccupied locations the current location is used.
+
+	</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+</body>
+</html>

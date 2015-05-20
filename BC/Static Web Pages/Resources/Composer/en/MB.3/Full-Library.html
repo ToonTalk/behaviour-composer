@@ -1,0 +1,2455 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<meta http-equiv="Content-Language" content="en-gb">
+
+<title>MicroBehaviours by Modelling4All Team</title>
+
+</head>
+
+<body>
+
+<h1 align="center"><font face="Verdana">Micro-behaviours authored by the 
+
+Modelling4All Project Team</font></h1>
+
+	<font face="Verdana">Here are links to the micro-behaviours constructed for the 
+
+	BehaviourComposer as part of the
+
+	<a target=_blank href="http://modelling4all.org/">
+
+	Modelling4All</a> Project at Oxford University funded by the
+
+	<a target=_blank href="http://www.eduserv.org.uk/">Eduserv Foundation</a>. 
+</font> 
+<h2><font face="Verdana">Specialised libraries and construction guides</font></h2>
+<p><font face="Verdana">A good beginning tutorial is this <a href="Modelling-Predators-and-Prey.html">
+step-by-step guide to building an ecosystem</a> of predators and prey.</font></p>
+<p>
+
+	<font face="Verdana">Micro-behaviours needed in <a href="Epidemic-Library.html">b</a><a title="Browse Micro-Behaviours Needed in Building Disease Models" href="Epidemic-Library.html">uilding 
+	disease models</a>.<br /> 
+	A step-by-step <a href="Epidemic-Guide.html">guide for modelling epidemics</a>.</font></p>
+
+	<p>
+
+	<font face="Verdana">Micro-behaviours needed in <a href="Sugarscape-Library.html">building Sugarscape 
+	models</a>.<br /> 
+	A step-by-step <a href="Sugarscape-Guide.html">guide to building Sugarscape models</a>.</font></p>
+
+	<h2><font face="Verdana">Generic micro-behaviours</font></h2>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Movement_section">Movement</a></font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Appearance_section">Appearance</a></font></p>
+	
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Defining_parameters_section">Defining 
+	and updating model parameters</a></font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Creating_and_setting_attributes_section">Creating and setting attributes of agents</a></font></p>
+    
+    <p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Scheduling_section">Scheduling micro-behaviours</a></font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Interaction_section">Interacting with other agents</a></font></p>
+	
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Linking_micro-behaviours_section">Linking agents</a></font></p>
+	
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Agent_layout_section">Laying out agents</a></font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Reproduction_section">Reproduction</a></font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Death_and_Killing_MicroBehaviours_section">Death and killing </a>
+	</font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Eating_section">Eating</a></font></p>
+	
+    <p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#World_or_Environment_section">World or Environment</a></font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Social_Network_section">Social network</a></font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#User_Input_section">User input</a></font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Creating_Graphs_and_Plots_section">Creating graphs and plots</a></font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Creating_Sliders,_Monitors,_and_other_Widgets_section">Creating sliders, monitors and other widgets</a></font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Creating_Event_Logs_section">Creating event logs</a></font></p>
+	
+    <p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Adding_Comments_section">Adding comments</a></font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px">
+	<a href="#Extra_NetLogo_Code_section"><font face="Verdana">Adding</font></a><font face="Verdana"><a href="#Extra_NetLogo_Code_section"> NetLogo code
+	or new micro-behaviours</a></font></p>
+	
+<h2><font face="Verdana">Topic specific micro-behaviours</font></h2>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Collective_decision-making_in_animal_groups_section">Collective decision-making and animal groups</a></font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px">
+	<font face="Verdana">
+	<a href="#Relative_Agreement_Models_section">Opinion Dynamics models</a></font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Vaccination_Models_section">Epidemic and vaccination models</a></font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Sugarscape_--_Growing_Artificial_Societies_section">Sugarscape: growing artificial societies</a></font></p>
+
+	<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#Economic_Models_of_Network_Formation_section">Economic models of network formation</a></font></p>
+<p style="margin-top: -2px; margin-bottom: -2px"><font face="Verdana"><a href="#A_Simple_Model_of_Predation_section">A simple model of predation</a></font></p>
+
+	<h2><font face="Verdana"><a name="Movement_section">Movement</a> 
+
+	micro-behaviours</font></h2>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="MOVE-FORWARD" href="MOVE-FORWARD.html">
+
+	MOVE-FORWARD</a> -- I move forward at a speed.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="TURN-RANDOMLY" href="TURN-RANDOMLY.html">
+
+	TURN-RANDOMLY</a> -- I repeatedly turn randomly</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="TURN-REPEATEDLY" href="TURN-REPEATEDLY.html">
+
+	TURN-REPEATEDLY</a> -- I rotate at a speed</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="WANDER-RANDOMLY-BY-TURNING" href="WANDER-RANDOMLY-BY-TURNING.html">
+
+	WANDER-RANDOMLY-BY-TURNING</a> -- I repeatedly turn randomly and move 
+	forward</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS" href="WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS.html">
+
+	WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS</a> -- I repeatedly move up, down, 
+	left, or right one step</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="WANDER-TO-AN-UNOCCUPIED-LOCATION" href="WANDER-TO-AN-UNOCCUPIED-LOCATION.html">
+
+	WANDER-TO-AN-UNOCCUPIED-LOCATION</a> -- I repeatedly move to a nearby 
+	location but not if someone is already there</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="WANDER-TO-RANDOM-LOCATION-UNTIL-EMPTY" href="WANDER-TO-RANDOM-LOCATION-UNTIL-EMPTY.html">
+
+	WANDER-TO-RANDOM-LOCATION-UNTIL-EMPTY</a> -- I repeatedly move to a random 
+	nearby location and try again if it is already occupied</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="MOVE-HORIZONTALLY-IF-UNOCCUPIED-DESTINATION" href="MOVE-HORIZONTALLY-IF-UNOCCUPIED-DESTINATION.html">
+
+	MOVE-HORIZONTALLY-IF-UNOCCUPIED-DESTINATION</a> -- I move left or right but 
+	only if the destination is unoccupied</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="WANDER-HORIZONTALLY" href="WANDER-HORIZONTALLY.html">
+
+	WANDER-HORIZONTALLY</a> -- I repeatedly move left or right one step</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="WANDER-VERTICALLY" href="WANDER-VERTICALLY.html">
+
+	WANDER-VERTICALLY</a> -- I repeatedly move up or down one step</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-RANDOM-POSITION" href="SET-RANDOM-POSITION.html">
+
+	SET-RANDOM-POSITION</a> -- I jump to a random position</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-RANDOM-UNOCCUPIED-POSITION" href="SET-RANDOM-UNOCCUPIED-POSITION.html">
+
+	SET-RANDOM-UNOCCUPIED-POSITION</a> -- I jump to a random position that is 
+	not occupied</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="SET-POSITION-ON-A-CIRCLE.html">SET-POSITION-ON-A-CIRCLE</a> -- I 
+	jump to a position on a circle</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="TURN-TOWARDS-GOAL" href="TURN-TOWARDS-GOAL.html">
+
+	TURN-TOWARDS-GOAL</a> -- I turn towards a goal</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="TURN-TOWARDS-ANOTHER" href="TURN-TOWARDS-ANOTHER.html">
+
+	TURN-TOWARDS-ANOTHER</a> -- I turn towards another individual</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="MOVE-TOWARDS-ANOTHER.html">MOVE-TOWARDS-ANOTHER</a> 
+	- I move repeatedly towards another.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-RANDOM-HEADING" href="SET-RANDOM-HEADING.html">
+
+	SET-RANDOM-HEADING</a> -- I set my heading to a random angle.</font></p>
+
+	<h2><font face="Verdana"><a name="Appearance_section">Appearance</a> 
+
+	micro-behaviours</font></h2>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-SHAPE" href="SET-SHAPE.html">
+
+	SET-SHAPE</a> -- Sets my appearance to be a fish (easily changed to another 
+
+	shape)</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-COLOR" href="SET-COLOR.html">
+
+	SET-COLOR</a> -- Sets my colour to red (easily changed to other colours)</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="SET-PATCH-COLOR.html">SET-PATCH-COLOR</a> -- Sets the colour of my 
+	patch of the environment</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-SIZE" href="SET-SIZE.html">
+
+	SET-SIZE</a> -- Sets my size so I appear bigger or smaller</font></p>
+
+	<p><font face="Verdana"><a title="HIDE" href="HIDE.html">HIDE</a> 
+
+	-- I become invisible</font></p>
+
+	<p><font face="Verdana"><a title="SHOW" href="SHOW.html">SHOW</a> 
+
+	-- I become visible again</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SIZE-IS-FUNCTION-OF-AGE" href="SIZE-IS-FUNCTION-OF-AGE.html">
+
+	SIZE-IS-FUNCTION-OF-AGE</a> -- Changes my size as I get older</font></p>
+	
+	<h2><font face="Verdana"><a name="Defining_parameters_section">
+
+	Defining and updating model parameters </a></font></h2>
+<p><font face="Verdana"><a href="DEFINE-PARAMETER.html">DEFINE-PARAMETER</a> -- I define a global 
+parameter of the entire model as either a slider, input box, or editable 
+constant.</font></p>
+<p><font face="Verdana"><a href="UPDATE-PARAMETER.html">UPDATE-PARAMETER</a> -- I set a global 
+parameter to a new value once.</font></p>
+<p><font face="Verdana"><a href="UPDATE-PARAMETER-REPEATEDLY.html">UPDATE-PARAMETER-REPEATEDLY</a> -- 
+I set a global parameter to new values repeatedly.</font></p>
+
+
+	<h2><font face="Verdana"><a name="Creating_and_setting_attributes_section">
+
+	Creating and setting attributes of agents </a></font></h2>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-ATTRIBUTE" href="UPDATE-ATTRIBUTE.html">
+	UPDATE-ATTRIBUTE</a> -- Sets (and creates if needed) one of my 
+
+	attributes to a value</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="UPDATE-ATTRIBUTE-REPEATEDLY.html">UPDATE-ATTRIBUTE-REPEATEDLY</a> 
+	-- Updates one of my attributes repeatedly</font></p>
+
+	<p><font face="Verdana">And some examples using attributes:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="AGE-IS-ZERO" href="AGE-IS-ZERO.html">
+
+	AGE-IS-ZERO</a> -- My age starts off at zero</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="GROW-OLDER" href="GROW-OLDER.html">
+
+	GROW-OLDER</a> -- My age increases repeatedly</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DIE-WHEN-TOO-OLD" href="DIE-WHEN-TOO-OLD.html">
+
+	DIE-WHEN-TOO-OLD</a> -- I die when I'm very old</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="SET-MAXIMUM-LIFE.html">SET-MAXIMUM-LIFE</a> -- I initialise my 
+	maximum lifespan</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="UPDATE-MINIMUM-REPRODUCTION-AGE" href="UPDATE-MINIMUM-REPRODUCTION-AGE.html">
+
+	UPDATE-MINIMUM-REPRODUCTION-AGE</a> -- Increase my minimum age before I 
+
+	can reproduce</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-SPECIES" href="SET-SPECIES.html">
+
+	SET-SPECIES</a> -- Initialises the name of my species</font></p>
+
+	<h2><font face="Verdana"><a name="Scheduling_section">Scheduling</a></font></h2>
+	<font face="Verdana">The following provide access to the scheduling primitives added to NetLogo by the 
+BehaviourComposer.</font><p><font face="Verdana"><a href="ADD-BEHAVIOURS.html">ADD-BEHAVIOURS</a> -- I add 
+behaviours immediately</font></p>
+<p><font face="Verdana"><a href="ADD-BEHAVIOURS-TO.html">ADD-BEHAVIOURS-TO</a> -- I add 
+behaviours immediately to a specified agent or set of agents</font></p>
+<p><font face="Verdana"><a href="REMOVE-BEHAVIOURS.html">REMOVE-BEHAVIOURS</a> -- I remove behaviours 
+previously added</font></p>
+<p><font face="Verdana"><a href="REMOVE-BEHAVIOURS-FROM.html">
+REMOVE-BEHAVIOURS-FROM</a> -- I remove specified behaviours from an agent or set 
+of agents</font></p>
+<p><font face="Verdana"><a href="REMOVE-ALL-BEHAVIOURS.html">REMOVE-ALL-BEHAVIOURS</a> -- I remove all behaviours 
+previously added</font></p>
+<p><font face="Verdana"><a href="REMOVE-ALL-BEHAVIOURS-FROM.html">
+REMOVE-ALL-BEHAVIOURS-FROM</a> -- I remove all behaviours 
+from a specified agent or set of agents</font></p>
+<p><font face="Verdana"><a href="DO-WITH-PROBABILITY.html">DO-WITH-PROBABILITY</a> -- I add 
+behaviours probabilistically</font></p>
+<p><font face="Verdana"><a href="REPEATEDLY-DO-BEHAVIOURS.html">REPEATEDLY-DO-BEHAVIOURS</a> -- I add 
+behaviours repeatedly</font></p>
+<p><font face="Verdana"><a href="DO-AFTER.html">DO-AFTER</a> -- Delays the execution of a list of 
+micro-behaviours</font></p>
+<p><font face="Verdana"><a href="DO-AFTER-SETUP.html">DO-AFTER-SETUP</a>&nbsp; -- Delays the execution of a list of micro-behaviours 
+until after setup completes</font></p>
+<p><font face="Verdana"><a href="DO-IF.html">DO-IF</a> -- I add micro-behaviours if condition is true 
+now</font></p>
+<p><font face="Verdana"><a href="DO-IF-ELSE.html">DO-IF-ELSE</a> -- I add 
+different lists of micro-behaviours depending upon whether condition is true or 
+false now</font></p>
+<p><font face="Verdana"><a href="WHEN.html">WHEN</a> -- Adds and removes micro-behaviours the first 
+time that conditions are true</font></p>
+<p><font face="Verdana"><a href="WHENEVER.html">WHENEVER</a> -- Adds and removes micro-behaviours 
+every time conditions are true</font></p>
+	
+
+	<h2><font face="Verdana"><a name="Interaction_section">Interacting with other agents</a></font></h2>
+<p><font face="Verdana"><b><span style="font-weight: 400"><a href="INTERACT-WITH-ANOTHER.html">INTERACT-WITH-ANOTHER</a> 
+--<i> </i> </span> </b>I interact with anyone who meets my conditions</font></p>
+
+	<h2><font face="Verdana"><a name="Linking_micro-behaviours_section">Linking with other agents</a></font></h2>
+	<p>
+
+	<font face="Verdana">These micro-behaviours are for creating and removing links between agents.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="ADD-UNDIRECTED-LINK.html">ADD-UNDIRECTED-LINK</a> - I create an 
+	undirected link to another</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="ADD-DIRECTED-LINK-FROM.html">ADD-DIRECTED-LINK-FROM</a> - I create 
+	a directed link from another to me</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="ADD-DIRECTED-LINK.html">ADD-DIRECTED-LINK</a> - I create a directed 
+	link to another</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="REMOVE-LINK.html">REMOVE-LINK</a> - I remove a link with another</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="ADD-UNDIRECTED-LINKS-TO-ALL-OTHERS.html">ADD-UNDIRECTED-LINKS-TO-ALL-OTHERS</a> 
+	-- I add undirected links to all others</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="ADD-UNDIRECTED-LINKS-TO-ALL-OTHERS">ADD-DIRECTED-LINKS-TO-ALL-OTHERS</a> 
+	-- I add directed links to all others</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="ADD-BEHAVIOURS-TO-LINKS.html">ADD-BEHAVIOURS-TO-LINKS</a> -- I add 
+	micro-behaviours to links (rather than agents)</font></p>
+
+	<h2><font face="Verdana"><a name="Agent_layout_section">Agent Layout</a></font></h2>
+<p><font face="Verdana">The following control the spatial layout of sets of agents.</font></p>
+<p><font face="Verdana"><a href="LAYOUT-CIRCLE.html">LAYOUT-CIRCLE</a> -- I place a set of agents in 
+a circle</font></p>
+<p><font face="Verdana"><a href="LAYOUT-GRID.html">LAYOUT-GRID</a> -- I place a set of agents in a 
+rectangular grid</font></p>
+<p><font face="Verdana"><a href="LAYOUT-SPRING.html">LAYOUT-SPRING</a> -- I layout a set of agents 
+where the agents repel each other and the links between them act like springs</font></p>
+<h2><font face="Verdana"><a name="Reproduction_section">Reproduction</a> 
+
+	micro-behaviours</font></h2>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="ADD-COPIES" href="ADD-COPIES.html">
+
+	ADD-COPIES</a> -- I make copies of myself and add them to the model</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="ADD-SOME-OFFSPRING" href="ADD-SOME-OFFSPRING.html">
+
+	ADD-SOME-OFFSPRING</a> -- I create a random number of offspring whose age is 
+
+	set to zero</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="REPRODUCE" href="REPRODUCE.html">
+
+	REPRODUCE</a> -- I make a few copies of myself when I meet the right mate
+
+	</font>
+
+	</p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="ADD-COPY-OF-ANOTHER" href="ADD-COPY-OF-ANOTHER.html">
+
+	ADD-COPY-OF-ANOTHER</a> -- I make a copy of another individual</font></p>
+
+	<h2><font face="Verdana"><a name="Death_and_Killing_MicroBehaviours_section">
+
+	Death and Killing micro-behaviours </a></font></h2>
+
+	<p><font face="Verdana"><a title="DIE" href="DIE.html">DIE</a> 
+
+	-- Removes me from model</font></p>
+
+	<p><font face="Verdana"><a title="KILL" href="KILL.html">KILL</a> 
+
+	-- Removes other from model</font></p>
+
+	<h2><font face="Verdana"><a name="Eating_section">Eating</a></font></h2>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="REDUCE-HUNGER" href="REDUCE-HUNGER.html">
+
+	REDUCE-HUNGER</a> -- Reduces my hunger (after eating)</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="GROW-HUNGRY" href="GROW-HUNGRY.html">
+
+	GROW-HUNGRY</a> -- I repeatedly get more hungry</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="EAT-WHEN-HUNGRY" href="EAT-WHEN-HUNGRY.html">
+
+	EAT-WHEN-HUNGRY</a> -- I try to eat something when I am hungry</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DIE-WHEN-TOO-HUNGRY" href="DIE-WHEN-TOO-HUNGRY.html">
+
+	DIE-WHEN-TOO-HUNGRY</a> -- If I get too hungry I starve</font></p>
+	
+
+<h2><font face="Verdana"><a name="Social_Network_section">Social Network</a>
+
+	</font>
+
+	</h2>
+
+	<p><font face="Verdana">The following should be associated with a single agent, e.g. the world or 
+
+	observer.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-SOCIAL-NETWORK-SYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-CONSTANT-SYMMETRIC.html">
+
+	INITIALISE-SOCIAL-NETWORK-CONSTANT-SYMMETRIC</a> -- Initialises the subset of other 
+
+	agents that I &quot;know&quot; (everyone knows the same number of people). Everyone I 
+
+	know knows me.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-SYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-SYMMETRIC.html">
+
+	INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-SYMMETRIC</a> -- Initialises 
+
+	the subset of other agents that I &quot;know&quot; (the number of people each person 
+
+	knows is normally distributed). Everyone I know knows me.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-SOCIAL-NETWORK-POWER-LAW-DISTRIBUTION-SYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-POWER-LAW-DISTRIBUTION-SYMMETRIC.html">
+
+	INITIALISE-SOCIAL-NETWORK-POWER-LAW-DISTRIBUTION-SYMMETRIC</a> -- 
+
+	Initialises the subset of other agents that I &quot;know&quot; (the number of people 
+
+	each person knows follows a
+
+	<a class="external text" title="http://en.wikipedia.org/wiki/Power_law" rel="nofollow" href="http://en.wikipedia.org/wiki/Power_law">
+
+	power law</a>). Everyone I know knows me.</font></p>
+
+	<p><font face="Verdana">The following should be associated with the prototype of the population. 
+
+	These are only appropriate when a link from a to b does not entail there 
+
+	should be a corresponding link from b to a.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-SOCIAL-NETWORK-ASYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-CONSTANT-ASYMMETRIC.html">
+
+	INITIALISE-SOCIAL-NETWORK-CONSTANT-ASYMMETRIC</a> -- Initialises the subset of other 
+
+	agents that I &quot;know&quot; (everyone knows the same number of people). <i>Not</i> 
+
+	everyone I know knows me.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-ASYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-ASYMMETRIC.html">
+
+	INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-ASYMMETRIC</a> -- Initialises 
+
+	the subset of other agents that I &quot;know&quot; (the number of people each person 
+
+	knows is normally distributed). <i>Not</i> everyone I know knows me.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="REMOVE-SUPER-NODES.html">REMOVE-SUPER-NODES</a> -- Removes individuals with the greatest number of acquaintances.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="CREATE-NUMBER-OF-SUPER-NODES-REMOVED-SLIDER.html">CREATE-NUMBER-OF-SUPER-NODES-REMOVED-SLIDER</a> 
+	-- Creates a slider to control the number of nodes removed by
+	<a href="REMOVE-SUPER-NODES.html">REMOVE-SUPER-NODES</a>.</font></p>
+
+	<p><font face="Verdana">To view social networks:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES" href="DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES.html">
+	DISPLAY-LINE-TO-MY-ACQUAINTANCES</a> -- I draw a line to all my 
+
+	acquaintances.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES" href="SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES.html">
+
+	SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES</a> -- I change my size 
+
+	to reflect the number of individuals in <i>my-acquaintances</i>.</font></p>
+
+	<h2><font face="Verdana"><a name="World_or_Environment_section">World or 
+
+	Environment </a></font></h2>
+
+	<p><font face="Verdana">Micro-behaviours for controlling the &quot;world&quot; the individuals &quot;live&quot; in.
+
+	</font>
+
+	</p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-WORLD-SIZE" href="SET-WORLD-SIZE.html">
+
+	SET-WORLD-SIZE</a> -- I set the size of the world</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-PATCH-SIZE" href="SET-PATCH-SIZE.html">
+
+	SET-PATCH-SIZE</a> -- I set the size of each patch</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-WORLD-TO-TORUS" href="SET-WORLD-TO-TORUS.html">
+
+	SET-WORLD-TO-TORUS</a> -- I set the geometry of the world to a torus 
+
+	(coordinates wrap both horizontally and vertically)</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-WORLD-TO-PLANE" href="SET-WORLD-TO-PLANE.html">
+
+	SET-WORLD-TO-PLANE</a> -- I set the geometry of the world to a plane 
+
+	(coordinates do not wrap)</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-WORLD-TO-PLANE-WITH-CAMERA-FOLLOWING-CENTROID" href="SET-WORLD-TO-PLANE-WITH-CAMERA-FOLLOWING-CENTROID.html">
+
+	SET-WORLD-TO-PLANE-WITH-CAMERA-FOLLOWING-CENTROID</a> -- I set the geometry 
+
+	of the world to a plane (coordinates do not wrap) but the display of the 
+
+	world is constantly updated so the center is the average position of all 
+
+	individuals</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-WORLD-TO-VERTICAL-CYLINDER" href="SET-WORLD-TO-VERTICAL-CYLINDER.html">
+
+	SET-WORLD-TO-VERTICAL-CYLINDER</a> -- I set the geometry of the world to a 
+
+	vertical cylinder (coordinates wrap only horizontally)</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-WORLD-TO-HORIZONTAL-CYLINDER" href="SET-WORLD-TO-HORIZONTAL-CYLINDER.html">
+
+	SET-WORLD-TO-HORIZONTAL-CYLINDER</a> -- I set the geometry of the world to a 
+
+	horizontal cylinder (coordinates wrap only vertically)</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-WORLD-LOCATION" href="SET-WORLD-LOCATION.html">
+
+	SET-WORLD-LOCATION</a> -- I set where the display of the world is placed</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-EACH-PATCH" href="INITIALISE-EACH-PATCH.html">
+
+	INITIALISE-EACH-PATCH</a> -- Each patch of the world is initialised</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="EACH-PATCH-CHANGES" href="EACH-PATCH-CHANGES.html">
+
+	EACH-PATCH-CHANGES</a> -- Each patch of the world does this repeatedly</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="SET-BACKGROUND-COLOR.html">SET-BACKGROUND-COLOR</a> - Sets the 
+	colour of the every patch of the background.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="PAUSE-EVERYTHING-WHEN" href="STOP-EVERYTHING-WHEN.html">
+
+	PAUSE-WHEN</a> -- Pauses the running of the model when some condition is 
+
+	true</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-DELTA-T" href="SET-FRAME-DURATION.html">SET-FRAME-DURATION</a> -- Sets the value of 
+	<i>frame-duration</i> which controls how often the display is updated.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="TURN-OFF-CLOCKED-MODE.html">TURN-OFF-CLOCKED-MODE</a> -- I turn off 
+	clocked mode.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="MAKE-A-MOVIE-OF-A-MODEL" href="MAKE-A-MOVIE-OF-A-MODEL.html">
+
+	MAKE-A-MOVIE-OF-A-MODEL</a> -- Records a movie of a model running</font></p>
+
+	<h2><font face="Verdana"><span class="mw-headline"><a name="User_Input_section">User Input </a></span>
+
+	</font>
+
+	</h2>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DO-BUTTON-COMMAND" href="DO-BUTTON-COMMAND.html">
+
+	DO-BUTTON-COMMAND</a> -- I do the action of the last button pushed</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-RIGHT-TURN-BUTTON" href="CREATE-RIGHT-TURN-BUTTON.html">
+
+	CREATE-RIGHT-TURN-BUTTON</a> -- I add a button the NetLogo interface for 
+
+	turning right</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-LEFT-TURN-BUTTON" href="CREATE-LEFT-TURN-BUTTON.html">
+
+	CREATE-LEFT-TURN-BUTTON</a> -- I add a button the NetLogo interface for 
+
+	turning left</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-SPEED-UP-BUTTON" href="CREATE-SPEED-UP-BUTTON.html">
+
+	CREATE-SPEED-UP-BUTTON</a> -- I add a button the NetLogo interface for 
+
+	increasing my speed</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-SLOW-DOWN-BUTTON" href="CREATE-SLOW-DOWN-BUTTON.html">
+
+	CREATE-SLOW-DOWN-BUTTON</a> -- I add a button the NetLogo interface for 
+
+	decreasing my speed</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="GO-FORWARD-AT-SPEED" href="GO-FORWARD-AT-SPEED.html">
+
+	GO-FORWARD-AT-SPEED</a> -- I repeatedly go forward in a direction and speed 
+
+	determined by these buttons</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="MOVEMENT-CONTROLLED-BY-BUTTONS" href="MOVEMENT-CONTROLLED-BY-BUTTONS.html">
+
+	MOVEMENT-CONTROLLED-BY-BUTTONS</a> -- Combines all the above in one</font></p>
+
+	<h2><font face="Verdana"><span class="mw-headline"><a name="Creating_Graphs_and_Plots_section">Creating 
+
+	Graphs and Plots </a></span></font></h2>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-PLOT" href="CREATE-PLOT.html">
+
+	CREATE-PLOT</a> -- I create a fully specified two-dimensional graph</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="CREATE-AUTO-PLOT.html">CREATE-AUTO-PLOT</a> -- I create a plot that 
+	scales dynamically as the data is produced</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-PLOT" href="CREATE-EMPTY-PLOT.html">CREATE-EMPTY-PLOT</a> -- I create a 
+	fully specified area where other micro-behaviours can draw graphs</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="CREATE-EMPTY-AUTO-PLOT.html">CREATE-EMPTY-AUTO-PLOT</a> -- I create 
+	an area that scales dynamically as where other micro-behaviours draw graphs</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="ADD-TO-PLOT.html">ADD-TO-PLOT</a> --<i> </i>I plot data on top of an existing plot.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-HISTOGRAM" href="CREATE-HISTOGRAM.html">
+
+	CREATE-HISTOGRAM</a> -- I create a histogram</font></p>
+
+	<h2><font face="Verdana"><span class="mw-headline">
+
+	<a name="Creating_Sliders,_Monitors,_and_other_Widgets_section">Creating Sliders, 
+
+	Monitors, and other Widgets </a></span></font></h2>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-SLIDER" href="CREATE-SLIDER.html">
+
+	CREATE-SLIDER</a> -- I add a slider to the NetLogo interface</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-MONITOR" href="CREATE-MONITOR.html">
+
+	CREATE-MONITOR</a> -- I add a monitor to the NetLogo interface</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-CHOOSER" href="CREATE-CHOOSER.html">
+
+	CREATE-CHOOSER</a> -- I add a chooser that behaves like a pull-down menu to 
+
+	the NetLogo interface</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="CREATE-SWITCH.html">CREATE-SWITCH</a> -- I create a switch that can 
+	be on or off</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-COLOR-TEXT" href="CREATE-COLOR-TEXT.html">
+
+	CREATE-TEXT</a> -- I add some text to the NetLogo interface</font></p>
+
+	<h2><font face="Verdana"><span class="mw-headline"><a name="Creating_Event_Logs_section">Creating Event 
+
+	Logs </a></span></font></h2>
+<p><font face="Verdana"><a href="ADD-MESSAGE.html">ADD-MESSAGE</a> -- Adds a custom message to 
+the output area.</font></p>
+<p><font face="Verdana"><a href="SPECIFY-OUTPUT-AREA.html">SPECIFY-OUTPUT-AREA</a> -- Describes the 
+size and location of the output area.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="LOG-ALL-BEHAVIOURS" href="LOG-ALL-BEHAVIOURS.html">
+
+	LOG-ALL-BEHAVIOURS</a> -- Adds to a log all behaviours I receive</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="LOG-SPECIFIED-BEHAVIOURS" href="LOG-SPECIFIED-BEHAVIOURS.html">
+
+	LOG-SPECIFIED-BEHAVIOURS</a> -- Adds to a log when I receive a specified 
+
+	behaviour</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="LOG-ALL-ATTRIBUTES" href="LOG-ALL-ATTRIBUTES.html">
+
+	LOG-ALL-ATTRIBUTES</a> -- Adds to a log every time any of my attributes is 
+
+	updated</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="LOG-SPECIFIED-ATTRIBUTES" href="LOG-SPECIFIED-ATTRIBUTES.html">
+
+	LOG-SPECIFIED-ATTRIBUTES</a> -- Adds to a log whenever any of the specified 
+
+	attributes is updated</font></p>
+	
+	<h2><font face="Verdana"><span class="mw-headline"><a name="Adding_Comments_section">Add Comments</a></span></font></h2>
+<p><font face="Verdana"><a href="COMMENT.html">COMMENT</a> -- A behaviour that does nothing but 
+provides a place to write comments.</font></p>
+
+	
+
+	<h2><font face="Verdana"><span class="mw-headline"><a name="Extra_NetLogo_Code_section">Add NetLogo code
+	or new micro-behaviours</a></span></font></h2>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="NETLOGO-CODE" href="NETLOGO-CODE.html">
+
+	NETLOGO-CODE</a> - This can be used to define your own micro-behaviours 
+	or to 
+
+	add NetLogo reporters and commands that can be used in other micro-behaviours.</font><p>
+
+	<font face="Verdana">
+
+	<a title="NETLOGO-CODE" href="NEW-MICRO-BEHAVIOUR.html">NEW-MICRO-BEHAVIOUR</a> 
+- A template we recommend you use if 
+	you wish to define a complete micro-behaviour (code, links, explanations, 
+etc.). The code itself can be any NetLogo code as well as the 
+BehaviourComposer's 
+<a href="../Scheduling-Commands.html">scheduling primitives</a> and other 
+extensions. References to 
+attributes of a prototype should follow these <a href="../Attribute-Naming.html">
+attribute naming conventions</a>.</font></p> 
+	
+	
+
+	<h2><font face="Verdana"><span class="mw-headline">
+
+	<a name="Collective_decision-making_in_animal_groups_section">Collective 
+
+	decision-making in animal groups </a></span></font></h2>
+
+	<p><font face="Verdana">The micro-behaviours are based upon the following article.</font></p>
+
+	<p><font face="Verdana">Couzin, I. D., Krause, J., Franks, N. R. &amp; Levin, S.A.(2005)
+	<a class="external text" title="http://www.princeton.edu/~icouzin/Couzinetal2005.pdf" rel="nofollow" target="_blank" href="http://www.princeton.edu/~icouzin/Couzinetal2005.pdf">Effective leadership and decision making in animal groups on the move</a> 
+
+	Nature 433, 513-516.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DIRECTION-TO-AVOID-OTHERS" href="DIRECTION-TO-AVOID-OTHERS.html">
+
+	DIRECTION-TO-AVOID-OTHERS</a> -- I set my desired direction to avoid those 
+
+	within my personal space</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DIRECTION-TOWARDS-OTHERS" href="DIRECTION-TOWARDS-OTHERS.html">
+
+	DIRECTION-TOWARDS-OTHERS</a> -- I set my desired direction towards those 
+
+	near me that are not within my personal space</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DIRECTION-TO-ALIGN-WITH-OTHERS" href="DIRECTION-TO-ALIGN-WITH-OTHERS.html">
+
+	DIRECTION-TO-ALIGN-WITH-OTHERS</a> -- I set my desired direction to align 
+
+	with those within my local interaction range</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DIRECTION-NOISE" href="DIRECTION-NOISE.html">
+
+	DIRECTION-NOISE</a> -- My desired direction is noisy</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INFORMED-DIRECTION" href="INFORMED-DIRECTION.html">
+
+	INFORMED-DIRECTION</a> -- I set my desired direction partly based upon where 
+
+	I think we should go</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-PREFERRED-DIRECTION" href="INITIALISE-PREFERRED-DIRECTION.html">
+
+	INITIALISE-PREFERRED-DIRECTION</a> -- I become 'informed' by having a 
+
+	non-zero preferred direction</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INFORMED-NOISE" href="INFORMED-NOISE.html">
+
+	INFORMED-NOISE</a> -- My informed direction is noisy</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="TURN-IN-DIRECTION-AT-MAXIMUM-SPEED" href="TURN-IN-DIRECTION-AT-MAXIMUM-SPEED.html">
+
+	TURN-IN-DIRECTION-AT-MAXIMUM-SPEED</a> -- I can only turn so fast to reach 
+
+	my desired direction</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-SLIDER-FOR-PERSONAL-SPACE" href="CREATE-SLIDER-FOR-PERSONAL-SPACE.html">
+	CREATE-SLIDER-FOR-PERSONAL-SPACE</a> -- for setting the maximum distance of 
+
+	the personal space</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-SLIDER-FOR-LOCAL-INTERACTION" href="CREATE-SLIDER-FOR-LOCAL-INTERACTION.html">
+
+	CREATE-SLIDER-FOR-LOCAL-INTERACTION</a> -- for setting the maximum distance 
+
+	for interaction</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="PLOT-AVERAGE-DIRECTION" href="PLOT-AVERAGE-DIRECTION.html">
+
+	PLOT-AVERAGE-DIRECTION</a> -- Plots the average heading of everyone</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="http://modelling4all.nsms.ox.ac.uk/Model/?frozen=fliNY0n7nr6KktK1pFFw64&MforAllModel=1">Here is a simple swarming model using some of these micro-behaviours.</a></font></p>
+
+	<h2><font face="Verdana"><a name="Relative_Agreement_Models_section">Opinion Dynamics Models</a></font></h2>
+
+	<p><font face="Verdana">These are special purpose micro-behaviours inspired by the paper</font></p>
+
+	<p><font face="Verdana">&quot;How can extremism prevail? A study based on the relative agreement 
+
+	interaction model&quot; by Guillaume Deffuant, Fr&eacute;d&eacute;ric Amblard, G&eacute;rard Weisbuch 
+
+	and Thierry Faure (2002); Journal of Artificial Societies and Social 
+
+	Simulation vol. 5, no. 4; &lt;<a class="external free" title="http://jasss.soc.surrey.ac.uk/5/4/1.html" rel="nofollow" target="_blank" href="http://jasss.soc.surrey.ac.uk/5/4/1.html">http://jasss.soc.surrey.ac.uk/5/4/1.html</a>&gt;
+
+	</font>
+
+	</p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CHANGE-OPINION-IN-NEIGHBOURHOOD" href="CHANGE-OPINION-IN-NEIGHBOURHOOD.html">
+
+	CHANGE-OPINION-IN-NEIGHBOURHOOD</a> -- I may change my opinion when I meet 
+
+	someone nearby</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CHANGE-OPINION-SOCIAL-NETWORK" href="CHANGE-OPINION-SOCIAL-NETWORK.html">
+
+	CHANGE-OPINION-SOCIAL-NETWORK</a>-- I may change my opinion when I interact 
+
+	with someone I know</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="RELATIVE-AGREEMENT" href="RELATIVE-AGREEMENT.html">
+
+	RELATIVE-AGREEMENT</a> -- Here's how I change my opinion (if I do)</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-RANDOM-OPINION" href="SET-RANDOM-OPINION.html">
+
+	SET-RANDOM-OPINION</a> -- I initialise my opinion to a random value</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-OPINION-UNCERTAINITY" href="SET-OPINION-UNCERTAINTY.html">
+	SET-OPINION-UNCERTAINTY</a> -- I initialise my uncertainty of this opinion
+
+	</font>
+
+	</p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-EXTREME-OPINION-NEGATIVE" href="SET-EXTREME-OPINION-NEGATIVE.html">
+
+	SET-EXTREME-OPINION-NEGATIVE</a> -- I become an extremist with an opinion of 
+
+	-1</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-EXTREME-OPINION-POSITIVE" href="SET-EXTREME-OPINION-POSITIVE.html">
+
+	SET-EXTREME-OPINION-POSITIVE</a> -- I become an extremist with an opinion of 
+
+	-1</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-HEADING-TO-CURRENT-OPINION" href="SET-HEADING-TO-CURRENT-OPINION.html">
+
+	SET-HEADING-TO-CURRENT-OPINION</a> -- My heading is computed from my current 
+
+	opinion so you can see what's happening</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-SIZE-TO-UNCERTAINITY" href="SET-SIZE-TO-UNCERTAINTY.html">
+	SET-SIZE-TO-UNCERTAINTY</a> -- I grow as I become more certain</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="ADD-RANDOM-POPULATION.html">ADD-RANDOM-POPULATION </a>- I create a 
+	population with random opinion values.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-OPINION-PLOT" href="CREATE-OPINION-PLOT.html">
+
+	CREATE-OPINION-PLOT</a> -- Creates a plot for displaying opinions over time
+
+	</font>
+
+	</p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="PLOT-MY-OPINION" href="PLOT-MY-OPINION.html">
+
+	PLOT-MY-OPINION</a> -- Add a plot of my opinion to the Opinion Plot</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="http://modelling4all.nsms.ox.ac.uk/Model/?frozen=ylo0JeTRySBKK8kFZtbD7f&MforAllModel=1">Here is a relative agreement model</a></font></p>
+
+	<h2><font face="Verdana"><span class="mw-headline"><a name="Vaccination_Models_section">Epidemic and Vaccination 
+	Models </a></span></font></h2>
+
+	<p><font face="Verdana">These micro-behaviours were designed to explore the SVIR model as 
+
+	presented in &quot;Mathematical models of vaccination&quot;, Almut Scherer and Angela 
+
+	McLean, <i>British Medical Bulletin</i> 2002;62 187-199. Here are some
+
+	<a title="Suggestions for exploring vaccination models" target="_blank" href="Suggestions%20for%20exploring%20vaccination%20models.html">suggestions for exploring vaccination models</a>.</font></p>
+
+	<p><font face="Verdana">For creating an initial population:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-INITIAL-INFECTED-POPULATION" href="CREATE-INITIAL-INFECTED-POPULATION.html">
+
+	CREATE-INITIAL-INFECTED-POPULATION</a> -- I create an initial population of 
+
+	infected individuals.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-INITIAL-SUSCEPTIBLE-POPULATION" href="CREATE-INITIAL-SUSCEPTIBLE-POPULATION.html">
+
+	CREATE-INITIAL-SUSCEPTIBLE-POPULATION</a> -- I create an initial population 
+
+	of susceptible individuals.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-INITIAL-VACCINATED-POPULATION" href="CREATE-INITIAL-VACCINATED-POPULATION.html">
+
+	CREATE-INITIAL-VACCINATED-POPULATION</a> -- I create an initial population 
+
+	of vaccinated individuals.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-INITIAL-INFECTED-COUNT-SLIDER" href="CREATE-INITIAL-INFECTED-COUNT-SLIDER.html">
+
+	CREATE-INITIAL-INFECTED-COUNT-SLIDER</a> -- I create a slider for initial 
+
+	number of infected individuals.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-INITIAL-SUSCEPTIBLE-COUNT-SLIDER" href="CREATE-INITIAL-SUSCEPTIBLE-COUNT-SLIDER.html">
+
+	CREATE-INITIAL-SUSCEPTIBLE-COUNT-SLIDER</a> -- I create a slider for initial 
+
+	number of susceptible individuals.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-INITIAL-VACCINATED-COUNT-SLIDER" href="CREATE-INITIAL-VACCINATED-COUNT-SLIDER.html">
+
+	CREATE-INITIAL-VACCINATED-COUNT-SLIDER</a> -- I create a slider for initial 
+
+	number of vaccinated individuals.</font></p>
+	<p>
+
+	<font face="Verdana">To initialise the state of individuals:</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="SET-STATE-SUSCEPTIBLE.html">SET-STATE-SUSCEPTIBLE</a> -- I set my 
+	state to susceptible (to infection).</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="SET-STATE-INFECTED.html">SET-STATE-INFECTED</a> -- I set my state 
+	to infected.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="SET-STATE-RECOVERED.html">SET-STATE-RECOVERED</a> -- I set my state 
+	to recovered (from infection).</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="SET-STATE-VACCINATED.html">SET-STATE-VACCINATED</a> -- I set my 
+	state of vaccinated.</font></p>
+
+	<p><font face="Verdana">To control intrinsic parameters:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-INFECTION-ODDS-SLIDER" href="CREATE-INFECTION-ODDS-SLIDER.html">
+
+	CREATE-INFECTION-ODDS-SLIDER</a> -- I create a slider for the odds of an 
+
+	infection spreading per encounter.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-ENCOUNTER-RATE-SLIDER" href="CREATE-ENCOUNTER-RATE-SLIDER.html">
+
+	CREATE-ENCOUNTER-RATE-SLIDER</a> -- I create a slider for the number of 
+
+	encounters by infected individuals.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-ENCOUNTER-RATE-SLIDER" href="CREATE-ENCOUNTER-FRACTION-SLIDER.html">CREATE-ENCOUNTER-FRACTION-SLIDER</a> -- I create a slider for the number of 
+
+	encounters as a fraction of the number of acquaintances.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-DEATH-RATE-SLIDER" href="CREATE-DEATH-RATE-SLIDER.html">
+
+	CREATE-DEATH-RATE-SLIDER</a> -- I create a slider for life expectancy.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-RATE-OF-RECOVERY-SLIDER" href="CREATE-RATE-OF-RECOVERY-SLIDER.html">
+
+	CREATE-RATE-OF-RECOVERY-SLIDER</a> -- I create a slider for the duration of 
+
+	an infection.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-FRACTION-OF-VACCINATIONS-THAT-TAKE" href="CREATE-FRACTION-OF-VACCINATIONS-THAT-TAKE.html">
+
+	CREATE-FRACTION-OF-VACCINATIONS-THAT-TAKE</a> -- I create a slider for the 
+
+	odds that a vaccination takes.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-RATE-OF-LOSS-OF-IMMUNITY-SLIDER" href="CREATE-RATE-OF-LOSS-OF-IMMUNITY-SLIDER.html">
+
+	CREATE-RATE-OF-LOSS-OF-IMMUNITY-SLIDER</a> -- I create a slider for the 
+
+	duration of a vaccination.</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="CREATE-VACCINE-COUNT-SLIDER.html">CREATE-VACCINE-COUNT-SLIDER</a> -- I create a slider controlling the number of individuals to be vaccinated.</font></p>
+
+	<p><font face="Verdana">To control policy parameters:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-FRACTION-VACCINATED-AT-BIRTH-SLIDER" href="CREATE-FRACTION-VACCINATED-AT-BIRTH-SLIDER.html">
+
+	CREATE-FRACTION-VACCINATED-AT-BIRTH-SLIDER</a> -- I create a slider for the 
+
+	proportion vaccinated at birth.</font></p>
+
+	<p><font face="Verdana">To add all the above at once:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-SLIDERS-AND-INITIAL-POPULATION" href="CREATE-SLIDERS-AND-INITIAL-POPULATION.html">
+
+	CREATE-SLIDERS-AND-INITIAL-POPULATION</a> -- I do all of the above.</font></p>
+
+	<p><font face="Verdana">To see how the current slider settings translate to the mathematical 
+
+	model:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="MONITOR-FORCE-OF-INFECTION" href="MONITOR-FORCE-OF-INFECTION.html">
+
+	MONITOR-FORCE-OF-INFECTION</a> -- I add a monitor that displays &#946; or the 
+
+	force of infection.</font></p>
+
+	<p><font face="Verdana">To model the spread of infections:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="RANDOM-ENCOUNTER" href="RANDOM-ENCOUNTER.html">
+
+	RANDOM-ENCOUNTER</a> -- I possibly infect anyone in the population.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="RANDOM-SOCIAL-ENCOUNTER" href="RANDOM-SOCIAL-ENCOUNTER.html">
+
+	RANDOM-SOCIAL-ENCOUNTER</a> -- I possibly infect someone in my social 
+
+	network.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="RANDOM-SPATIAL-ENCOUNTER" href="RANDOM-SPATIAL-ENCOUNTER.html">
+
+	RANDOM-SPATIAL-ENCOUNTER</a> -- I possibly infect anyone in the population 
+
+	but with a greater probability for those nearby.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="RANDOM-PHYSICAL-ENCOUNTER" href="RANDOM-PHYSICAL-ENCOUNTER.html">
+
+	RANDOM-PHYSICAL-ENCOUNTER</a> -- I possibly infect anyone I came into 
+
+	contact with.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="POSSIBLE-INFECTION" href="POSSIBLE-INFECTION.html">
+
+	POSSIBLE-INFECTION</a> -- I may infect the other individual.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="LOG-INFECTION-ONSET.html">LOG-INFECTION-ONSET</a> -- I add to the 
+	log every infection event.</font></p>
+	<p>
+
+	<font face="Verdana">To model recovery:</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="RECOVERY-POSSIBLE-AFTER-INFECTION.html">
+	RECOVERY-POSSIBLE-AFTER-INFECTION</a> -- I add a behaviour so that I recover 
+	with some probability.</font></p>
+<p>
+
+	<font face="Verdana">To model interventions:</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="VACCINATE-N-RANDOM-INDIVIDUALS.html">VACCINATE-N-RANDOM-INDIVIDUALS</a> 
+	-- After a delay I vaccinate some number of susceptible individuals.</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="VACCINATE-N-RANDOM-SUSCEPTIBLE-ACQUAINTANCES-OF-THE-INFECTED.html">VACCINATE-N-RANDOM-SUSCEPTIBLE-ACQUAINTANCES-OF-THE-INFECTED</a> 
+	-- After a delay I vaccinate some number of susceptible individuals who have an acquaintance who is infected.</font></p>
+
+	<p><font face="Verdana">One way modelling death and birth (using probabilities of dying or giving 
+
+	birth):</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="BIRTH-RATE" href="BIRTH-RATE.html">
+
+	BIRTH-RATE</a> -- I give birth with some probability.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DEATH-RATE" href="DEATH-RATE.html">
+
+	DEATH-RATE</a> -- I die with some probability.</font></p>
+
+	<p><font face="Verdana">To initialise newborns:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="POSSIBLY-VACCINATE-NEW-BORN" href="POSSIBLY-VACCINATE-NEW-BORN.html">
+
+	POSSIBLY-VACCINATE-NEW-BORN</a> -- A new born is possibly successfully 
+
+	vaccinated.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="NEW-BORN-INITIAL-STATE" href="NEW-BORN-INITIAL-STATE.html">
+
+	NEW-BORN-INITIAL-STATE</a> -- I set my attributes to correspond to a new 
+
+	born.</font></p>
+<p>
+
+	<font face="Verdana">To model the loss of immunity:</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="POSSIBLY-LOSE-IMMUNITY.html">POSSIBLY-LOSE-IMMUNITY</a><b> -</b>- I 
+	remove immunity with some probability.</font></p>
+
+	<p><font face="Verdana">To create plots as it runs:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-EMPTY-POPULATIONS-PLOT" href="CREATE-POPULATIONS-PLOT.html">CREATE-POPULATIONS-PLOT</a> -- I create a plot to which other 
+
+	micro-behaviours can add.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT" href="ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT.html">
+
+	ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT</a> -- I add a plot of the number of 
+
+	susceptible individuals to the Populations Plot.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="ADD-VACCINATED-TO-POPULATIONS-PLOT" href="ADD-VACCINATED-TO-POPULATIONS-PLOT.html">
+
+	ADD-VACCINATED-TO-POPULATIONS-PLOT</a> -- I add a plot of the number of 
+
+	vaccinate individuals to the Populations Plot.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="ADD-INFECTED-TO-POPULATIONS-PLOT" href="ADD-INFECTED-TO-POPULATIONS-PLOT.html">
+
+	ADD-INFECTED-TO-POPULATIONS-PLOT</a> -- I add a plot of the number of 
+
+	infected individuals to the Populations Plot.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="ADD-RECOVERED-TO-POPULATIONS-PLOT" href="ADD-RECOVERED-TO-POPULATIONS-PLOT.html">
+
+	ADD-RECOVERED-TO-POPULATIONS-PLOT</a> -- I add a plot of the number of 
+
+	recovered individuals to the Populations Plot.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="ADD-TOTAL-TO-POPULATIONS-PLOT" href="ADD-TOTAL-TO-POPULATIONS-PLOT.html">
+
+	ADD-TOTAL-TO-POPULATIONS-PLOT</a> -- I add a plot of the total number of 
+
+	individuals to the Populations Plot.</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<span lang="EN-GB">
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/ADD-BEHAVIOURS.html#changes=SPb89Kg-D53j5J_Q3XDh74">ADD-CHANGE-IN-NUMBER-INFECTED-BEHAVIOURS</a> 
+	-- I add a collection of behaviours to maintain a record and to plot the 
+	changes in the number of people infected.</span></font></p>
+
+	<p><font face="Verdana">To view relationships:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DISPLAY-LINE-OF-INFECTION" href="DISPLAY-LINE-OF-INFECTION.html">
+
+	DISPLAY-LINE-OF-INFECTION</a> -- I draw a line between the infector and 
+
+	infected.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DISPLAY-LINE-TO-MY-ACQUAINTANCES" href="DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES.html">
+	DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES</a> -- I draw a line to all my 
+
+	acquaintances.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES" href="SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES.html">
+
+	SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES</a> -- I change my size 
+
+	to reflect the number of individuals in <i>my-acquaintances</i>.</font></p>
+	<p>
+
+	<font face="Verdana">To more easily access sub-populations:</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="REPORT-ALL-LIVING.html">REPORT-ALL-LIVING</a> -- I report all the 
+	individuals that are alive.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="REPORT-ALL-INFECTED.html">REPORT-ALL-INFECTED</a> -- I report all 
+	the individuals that are infected.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="REPORT-ENCOUNTER-RATE.html">REPORT-ENCOUNTER-RATE</a> -- I report 
+	the encounter rate.</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="REPORT-ALL-SUSCEPTIBLES.html">REPORT-ALL-SUSCEPTIBLES</a> -- I 
+	calculate the set of individuals who are susceptible to infection.</font></p>
+<p>
+
+<font face="Verdana">
+
+<a href="REPORT-ALL-SUSCEPTIBLES-WHO-HAVE-AN-INFECTED-ACQUAINTANCE.html">
+	REPORT-ALL-SUSCEPTIBLES-WHO-HAVE-AN-INFECTED-ACQUAINTANCE</a> -- I compute 
+	the set of individuals who are susceptible to infection who have an 
+	acquaintance that is already infected.</font></p>
+<p>
+
+	<font face="Verdana">To stop the simulation:</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="STOP-EVERYTHING-WHEN-NONE-INFECTED.html">PAUSE-WHEN-NONE-INFECTED</a> -- I 
+	pause the simulation when no one is infected.</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a title="PAUSE-EVERYTHING-WHEN" href="STOP-EVERYTHING-WHEN.html">
+	PAUSE-WHEN-TIME-EXCEEDS-50</a> -- I pause the simulation when the time 
+	is greater than 50.</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a name="Epidemic_model">A sample model using these micro-behaviours:</a></font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a href="http://modelling4all.nsms.ox.ac.uk/Model?frozen=xqKx600h4z61Syxi1pAS55&MforAllModel=1">Click to load a simple model of an epidemic spreading over a social network</a> 
+	</font> 
+	</p>
+		<p>
+
+	<font face="Verdana">
+
+	<a href="http://modelling4all.nsms.ox.ac.uk/Model/?frozen=D-COR0U_OlkT7epoje6a49&MforAllModel=1">
+	Click to load a model of an epidemic spreading at home, school, and work</a> 
+	</font> 
+	</p>
+
+	<h2><font face="Verdana"><span class="mw-headline">
+
+	<a name="Sugarscape_--_Growing_Artificial_Societies_section">Sugarscape -- Growing 
+
+	Artificial Societies </a></span></font></h2>
+
+	<p><font face="Verdana">The following micro-behaviours can be composed to recreate the models in
+
+	<i>Growing Artificial Societies</i> by Joshua M. Epstein and Robert Axtell, 
+	Brookings Institute Press, The MIT Press, 1996</font></p>
+
+	<p><font face="Verdana">Here are micro-behaviours for initialising and updating the environment:
+
+	</font>
+
+	</p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-SUGAR-CAPACITY" href="INITIALISE-SUGAR-CAPACITY.html">
+
+	INITIALISE-SUGAR-CAPACITY</a> -- I initialise values for the capacity of 
+
+	each patch's maximum sugar capacity by using
+
+	<a title="COMPUTE-INITIAL-SUGAR-CAPACITY" href="COMPUTE-INITIAL-SUGAR-CAPACITY.html">
+
+	COMPUTE-INITIAL-SUGAR-CAPACITY</a></font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-SUGAR-GROWTH-RATE" href="INITIALISE-SUGAR-GROWTH-RATE.html">
+
+	INITIALISE-SUGAR-GROWTH-RATE</a> -- I initialise rate that each patch's 
+
+	sugar grows</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-POLLUTION-PRODUCTION-RATE" href="INITIALISE-POLLUTION-PRODUCTION-RATE.html">
+
+	INITIALISE-POLLUTION-PRODUCTION-RATE</a> -- I initialise the <i>
+
+	pollution-production-of-patch</i></font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="GROW-SUGAR-DELAYED" href="GROW-SUGAR.html">GROW-SUGAR</a> -- Each patch grows sugar after agents are finished 
+
+	collecting sugar</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="GROWING-SUGAR-PRODUCES-POLLUTION" href="GROWING-SUGAR-PRODUCES-POLLUTION.html">
+
+	GROWING-SUGAR-PRODUCES-POLLUTION</a> -- When sugar is grown pollution is 
+
+	also created</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="GROW-SUGAR-SEASONALLY-DELAYED" href="GROW-SUGAR-SEASONALLY.html">
+	GROW-SUGAR-SEASONALLY</a> -- Grow more sugar in the summer than the 
+
+	winter using
+
+	<a title="COMPUTE-SEASONAL-GROWTH-FACTOR" href="COMPUTE-SEASONAL-GROWTH-FACTOR.html">
+
+	COMPUTE-SEASONAL-GROWTH-FACTOR</a>.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DIFFUSE-POLLUTION" href="DIFFUSE-POLLUTION.html">
+
+	DIFFUSE-POLLUTION</a> -- Pollution spreads to neighbours</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="UPDATE-PATCH-COLOUR" href="UPDATE-PATCH-COLOUR.html">
+
+	UPDATE-PATCH-COLOUR</a> -- I change the patch colours to reflect how much 
+
+	sugar is available</font></p>
+
+	<p><font face="Verdana">And this creates the initial population:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-INITIAL-POPULATION" href="CREATE-INITIAL-POPULATION-BASED-UPON-SLIDER.html">CREATE-</a><a href="CREATE-NEW-AGENT.html">NEW-AGENTS</a> -- I create the initial population</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-INITIAL-POPULATION-IN-LOWER-LEFT-CORNER" href="CREATE-NEW-AGENTS-IN-LOWER-LEFT-CORNER.html">CREATE-NEW-AGENTS-IN-LOWER-LEFT-CORNER</a> -- The population starts 
+
+	off in a block to explore migration</font></p>
+
+	<p><font face="Verdana">Here are micro-behaviours for initialising individual agents:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-SUGAR-CONSUMPTION" href="INITIALISE-SUGAR-CONSUMPTION.html">
+
+	INITIALISE-SUGAR-CONSUMPTION</a> -- I initialise my metabolism rate</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-VISION-LEVEL" href="INITIALISE-VISION-LEVEL.html">
+
+	INITIALISE-VISION-LEVEL</a> -- I initialise my level of vision</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-SUGAR-ENDOWMENT" href="INITIALISE-SUGAR-ENDOWMENT.html">
+
+	INITIALISE-SUGAR-ENDOWMENT</a> -- I initialise my initial store of sugar</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-AGE" href="INITIALISE-AGE.html">
+
+	INITIALISE-AGE</a> -- I start off with an age of zero</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-LIFETIME" href="INITIALISE-LIFETIME.html">
+
+	INITIALISE-LIFETIME</a> -- I initialise the length of my life (if I don't 
+
+	starve or the like)</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-POLLUTION-DUE-TO-CONSUMPTION-RATE" href="INITIALISE-POLLUTION-DUE-TO-CONSUMPTION-RATE.html">
+
+	INITIALISE-POLLUTION-DUE-TO-CONSUMPTION-RATE</a> -- I initialise the rate I 
+
+	produce pollution by sugar consumption</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INITIALISE-AGENT" href="INITIALISE-AGENT.html">
+
+	INITIALISE-AGENT</a> -- I initialise the metabolism, vision, and initial 
+
+	sugar endowment</font></p>
+
+	<p><font face="Verdana">Here are agent micro-behaviours:</font></p>
+
+	<p><font face="Verdana"><a title="AGE" href="AGE.html">AGE</a> 
+
+	-- I grow older</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CONSUME-SUGAR-DELAYED" href="CONSUME-SUGAR.html">CONSUME-SUGAR</a> -- I delay eating my sugar at my metabolism rate 
+
+	until after I'm finished moving</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SUGAR-CONSUMPTION-PRODUCES-POLLUTION" href="SUGAR-CONSUMPTION-PRODUCES-POLLUTION.html">
+
+	SUGAR-CONSUMPTION-PRODUCES-POLLUTION</a> -- I produce pollution when I 
+
+	consume sugar</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DIE-IF-NO-SUGAR" href="DIE-IF-NO-SUGAR.html">
+
+	DIE-IF-NO-SUGAR</a> -- I starve if my sugar falls to zero or below</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DIE-IF-TOO-OLD" href="DIE-IF-TOO-OLD.html">
+
+	DIE-IF-TOO-OLD</a> -- I die if I exceed my life expectancy</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-NEW-AGENT" href="CREATE-NEW-AGENT.html">
+
+	CREATE-NEW-AGENT</a> - I create a new individual</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="REPLACE-DEAD-AGENT" href="REPLACE-DEAD-AGENT.html">
+
+	REPLACE-DEAD-AGENT</a> -- If I die a new individual is created to replace me
+
+	</font>
+
+	</p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="MOVE-TO-NEAREST-VISIBLE-PATCH-WITH-MAXIMUM-SUGAR" href="MOVE-TO-NEAREST-PREFERRED-VISIBLE-PATCH.html">
+
+	MOVE-TO-NEAREST-PREFERRED-VISIBLE-PATCH</a> -- I move to the patch 
+
+	I can see with the most sugar</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="PREFER-PATCH-WITH-MORE-SUGAR" href="PREFER-PATCH-WITH-MORE-SUGAR.html">
+
+	PREFER-PATCH-WITH-MORE-SUGAR</a> -- I prefer patches with more sugar</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="PREFER-PATCH-WITH-GREATER-SUGAR-TO-POLLUTION-RATIO" href="PREFER-PATCH-WITH-GREATER-SUGAR-TO-POLLUTION-RATIO.html">
+
+	PREFER-PATCH-WITH-GREATER-SUGAR-TO-POLLUTION-RATIO</a> -- I prefer patches 
+
+	with larger sugar to pollution ratios</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="COLLECT-SUGAR-DELAYED" href="COLLECT-SUGAR.html">COLLECT-SUGAR</a> -- I collect all the sugar at my site after I've 
+
+	moved</font></p>
+
+	<p><font face="Verdana">Here are observer micro-behaviours to create graphs and monitors:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-POPULATION-PLOT" href="CREATE-POPULATION-PLOT.html">
+
+	CREATE-POPULATION-PLOT</a> -- I plot the total population over time</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-WEALTH-HISTOGRAM" href="CREATE-WEALTH-HISTOGRAM.html">
+
+	CREATE-WEALTH-HISTOGRAM</a> -- I display a histogram of the wealth (i.e. 
+
+	sugar) distribution</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-EMPTY-LORENZ-CURVE" href="CREATE-EMPTY-LORENZ-CURVE.html">
+
+	CREATE-EMPTY-LORENZ-CURVE</a> -- I create an empty labelled plot</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DRAW-LORENZ-CURVE" href="DRAW-LORENZ-CURVE.html">
+
+	DRAW-LORENZ-CURVE</a> -- I draw a curve of the current wealth distribution
+
+	</font>
+
+	</p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-GINI-COEFFICIENT-MONITOR" href="CREATE-GINI-COEFFICIENT-MONITOR.html">
+
+	CREATE-GINI-COEFFICIENT-MONITOR</a> -- I monitor the value of the
+
+	<a class="external text" title="http://en.wikipedia.org/wiki/Gini_coefficient" rel="nofollow" target="_blank" href="http://en.wikipedia.org/wiki/Gini_coefficient">Gini coefficient</a> to measure the inequality of the wealth distribution
+
+	</font>
+
+	</p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-VISION-LEVEL-MONITOR" href="CREATE-VISION-LEVEL-MONITOR.html">
+
+	CREATE-VISION-LEVEL-MONITOR</a> -- I monitor the average vision level of the 
+
+	population</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-MEAN-METABOLISM-MONITOR" href="CREATE-MEAN-METABOLISM-MONITOR.html">
+
+	CREATE-MEAN-METABOLISM-MONITOR</a> -- I monitor the average sugar 
+
+	consumption rate of the population</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="CREATE-TIME-MONITOR" href="CREATE-TIME-MONITOR.html">
+
+	CREATE-TIME-MONITOR</a> -- I monitor the simulation clock</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="http://modelling4all.nsms.ox.ac.uk/Model/?frozen=U149_0cZ9IozTawg9n7C6b&MforAllModel=1">Click here to load a Sugarscape model using these micro-behaviours</a></font></p>
+
+	<h2><font face="Verdana"><span class="mw-headline">
+
+	<a name="Economic_Models_of_Network_Formation_section">Economic Models of Network 
+
+	Formation </a></span></font></h2>
+
+	<p><font face="Verdana">This is work-in-progress. It is a collaboration between Edoardo Gallo and 
+
+	Ken Kahn.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a href="REPEATEDLY-ADD-BEHAVIOURS-TO-TWO-RANDOM-PLAYERS.html">
+	REPEATEDLY-ADD-BEHAVIOURS-TO-TWO-RANDOM-PLAYERS</a> -- I randomly select two individuals 
+	to add behaviours to.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SIMPLE-ADD-LINK-DECISION" href="SIMPLE-ADD-LINK-DECISION.html">
+
+	SIMPLE-ADD-LINK-DECISION</a> -- I decide whether to add a link.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="ADD-LINK-DECISION-ERROR.html">ADD-LINK-DECISION-ERROR</a> -- I add a 
+	decision error rate to
+
+	<a title="SIMPLE-ADD-LINK-DECISION" href="SIMPLE-ADD-LINK-DECISION.html">
+
+	SIMPLE-ADD-LINK-DECISION</a></font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="SIMPLE-REMOVE-LINK-DECISION" href="SIMPLE-REMOVE-LINK-DECISION.html">
+
+	SIMPLE-REMOVE-LINK-DECISION</a> -- I decide whether to remove an existing 
+
+	link.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="REMOVE-LINK-DECISION-ERROR.html">REMOVE-LINK-DECISION-ERROR</a> --&nbsp; 
+	I add noise to the decision to remove links.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="ADD-A-LINK-IF-IN-AGREEMENT" href="ADD-A-LINK-IF-IN-AGREEMENT.html">
+
+	ADD-A-LINK-IF-IN-AGREEMENT</a> -- I add a link if the other player has also 
+
+	decided to add a direct link.</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="REMOVE-A-LINK-IF-DECIDED.html">REMOVE-A-LINK-IF-DECIDED</a>
+	- I remove a link if I decided to.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="PREPARE-FOR-NEXT-TURN" href="PREPARE-FOR-NEXT-TURN.html">
+
+	PREPARE-FOR-NEXT-TURN</a> -- I forget who I was paired with and what I 
+
+	decided.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a href="LOG-DESIRE-TO-ADD-A-LINK.html">LOG-DESIRE-TO-ADD-A-LINK</a> -- I add to the log when an individual 
+	prefers to add a link.</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="LOG-DESIRE-TO-REMOVE-A-LINK.html">LOG-DESIRE-TO-REMOVE-A-LINK</a> 
+	-- I add to the log when an individual decides to remove a link.</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="ADD-PLAYERS.html">ADD-PLAYERS</a> -- I add and initialise the 
+	player.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="SET-MY-MAXIMUM-BENEFIT-DISTANCE.html">
+	SET-MY-MAXIMUM-BENEFIT-DISTANCE</a> -- I give each player a potentially 
+	different distance that truncates the benefits of the network.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="SET-MY-GROUP.html">SET-MY-GROUP</a> -- I determine which group I'm 
+	a member of.</font></p>
+
+	<p><font face="Verdana">And the following sliders to control parameters:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="TOTAL-NUMBER-OF-PLAYERS-SLIDER" href="TOTAL-NUMBER-OF-PLAYERS-SLIDER.html">
+
+	TOTAL-NUMBER-OF-PLAYERS-SLIDER</a> -- I add a slider for the number of 
+
+	players.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DIRECT-LINK-BENEFIT-SLIDER" href="DIRECT-LINK-BENEFIT-SLIDER.html">
+
+	DIRECT-LINK-BENEFIT-SLIDER</a> -- I add a slider for the benefit of a direct 
+
+	link.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="DIRECT-LINK-COST-SLIDER" href="DIRECT-LINK-COST-SLIDER.html">
+
+	DIRECT-LINK-COST-SLIDER</a> -- I add a slider for the cost of a direct link.
+
+	</font>
+
+	</p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="DIRECT-LINK-SAME-GROUP-COST-SLIDER.html">DIRECT-LINK-SAME-GROUP-COST-SLIDER</a>&nbsp; 
+	-- I create a slider controlling the cost of having a direct link between 
+	members of the same group.
+
+	</font>
+
+	</p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="INDIRECT-LINK-BENEFIT-DECAY-SLIDER" href="INDIRECT-LINK-BENEFIT-DECAY-SLIDER.html">
+
+	INDIRECT-LINK-BENEFIT-DECAY-SLIDER</a> -- I add a slider for the decay 
+
+	factor for indirect links.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="MAXIMUM-NUMBER-OF-LINKS-SLIDER.html">MAXIMUM-NUMBER-OF-LINKS-SLIDER</a> 
+	-- I add a slider for the maximum number of links any single player can have.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a href="ADD-LINK-ERROR-ODDS-SLIDER.html">ADD-LINK-ERROR-ODDS-SLIDER</a> -- 
+	I add a slider for the odds of making a mistake when deciding to add a link.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a href="REMOVE-LINK-ERROR-ODDS-SLIDER.html">REMOVE-LINK-ERROR-ODDS-SLIDER</a> 
+	-- I add a slider for the odds of making a mistake when deciding to remove a 
+	link.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="CREATE-TOTAL-UTILITY-PLOT.html">CREATE-TOTAL-UTILITY-PLOT</a>&nbsp; 
+	-- I plot a graph of the total utility of all players over time.</font></p>
+
+	<p><font face="Verdana">And these are NetLogo procedures specific to these models:</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="UTILITY-OF-NETWORK" href="UTILITY-OF-NETWORK.html">
+
+	UTILITY-OF-NETWORK</a> -- I compute the utility of the current network.</font></p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="TOTAL-COST.html">TOTAL-COST</a> -- I compute the cost of the direct 
+	links of a player.</font></p>
+<p>
+
+	<font face="Verdana">
+
+	<a href="COST-OF-LINK.html">COST-OF-LINK</a> - I report the direct cost of a 
+	link taking into account group membership.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="BENEFIT-OF-LINK-WITH-DISTANCE" href="BENEFIT-OF-LINK-WITH-DISTANCE.html">
+
+	BENEFIT-OF-LINK-WITH-DISTANCE</a> -- I compute the benefit of a direct or 
+
+	indirect link.</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="MINIMUM-DISTANCE" href="MINIMUM-DISTANCE.html">
+
+	MINIMUM-DISTANCE</a> -- I compute the minimum network distance to another.
+
+	</font>
+
+	</p>
+	<p>
+
+	<font face="Verdana">
+
+	<a href="ADD-NETWORK-FORMATION-PROCEDURES.html">
+	ADD-NETWORK-FORMATION-PROCEDURES</a> - This adds the above list of NetLogo 
+	procedures needed by network formation micro-behaviours.</font></p>
+
+	<h2><font face="Verdana"><span class="mw-headline"><a name="A_Simple_Model_of_Predation_section">A 
+
+	Simple Model of Predation </a></span></font></h2>
+
+	<p><font face="Verdana">The so-called
+
+	<a class="external text" title="http://condor.depaul.edu/~slytinen/abm/StupidModel/" rel="nofollow" target=_blank href="http://condor.depaul.edu/~slytinen/abm/StupidModel/">
+
+	Stupid Model</a> is a predator-prey model that has been implemented in at 
+
+	least 5 different modelling systems. Here we introduce another one (even 
+
+	though one of the models was implemented in NetLogo).</font></p>
+
+	<p>
+
+	<font face="Verdana">
+
+	<a title="EAT-AND-GROW" href="EAT-AND-GROW.html">
+
+	EAT-AND-GROW</a> -- Eat the food on this patch and grow bigger</font></p>
+
+	<p><font face="Verdana">This library worked fine in an older version of the software. We plan to 
+	update it and add it here soon.</font></p>
+<p><font face="Verdana">A different predator prey model can be constructed using this <a href="Modelling-Predators-and-Prey.html">
+step-by-step guide</a>.</font></p>
+
+	<p>
+
+
+</body>
+
+
+
+</html>

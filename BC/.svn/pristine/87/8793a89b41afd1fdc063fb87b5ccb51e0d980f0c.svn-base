@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>ADD-TO-PLOT</title>
+
+</head>
+
+
+
+<body>
+	<h3><i>I plot data on top of an existing plot.</i> </h3>
+
+	<p><font size="2" color="gray">Begin micro-behaviour</font>
+	</p>
+	<p><b>ADD-TO-PLOT </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for plot-label Hunger Plot           
+substitute-text-area-for color-of-pen red                
+substitute-text-area-for name-of-pen hunger-pen
+substitute-text-area-for x-value time                         
+substitute-text-area-for y-value my-hunger                                       
+substitute-text-area-for cycle-duration 1            
+set my-pen-name &quot;name-of-pen"
+create-temporary-plot-pen my-pen-name
+do-every cycle-duration
+   [set-current-plot &quot;plot-label&quot;
+    set-current-plot-pen my-pen-name 
+    set-plot-pen-color color-of-pen
+    plotXY x-value y-value]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>You can change any of the values in text boxes. </p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="CREATE-PLOT" href="CREATE-PLOT.html">
+
+	CREATE-PLOT</a> -- I create a fully specified two-dimensional graph </p>
+<p>
+
+	<a href="CREATE-AUTO-PLOT.html">CREATE-AUTO-PLOT</a> -- I create a plot that 
+	scales dynamically as the data is produced</p>
+
+	<p>
+
+	<a title="CREATE-PLOT" href="CREATE-EMPTY-PLOT.html">CREATE-EMPTY-PLOT</a> -- I create a 
+	fully specified area where other micro-behaviours can draw graphs</p>
+<p>
+
+	<a href="CREATE-EMPTY-AUTO-PLOT.html">CREATE-EMPTY-AUTO-PLOT</a> -- I create 
+	an area that scales dynamically as where other micro-behaviours draw graphs</p>
+
+	<p>
+
+	<a title="CREATE-HISTOGRAM" href="CREATE-HISTOGRAM.html">
+
+	CREATE-HISTOGRAM</a> -- I create a histogram&nbsp; </p>
+
+	<h2>How this works</h2>
+
+	<p>It creates a temporary pen and uses it to repeatedly updates the plot 
+	named in the first text box.</p>
+
+	<h2>History</h2>
+
+
+
+	<p><a href="ADD-TO-PLOT.html">ADD-TO-PLOT</a> was implemented by Ken Kahn on 
+	16 November 2009.</p>
+
+</body>
+</html>

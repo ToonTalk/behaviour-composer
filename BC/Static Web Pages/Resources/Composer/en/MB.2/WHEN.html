@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-gb">
+
+<title>WHEN</title>
+</head>
+
+<body>
+
+<h1 class="firstHeading">	<h3><i>When some condition is true I add new 
+micro-behaviours and remove old ones.</i> </h3>
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>WHEN</b></p>
+	<font size="2" color="gray">Begin NetLogo code:</font>
+		<pre>substitute-text-area-for condition true                                                                
+when [condition] 
+  [add-behaviours    list-of-micro-behaviours "Behaviours to add" []
+   remove-behaviours list-of-micro-behaviours "Behaviours to remove" []]</pre>
+	<font size="2" color="gray">End NetLogo code</font>	<h2>Variants</h2>
+	<p>Edit the condition (true) to the desired condition. Add micro-behaviours 
+	to the lists of behaviours to add or remove.</p>
+<h2>Related Micro-behaviours</h2>
+<p><a href="WHEN.html">WHEN</a> runs only once while <a href="WHENEVER.html">
+WHENEVER</a> runs every time the condition is true.</p>
+	<h2>How this works</h2>
+<p><i>
+<a target="_blank" href="http://resources.modelling4all.org/documents/programming-guide#toc0">when</a></i> is a construct added to NetLogo that is checked each time the 
+scheduler advanced the time and if true executes the actions once.</p>
+	<h2>History</h2>
+
+
+
+
+<p>This was implemented by Ken Kahn.</p>
+
+</body>
+
+</html>

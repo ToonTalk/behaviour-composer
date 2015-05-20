@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<title>Guide to modelling an epidemic</title>
+</head>
+
+<body>
+
+<span LANG="EN-GB"><font SIZE="4"><b>
+</form>
+<p ALIGN="CENTER"></p>
+</b>
+<p><i>The following is being used with third-year biology students at Oxford 
+University.</i></p><b>
+<p>BD 3.5 Practical: Individual Based Models</p>
+</b></font><font COLOR="#111111">
+<p>Here we will model a disease by building interactions of individuals rather 
+than modelling mathematically with variables that represent entire populations.
+</p>
+<p>After accomplishing the first five steps you'll have a model equivalent to 
+the SIR model you have already built in R. But the methodology here is very 
+different: the program describes the behaviours of individuals and the behaviour 
+of the population emerges. The SIR model you built in R describes populations. 
+After building the equivalent model you'll explore the influence of spatial and 
+social heterogeneity on the spread of diseases. This would be very hard to model 
+analytically with equations that model populations. </p>
+<p>At various stages in the steps below we ask you to provide answers to 
+questions:
+<a target="_blank" href="http://spreadsheets.google.com/embeddedform?key=pdhY0JtDUP9ffzyATluCURw" >
+please add your answers to this online form</a> when you are prompted. To start 
+with please go to the form and add your name and email address.</p> </font>
+<font SIZE="4">
+<b>
+<p>Step 1. Start the program.</p></b>
+</font>
+<p>Use this <a href="Epidemic-Library.html">library of micro-behaviour for 
+modelling epidemics</a>.</p>
+<p>Click on
+<a href="http://modelling4all.nsms.ox.ac.uk/Model/?model=nwku5ewcv4tQFokW3q3_65">INITIAL MODEL</a> 
+to load a model containing only a population of susceptible individuals and 
+some technical machinery. This model has no infected individuals or a mechanism 
+for spreading an infection; these are things you will will add here.</p>
+<font SIZE="4"><b>
+<p>Step 2. Explore the initial model</p>
+</b></font>
+<p>You should be starting with a model that includes only susceptible  
+people.</p>
+<p>Click on the <i>RUN </i>&nbsp;button in the <i>Behaviour Composer </i>tab and then NetLogo, a different 
+modelling tool is launched inside the browser with the model constructed so far. Click on NetLogo's
+<i>SETUP</i> button to initialise the model. It should look like this:</p>
+</span><span LANG="EN"><font FACE="Arial" SIZE="2">
+<p ALIGN="CENTER"></p>
+</font></span><span LANG="EN-GB">
+<p>Try changing the slider labelled <b>the-initial-susceptible-population</b> and 
+then click on the <i>SETUP </i>button to see its effect. To move the slider by 
+small amounts, set it slider near the desired value and click the mouse to the 
+left or right to move it by one unit. </p>
+<p>Pressing the <i>GO</i> button does nothing since we have yet to introduce 
+infected individuals or any other behaviours.</p>
+<font SIZE="4"><b>
+<p>Step 3. Create some infected individuals</p>
+</b></font>
+<p>Click on this web page <b><a href="CREATE-INITIAL-INFECTED-POPULATION.html">CREATE-INITIAL-INFECTED-POPULATION</a></b> 
+with the micro-behaviour and add it to the <i><b>Person</b></i> prototype to 
+create the initial infected population. Then click on the 
+greyed-out micro-behaviour of the <i><b>Observer</b></i> labelled <b>CREATE-INITIAL-INFECTED-COUNT-SLIDER</b> and 
+select <i>Activate</i>. Run your model and you'll see an infected individual 
+displayed in red after clicking on <i>SETUP</i>.</p>
+<font SIZE="4"><b>
+<p>Step 4. Spread the infection</p>
+</b></font>
+<p>The simplest way to model encounters is where an individual randomly 
+encounters another and probabilistically infects that person. This is 
+implemented by the <b>RANDOM-ENCOUNTER</b> micro-behaviour. Browse for it and 
+add it to <i><b>Person</b></i>. It needs the <b>CREATE-ENCOUNTER-RATE-SLIDER</b> and <b>
+CREATE-INFECTION-ODDS-SLIDER</b> micro-behaviours, which are already in the list 
+of <b><i>Observer</i></b> behaviours so click on them and activate them.</p>
+<p>Run your model: click <i>RUN</i>, click <i>SETUP</i> and finally <i>
+GO</i>. What happens?</p>
+<p>Please go to the answer form to question 4a.</p>
+<font SIZE="4"><b>
+<p>Step 5. Add plots to see what is happening</p>
+</b></font>
+<p>It is hard to get a sense of the big picture without graphs. Browse 
+for and add <b>CREATE-EMPTY-POPULATIONS-PLOT, ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT</b> and <b>
+ADD-INFECTED-TO-POPULATIONS-PLOT </b>to <b><i>Observer</i> </b>to create a graph 
+and to plot the two populations.</p>
+<p>eRun the model again and sketch what you see -- you may need to scroll down the 
+screen to see the plot.</p>
+<font SIZE="4"><b>
+<p>Step 6. Replace the random encounter with one based upon social networks</p>
+</b></font>
+<p>In above model that you have just made, each individual had an equal chance 
+of contacting any other. This is not realistic for most disease scenarios.</p>
+<p>We can incorporate a range of non-random encounters, while keeping the 
+average number of contacts the same (we have set this figure to four). Add all 
+of the following to your model by navigating to the web page with the 
+micro-behaviour and open it. Click on the button labelled &quot;Add this code to 
+Observer&quot;. Once they are on the screen in the middle, make sure all are 
+inactivated except the one you want to use.</p>
+<p>Inactivate the <b>RANDOM-ENCOUNTER</b> behaviour and add the <b>
+RANDOM-SOCIAL-ENCOUNTER</b> to <b>Person</b>.</p>
+<p>1. <b>INITIALISE-SOCIAL-NETWORK-CONSTANT-SYMMETRIC</b>. Here each individual has the 
+same number of potential contacts, called<i> acquaintances</i>. Disease can 
+transfer only between individuals that are acquaintances (symmetric just refers 
+to the fact that if A is an acquaintance of B then B is also an acquaintance of 
+A). Add this to Observer since it is one behaviour that creates relationships 
+for the entire population.</p>
+<p>Run this model and compare it to the random encounter model where any two 
+individuals had the same chance of contacting each other. </p>
+<p>Describe the 
+difference. </p>
+<p>Please go to the answer form to question 6a.</p>
+
+<p>You can show lines of social contact (linking to the four 'acquaintances') 
+and subsequent lines of infection by the following. Add <b>
+DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES</b> to <b>Person</b>. Reduce the number 
+of susceptible individuals to about 10 and run the model.</p>
+<p>This is rather confusing with more than a handful of individuals so we 
+replace lines of social contact with a variable size of the individual: the 
+bigger the more social contacts. Inactivate <b>
+DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES</b> and add <b>
+SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES</b> and <b>
+DISPLAY-LINE-OF-INFECTION</b> to <b>Person</b>. Since 
+everyone has four acquaintances when <b>
+INITIALISE-SOCIAL-NETWORK-CONSTANT-SYMMETRIC</b> 
+is used the sizes are the same now. Run the model until it stops (<b>PAUSE-EVERYTHING-WHEN</b> 
+causes it to stop after 50 cycles). If you run your model within NetLogo you can 
+save the plot after running this by right clicking any where over the plot and choosing the '<i>copy image</i>' option. 
+You may wish to choose '<i>select</i>' first and make the plot much bigger. Open 
+up Word or your favourite word processor and paste the image of the plot into 
+your document and write a caption. Alternatively you can use the 'Print Screen' 
+facility in most operating systems to capture the screen as an image.</p>
+<p>2. <b>INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-SYMMETRIC</b>. Here 
+instead of each individual having the same number of acquaintances, we use a 
+normal distribution (the familiar bell-shaped curve) with mean of four, so some 
+individuals have more and some have fewer acquaintances. Notice the difference 
+in when most of the popular and unpopular individuals become infected. Once 
+again choose the '<i>copy image</i>' option after right clicking on the plot and 
+save this plot. Compare the plots in your document.</p>
+<p>3. <b>INITIALISE-SOCIAL-NETWORK-POWER-LAW-DISTRIBUTION-SYMMETRIC</b>. Here we 
+use a power distribution to determine how many acquaintances an individual has. 
+Add the plot to the above two and sketch the difference below.</p>
+</span>
+<p>Draw the social networks in the above three models that you might observed 
+for say five individuals.</p>
+</span>
+<span LANG="EN-GB">
+</span>
+<p>The power law distribution more accurately represents the situation in a 
+sexually transmitted disease such as AIDS in a population where some individuals 
+have a very large number of encounters while others are monogamous or nearly so. 
+Run the model for a second or two until you see different size images of people. </p>
+</span>
+<p><span LANG="EN-GB">
+Please go to the answer form to question 6d.</span></p>
+<p>Apart from representing social networks, what other important factors in the 
+spread of a disease could be represented by this new parameter? </p>
+</span>
+<p><span LANG="EN-GB">
+Please go to the answer form to question 6e.</span></p><p>In what other areas in biology might such individual based models be useful 
+(some clues given in website that you have been browsing)?</p>
+</span>
+<p><span LANG="EN-GB">
+Please go to the answer form to question 6f.</span></p>
+<p><b><font size="4">Step 7. Investigate the consequences of an encounter rate 
+that depends upon the number of acquaintances.</font></b></p>
+<p><font size="4">The </font>
+
+	<a title="CREATE-ENCOUNTER-RATE-SLIDER" href="CREATE-ENCOUNTER-RATE-SLIDER.html">
+
+	CREATE-ENCOUNTER-RATE-SLIDER</a> behaviour models a the same number of 
+encounters per time period for all individuals. Explore the consequences of 
+replacing it with
+
+	<a title="CREATE-ENCOUNTER-RATE-SLIDER" href="CREATE-ENCOUNTER-FRACTION-SLIDER.html">CREATE-ENCOUNTER-FRACTION-SLIDER</a> 
+which creates a slider for the fraction of the acquaintances encountered per 
+time period. Remember to remove or inactivate the old
+
+	<a title="CREATE-ENCOUNTER-RATE-SLIDER" href="CREATE-ENCOUNTER-RATE-SLIDER.html">
+
+	CREATE-ENCOUNTER-RATE-SLIDER</a>.</p>
+<p><b><font size="4">Step 8. Explore the removal of the most promiscuous 
+individuals.</font></b></p>
+<p>By adding
+
+	<a href="REMOVE-SUPER-NODES.html">REMOVE-SUPER-NODES</a> and
+
+	<a href="CREATE-NUMBER-OF-SUPER-NODES-REMOVED-SLIDER.html">CREATE-NUMBER-OF-SUPER-NODES-REMOVED-SLIDER</a>&nbsp; 
+to <b>Observer</b> you can control how many of the most highly linked 
+individuals are removed from the model (perhaps they can be vaccinated or 
+educated).</p>
+<p><b><font size="4">Step 9. Send us your final model.</font></b></p>
+<p>When you run your model it is saved. Copy the URL for the model and email it to
+<font SIZE="3">
+to
+<a href="mailto:kenneth.kahn@it.ox.ac.uk">kenneth.kahn@it.ox.ac.uk</a>.</p>
+</font><font SIZE="4"><b>
+<p>Options if finished early or if you wish to continue another time:</p> </b>
+</font>
+<p>To continue another time save (or email yourself) the URL on the bottom of 
+the page that contains session=....</p>
+<p> If you want to model recovery so that infected individuals can change 
+their state to <i>recovered</i> you can add the
+<b>
+<a href="RECOVERY-POSSIBLE-AFTER-INFECTION.html">RECOVERY-POSSIBLE-AFTER-INFECTION</a>
+</b>micro-behaviour 
+to <i><b>Person</b></i>.&nbsp; You should also add
+<a href="CREATE-RATE-OF-RECOVERY-SLIDER.html"><b>CREATE-RATE-OF-RECOVERY-SLIDER</b></a>. 
+If you want to graph the recovered population then add <b>
+<a href="ADD-RECOVERED-TO-POPULATIONS-PLOT.html">ADD-RECOVERED-TO-POPULATIONS-PLOT</a></b> to 
+<i> <b>Observer</b></i>. You may wish to add <b>DISPLAY-LINE-OF-INFECTION</b> 
+to <i><b>Person</b></i> to see a graph of the infection emerge.</p>
+<p>Click on <b>INITIALISE-SOCIAL-NETWORK-POWER-LAW-DISTRIBUTION</b> or the 
+other behaviours for initialising a social network and select '<i>edit'</i>. 
+Change the '4' in 'let average-acquaintance-count 4' to another value and click 
+on '<i>Save'</i>. Re-run your models.</p>
+<p>Try adding <b>RANDOM-SPATIAL-ENCOUNTER</b> and inactivate <b>
+RANDOM-SOCIAL-ENCOUNTER</b> to explore diseases that spread spatially.</p>
+<p>Explore the other possibilities in the BehaviourComposer.</p>
+</body>
+
+</html>

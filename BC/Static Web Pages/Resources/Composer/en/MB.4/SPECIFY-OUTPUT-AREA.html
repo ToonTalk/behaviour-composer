@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-gb">
+<title>SPECIFY-OUTPUT-AREA</title>
+
+</head>
+
+<body>
+	<h3><i>I describe the placement of the area where messages are added. </i> 
+	The default is a narrow area at the bottom of the model interface. You can 
+	remove the output area by giving it a zero width or height.</h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>SPECIFY-OUTPUT-AREA</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for upper-left-corner-x 624   
+substitute-text-area-for upper-left-corner-y 10   
+substitute-text-area-for lower-right-corner-x 1246  
+substitute-text-area-for lower-right-corner-y 546  
+substitute-text-area-for font-size 12 
+create-output-area    
+  &quot;upper-left-corner-x&quot; &quot;upper-left-corner-y&quot;&nbsp; <i>; upper left corner (from the upper left corner of the applet) </i>
+  &quot;lower-right-corner-x&quot; &quot;lower-right-corner-y&quot;&nbsp; <i>; lower right corner</i>
+  &quot;font-size&quot;&nbsp; <i>; font size</i></pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>You can change the position and dimensions of the output area and the 
+	font size.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+	<p>
+
+	<a href="WELCOME-MESSAGE.html">ADD-MESSAGE</a> adds custom messages to the 
+	output area.<b> </b>
+	<a title="LOG-ALL-BEHAVIOURS" href="LOG-ALL-BEHAVIOURS.html">LOG-ALL-BEHAVIOURS</a>, 
+	<a title="LOG-SPECIFIED-BEHAVIOURS" href="LOG-SPECIFIED-BEHAVIOURS.html">LOG-SPECIFIED-BEHAVIOURS</a>, 
+	<a title="LOG-ALL-ATTRIBUTES" href="LOG-ALL-ATTRIBUTES.html">LOG-ALL-ATTRIBUTES</a>, and 
+	<a title="LOG-SPECIFIED-ATTRIBUTES" href="LOG-SPECIFIED-ATTRIBUTES.html">
+
+	LOG-SPECIFIED-ATTRIBUTES</a> add messages to the output area.</p>
+
+	<h2>
+
+	How this works</h2>
+
+	<p>This defines the corners of the area where NetLogo textual output is placed.</p>
+
+	<h2>History</h2>
+
+	<p>This was implemented by Ken Kahn.</p>
+
+</body>
+
+</html>
+

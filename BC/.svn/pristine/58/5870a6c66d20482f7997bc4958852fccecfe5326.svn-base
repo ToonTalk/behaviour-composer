@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+
+<title>LAYOUT-SPRING</title>
+</head>
+
+<body>
+	<h3><i>I layout a set of agents where the agents repel each other and the 
+	links between them act like springs.</i></h3>
+	
+	<p><font size="2" color="gray">Begin micro-behaviour</font></p>
+	<p><b>LAYOUT-SPRING</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for frequency 1
+substitute-text-area-for individual-selection-criteria true           
+substitute-text-area-for link-selection-criteria true              
+substitute-text-area-for spring-constant .2     
+substitute-text-area-for spring-length 5      
+substitute-text-area-for repulsion-constant 1      
+do-every frequency 
+   [layout-spring 
+     all-individuals with [individual-selection-criteria] 
+     links with [link-selection-criteria] 
+     spring-constant <i>; a measure of the &quot;tautness&quot; of the spring</i>
+     spring-length <i>; the &quot;zero-force&quot; length or the natural length of the springs</i>
+     repulsion-constant] <i>; a measure of repulsion between the nodes</i></pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+<p>All the numbers in text areas can be edited. If you want to limit the agents 
+involved replace the first box. E.g. To only layout sheep replace it with <i>kind = &quot;Sheep&quot;</i>. 
+To limit the layout to a subset of the links replace the contents of the second 
+text area.</p>
+
+	<h2>Related Micro-behaviours</h2>
+	<p><a href="LAYOUT-CIRCLE.html">LAYOUT-CIRCLE</a> lays agents out in 
+	circles.
+
+	<a href="LAYOUT-GRID.html">LAYOUT-GRID</a> lays out the agents in a 
+	rectangular grid.
+	</p>
+
+	<p>
+
+	<a title="SET-RANDOM-HEADING" href="SET-RANDOM-POSITION.html">
+	SET-RANDOM-POSITION</a> sets an agent's heading to a random value.
+
+	<a title="SET-RANDOM-UNOCCUPIED-POSITION" href="SET-RANDOM-UNOCCUPIED-POSITION.html">
+
+	SET-RANDOM-UNOCCUPIED-POSITION</a> also finds a random position but only if 
+
+	it is unoccupied.</p>
+
+	<h2>How this works</h2>
+
+	<p>This uses the NetLogo 
+	<a target="_blank" href="http://ccl.northwestern.edu/netlogo/docs/dictionary.html#layout-spring">layout-spring</a> primitive to place the agents. 
+	It repeats calls to layout-spring since each time the constraints are solved 
+	bringing the configuration of agents closer to the ideal solution.</p>
+<h2>History</h2>
+
+	<p><a href="LAYOUT-SPRING.html">LAYOUT-SPRING</a> was implemented by Ken Kahn</p>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>KILL</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I reduce my hunger and the one I'm eating dies. Notice that killing is 
+
+	implemented by giving the other the </i> <a title="DIE" href="DIE.html">DIE</a><i> behaviour.</i> 
+	</h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>KILL </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-now
+   [add-behaviour-to the-other <a title="DIE" href="DIE.html">DIE</a>
+    add-behaviour-to-me <a title="REDUCE-HUNGER" href="REDUCE-HUNGER.html">REDUCE-HUNGER</a>]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+
+	<p>The
+
+	<a title="REDUCE-HUNGER" href="REDUCE-HUNGER.html">
+
+	REDUCE-HUNGER</a> behaviour is here for illustrative purposes. You can 
+
+	define other things that will happen when killing. </p>
+
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>The agent that is given the <a title="DIE" href="DIE.html">DIE</a> 
+
+	behaviour is terminated.</p>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>This adds the
+
+	<a title="DIE" href="DIE.html">DIE</a> 
+
+	behaviour to the other agent (e.g. the one I'm interacting with). And adds 
+
+	the
+
+	<a title="REDUCE-HUNGER" href="REDUCE-HUNGER.html">
+
+	REDUCE-HUNGER</a> behaviour to myself. </p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn </p>
+
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>EAT-WHEN-HUNGRY</title>
+
+</head>
+
+
+
+<body>
+
+<h3><i>When I'm hungry I try to eat. If my hunger is high and something is 
+
+	nearby then with .75 probability I'll eat it.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>EAT-WHEN-HUNGRY </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>whenever
+  [random-number-between 0 1 &lt;= .75 and my-hunger &gt; 50 and can-pick-one all-individuals with [distance-to-me &lt; 5]]
+  [add-behaviour-to the-other <a title="DIE" href="DIE.html">DIE</a>  
+   add-behaviour-to-me <a title="REDUCE-HUNGER" href="REDUCE-HUNGER.html">REDUCE-HUNGER</a>]</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+
+	<p>The level of hunger and the distance to the potential prey can be 
+
+	changed. Other conditions can be used. </p>
+
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>This relies upon
+
+	<a title="DIE" href="DIE.html">DIE</a> and
+
+	<a title="REDUCE-HUNGER" href="REDUCE-HUNGER.html">
+
+	REDUCE-HUNGER</a>.
+
+	<a title="DIE-WHEN-TOO-HUNGRY" href="DIE-WHEN-TOO-HUNGRY.html">
+
+	DIE-WHEN-TOO-HUNGRY</a>  is the behaviour for starving if too hungry.
+
+	<a title="GROW-HUNGRY" href="GROW-HUNGRY.html">
+
+	GROW-HUNGRY</a> steadily increases hunger. </p>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>Whenever a random number between 0 and 1 turns out to be less than .75 
+
+	(i.e. 75% of the time) and my-hunger is greater than 50 and anyone is less 
+
+	than 5 units away. </p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </p>
+
+
+
+</body>
+
+
+
+</html>

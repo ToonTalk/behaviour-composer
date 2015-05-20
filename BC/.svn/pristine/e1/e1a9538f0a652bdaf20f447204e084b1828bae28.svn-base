@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<title>SET-EXTREME-OPINION</title>
+</head>
+
+<body>
+
+	<h3><i>I initialise the uncertainty with which I hold an opinion.</i> </h3>
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>SET-EXTREME-OPINION </b></p>
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-at-setup
+   [set my-opinion random-item [-1 1]
+    set my-uncertainty 0.1]
+</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+	<p>You can initialise the <i>my-opinion</i> attribute to any value. You can 
+	also a different uncertainty value instead of 0.1 or use a random number 
+	instead. </p>
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+	<p>These attributes are used by
+	<a title="RELATIVE-AGREEMENT" href="RELATIVE-AGREEMENT.html">RELATIVE-AGREEMENT</a>.
+	<a title="SET-RANDOM-OPINION" href="SET-RANDOM-OPINION.html">SET-RANDOM-OPINION</a> 
+	and <a title="SET-OPINION-UNCERTAINITY" href="SET-OPINION-UNCERTAINTY.html">
+	SET-OPINION-UNCERTAINTY</a> to create a population with a variety of 
+	opinions. </p>
+	<h2><span class="mw-headline">How this works </span></h2>
+	<p>It sets the attribute <i>my-opinion</i> to either -1 or 1 with equal 
+	probability and sets <i>my-uncertainty</i> to a 0.1 as was done in the model 
+	described in [1]. </p>
+	<h2><span class="mw-headline">History </span></h2>
+	<p>This was implemented by Ken Kahn. </p>
+	<h2><span class="mw-headline">Footnotes </span></h2>
+	<p>[1] An implementation of &quot;How can extremism prevail? A study based on the 
+	relative agreement interaction model&quot; by Guillaume Deffuant, Fr&eacute;d&eacute;ric 
+	Amblard, G&eacute;rard Weisbuch and Thierry Faure (2002); Journal of Artificial 
+	Societies and Social Simulation vol. 5, no. 4; &lt;<a class="external free" title="http://jasss.soc.surrey.ac.uk/5/4/1.html#2.3" rel="nofollow" target="_blank" href="http://jasss.soc.surrey.ac.uk/5/4/1.html#2.3">http://jasss.soc.surrey.ac.uk/5/4/1.html#2.3</a>&gt;
+</p>
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>ADD-SOME-OFFSPRING</title>
+
+</head>
+
+
+<body>
+
+
+<div id="bodyContent">
+	
+
+	<h3><i>I produce some copies of myself after 10 time units.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>ADD-SOME-OFFSPRING </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-after <textarea cols="4" rows="1" name="delay" title="Click here to edit the time delay.">10</textarea>
+   [add-copies random-integer-between <textarea cols="3" rows="1" name="minimum number of offspring" title="Click here to edit the minimum number of offspring.">1</textarea> <textarea cols="3" rows="1" name="maximum number of offspring" title="Click here to edit the maximum number of offspring.">3</textarea> [<a title="AGE-IS-ZERO" href="AGE-IS-ZERO.html">AGE-IS-ZERO</a> <a href="UPDATE-MINIMUM-REPRODUCTION-AGE.html">UPDATE-MINIMUM-REPRODUCTION-AGE</a>]]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+
+	<p>You can change the number (or range of random numbers) of copies made by 
+	editing the text areas. The additional behaviours (here there is one that sets the age to 
+
+	zero and another that resets the reproduction age). You can change the 10 time units it waits before creating the 
+
+	offspring. </p>
+
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>This relies upon
+
+	<a title="AGE-IS-ZERO" href="AGE-IS-ZERO.html">
+
+	AGE-IS-ZERO</a> and <a href="UPDATE-MINIMUM-REPRODUCTION-AGE.html">UPDATE-MINIMUM-REPRODUCTION-AGE</a>. 
+	<a href="REPRODUCE.html">REPRODUCE</a> uses this 
+	micro-behaviour.</p>
+	<p>A simpler example can be found in
+
+	<a title="ADD-COPIES" href="ADD-COPIES.html">
+
+	ADD-COPIES</a>. </p>
+
+	<h2><span class="mw-headline">How this works</span></h2>
+	<p>After 10 time units it creates a number of copies determined by the 
+	expression 'random-integer-between 1 3' which produces 1, 2, or 3 with equal 
+	probability.</p>
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </div>
+
+
+
+</body>
+
+
+
+</html>

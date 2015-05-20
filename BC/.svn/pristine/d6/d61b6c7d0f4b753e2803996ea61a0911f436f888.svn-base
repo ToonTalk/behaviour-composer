@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>INITIALISE-EACH-PATCH</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>Each patch of the world initialises its variables.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>INITIALISE-EACH-PATCH</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for patch-command set patches-food-availability 0.0                           
+ask-every-patch
+    [patch-command]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>Any patch variable (begins with <i>patches--</i>) or any built-in
+	<a target="_blank" href="http://ccl.northwestern.edu/netlogo/docs/dictionary.html#patchgroup">
+	NetLogo patch variable </a>(e.g. pcolor) can be set to any value.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p><a href="SET-BACKGROUND-COLOR.html">SET-BACKGROUND-COLOR</a> is an 
+	example using this.</p>
+
+	<h2>How this works</h2>
+
+	<p>This runs the <i>set</i> command for every patch of the environment.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+
+
+</body>
+
+</html>

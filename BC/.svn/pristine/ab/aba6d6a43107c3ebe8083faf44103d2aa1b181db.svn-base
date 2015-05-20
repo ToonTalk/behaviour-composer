@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+
+<title>NETLOGO-CODE</title>
+</head>
+<body>
+	<h3><i>I run any NetLogo command. I can be used to add a new reporter or command to NetLogo.</i> </h3>
+	<p><font size="2" color="gray">Begin micro-behaviour</font>
+	</p>
+	<p><b>NETLOGO-CODE</b></p>
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>
+substitute-text-area-for code to-report total-population\n  report count all-individuals\nend
+code</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+	<p>Any NetLogo code can be placed in the text area. E.g. <pre>watch any-of-kind &quot;Person&quot;</pre>If the code begins with <i>to</i> or <i>to-report</i> 
+	then it will be added to the commands and reporters that other 
+	micro-behaviours can use.</p>
+	<h2>How this works</h2>
+	<p>If the code begins with <i>to</i> or <i>to-report </i> this<i> </i> adds to 
+	the generated NetLogo file a new 
+	<a target="_blank" href="http://ccl.northwestern.edu/netlogo/docs/programming.html#procedures">NetLogo reporter 
+	or command</a> that can be used by any 
+	micro-behaviour. In this example it defines <i>total-population</i> that 
+	computes the number of individuals in the model. Otherwise this can be any 
+	code <a target="_blank" href="http://ccl.northwestern.edu/netlogo/docs/">NetLogo command</a> to be run by the agent with this behaviour.</p>
+	<h2>History</h2>
+	<p>This was implemented by Ken Kahn.</p>
+</body>
+</html>

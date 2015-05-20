@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<title>POSSIBLY-RECOVER</title>
+</head>
+
+<body>
+
+	<h3><i>I possibly lose my infection and change my state to recovered.</i> 
+	</h3>
+	<p><font size="2" color="gray">Begin micro-behaviour</font>
+	</p>
+	<p><b>POSSIBLY-RECOVER </b></p>
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-every <i>1</i>
+   [do-with-probability 1<i> /</i> the-average-duration-of-infection
+       [add-behaviours list-of-micro-behaviours "Recovery Behaviours" [SET-STATE-RECOVERED.html]
+        remove-behaviours list-of-micro-behaviours "Behaviours to Remove" [POSSIBLY-RECOVER.html]]]</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Related Micro-behaviours</h2>
+
+	<p><a href="RECOVERY-POSSIBLE-AFTER-INFECTION.html">RECOVERY-POSSIBLE-AFTER-INFECTION</a> 
+	starts this process when this agent become infected.</p>
+	<p><a title="POSSIBLY-LOSE-IMMUNITY" href="POSSIBLY-LOSE-IMMUNITY.html">POSSIBLY-LOSE-IMMUNITY</a> works in a similar manner. 
+	This relies upon <i>the-average-duration-of-infection </i>which is defined by
+	<a href="CREATE-RATE-OF-RECOVERY-SLIDER.html">CREATE-RATE-OF-RECOVERY-SLIDER</a>.
+	<a href="RECOVERY-POSSIBLE-AFTER-INFECTION.html">
+	RECOVERY-POSSIBLE-AFTER-INFECTION</a> ensures that this micro-behaviour can 
+	be added when an agent becomes infected.</p>
+	<p>You may wish to add the <a href="RECOVERY-POSSIBLE-AFTER-INFECTION.html">RECOVERY-POSSIBLE-AFTER-INFECTION</a> micro-behaviour to implement recovery. </p>
+	<h2>How this works</h2>
+	<p>Every <i>second</i>, with probability of <i>1</i> / 
+	<i>the-average-duration-of-infection, </i>this resets my state to <i>recovered</i>. Once 
+	recovered I no longer need to run this micro-behaviour anymore so it is 
+	removed. </p>
+	<h2>Models that use this</h2>
+	<p>
+	<a href="full-library.html#Epidemic_model">A sample model of an epidemic spreading over a social network</a> uses this micro-behaviour.</p>
+	<h2>History</h2>
+
+
+	<p>This was implemented by Ken Kahn. </p>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>-MOVE-TOWARDS-ANOTHER</title>
+<meta http-equiv="Content-Language" content="en-gb">
+</head>
+<body>
+	<h3><i>I move horizontally or vertically towards the patch of another agent.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>MOVE-TOWARDS-ANOTHER</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for columns: 77 expression-for-other the-other                             
+substitute-text-area-for columns: 77 speed 1                                                   
+          
+move-horizontally-or-vertically-towards-another 
+   expression-for-other <i>; other agent</i>
+   speed <i>; maximum distance moved</i></pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p><i>the-other</i> is a variable referring to another individual. You can 
+
+	replace it an expression such as <i>any-of-kind &quot;Prototype1&quot;</i>.&nbsp; 
+	You can change the speed of the movement.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p><a href="REPEATEDLY-MOVE-TOWARDS-ANOTHER.html">REPEATEDLY-MOVE-TOWARDS-ANOTHER</a> 
+	<i>repeatedly</i> moves towards another.</p>
+	<p><a title="MOVE-FORWARD" href="MOVE-FORWARD.html">MOVE-FORWARD</a> can be 
+	used together with either:</p>
+<blockquote>
+	<p><a title="TURN-TOWARDS-GOAL" href="TURN-TOWARDS-GOAL.html">TURN-TOWARDS-GOAL</a> -- I turn towards a goal</p>
+	<p><a title="TURN-TOWARDS-ANOTHER" href="TURN-TOWARDS-ANOTHER.html">TURN-TOWARDS-ANOTHER</a> -- I turn towards another individual</p>
+</blockquote>
+<p>
+
+	to move towards a goal or another.</p>
+
+	<h2>How this works</h2>
+
+	<p>I use the move-horizontally-or-vertically-towards-another BehaviourComposer 
+	command to move <i>speed</i> units towards the patch of 
+	<b>
+	<a target="_blank" href="http://resources.modelling4all.org/documents/programming-guide#toc2">the-other</a></b>.&nbsp; 
+	The odds of whether it moves horizontally or vertically is proportional to 
+	the horizontal and vertical distance to <b>the-other</b>.</p>
+
+	<h2>History</h2>
+
+	<p>This was implemented by Ken Kahn.</p>
+</body>
+</html>

@@ -1,0 +1,4 @@
+#!/bin/sh
+APPDIR=`dirname $0`;
+java -cp "$APPDIR/src:$APPDIR/bin:C:/Program Files/gwt-2.1.0/gwt-user.jar:C:/Program Files/gwt-2.1.0/gwt-dev.jar" com.google.gwt.i18n.tools.I18NSync -out $APPDIR/src uk.ac.lkl.client.Modeller  ;
+

@@ -1,0 +1,212 @@
+### Eclipse Workspace Patch 1.0
+#P Modeller
+Index: src/uk/ac/lkl/client/event/AddMicroBehaviourEvent.java
+===================================================================
+--- src/uk/ac/lkl/client/event/AddMicroBehaviourEvent.java	(revision 2778)
++++ src/uk/ac/lkl/client/event/AddMicroBehaviourEvent.java	(working copy)
+@@ -123,7 +123,7 @@
+ 		String containingMicroBehaviourUrl = macroBehaviour.getMicroBehaviourUrl();
+ 		if (containingMicroBehaviourUrl != null && !justRecord) {
+ 		    MicroBehaviourView containingMicroBehaviour = 
+-			Modeller.getMicroBehaviourView(containingMicroBehaviourUrl);
++			Modeller.getMicroBehaviourView(containingMicroBehaviourUrl, false);
+ 		    if (containingMicroBehaviour != null) {
+ 			containingMicroBehaviour.addMacroBehaviourView(macroBehaviour);
+ 		    }
+Index: src/uk/ac/lkl/client/event/ActivateMicroBehaviourEvent.java
+===================================================================
+--- src/uk/ac/lkl/client/event/ActivateMicroBehaviourEvent.java	(revision 2778)
++++ src/uk/ac/lkl/client/event/ActivateMicroBehaviourEvent.java	(working copy)
+@@ -50,7 +50,7 @@
+ 	    boolean justRecord,
+ 	    int version, 
+ 	    final ReconstructEventsContinutation continuation) {
+-	MicroBehaviourView microBehaviour = macroBehaviour.getMicroBehaviourWithURL(url, true);
++	MicroBehaviourView microBehaviour = macroBehaviour.getMicroBehaviourWithURL(url, true, false);
+ 	ModellerEvent event = null;
+ 	if (microBehaviour != null) {
+ 	    if (!microBehaviour.isActive()) {
+Index: src/uk/ac/lkl/client/Modeller.java
+===================================================================
+--- src/uk/ac/lkl/client/Modeller.java	(revision 2791)
++++ src/uk/ac/lkl/client/Modeller.java	(working copy)
+@@ -280,10 +280,10 @@
+ 	getResourcePageService().fetchModel(URL.encode(modelURL), Modeller.sessionGuid, GWT.getHostPageBaseURL(), callback);
+     }
+     
+-    public static MicroBehaviourView getMicroBehaviourView(String urlString) {
++    public static MicroBehaviourView getMicroBehaviourView(String urlString, boolean includeBehaviourLists) {
+ 	for (MacroBehaviourView macroBehaviour : BehaviourComposer.allPrototypes) {
+ 	    MicroBehaviourView microBehaviourWithURL = 
+-		macroBehaviour.getMicroBehaviourWithURL(urlString, false);
++		macroBehaviour.getMicroBehaviourWithURL(urlString, false, includeBehaviourLists);
+ 	    if (microBehaviourWithURL != null) {
+ 		return microBehaviourWithURL;
+ 	    }
+Index: src/uk/ac/lkl/client/event/RenameMicroBehaviourEvent.java
+===================================================================
+--- src/uk/ac/lkl/client/event/RenameMicroBehaviourEvent.java	(revision 2791)
++++ src/uk/ac/lkl/client/event/RenameMicroBehaviourEvent.java	(working copy)
+@@ -169,7 +169,7 @@
+ 	    boolean justRecord,
+ 	    int version, 
+ 	    final ReconstructEventsContinutation continuation) {
+-	MicroBehaviourView microBehaviour = macroBehaviour.getMicroBehaviourWithURL(url, true);
++	MicroBehaviourView microBehaviour = macroBehaviour.getMicroBehaviourWithURL(url, true, false);
+ 	ModellerEvent event = null;
+ 	if (microBehaviour != null) {
+ 	    String oldName = Utils.getElementString("oldMicroName", eventElement);
+Index: src/uk/ac/lkl/client/event/MoveMicroBehaviourEvent.java
+===================================================================
+--- src/uk/ac/lkl/client/event/MoveMicroBehaviourEvent.java	(revision 2778)
++++ src/uk/ac/lkl/client/event/MoveMicroBehaviourEvent.java	(working copy)
+@@ -54,7 +54,7 @@
+                                                       boolean justRecord,
+                                                       int version, 
+                                                       final ReconstructEventsContinutation continuation) {
+-	MicroBehaviourView microBehaviour = macroBehaviour.getMicroBehaviourWithURL(url, true);
++	MicroBehaviourView microBehaviour = macroBehaviour.getMicroBehaviourWithURL(url, true, false);
+ 	ModellerEvent event = null;
+ 	if (microBehaviour != null) {
+ 	    boolean moveUp = eventElement.getAttribute("up").equals("1");
+Index: src/uk/ac/lkl/client/event/EditMicroBehaviourEvent.java
+===================================================================
+--- src/uk/ac/lkl/client/event/EditMicroBehaviourEvent.java	(revision 2778)
++++ src/uk/ac/lkl/client/event/EditMicroBehaviourEvent.java	(working copy)
+@@ -65,7 +65,7 @@
+ 	String oldURL = eventElement.getAttribute("oldURL");
+ 	ModellerEvent event = null;
+ 	if (newURL != null && oldURL != null) {
+-	    MicroBehaviourView microBehaviour = macroBehaviour.getMicroBehaviourWithURL(oldURL, true);
++	    MicroBehaviourView microBehaviour = macroBehaviour.getMicroBehaviourWithURL(oldURL, true, false);
+ 	    if (microBehaviour != null) {
+ 		if (!justRecord) {
+ 		    microBehaviour.setUrl(newURL);
+Index: src/uk/ac/lkl/client/BehaviourComposer.java
+===================================================================
+--- src/uk/ac/lkl/client/BehaviourComposer.java	(revision 2800)
++++ src/uk/ac/lkl/client/BehaviourComposer.java	(working copy)
+@@ -1124,7 +1124,7 @@
+ 	String encodedBehaviourName = codeElement.getAttribute("behaviourname");
+ 	if (encodedBehaviourName != null && !encodedBehaviourName.isEmpty()) {
+ 	    String sourceURL = codeElement.getAttribute("SourceURL");
+-	    MicroBehaviourView microBehaviour = getMicroBehaviourView(sourceURL);
++	    MicroBehaviourView microBehaviour = getMicroBehaviourView(sourceURL, true);
+ 	    // encoded since it may contain HTML
+ 	    // behaviour name may have had subscripts added to it for uniqueness 
+ 	    String behaviourName = 
+Index: src/uk/ac/lkl/client/composer/MacroBehaviourView.java
+===================================================================
+--- src/uk/ac/lkl/client/composer/MacroBehaviourView.java	(revision 2799)
++++ src/uk/ac/lkl/client/composer/MacroBehaviourView.java	(working copy)
+@@ -349,7 +349,7 @@
+ 	    String targetNameHTML = microBehaviourView.getNameHTML();
+ 	    return getMacroBehaviourAsMicroBehaviourWithHTMLName(targetNameHTML);
+ 	} else {
+-	    return getMicroBehaviourWithURL(microBehaviourView.getUrl(), false);
++	    return getMicroBehaviourWithURL(microBehaviourView.getUrl(), false, false);
+ 	}
+     }
+ 
+@@ -367,9 +367,10 @@
+      * @param considerOriginals
+      * 		If true then returns a micro-behaviour that is a copy of the same micro-behaviour
+      * 		if it is unique.
++     * @param includeBehaviourLists 
+      * @return
+      */
+-    public MicroBehaviourView getMicroBehaviourWithURL(String urlString, boolean considerOriginals) {
++    public MicroBehaviourView getMicroBehaviourWithURL(String urlString, boolean considerOriginals, boolean includeBehaviourLists) {
+ 	if (urlString == null) {
+ 	    return null;
+ 	}
+@@ -384,6 +385,16 @@
+ 	    if (urlString.equals(otherUrlString)) {
+ 		return behaviour;
+ 	    }
++	    if (includeBehaviourLists) {
++		ArrayList<MacroBehaviourView> behaviourLists = behaviour.getMacroBehaviourViews();
++		for (MacroBehaviourView behaviourList : behaviourLists) {
++		    MicroBehaviourView microBehaviourInBehaviourList = 
++			behaviourList.getMicroBehaviourWithURL(urlString, considerOriginals, includeBehaviourLists);
++		    if (microBehaviourInBehaviourList != null) {
++			return microBehaviourInBehaviourList;
++		    }
++		}
++	    }
+ 	}
+ 	String localURL = Modeller.localVersionOfURLsIfRunningLocal(urlString);
+ 	if (localURL != urlString) {
+@@ -418,6 +429,11 @@
+ 	    }
+ 	    return foundOne;
+ 	}
++	// didn't help
++//	if (urlString.startsWith("http://m4a-gae.appspot.com")) {
++//	    String withNewDomainName = urlString.replace("http://m4a-gae.appspot.com", "http://modelling4all.org");
++//	    return getMicroBehaviourWithURL(withNewDomainName, considerOriginals);
++//	}
+ 	return null;	
+     }
+ 
+@@ -630,7 +646,7 @@
+     
+     public void fetchAndAddMicroBehaviour(String url, final int index) {
+ 	final String goodURL = Utils.urlCheckingTabAttribute(url);
+-	if (getMicroBehaviourWithURL(goodURL, false) != null) {
++	if (getMicroBehaviourWithURL(goodURL, false, false) != null) {
+ 	    Modeller.setAlertsLine(Modeller.constants.thisAgentAlreadyHasThisMicroBehaviour());
+ 	    return;
+ 	}
+Index: src/uk/ac/lkl/client/event/RemoveMicroBehaviourEvent.java
+===================================================================
+--- src/uk/ac/lkl/client/event/RemoveMicroBehaviourEvent.java	(revision 2778)
++++ src/uk/ac/lkl/client/event/RemoveMicroBehaviourEvent.java	(working copy)
+@@ -95,7 +95,7 @@
+ 	                                              boolean justRecord,
+ 	                                              int version, 
+ 	                                              final ReconstructEventsContinutation continuation) {
+-	MicroBehaviourView microBehaviour = macroBehaviour.getMicroBehaviourWithURL(url, false);
++	MicroBehaviourView microBehaviour = macroBehaviour.getMicroBehaviourWithURL(url, false, false);
+ 	ModellerEvent event = null;
+ 	if (microBehaviour != null) {
+ 	    if (!justRecord) {
+Index: src/uk/ac/lkl/client/composer/MicroBehaviourView.java
+===================================================================
+--- src/uk/ac/lkl/client/composer/MicroBehaviourView.java	(revision 2778)
++++ src/uk/ac/lkl/client/composer/MicroBehaviourView.java	(working copy)
+@@ -617,7 +617,7 @@
+ 		MacroBehaviourView containingMacroBehaviour = getContainingMacroBehaviour();
+ 		if (containingMacroBehaviour != null) {
+ 		    MicroBehaviourView microBehaviourInMacroBehaviour = 
+-			containingMacroBehaviour.getMicroBehaviourWithURL(getUrl(), false);
++			containingMacroBehaviour.getMicroBehaviourWithURL(getUrl(), false, false);
+ 		    if (microBehaviourInMacroBehaviour != null) {
+ 			microBehaviourInMacroBehaviour.setNameHTML(newNameHTML);
+ 		    }
+@@ -736,7 +736,11 @@
+     }
+ 
+     public ArrayList<MacroBehaviourView> getMacroBehaviourViews() {
+-        return sharedState.getMacroBehaviourViews();
++	if (sharedState == null) {
++	    return new ArrayList<MacroBehaviourView>();
++	} else {
++	    return sharedState.getMacroBehaviourViews();
++	}
+     }
+ 
+     public void addMacroBehaviourViews(ArrayList<MacroBehaviourView> macroBehaviourViews) {
+Index: src/uk/ac/lkl/client/event/InactivateMicroBehaviourEvent.java
+===================================================================
+--- src/uk/ac/lkl/client/event/InactivateMicroBehaviourEvent.java	(revision 2778)
++++ src/uk/ac/lkl/client/event/InactivateMicroBehaviourEvent.java	(working copy)
+@@ -59,7 +59,7 @@
+                                                       boolean justRecord,
+                                                       int version, 
+                                                       final ReconstructEventsContinutation continuation) {
+-	MicroBehaviourView microBehaviour = macroBehaviour.getMicroBehaviourWithURL(url, true);
++	MicroBehaviourView microBehaviour = macroBehaviour.getMicroBehaviourWithURL(url, true, false);
+ 	ModellerEvent event = null;
+ 	if (microBehaviour != null) {
+ 	    if (microBehaviour.isActive()) {

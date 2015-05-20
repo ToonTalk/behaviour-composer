@@ -1,0 +1,87 @@
+<html>
+
+
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<title>ADD-VACCINATED-TO-POPULATIONS-PL</title>
+
+</head>
+
+
+
+<body>
+
+
+
+<div id="bodyContent">
+
+	
+
+	<h3><i>I add to the Populations plot a plot of number of vaccinated 
+
+	individuals versus elapsed time.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>ADD-VACCINATED-TO-POPULATIONS-PLOT </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-after-setup
+   [do-every 1
+       [set-current-plot &quot;Populations&quot;
+        create-temporary-plot-pen &quot;Vaccinated pen&quot;
+        set-current-plot-pen &quot;Vaccinated pen&quot;
+        set-plot-pen-color green
+        plotxy real-time 
+               count all-individuals with [my-state = &quot;vaccinated&quot;]]]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+
+	<p>You can choose other things to graph and other colours. Note that this 
+
+	code expects
+
+	<a title="CREATE-EMPTY-POPULATIONS-PLOT" href="CREATE-EMPTY-POPULATIONS-PLOT.html">
+
+	CREATE-EMPTY-POPULATIONS-PLOT</a> to be included and to have named the plot 
+
+	&quot;Populations&quot;. </p>
+
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>
+
+	<a title="ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT" href="ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT.html">
+
+	ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT</a>,
+
+	<a title="ADD-INFECTED-TO-POPULATIONS-PLOT" href="ADD-INFECTED-TO-POPULATIONS-PLOT.html">
+
+	ADD-INFECTED-TO-POPULATIONS-PLOT</a>,
+
+	<a title="ADD-RECOVERED-TO-POPULATIONS-PLOT" href="ADD-RECOVERED-TO-POPULATIONS-PLOT.html">
+
+	ADD-RECOVERED-TO-POPULATIONS-PLOT</a>, and
+
+	<a title="ADD-TOTAL-TO-POPULATIONS-PLOT" href="ADD-TOTAL-TO-POPULATIONS-PLOT.html">
+
+	ADD-TOTAL-TO-POPULATIONS-PLOT</a> can also add to the &quot;Populations&quot; plot.
+
+	</p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </div>
+
+
+
+</body>
+
+
+
+</html>
+

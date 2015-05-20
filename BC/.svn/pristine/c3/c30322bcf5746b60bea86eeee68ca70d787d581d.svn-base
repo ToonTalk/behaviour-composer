@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+
+
+<title>MONITOR-FORCE-OF-INFECTION</title>
+
+</head>
+
+<body>
+
+	<h3><i>I create a monitor for the force of the infection.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>MONITOR-FORCE-OF-INFECTION </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>create-monitor
+  &quot;Force of Infection&quot;&nbsp;<i>; label of the monitor</i>
+  &quot;5&quot; &quot;250&quot;&nbsp;<i>; lower left corner</i> 
+  &quot;105&quot; &quot;300&quot;&nbsp;<i>; upper right corner</i>
+  &quot;the-encounter-rate * 52 * the-infection-odds / count all-individuals&quot;
+  &quot;4&quot;&nbsp;<i>; number of decimals</i>
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>
+
+	<a title="CREATE-ENCOUNTER-RATE-SLIDER" href="CREATE-ENCOUNTER-RATE-SLIDER.html">
+
+	CREATE-ENCOUNTER-RATE-SLIDER</a> and
+
+	<a title="CREATE-INFECTION-ODDS-SLIDER" href="CREATE-INFECTION-ODDS-SLIDER.html">
+
+	CREATE-INFECTION-ODDS-SLIDER</a> create and control <i>the-encounter-rate</i> 
+
+	and <i>the-infection-odds</i>. </p>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>This creates a NetLogo monitor that continually displays the result of 
+
+	multiplying <i>the-encounter-rate</i>, <i>the-infection-odds</i>, and 52 (weeks in a 
+
+	year) divided by the total population. See
+
+	<a class="external text" title="CREATE-ENCOUNTER-RATE-SLIDER.html#Relation_to_Mathematical_Model" rel="nofollow" href="CREATE-ENCOUNTER-RATE-SLIDER.html#Relation_to_Mathematical_Model">
+	CREATE-ENCOUNTER-RATE-SLIDER</a> for details. </p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </p>
+
+
+</body>
+
+</html>

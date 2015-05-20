@@ -1,0 +1,177 @@
+<html>
+<body>
+<a name="top"></a>
+<table border="1" bgcolor="#F5F5F5" width="1000">
+<tr>
+  <th><font color="#4682b4" size="5" face="Arial"> MoPiX 2.0 </font></th>
+  <th colspan="4"><font color="#4682b4" size="5" face="Arial"> Equation Editor </font></th>
+  <th colspan="4"><font color="#4682b4" size="5" face="Arial"> Creating Animations </font></th>
+  
+</tr>
+<tr>
+  <td><!--<center> <img border="0" src="Manual_pictures/Web.ico" width="30" height="30"></center> -->
+	<font color="#a9a9a9" size="3" face="Arial">
+	<a href ="about.html">
+	<center>
+ 	About  </center>
+	</a> </font>
+ </td>
+
+  <td><!--<center> <img border="0" src="Manual_pictures/Info.ico" width="30" height="30"></center> -->
+      <font color="#a9a9a9" size="3" face="Arial">
+      <a href ="intro.html" >
+      <center>
+      Introduction </center></a> </font>
+ </td>
+
+  <td><!--<center> <img border="0" src="Manual_pictures/Text.ico" width="30" height="30"></center> -->
+	<font color="#a9a9a9" size="3" face="Arial"><a href= "new_eq.html"><center>
+	How to Create New Equations </a></center>
+  </font>
+  </td>
+
+
+  <td><!--<center> <img border="0" src="Manual_pictures/Edit.ico" width="30" height="30"></center> -->
+  	<font color="#a9a9a9" size="3" face="Arial"><a href = "open_eq.html"><center>
+  	Opening Existing Equations</a></center>
+	</font>
+  </td>
+
+  <td><!--<center> <img border="0" src="Manual_pictures/Trash.ico" width="30" height="30"></center> -->
+  	<font color="#a9a9a9" size="3"  face="Arial"><a href = "del_eq.html"> 
+	<center>Deleting Equations</a></center>
+	</font>
+ </td>
+
+  <td><!--<center>  <img border="0" src="Manual_pictures/Hand.ico" width="30" height="30"> </center> -->
+  	<font color="#a9a9a9" size="3" face="Arial">
+	<a href ="new_model.html">
+	<center>
+ 	Creating your Model
+	</center>
+	</a> </font>
+   </td>
+
+  <td><!-- <center> <img border="0" src="Manual_pictures/Star.ico" width="30" height="30"> </center> -->
+      <font color="#a9a9a9" size="3" face="Arial"><a href= "play_model.html"><center>
+	Playing Animations</a></center>
+	</font>
+  </td>
+
+  <td> <!--<center> <img border="0" src="Manual_pictures/Save.ico" width="30" height="30"> </center> -->
+	<font color="#a9a9a9" size="3" face="Arial"><a href = "save_mathml.html"><center>
+	Viewing, Editing and Saving MathML
+	</a></center>
+	</font>
+  </td>
+  <td><!--<center><img border="0" src="Manual_pictures/Restart.ico" width="30" height="30"></center>-->
+	 <font color="#a9a9a9" size="3"  face="Arial"><a href = "save_eq.html">
+		<center>Saving, Retrieving  Models and Equations
+	</a></center>
+	</font>
+  </td>
+
+</tr>
+</table>
+<table border="1" width="1000">
+<tr>
+  <td> 
+
+
+<div class=Section1>
+
+<p align="center">
+<img border="0" src="Manual_pictures/Text.ico" width="30" height="30"><b>
+<font color="#4682b4" size="5" face="Arial">Creating New Equations</font></b>
+</p>
+
+<b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='font-size:14.0pt;line-height:150%'>
+ 
+
+
+
+<span lang=EN-GB>
+
+<p>The Equation Editor supports creation of user’s own equations by opening of a template for an equation clicking on the New 
+Equation button.  By positioning the cursor on one of the text  fields and double-clicking, 
+a menu of all the operations 
+available appears. When an operation is chosen, a new pair of text fields opens 
+with the desired operator in between (in case of binary operations), a text field with the operator 
+(in case of unary operation) or a function template with text fields for the function name, 
+object name and time. </p>
+<p>This can be 
+continued further, until  the complete equation has been created. While it is being created, the equation is also 
+displayed on the screen.</p>
+<p>
+Once completed by the editor, 
+it is ready to be sent to the <i> Stage</i> where it can be used do define a property or behaviour of an object. 
+Being on the <i>Stage</i>, the created equation can  be reused many times or  sent back to the Editor to be opened and changed. 
+</p>
+
+<p>See <a href = "open_eq.html">  Opening Existing Equations </a></p>
+
+
+<font color="#4682b4" size="4" face="Arial"> <i>How to create an equation,  step by step example</i></font>
+<p><i>To cerate the following equation:</i> </p>
+<center>
+<font size="4" color="#4682b4" face="Arial"> 
+<p type="equation" version="2.0.0" replaceAppearance="equation" equationMathML="<apply><eq/><apply><mo>x</mo><ci>ME</ci><ci>t</ci></apply><apply><plus/><apply><mo>x</mo><ci>ME</ci><apply><minus/><ci>t</ci><cn>1</cn></apply></apply><apply><mo>Vx</mo><ci>ME</ci><ci>t</ci></apply></apply></apply>">
+x(ME,t)=x(ME,t-1)+Vx(ME,t) </p></font> 
+</center>
+
+
+
+<i> first click on the New Equation button.
+<ol>
+<li>	Position the cursor on the left hand side of the Equation double-click  and choose <i>Function</i> from the menu.
+<li>	Position the cursor on the field representing the name of the function and type in the name x.  
+In the next text field type in object’s name ME and in the next one t, thus completing the left hand side. 
+<li>	On the right hand side, position the cursor, double-click and choose '+' sign. 
+After double-clicking on the left text field of the '+' sign, choose  Function from the menu. 
+Then create a function in the similar way as explained in step 2.
+<li>	For the right hand side of the '+' sign repeat the step 3 but instead of typing t , 
+double-click in the third text field and choose the '-' sign from the menu. 
+Complete the both sides of the '–' sign by typing in t and 1.
+
+</ol></i>
+<p>In order to get the equation right, it will have to be anticipated in order of precedence of its operators before starting. 
+As explained in the introductory section, the equation is represented as a tree structure, so its structure will determine the order of the operations chosen.</p>
+
+<p>The completed equation can be sent to the <i>Stage</i> to be used for defining an object's property or behavior.  
+An equation is saved when an object using it is saved. </p>
+
+<p>The following picture shows an equation being created.</p>
+
+
+<p></p><p></p>
+<center><img border="0" src="Manual_pictures/screen24.GIF" ></center>
+<p></p>
+<font color="#4682b4" size="4" face="Arial"> <i>Supported Operations:
+</i></font>
+
+<p>The Equation Editor supports the following:</p>
+<ul>
+<li> <i>Basic arithmetic operations:</i>  addition, subtraction, multiplication, division; 
+<li> <i>Relational operations:</i> less than, greater than, less then or equal to, greater than or equal to, not equal;
+<li> <i>Logical operations:</i> and, or, not;
+<li><i>Other arithmetic operations:</i> absolute value, remainder.
+<li><i>Trigonometric operations: </i>sin, cos, tan; 
+</ul>
+
+<i>User Defined Functions</i> are supported in the form of: 
+<p><center><i>functionName </i>(Object name, time) </center></p>
+where Object name refers to the object on the Stage currently dealt with (ME) or any other object in relation with the it (OTEHR1, OTHER2, …, OTHER9).  
+The functions are functions of time and the second argument specifies  particular time instance.  
+</p>
+
+
+<center><a href ="#top">Top</a> </center> 
+</div>
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

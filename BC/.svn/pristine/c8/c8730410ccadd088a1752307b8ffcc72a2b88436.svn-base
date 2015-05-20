@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Language" content="en-gb">
+<title>SET-SIZE</title>
+</head>
+<body>
+	<h3><i>I change my size.</i> </h3>
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>SET-SIZE</b></p>
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for columns: 71 rows: 3 size-of-prototype 2.0                       
+set size size-of-prototype
+</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+	<p>You can change the contents of the text area to any positive number. A number less than 1 will 
+	make it appear smaller than the default size.</p>
+	<p>You can set the size to a random value by replacing the code in the box with 
+	NetLogo code. For example,</p>
+	<p><pre>random-number-between .5 1.5</pre></p>
+<p>You can make the size a function of other attributes. For example, if my-age 
+is increasing</p>
+<p><pre>minimum (0.5 + 0.1 * my-age) 3</pre>
+</p>
+	<p>defines the size to be initially 0.5 and grow by 0.1 until a size of 3.
+	</p>
+<h2>Related Micro-behaviours</h2><p>
+	<a title="SET-COLOR" href="SET-COLOR.html">
+	SET-COLOR</a> and
+	<a title="SET-SHAPE" href="SET-SHAPE.html">
+	SET-SHAPE</a> change other aspects of the appearance of objects.</p><h2>History</h2><p><a href="SET-SIZE.html">SET-SIZE</a> was implemented by Ken Kahn.</p></body></html>

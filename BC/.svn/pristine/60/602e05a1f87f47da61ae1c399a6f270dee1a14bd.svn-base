@@ -1,0 +1,22 @@
+to random-selection-of-unoccupied-locations [min-xcor max-xcor min-ycor max-ycor]
+  ; old name --- maintained for backwards compatibility
+  report random-unoccupied-location min-xcor max-xcor min-ycor max-ycor
+end
+
+to-report random-location-found-to-be-unoccupied [min-xcor max-xcor min-ycor max-ycor max-tries]
+ ; this is obsolete but since existing models and micro-behaviours use this
+ ; we implement it in terms of the new reporter
+ report random-unoccupied-location min-xcor max-xcor min-ycor max-ycor
+end
+
+to-report random-unoccupied-location [min-xcor max-xcor min-ycor max-ycor]
+  let unoccupied-patch one-of patches with 
+                                      [min-xcor <= pxcor and
+                                       max-xcor >= pxcor and
+                                       min-ycor <= pycor and
+                                       max-ycor >= pycor and
+                                       not any? objects-here with [not hidden?]]
+ if-else is-patch? unoccupied-patch
+   [report [(list pxcor pycor)] of unoccupied-patch]
+   [report (list xcor ycor)]
+end

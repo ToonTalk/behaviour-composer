@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+package uk.ac.lkl.client;
+
+import com.google.gwt.user.client.ui.VerticalPanel;
+
+/**
+ * @author Ken Kahn
+ *
+ */
+public class ErrorsPanel extends VerticalPanel {
+
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<title>LOG-ALL-BEHAVIOURS</title>
+<meta http-equiv="Content-Language" content="en-gb">
+</head>
+
+<body>
+
+	<h3><i>Whenever a behaviour is added to me, the event is logged in the output 
+
+	window.</i> </h3>
+
+	<p><font size="2" color="gray">Begin micro-behaviour</font>
+	</p>
+	<p><b>LOG-ALL-BEHAVIOURS</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>set log-behaviours true
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Related Micro-behaviours</h2>
+
+	<p>
+
+	<a title="LOG-SPECIFIED-BEHAVIOURS" href="LOG-SPECIFIED-BEHAVIOURS.html">
+
+	LOG-SPECIFIED-BEHAVIOURS</a> is an example of selectively logging 
+
+	behaviours. You can also log attribute changes using
+
+	<a title="LOG-ALL-ATTRIBUTES" href="LOG-ALL-ATTRIBUTES.html">
+
+	LOG-ALL-ATTRIBUTES</a> and
+
+	<a title="LOG-SPECIFIED-ATTRIBUTES" href="LOG-SPECIFIED-ATTRIBUTES.html">
+
+	LOG-SPECIFIED-ATTRIBUTES</a>. <a href="SPECIFY-OUTPUT-AREA.html">SPECIFY-OUTPUT-AREA</a> 
+	specifies up the dimensions and placement of the output area.</p>
+
+	<h2>How this works</h2>
+
+	<p>This sets a global variable so whenever a behaviour is added, the event 
+
+	is logged in the output area. This also creates an output area with those 
+
+	coordinates.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+</body>
+
+</html>

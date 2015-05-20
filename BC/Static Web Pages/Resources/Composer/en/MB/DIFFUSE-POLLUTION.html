@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>DIFFUSE-POLLUTION</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>Pollution spreads to a patch from its 4 nearest neighbours.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>DIFFUSE-POLLUTION </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-after 100.003
+   [do-every delta-t
+       [ask-every-patch
+            [let total-pollution pollution-of-patch +
+                                 sum [pollution-of-patch] of neighbors4 
+             set next-pollution-of-patch total-pollution / 5]]]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+
+	<p>An experiment described in [1] has diffusion begin after 100 time units. 
+
+	You can delay by amounts other than <i>delta-t</i> to model different 
+
+	diffusion rates. You can use the 8 neighbors by replacing <i>neighbors4 </i>
+
+	with <i>neighbors</i> and dividing by 9 instead. </p>
+
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>
+
+	<a title="GROWING-SUGAR-PRODUCES-POLLUTION" href="GROWING-SUGAR-PRODUCES-POLLUTION.html">
+
+	GROWING-SUGAR-PRODUCES-POLLUTION</a> and
+
+	<a title="SUGAR-CONSUMPTION-PRODUCES-POLLUTION" href="SUGAR-CONSUMPTION-PRODUCES-POLLUTION.html">
+
+	SUGAR-CONSUMPTION-PRODUCES-POLLUTION</a> produce the pollution that this 
+
+	micro-behaviour diffuses. </p>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>It sums up the value of <i>pollution-of-patch</i> of each patch and its 
+
+	neighbors one step north, south, east, and west and divides by 5 to 
+
+	calculate the average. The <i>pollution-of-patch</i> of each patch is set to 
+
+	its average in this way. Note that by setting <i>next-pollution-of-patch</i> 
+
+	rather than <i>pollution-of-patch</i> each patch is updated with the current 
+
+	average of values not yet updated by this diffusion process. </p>
+
+	<h2><span class="mw-headline">Source </span></h2>
+
+	<p>Based upon page 48 of [1]. </p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </p>
+
+	<h2><span class="mw-headline">References </span></h2>
+
+	<p>[1] <i>Growing Artificial Societies</i> by Joshua M. Epstein and Robert 
+
+	Axtell, Brookings Institute Press, The MIT Press, 1996. </p>
+
+</body>
+
+</html>

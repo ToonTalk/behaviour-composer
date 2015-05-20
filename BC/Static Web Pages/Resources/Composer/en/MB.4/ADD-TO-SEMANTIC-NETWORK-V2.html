@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>ADD-TO-SEMANTIC-NETWORK</title>
+</head>
+<body>
+<h3><i>I consider an incoming pair of nodes. If both of the nodes are already in 
+my network then the strength is incremented. Links with an anchor point at one 
+end are strengthened more. If neither node is in my network I 
+ignore it. Otherwise I add the missing node to my network.</i></h3>
+<p>I also record all the repetitions of links and nodes to be used to calculate 
+frequencies.</p>
+<font size="2" color="gray">Begin micro-behaviour</font>
+<p><b>ADD-TO-SEMANTIC-NETWORK</b></p>
+<font size="2" color="gray">Begin NetLogo code:</font>
+<pre> if not is-list? my-incoming-transmissions [stop]
+ while [not empty? my-incoming-transmissions]
+ [let incoming-nodes first my-incoming-transmissions
+  set my-incoming-transmissions but-first my-incoming-transmissions
+  let source third incoming-nodes
+  <i>; ignore transmissions that are not from an accepted source</i>
+  if my-accepted-sources = 0 or 
+     not member? source my-accepted-sources 
+    [stop]
+  let incoming-1 first incoming-nodes
+  let incoming-2 second incoming-nodes
+  if incoming-1 = incoming-2 [stop]
+  let node-1 one-of my-nodes with [my-prototype = incoming-1]
+  let node-2 one-of my-nodes with [my-prototype = incoming-2]
+  if node-1 = nobody and node-2 = nobody 
+     [stop]
+  let hidden my-network-visibility != true
+  if-else node-1 != nobody and node-2 != nobody
+     [let their-link [link-with node-2] of node-1
+      if-else is-link? their-link
+         [ask their-link [set repetitions-of-link add-to-list time repetitions-of-link]]
+         [ask node-1 
+             [create-link-with node-2 
+                              [set hidden? hidden
+                               set thickness .1]]]
+      ask node-1 [belief-node-repeated incoming-1]
+      ask node-2 [belief-node-repeated incoming-2]]
+     [if-else node-2 = nobody
+        [set node-2 copy-belief-node incoming-2 source
+         ask node-1 [belief-node-repeated incoming-1]
+         set my-nodes (turtle-set node-2 my-nodes)]
+        [set node-1 copy-belief-node incoming-1 source
+         ask node-2 [belief-node-repeated incoming-2]
+         set my-nodes (turtle-set node-1 my-nodes)]
+      ask node-1
+         [create-link-with node-2 
+                           [set hidden? hidden
+                            set thickness .1]]]]</pre>
+<font size="2" color="gray">End NetLogo code</font>
+<h2>Related micro-behaviours</h2>
+<p>This relies upon <a href="COPY-BELIEF-NODE-V2.html">COPY-BELIEF-NODE</a> and
+<a href="BELIEF-NODE-REPEATED.html">BELIEF-NODE-REPEATED</a>.</p>
+<h2>How this works</h2>
+<p>This expects my-incoming-transmissions to be a list of triples. Each triple 
+contains two nodes (either anchor points or belief nodes) and the identity of 
+the sender. It tests if the nodes are already known to this agent by seeing if 
+the incoming nodes are copies (with the same value for my-prototype).</p>
+<h2>History</h2>
+<p>Ken Kahn implemented this on 19 May, 2010.&nbsp; On 31 July 2010 it was 
+changed to maintain records of repetitions.
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+
+<title>SET-POSITION-ON-A-CIRCLE</title>
+</head>
+
+<body>
+	<h3><i>I jump to a location on a circle.</i> </h3>
+	
+	<p><font size="2" color="gray">Begin micro-behaviour</font></p>
+	<p><b>SET-POSITION-ON-A-CIRCLE</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for radius 8  
+let saved-my-heading my-heading
+let those-in-the-circle sort all-individuals
+set my-heading position self those-in-the-circle * 360 / length those-in-the-circle
+set my-next-x 0
+set my-next-y 0
+go-forward radius
+set my-heading saved-my-heading</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+<p>To change the radius of the circle change the <i>8</i> to another number. 
+Change the values <i>my-next-x</i> and <i>my-next-y</i> are set to to centre the circle around a 
+different point. If 
+you want separate circles for different kinds of agents, e.g. &quot;Sheep&quot; 
+then add <i>with 
+[kind = &quot;Sheep&quot;] </i>after<i> all-individuals</i>.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+	<p>
+
+	<a title="SET-RANDOM-HEADING" href="SET-RANDOM-POSITION.html">
+	SET-RANDOM-POSITION</a> sets my heading to a random value.
+
+	<a title="SET-RANDOM-UNOCCUPIED-POSITION" href="SET-RANDOM-UNOCCUPIED-POSITION.html">
+
+	SET-RANDOM-UNOCCUPIED-POSITION</a> also finds a random position but only if 
+
+	it is unoccupied.</p>
+
+	<h2>How this works</h2>
+
+	<p>This temporarily sets my heading to an angle that places each agent <i>
+	360</i> divided by the number of agents multiplied by the position of the agent 
+	in a list of all agents in the circle. I then move the <i>radius</i> distance in the computed 
+	heading. Finally I restore my heading to its original value.</p>
+
+	<h2>History</h2>
+
+	<p>This was implemented by Ken Kahn</p>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>HIDE</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I become invisible.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>HIDE </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-now
+   [set my-visibility false]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p><a title="SHOW" href="SHOW.html">SHOW</a> 
+
+	undoes this so I'm visible again. </p>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>This sets the attribute <i>my-visibility</i> which is used to set the 
+
+	NetLogo <i>hidden?</i> primitive attribute. </p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </p>
+
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+; until web version of NetLogo supports is-number? etc need the following
+
+to-report is-number-replacement [x]
+  carefully [let ignore x + 0] [report false]
+  report true
+end
+
+to-report is-list-replacement [x]
+  carefully [let ignore (length x)] [report false]
+  report true
+end
+
+to-report is-agent-replacement [x]
+  report is-turtle? x or is-patch-replacement x or is-link-replacement x
+end
+
+to-report is-patch-replacement [x]
+  carefully [let ignore [pcolor] of x] [report false]
+  report true
+end
+
+to-report is-link-replacement [x]
+  carefully [let ignore [both-ends] of x] [report false]
+  report true
+end
+
+to clear-drawing-replacement
+end
+
+to run-plotting-commands-replacement
+end

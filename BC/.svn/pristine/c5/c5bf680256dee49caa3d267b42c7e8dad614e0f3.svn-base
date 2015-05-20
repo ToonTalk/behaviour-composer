@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+
+
+<title>WANDER-VERTICALLY</title>
+</head>
+<body>
+	<h3><i>I repeatedly either move one unit to up, down, or stay put.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>WANDER-VERTICALLY </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-every delta-t
+   [set my-next-y my-next-y + random-integer-between -1 1]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+
+	<p>An interesting variant is to use instead <i>random-number-between -1 1</i> 
+
+	to generate fractional movements. Feel free to change the range to something 
+
+	other than -1 to 1. </p>
+
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>
+
+	<a title="WANDER-HORIZONTALLY" href="WANDER-HORIZONTALLY.html">
+
+	WANDER-HORIZONTALLY</a> differs from this micro-behaviour in that it moves 
+
+	horizontally instead of vertically.
+
+	<a title="WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS" href="WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS.html">
+
+	WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS</a> combines the two micro-behaviours.
+
+	</p>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>This updates my vertical position by randomly either adding 1 or -1 to 
+
+	the current vertical position. </p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn </p>
+</body>
+</html>
+

@@ -1,0 +1,625 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>Browse Micro-Behaviours Needed i</title>
+
+</head>
+<body>
+<h1 class="firstHeading">Browse Micro-Behaviours Needed in Building Disease 
+
+Models</h1>
+	<h2>Disease Micro-Behaviours</h2>
+
+	<p>These micro-behaviours were designed to explore the SVIR model as 
+
+	presented in &quot;Mathematical models of vaccination&quot;, Almut Scherer and Angela 
+
+	McLean, <i>British Medical Bulletin</i> 2002;62 187-199. </p>
+	<p>These micro-behaviours can also be used to explore models of epidemics 
+	that spread via a network of social acquaintances. You may wish to use this
+	<a href="Epidemic-Guide.html">step-by-step guide for modelling epidemics</a>. Additional micro-behaviours can be found in
+	<a href="Full-Library.html">the full library</a>.</p>
+
+	<p><b><font color="#800000">For creating an initial population: </font></b> </p>
+
+	<p>
+
+	<a title="CREATE-INITIAL-SUSCEPTIBLE-POPULATION" href="CREATE-INITIAL-SUSCEPTIBLE-POPULATION.html">
+
+	CREATE-INITIAL-SUSCEPTIBLE-POPULATION</a> -- I create an initial population 
+
+	of susceptible individuals. </p>
+
+	<p>
+
+	<a title="CREATE-INITIAL-SUSCEPTIBLE-COUNT-SLIDER" href="CREATE-INITIAL-SUSCEPTIBLE-COUNT-SLIDER.html">
+
+	CREATE-INITIAL-SUSCEPTIBLE-COUNT-SLIDER</a> -- I create a slider for initial 
+
+	number of susceptible individuals. </p>
+
+	<p>
+
+	<a title="CREATE-INITIAL-INFECTED-POPULATION" href="CREATE-INITIAL-INFECTED-POPULATION.html">
+
+	CREATE-INITIAL-INFECTED-POPULATION</a> -- I create an initial population of 
+
+	infected individuals. </p>
+
+	<p>
+
+	<a title="CREATE-INITIAL-INFECTED-COUNT-SLIDER" href="CREATE-INITIAL-INFECTED-COUNT-SLIDER.html">
+
+	CREATE-INITIAL-INFECTED-COUNT-SLIDER</a> -- I create a slider for initial 
+
+	number of infected individuals. </p>
+
+	<p>
+
+	<a title="CREATE-INITIAL-VACCINATED-POPULATION" href="CREATE-INITIAL-VACCINATED-POPULATION.html">
+
+	CREATE-INITIAL-VACCINATED-POPULATION</a> -- I create an initial population 
+
+	of vaccinated individuals. </p>
+
+	<p>
+
+	<a title="CREATE-INITIAL-VACCINATED-COUNT-SLIDER" href="CREATE-INITIAL-VACCINATED-COUNT-SLIDER.html">
+
+	CREATE-INITIAL-VACCINATED-COUNT-SLIDER</a> -- I create a slider for initial 
+
+	number of vaccinated individuals. </p>
+	<p>
+
+	<font color="#800000"><b>To initialise the state of individuals:</b></font></p>
+	<p>
+
+	<a href="SET-STATE-SUSCEPTIBLE.html">SET-STATE-SUSCEPTIBLE</a> -- I set my 
+	state to susceptible (to infection).</p>
+	<p>
+
+	<a href="SET-STATE-INFECTED.html">SET-STATE-INFECTED</a> -- I set my state 
+	to infected.</p>
+	<p>
+
+	<a href="SET-STATE-RECOVERED.html">SET-STATE-RECOVERED</a> -- I set my state 
+	to recovered (from infection).</p>
+	<p>
+
+	<a href="SET-STATE-VACCINATED.html">SET-STATE-VACCINATED</a> -- I set my 
+	state of vaccinated.</p>
+
+	<p><font color="#800000"><b>To see how the current slider settings translate to the mathematical 
+
+	model: </b></font> </p>
+
+	<p>
+
+	<a title="MONITOR-FORCE-OF-INFECTION" href="MONITOR-FORCE-OF-INFECTION.html">
+
+	MONITOR-FORCE-OF-INFECTION</a> -- I add a monitor that displays &#946; or the 
+
+	force of infection. </p>
+
+	<p><font color="#800000"><b>To model the spread of infections: </b></font> </p>
+
+	<p>
+
+	<a title="RANDOM-ENCOUNTER" href="RANDOM-ENCOUNTER.html">
+
+	RANDOM-ENCOUNTER</a> -- I possibly infect anyone in the population. </p>
+
+	<p>
+
+	<a title="RANDOM-SOCIAL-ENCOUNTER" href="RANDOM-SOCIAL-ENCOUNTER.html">
+
+	RANDOM-SOCIAL-ENCOUNTER</a> -- I possibly infect someone in my social 
+
+	network. </p>
+
+	<p>
+
+	<a title="RANDOM-SPATIAL-ENCOUNTER" href="RANDOM-SPATIAL-ENCOUNTER.html">
+
+	RANDOM-SPATIAL-ENCOUNTER</a> -- I possibly infect anyone in the population 
+
+	but with a greater probability for those nearby. </p>
+
+	<p>
+
+	<a title="RANDOM-PHYSICAL-ENCOUNTER" href="RANDOM-PHYSICAL-ENCOUNTER.html">
+
+	RANDOM-PHYSICAL-ENCOUNTER</a> -- I possibly infect anyone I came into 
+
+	contact with. </p>
+
+	<p>
+
+	<a title="POSSIBLE-INFECTION" href="POSSIBLE-INFECTION.html">
+
+	POSSIBLE-INFECTION</a> -- I may infect the other individual. </p>
+	<p>
+
+	<a href="LOG-INFECTION-ONSET.html">LOG-INFECTION-ONSET</a> -- I add to the 
+	log every infection event.</p>
+	<p>
+
+	<font color="#800000"><b>To model recovery:</b></font></p>
+	<p>
+
+	<a href="RECOVERY-POSSIBLE-AFTER-INFECTION.html">
+	RECOVERY-POSSIBLE-AFTER-INFECTION</a> -- I add a behaviour so that I recover 
+	with some probability.</p>
+
+	<p><b><font color="#800000">One way modelling death and birth (using probabilities of dying or giving 
+
+	birth): </font></b> </p>
+
+	<p>
+
+	<a title="BIRTH-RATE" href="BIRTH-RATE.html">
+
+	BIRTH-RATE</a> -- I give birth with some probability. </p>
+
+	<p>
+
+	<a title="DEATH-RATE" href="DEATH-RATE.html">
+
+	DEATH-RATE</a> -- I die with some probability. </p>
+
+	<p><b><font color="#800000">To initialise newborns: </font></b> </p>
+
+	<p>
+
+	<a title="POSSIBLY-VACCINATE-NEW-BORN" href="POSSIBLY-VACCINATE-NEW-BORN.html">
+
+	POSSIBLY-VACCINATE-NEW-BORN</a> -- A new born is possibly successfully 
+
+	vaccinated. </p>
+
+	<p>
+
+	<a title="NEW-BORN-INITIAL-STATE" href="NEW-BORN-INITIAL-STATE.html">
+
+	NEW-BORN-INITIAL-STATE</a> -- I set my attributes to correspond to a new 
+
+	born. </p>
+<p>
+
+	<b><font color="#800000">To model the loss of immunity:</font></b></p>
+<p>
+
+	<a href="POSSIBLY-LOSE-IMMUNITY.html">POSSIBLY-LOSE-IMMUNITY</a><b> -</b>- I 
+	remove immunity with some probability.</p>
+
+	<p><b><font color="#800000">To create plots as it runs: </font></b> </p>
+
+	<p>
+
+	<a title="CREATE-EMPTY-POPULATIONS-PLOT" href="CREATE-POPULATIONS-PLOT.html">
+	CREATE-POPULATIONS-PLOT</a> -- I create a plot to which other 
+
+	micro-behaviours can add. </p>
+
+	<p>
+
+	<a title="ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT" href="ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT.html">
+
+	ADD-SUSCEPTIBLE-TO-POPULATIONS-PLOT</a> -- I add a plot of the number of 
+
+	susceptible individuals to the Populations Plot. </p>
+
+	<p>
+
+	<a title="ADD-VACCINATED-TO-POPULATIONS-PLOT" href="ADD-VACCINATED-TO-POPULATIONS-PLOT.html">
+
+	ADD-VACCINATED-TO-POPULATIONS-PLOT</a> -- I add a plot of the number of 
+
+	vaccinate individuals to the Populations Plot. </p>
+
+	<p>
+
+	<a title="ADD-INFECTED-TO-POPULATIONS-PLOT" href="ADD-INFECTED-TO-POPULATIONS-PLOT.html">
+
+	ADD-INFECTED-TO-POPULATIONS-PLOT</a> -- I add a plot of the number of 
+
+	infected individuals to the Populations Plot. </p>
+
+	<p>
+
+	<a title="ADD-RECOVERED-TO-POPULATIONS-PLOT" href="ADD-RECOVERED-TO-POPULATIONS-PLOT.html">
+
+	ADD-RECOVERED-TO-POPULATIONS-PLOT</a> -- I add a plot of the number of 
+
+	recovered individuals to the Populations Plot. </p>
+
+	<p>
+
+	<a title="ADD-TOTAL-TO-POPULATIONS-PLOT" href="ADD-TOTAL-TO-POPULATIONS-PLOT.html">
+
+	ADD-TOTAL-TO-POPULATIONS-PLOT</a> -- I add a plot of the total number of 
+
+	individuals to the Populations Plot. </p>
+<p>
+
+	<span lang="EN-GB">
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB.2/ADD-BEHAVIOURS.html#changes=SPb89Kg-D53j5J_Q3XDh74">ADD-CHANGE-IN-NUMBER-INFECTED-BEHAVIOURS</a> 
+	-- I add a collection of behaviours to maintain a record and to plot the 
+	changes in the number of people infected.</span></p>
+
+	<p><b><font color="#800000">To control intrinsic parameters: </font></b> </p>
+
+	<p>
+
+	<a title="CREATE-INFECTION-ODDS-SLIDER" href="CREATE-INFECTION-ODDS-SLIDER.html">
+
+	CREATE-INFECTION-ODDS-SLIDER</a> -- I create a slider for the odds of an 
+
+	infection spreading per encounter. </p>
+
+	<p>
+
+	<a title="CREATE-ENCOUNTER-RATE-SLIDER" href="CREATE-ENCOUNTER-RATE-SLIDER.html">
+
+	CREATE-ENCOUNTER-RATE-SLIDER</a> -- I create a slider for the number of 
+
+	encounters per week by infected individuals. </p>
+	<p>
+
+	<a title="CREATE-ENCOUNTER-RATE-SLIDER" href="CREATE-ENCOUNTER-FRACTION-SLIDER.html">CREATE-ENCOUNTER-FRACTION-SLIDER</a> -- I create a slider for the number of 
+
+	encounters as a fraction of the number of acquaintances. </p>
+
+	<p>
+
+	<a title="CREATE-DEATH-RATE-SLIDER" href="CREATE-DEATH-RATE-SLIDER.html">
+
+	CREATE-DEATH-RATE-SLIDER</a> -- I create a slider for life expectancy. </p>
+
+	<p>
+
+	<a title="CREATE-RATE-OF-RECOVERY-SLIDER" href="CREATE-RATE-OF-RECOVERY-SLIDER.html">
+
+	CREATE-RATE-OF-RECOVERY-SLIDER</a> -- I create a slider for the duration of 
+
+	an infection. </p>
+
+	<p>
+
+	<a title="CREATE-FRACTION-OF-VACCINATIONS-THAT-TAKE" href="CREATE-FRACTION-OF-VACCINATIONS-THAT-TAKE.html">
+
+	CREATE-FRACTION-OF-VACCINATIONS-THAT-TAKE</a> -- I create a slider for the 
+
+	odds that a vaccination takes. </p>
+
+	<p>
+
+	<a title="CREATE-RATE-OF-LOSS-OF-IMMUNITY-SLIDER" href="CREATE-RATE-OF-LOSS-OF-IMMUNITY-SLIDER.html">
+
+	CREATE-RATE-OF-LOSS-OF-IMMUNITY-SLIDER</a> -- I create a slider for the 
+
+	duration of a vaccination. </p>
+
+	<p><b><font color="#800000">To control policy parameters: </font></b> </p>
+
+	<p>
+
+	<a title="CREATE-FRACTION-VACCINATED-AT-BIRTH-SLIDER" href="CREATE-FRACTION-VACCINATED-AT-BIRTH-SLIDER.html">
+
+	CREATE-FRACTION-VACCINATED-AT-BIRTH-SLIDER</a> -- I create a slider for the 
+
+	proportion vaccinated at birth. </p>
+
+	<p><b><font color="#800000">To add all the above at once: </font></b> </p>
+
+	<p>
+
+	<a title="CREATE-SLIDERS-AND-INITIAL-POPULATION" href="CREATE-SLIDERS-AND-INITIAL-POPULATION.html">
+
+	CREATE-SLIDERS-AND-INITIAL-POPULATION</a> -- I do all of the above. </p>
+
+	<h2>Social Network</h2>
+
+	<p><b><font color="#800000">The following should be associated with a prototype that isn't copied, 
+
+	e.g. the world or observer. </font></b> </p>
+
+	<p>
+
+	<a title="INITIALISE-SOCIAL-NETWORK-SYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-CONSTANT-SYMMETRIC.html">
+
+	INITIALISE-SOCIAL-NETWORK-CONSTANT-SYMMETRIC</a> -- Initialises the subset of other 
+
+	agents that I &quot;know&quot; (everyone knows the same number of people). Everyone I 
+
+	know knows me. </p>
+
+	<p>
+
+	<a title="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-SYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-SYMMETRIC.html">
+
+	INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-SYMMETRIC</a> -- Initialises 
+
+	the subset of other agents that I &quot;know&quot; (the number of people each person 
+
+	knows is normally distributed). Everyone I know knows me. </p>
+
+	<p>
+
+	<a title="INITIALISE-SOCIAL-NETWORK-POWER-LAW-DISTRIBUTION-SYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-POWER-LAW-DISTRIBUTION-SYMMETRIC.html">
+
+	INITIALISE-SOCIAL-NETWORK-POWER-LAW-DISTRIBUTION-SYMMETRIC</a> -- 
+
+	Initialises the subset of other agents that I &quot;know&quot; (the number of people 
+
+	each person knows follows a
+
+	<a class="external text" title="http://en.wikipedia.org/wiki/Power_law" rel="nofollow" href="http://en.wikipedia.org/wiki/Power_law">
+
+	power law</a>). Everyone I know knows me. </p>
+
+	<p>The following should be associated with the prototype of the population. 
+
+	These are only appropriate when a link from a to b does not entail there 
+
+	should be a corresponding link from b to a. </p>
+
+	<p>
+
+	<a title="INITIALISE-SOCIAL-NETWORK-ASYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-CONSTANT-ASYMMETRIC.html">
+
+	INITIALISE-SOCIAL-NETWORK-CONSTANT-ASYMMETRIC</a> -- Initialises the subset of other 
+
+	agents that I &quot;know&quot; (everyone knows the same number of people). <i>Not</i> 
+
+	everyone I know knows me. </p>
+
+	<p>
+
+	<a title="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-ASYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-ASYMMETRIC.html">
+
+	INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-ASYMMETRIC</a> -- Initialises 
+
+	the subset of other agents that I &quot;know&quot; (the number of people each person 
+
+	knows is normally distributed). <i>Not</i> everyone I know knows me.</p>
+	<p>
+
+	<a href="REMOVE-SUPER-NODES.html">REMOVE-SUPER-NODES</a> -- Removes individuals with the greatest number of acquaintances.</p>
+	<p>
+
+	<a href="CREATE-NUMBER-OF-SUPER-NODES-REMOVED-SLIDER.html">CREATE-NUMBER-OF-SUPER-NODES-REMOVED-SLIDER</a> 
+	-- Creates a slider to control the number of nodes removed by
+	<a href="REMOVE-SUPER-NODES.html">REMOVE-SUPER-NODES</a>.</p>
+
+	<p><b><font color="#800000">To view social networks: </font></b> </p>
+
+	<p>
+
+	<a title="DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES" href="DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES.html">
+
+	DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES</a> -- I draw a line to all my 
+
+	acquaintances. </p>
+
+	<p>
+
+	<a title="SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES" href="SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES.html">
+
+	SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES</a> -- I change my size 
+
+	to reflect the number of individuals in <i>my-acquaintances</i>. </p>
+<h2>
+
+	Interventions</h2>
+<p>
+
+	<a href="VACCINATE-N-RANDOM-INDIVIDUALS.html">VACCINATE-N-RANDOM-INDIVIDUALS</a> 
+	-- After a delay I vaccinate some number of susceptible individuals.</p>
+<p>
+
+	<a href="VACCINATE-N-RANDOM-SUSCEPTIBLE-ACQUAINTANCES-OF-THE-INFECTED.html">VACCINATE-N-RANDOM-SUSCEPTIBLE-ACQUAINTANCES-OF-THE-INFECTED</a> 
+	-- After a delay I vaccinate some number of susceptible individuals who have an acquaintance who is infected. </p>
+
+	<h2>Appearance micro-behaviours</h2>
+
+	<p>
+
+	<a title="SET-SHAPE" href="SET-SHAPE.html">
+
+	SET-SHAPE</a> -- Sets my appearance to be a fish (easily changed to another 
+
+	shape) </p>
+
+	<p>
+
+	<a title="SET-COLOR" href="SET-COLOR.html">
+
+	SET-COLOR</a> -- Sets my colour to red (easily changed to other colours) </p>
+
+	<p>
+
+	<a title="SET-SIZE" href="SET-SIZE.html">
+
+	SET-SIZE</a> -- Sets my size so I appear bigger or smaller </p>
+
+	<p><a title="HIDE" href="HIDE.html">HIDE</a> 
+
+	-- I become invisible </p>
+
+	<p><a title="SHOW" href="SHOW.html">SHOW</a> 
+
+	-- I become visible again </p>
+
+	<p>
+
+	<a title="DISPLAY-LINE-OF-INFECTION" href="DISPLAY-LINE-OF-INFECTION.html">
+
+	DISPLAY-LINE-OF-INFECTION</a> -- I draw a line between the infector and 
+
+	infectee. </p>
+
+	<p>
+
+	<a title="DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES" href="DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES.html">
+
+	DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES</a> -- I draw a line to all my 
+
+	acquaintances. </p>
+
+	<p>
+
+	<a title="SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES" href="SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES.html">
+
+	SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES</a> -- I change my size 
+
+	to reflect the number of individuals in <i>my-acquaintances</i>. </p>
+
+	<h2>Movement micro-behaviours</h2>
+
+	<p>
+
+	<a title="MOVE-FORWARD" href="MOVE-FORWARD.html">
+
+	MOVE-FORWARD</a> -- I move forward at a speed. </p>
+
+	<p>
+
+	<a title="WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS" href="WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS.html">
+
+	WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS</a> -- I repeatedly move up, down, 
+
+	left, or right one step. </p>
+
+	<h2>World or Environment</h2>
+
+	<p><b><font color="#800080">Micro-behaviours for controlling the &quot;world&quot; the individuals &quot;live&quot; in.</font></b>
+
+	</p>
+
+	<p>
+
+	<a title="SET-WORLD-SIZE" href="SET-WORLD-SIZE.html">
+
+	SET-WORLD-SIZE</a> -- I set the size of the world </p>
+
+	<p>
+
+	<a title="SET-PATCH-SIZE" href="SET-PATCH-SIZE.html">
+
+	SET-PATCH-SIZE</a> -- I set the size of each patch </p>
+
+	<p>
+
+	<a title="SET-WORLD-TO-TORUS" href="SET-WORLD-TO-TORUS.html">
+
+	SET-WORLD-TO-TORUS</a> -- I set the geometry of the world to a torus 
+
+	(coordinates wrap both horizontally and vertically) </p>
+
+	<p>
+
+	<a title="SET-WORLD-TO-PLANE" href="SET-WORLD-TO-PLANE.html">
+
+	SET-WORLD-TO-PLANE</a> -- I set the geometry of the world to a plane 
+
+	(coordinates do not wrap) </p>
+
+	<p>
+
+	<a title="SET-WORLD-TO-PLANE-WITH-CAMERA-FOLLOWING-CENTROID" href="SET-WORLD-TO-PLANE-WITH-CAMERA-FOLLOWING-CENTROID.html">
+
+	SET-WORLD-TO-PLANE-WITH-CAMERA-FOLLOWING-CENTROID</a> -- I set the geometry 
+
+	of the world to a plane (coordinates do not wrap) but the display of the 
+
+	world is constantly updated so the centre is the average position of all 
+
+	individuals </p>
+
+	<p>
+
+	<a title="SET-WORLD-TO-VERTICAL-CYLINDER" href="SET-WORLD-TO-VERTICAL-CYLINDER.html">
+
+	SET-WORLD-TO-VERTICAL-CYLINDER</a> -- I set the geometry of the world to a 
+
+	vertical cylinder (coordinates wrap only horizontally) </p>
+
+	<p>
+
+	<a title="SET-WORLD-TO-HORIZONTAL-CYLINDER" href="SET-WORLD-TO-HORIZONTAL-CYLINDER.html">
+
+	SET-WORLD-TO-HORIZONTAL-CYLINDER</a> -- I set the geometry of the world to a 
+
+	horizontal cylinder (coordinates wrap only vertically) </p>
+
+	<p>
+
+	<a title="SET-WORLD-LOCATION" href="SET-WORLD-LOCATION.html">
+
+	SET-WORLD-LOCATION</a> -- I set where the display of the world is placed </p>
+
+	<p>
+
+	<a title="PAUSE-EVERYTHING-WHEN" href="STOP-EVERYTHING-WHEN.html">
+
+	PAUSE-EVERYTHING-WHEN</a> -- Pauses the simulation when some condition is 
+
+	true </p>
+
+	<p>
+
+	<a title="SET-DELTA-T" href="SET-FRAME-DURATION.html">SET-FRAME-DURATION</a> -- Sets the value of 
+	<i>frame-duration</i> which controls how often the display is updated.</p>
+
+	<p>
+
+	<a title="MAKE-A-MOVIE-OF-A-MODEL" href="MAKE-A-MOVIE-OF-A-MODEL.html">
+
+	MAKE-A-MOVIE-OF-A-MODEL</a> -- Records a movie of a model running 
+	<h2>
+
+	Automatically stopping the simulation</h2>
+<p>
+
+	<a href="STOP-EVERYTHING-WHEN-NONE-INFECTED.html">PAUSE-EVERYTHING-WHEN-NONE-INFECTED</a> -- I pause the simulation when no one is infected.</p>
+<p>
+
+	<a title="PAUSE-EVERYTHING-WHEN" href="STOP-EVERYTHING-WHEN.html">
+	PAUSE-WHEN-TIME-EXCEEDS-50</a> -- I pause the simulation when the time 
+	is greater than 50.</p>
+
+	<h2>
+
+	<span class="mw-headline">NetLogo procedures</span></h2>
+	<p>
+
+	<b><font color="#800080">To more easily access sub-populations:</font></b></p>
+	<p>
+
+	<a href="REPORT-ALL-LIVING.html">REPORT-ALL-LIVING</a> -- I report all the 
+	individuals that are alive.</p>
+	<p>
+
+	<a href="REPORT-ALL-INFECTED.html">REPORT-ALL-INFECTED</a> -- I report all 
+	the individuals that are infected.</p>
+	<p>
+
+	<a href="REPORT-ENCOUNTER-RATE.html">REPORT-ENCOUNTER-RATE</a> -- I report 
+	the encounter rate.</p>
+	<p>
+
+	<a href="REPORT-ALL-SUSCEPTIBLES.html">REPORT-ALL-SUSCEPTIBLES</a> -- I 
+	calculate the set of individuals who are susceptible to infection.</p>
+	<p>
+
+<a href="REPORT-ALL-SUSCEPTIBLES-WHO-HAVE-AN-INFECTED-ACQUAINTANCE.html">
+	REPORT-ALL-SUSCEPTIBLES-WHO-HAVE-AN-INFECTED-ACQUAINTANCE</a> -- I compute 
+	the set of individuals who are susceptible to infection who have an 
+	acquaintance that is already infected. </p>
+
+	<p>Here are some
+
+	<a title="Suggestions for exploring vaccination models" href="Suggestions%20for%20exploring%20vaccination%20models.html">suggestions for exploring vaccination models</a>. </p>
+</body>
+</html>
+

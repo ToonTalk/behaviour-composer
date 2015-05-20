@@ -1,0 +1,29 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Anyone-is</title>
+</head>
+
+<body>
+
+<h1 class="firstHeading">Anyone-is</h1>
+<div id="bodyContent">
+	<p>The primitive anyone-is takes one argument in square brackets. That 
+			argument should be a predicate that when run returns true or false. 
+			Note if it returns true it also sets <i>the-other</i> to an object that 
+			satisfies the predicate. For example, </p>
+	<pre>when
+ anyone-is [size &gt; 1]
+ [add-behaviour-to the-other &lt;url to micro-behaviour&gt;]
+</pre>
+						<!-- end content -->
+			<div class="visualClear">
+<b>Anyone-who-is</b> is an alternative name for this NetLogo extension.</div>
+	<div id="footer">
+		&nbsp;</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>DISPLAY-LINE-OF-INFECTION</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I draw a line to the person that infected me.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>DISPLAY-LINE-OF-INFECTION </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for line-of-infection-color white   
+when [my-state = &quot;infected&quot; and is-object? my-last-encounter]
+     [draw-line self my-last-encounter line-of-infection-color
+      ask self [set hidden? false]
+      ask my-last-encounter [set hidden? false]]</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>You can change <i>white</i> to another colour. </p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>This behaviour relies upon
+
+	<a title="POSSIBLE-INFECTION" href="POSSIBLE-INFECTION.html">
+
+	POSSIBLE-INFECTION</a> to spread the infection. </p>
+
+	<h2>How this works</h2>
+
+	<p>This checks if I'm infected and I know who I last encountered (i.e. the 
+
+	one who infected me) and then draws a white line between us. If either of us 
+
+	have been hidden (because we are dead) we are made visible. </p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn. </p>
+
+</body>
+
+</html>

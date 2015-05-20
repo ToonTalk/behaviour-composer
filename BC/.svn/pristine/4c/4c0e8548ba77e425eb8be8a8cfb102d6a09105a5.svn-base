@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<meta http-equiv="Content-Language" content="en-gb">
+<head>
+
+<title>CREATE-NEW-AGENTS</title>
+
+</head>
+
+<body>
+	
+	<h3><i>I create a new agent in Sugarscape.</i> </h3>
+	<p><font size="2" color="gray">Begin micro-behaviour</font>
+	</p>
+	<p><b>CREATE-NEW-AGENTS</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>add-copies the-initial-population - 1 list-of-micro-behaviours "Additional behaviours" [INITIALISE-AGENT.html SET-RANDOM-UNOCCUPIED-POSITION.html]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Required Micro-behaviours</h2>
+<p>This relies upon the variable <i>the-initial-population</i> which is defined 
+by
+<a href="DEFINE-PARAMETER.html#changes=M0bObeVN9KFo6GyTRDmH7f">
+this slider</a>.</p>
+	<h2>Variants</h2>
+
+	<p>This list of additional micro-behaviours can be changed.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="REPLACE-AGENT" href="REPLACE-DEAD-AGENT.html">REPLACE-DEAD-AGENT</a> uses this micro-behaviour. <strong class="selflink">
+
+	CREATE-NEW-AGENTS</strong> adds the
+
+	<a title="INITIALISE-AGENT" href="INITIALISE-AGENT.html">
+
+	INITIALISE-AGENT</a> and
+
+	<a title="SET-RANDOM-UNOCCUPIED-POSITION" href="SET-RANDOM-UNOCCUPIED-POSITION.html">
+
+	SET-RANDOM-UNOCCUPIED-POSITION</a> micro-behaviours. <i>
+	the-initial-population </i>is defined by
+	<a href="DEFINE-PARAMETER.html#changes=1E9Zh0xdSlGR3p_pUMUy6f">
+	this slider</a>.&nbsp; <a href="CREATE-NEW-AGENTS-IN-LOWER-LEFT-CORNER.html">CREATE-NEW-AGENTS-IN-LOWER-LEFT-CORNER</a><b> </b>replaces 
+
+	<a title="SET-RANDOM-UNOCCUPIED-POSITION" href="SET-RANDOM-UNOCCUPIED-POSITION.html">
+
+	SET-RANDOM-UNOCCUPIED-POSITION</a&nbsp;with <a title="SET-RANDOM-UNOCCUPIED-POSITION-IN-LOWER-LEFT-CORNER" href="SET-RANDOM-UNOCCUPIED-POSITION-IN-LOWER-LEFT-CORNER.html">SET-RANDOM-UNOCCUPIED-POSITION-IN-LOWER-LEFT-CORNER</a>.</p>
+
+	<h2>How this works</h2>
+
+	<p>It creates <i>the-initial-population</i minus one identical copies except for the changes caused by
+
+	<a title="INITIALISE-AGENT" href="INITIALISE-AGENT.html">
+
+	INITIALISE-AGENT</a> and
+
+		<a title="SET-RANDOM-UNOCCUPIED-POSITION" href="SET-RANDOM-UNOCCUPIED-POSITION.html">
+
+	SET-RANDOM-UNOCCUPIED-POSITION</a>. It subtracts one from <i>
+	the-initial-population</i> since we include the original agent being copied 
+	in the population.</p>
+
+	<h2>Source</h2>
+	<p>Based upon page 32 of [1].</p>
+
+	<h2>History</h2>
+
+	<p>This was implemented by Ken Kahn.</p>
+
+	<h2>References</h2>
+
+	<p>[1] <i>Growing Artificial Societies</i> by Joshua M. Epstein and Robert 
+
+	Axtell, Brookings Institute Press, The MIT Press, 1996.</p>
+
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<title>GROW-SUGAR-SEASONALLY</title>
+</head>
+
+<body>
+
+	<h3><i>I grow sugar on each patch until its capacity is reached. The rate of 
+	growth is slower in the winter.</i> </h3>
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>GROW-SUGAR-SEASONALLY</b></p>
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-every 1
+   [ask-every-patch
+        [set sugar-of-patch 
+             minimum (sugar-of-patch + 
+                      seasonal-growth-factor * sugar-growth-rate-of-patch)
+                     sugar-capacity-of-patch]]
+</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+	<p>You can alter
+	<a title="COMPUTE-SEASONAL-GROWTH-FACTOR" href="COMPUTE-SEASONAL-GROWTH-FACTOR.html">COMPUTE-SEASONAL-GROWTH-FACTOR</a> to model seasons differently.</p>
+	<h2>Related Micro-behaviours</h2>
+
+	<p>
+	<a title="COMPUTE-SEASONAL-GROWTH-FACTOR" href="COMPUTE-SEASONAL-GROWTH-FACTOR.html">COMPUTE-SEASONAL-GROWTH-FACTOR</a> computes the growth factor based upon the 
+	current season and is required for this to work.</p>
+	<p>
+	<a title="GROW-SUGAR-SEASONALLY-DELAYED" href="GROW-SUGAR-SEASONALLY-DELAYED.html">GROW-SUGAR-SEASONALLY-DELAYED</a> uses this and ensures this is run after 
+	agents have finished collecting sugar.
+	<a title="GROW-SUGAR" href="GROW-SUGAR.html">GROW-SUGAR</a> is simpler and does 
+	not model seasonal geographical differences.</p>
+	<h2>How this works</h2>
+	<p>Sugar is incremented up to the limit of the <i>sugar-capacity-of-patch</i> 
+	of each patch. It is incremented by the patch's growth rate multiplied by a 
+	factor to account for different seasonal growth rates.</p>
+	<h2>Source</h2>	<p>Based upon page 44 of [1].</p>
+	<h2>History</h2>
+
+
+	<p>This was implemented by Ken Kahn.</p>
+	<h2>References</h2>
+	<p>[1] <i>Growing Artificial Societies</i> by Joshua M. Epstein and Robert 
+	Axtell, Brookings Institute Press, The MIT Press, 1996.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Collective decision-making</title>
+</head>
+
+<body>
+
+<h2>Collective decision-making in animal groups </h2>
+<p>The micro-behaviours are based upon the following article.</p>
+<p>Couzin, I. D., Krause, J., Franks, N. R. &amp; Levin, S.A.(2005)
+<a class="external text" title="http://www.princeton.edu/~icouzin/Couzinetal2005.pdf" rel="nofollow" target="_blank" href="http://www.princeton.edu/~icouzin/Couzinetal2005.pdf">
+Effective leadership and decision making in animal groups on the move</a> Nature 
+433, 513-516.</p>
+<p>
+<a title="DIRECTION-TO-AVOID-OTHERS" href="DIRECTION-TO-AVOID-OTHERS.html">DIRECTION-TO-AVOID-OTHERS</a> 
+-- I set my desired direction to avoid those within my personal space</p>
+<p>
+<a title="DIRECTION-TOWARDS-OTHERS" href="DIRECTION-TOWARDS-OTHERS.html">DIRECTION-TOWARDS-OTHERS</a> 
+-- I set my desired direction towards those near me that are not within my personal 
+space</p>
+<p>
+<a title="DIRECTION-TO-ALIGN-WITH-OTHERS" href="DIRECTION-TO-ALIGN-WITH-OTHERS.html">
+DIRECTION-TO-ALIGN-WITH-OTHERS</a> -- I set my desired direction to align with those 
+within my local interaction range</p>
+<p>
+<a title="DIRECTION-NOISE" href="DIRECTION-NOISE.html">DIRECTION-NOISE</a> -- 
+My desired direction is noisy</p>
+<p>
+<a title="INFORMED-DIRECTION" href="INFORMED-DIRECTION.html">INFORMED-DIRECTION</a> 
+-- I set my desired direction partly based upon where I think we should go</p>
+<p>
+<a title="INITIALISE-PREFERRED-DIRECTION" href="INITIALISE-PREFERRED-DIRECTION.html">
+INITIALISE-PREFERRED-DIRECTION</a> -- I become &#39;informed&#39; by having a non-zero preferred 
+direction</p>
+<p>
+<a title="INFORMED-NOISE" href="INFORMED-NOISE.html">INFORMED-NOISE</a> -- My 
+informed direction is noisy</p>
+<p>
+<a title="TURN-IN-DIRECTION-AT-MAXIMUM-SPEED" href="TURN-IN-DIRECTION-AT-MAXIMUM-SPEED.html">
+TURN-IN-DIRECTION-AT-MAXIMUM-SPEED</a> -- I can only turn so fast to reach my desired 
+direction</p>
+<p>
+<a title="CREATE-SLIDER-FOR-PERSONAL-SPACE" href="CREATE-SLIDER-FOR-PERSONAL-SPACE.html">
+CREATE-SLIDER-FOR-PERSONAL-SPACE</a> -- for setting the maximum distance of the 
+personal space</p>
+<p>
+<a title="CREATE-SLIDER-FOR-LOCAL-INTERACTION" href="CREATE-SLIDER-FOR-LOCAL-INTERACTION.html">
+CREATE-SLIDER-FOR-LOCAL-INTERACTION</a> -- for setting the maximum distance for 
+interaction</p>
+<p>
+<a title="PLOT-AVERAGE-DIRECTION" href="PLOT-AVERAGE-DIRECTION.html">PLOT-AVERAGE-DIRECTION</a> 
+-- Plots the average heading of everyone</p>
+<p>
+<a href="http://modelling4all.nsms.ox.ac.uk/Model/?frozen=fliNY0n7nr6KktK1pFFw64&MforAllModel=1">
+Here is a simple swarming model using some of these micro-behaviours.</a></p>
+
+</body>
+
+</html>

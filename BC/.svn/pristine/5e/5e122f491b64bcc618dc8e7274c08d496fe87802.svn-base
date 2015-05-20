@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<title>UPDATE-ATTRIBUTE</title>
+
+</head>
+<body>
+
+	<h3><i>I update my attribute to a new value. If this is the first mention of the 
+
+	attribute then I create it.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>UPDATE-ATTRIBUTE</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for columns: 76 attribute-name my-age
+substitute-text-area-for columns: 76 rows: 5 attribute-value 42     
+substitute-text-area-for columns: 80 rows: 5 comment ; Notes                                                                                      
+set attribute-name
+    attribute-value
+comment</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Related micro-behaviours</h2>
+<p><a href="COPY-ATTRIBUTE.html">COPY-ATTRIBUTE</a> copies the value of an 
+attribute from one agent to another. <a href="UPDATE-ATTRIBUTE-REPEATEDLY.html">UPDATE-ATTRIBUTE-REPEATEDLY</a> 
+	updates an attribute repeatedly. <a href="DEFINE-PARAMETER.html">DEFINE-PARAMETER</a> creates a model 
+parameter (while this micro-behaviour creates one whose value can differ among 
+agents).&nbsp; <a href="UPDATE-PARAMETER.html">UPDATE-PARAMETER</a> updates 
+parameters.</p>
+<h2>Variants</h2>
+
+	<p>Change the attribute name in the first text areas whatever attribute you 
+	want to create or set. And second text area can contain any value or an expression that will 
+	evaluate to a value.</p>
+
+	<h2>How this works</h2>
+
+	<p>The BehaviourComposer treats specially variables whose name begins with 
+
+	&quot;my-&quot; or &quot;my-next-&quot;. Typically micro-behaviours set the &quot;my-next-&quot; version 
+
+	and read from the &quot;my-&quot;. Whenever the time advances the &quot;my-&quot; variable gets 
+
+	the value of the &quot;my-next-&quot; variable.</p>
+
+	<p>Note that, unlike NetLogo, you don't need to declare &quot;breed&quot; variables.
+
+	</p>
+
+	<h2>History</h2>
+
+
+
+	<p><a href="UPDATE-ATTRIBUTE.html">UPDATE-ATTRIBUTE</a> was implemented by Ken Kahn.</p>
+
+
+
+</body>
+
+
+
+</html>
+

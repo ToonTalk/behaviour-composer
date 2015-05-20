@@ -1,0 +1,459 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-gb">
+<title>MicroBehaviours by Modelling4All Team</title>
+</head>
+
+<body>
+
+<h2>This is an old version of the library - we recommend you use <a href="http://resources.modelling4all.org/libraries/basic-library"> the up-to-date library</a> instead.</h2>
+
+<h3 align="center">Micro-behaviours authored by the Modelling4All Team</h3>
+
+<ul id="keyword-cloud">
+    <li class="keyword-atom">Generally useful micro-behaviours:</li>
+	<li class="keyword-atom"><a href="#Movement_section">Movement</a></li>
+	<li class="keyword-atom"><a href="#Appearance_section">Appearance</a></li>
+	<li class="keyword-atom"><a href="#Defining_parameters_section">Parameters</a></li>
+	<li class="keyword-atom"><a href="#Creating_and_setting_attributes_section">Attributes</a></li>
+	<li class="keyword-atom"><a href="#Scheduling_section">Scheduling</a></li>
+	<li class="keyword-atom"><a href="#Interaction_section">Interacting</a></li>
+	<li class="keyword-atom"><a href="#Linking_micro-behaviours_section">Linking</a></li>
+	<li class="keyword-atom"><a href="#Agent_layout_section">Layout</a></li>
+	<li class="keyword-atom"><a href="#Reproduction_section">Copying</a></li>
+	<li class="keyword-atom"><a href="#Death_and_Killing_MicroBehaviours_section">Removing</a></li>
+	<li class="keyword-atom"><a href="#World_or_Environment_section">Environment</a></li>
+	<li class="keyword-atom"><a href="#Social_Network_section">Social&nbsp;network</a></li>
+	<li class="keyword-atom"><a href="#User_Input_section">User input</a></li>
+	<li class="keyword-atom"><a href="#Creating_Graphs_and_Plots_section">Graphs</a></li>
+	<li class="keyword-atom"><a href="#Creating_Sliders,_Monitors,_and_other_Widgets_section">NetLogo&nbsp;interface&nbsp;gadgets</a></li>
+	<li class="keyword-atom"><a href="#Creating_Event_Logs_section">Logging&nbsp;events</a></li>
+	<li class="keyword-atom"><a href="#Adding_Comments_section">Comments</a></li>
+	<li class="keyword-atom"><a href="#Extra_NetLogo_Code_section">NetLogo&nbsp;code</a></li>
+</ul>
+<ul id="keyword-cloud">
+    <li class="keyword-atom">Special purpose micro-behaviours:</li>
+    <li class="keyword-atom">
+	<a href="Collective%20decision-making.html">Swarming</a></li>
+	<li class="keyword-atom">
+	<a href="Opinion%20Dynamics.html">Opinion&nbsp;Dynamics</a></li>
+	<li class="keyword-atom"><a href="Epidemic-Library.html">Epidemics</a></li>
+	<li class="keyword-atom"><a href="Sugarscape-Library.html">Sugarscape</a></li>
+	<li class="keyword-atom"><a href="Network%20Formation.html">Network&nbsp;Formation</a></li>
+	<li class="keyword-atom"><a href="#Predator_Prey_section">Predator&nbsp;Prey</a></li>
+
+</ul>
+
+<p><a href="#Special_purpose_resources">Sample models</a></p>
+
+<h2><a name="Movement_section">Movement micro-behaviours</a> </h2>
+<p><a title="MOVE-FORWARD" href="MOVE-FORWARD.html">MOVE-FORWARD</a> -- I move 
+forward at a speed</p>
+<p><a href="JUMP-FORWARD.html">JUMP FORWARD</a> -- I move forward once</p>
+<p><a title="TURN-RANDOMLY" href="TURN-RANDOMLY.html">TURN-RANDOMLY</a> -- I repeatedly 
+turn randomly</p>
+<p><a title="TURN-REPEATEDLY" href="TURN-REPEATEDLY.html">TURN-REPEATEDLY</a> -- 
+I rotate at a speed</p>
+<p><a href="TURN.html">TURN</a> -- I turn once</p>
+<p><a title="TURN-TOWARDS-GOAL" href="TURN-TOWARDS-GOAL.html">TURN-TOWARDS-GOAL</a> 
+-- I turn towards a goal</p>
+<p><a title="TURN-TOWARDS-ANOTHER" href="TURN-TOWARDS-ANOTHER.html">TURN-TOWARDS-ANOTHER</a> 
+-- I turn towards another individual</p>
+<p><a title="SET-RANDOM-HEADING" href="SET-RANDOM-HEADING.html">SET-RANDOM-HEADING</a> 
+-- I set my heading to a random angle.</p>
+<p><a href="MOVE-TOWARDS-ANOTHER.html">MOVE-TOWARDS-ANOTHER</a> - I move once&nbsp; 
+towards another.</p>
+<p><a href="REPEATEDLY-MOVE-TOWARDS-ANOTHER.html">REPEATEDLY-MOVE-TOWARDS-ANOTHER</a> - I move repeatedly 
+towards another.</p>
+<p><a title="WANDER-RANDOMLY-BY-TURNING" href="WANDER-RANDOMLY-BY-TURNING.html">
+WANDER-RANDOMLY-BY-TURNING</a> -- I repeatedly turn randomly and move forward</p>
+<p>
+<a title="WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS" href="WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS.html">
+WANDER-RANDOMLY-IN-COMPASS-DIRECTIONS</a> -- I repeatedly move up, down, left, or 
+right one step</p>
+<p>
+<a title="WANDER-TO-AN-UNOCCUPIED-LOCATION" href="WANDER-TO-AN-UNOCCUPIED-LOCATION.html">
+WANDER-TO-AN-UNOCCUPIED-LOCATION</a> -- I repeatedly move to a nearby location but 
+not if someone is already there</p>
+<p>
+<a title="WANDER-TO-RANDOM-LOCATION-UNTIL-EMPTY" href="WANDER-TO-RANDOM-LOCATION-UNTIL-EMPTY.html">
+WANDER-TO-RANDOM-LOCATION-UNTIL-EMPTY</a> -- I repeatedly move to a random nearby 
+location and try again if it is already occupied</p>
+<p><a title="WANDER-HORIZONTALLY" href="WANDER-HORIZONTALLY.html">WANDER-HORIZONTALLY</a> 
+-- I repeatedly move left or right one step</p>
+<p><a title="WANDER-VERTICALLY" href="WANDER-VERTICALLY.html">WANDER-VERTICALLY</a> 
+-- I repeatedly move up or down one step</p>
+<p><a title="SET-RANDOM-POSITION" href="SET-RANDOM-POSITION.html">SET-RANDOM-POSITION</a> 
+-- I jump to a random position</p>
+<p>
+<a title="SET-RANDOM-UNOCCUPIED-POSITION" href="SET-RANDOM-UNOCCUPIED-POSITION.html">
+SET-RANDOM-UNOCCUPIED-POSITION</a> -- I jump to a random position that is not occupied</p>
+<p><a href="SET-POSITION-ON-A-CIRCLE.html">SET-POSITION-ON-A-CIRCLE</a> -- I jump 
+to a position on a circle</p>
+<h2><a name="Appearance_section">Appearance micro-behaviours</a></h2>
+<p><a title="SET-SHAPE" href="SET-SHAPE.html">SET-SHAPE</a> -- Sets my appearance 
+to be a fish (easily changed to another shape)</p>
+<p><a title="SET-COLOR" href="SET-COLOR.html">SET-COLOR</a> -- Sets my colour to 
+red (easily changed to other colours)</p>
+<p><a href="SET-PATCH-COLOR.html">SET-PATCH-COLOR</a> -- Sets the colour of my patch 
+of the environment</p>
+<p><a title="SET-SIZE" href="SET-SIZE.html">SET-SIZE</a> -- Sets my size so I appear 
+bigger or smaller</p>
+<p><a title="HIDE" href="HIDE.html">HIDE</a> -- I become invisible</p>
+<p><a title="SHOW" href="SHOW.html">SHOW</a> -- I become visible again</p>
+<h2><a name="Defining_parameters_section">Defining and updating model parameters
+</a></h2>
+<p><a href="DEFINE-PARAMETER.html">DEFINE-PARAMETER</a> -- I define a global parameter 
+of the entire model as either a slider, input box, or editable field.</p>
+<p><a href="DEFINE-BOOLEAN-PARAMETER.html">DEFINE-BOOLEAN-PARAMETER</a> -- I 
+define a global parameter of the entire model whose value can only be 'true' or 
+'false'. Can be either a switch, input box, or editable field.</p>
+<p><a href="UPDATE-PARAMETER.html">UPDATE-PARAMETER</a> -- I set a global parameter 
+to a new value once.</p>
+<p><a href="UPDATE-PARAMETER-REPEATEDLY.html">UPDATE-PARAMETER-REPEATEDLY</a> -- 
+I set a global parameter to new values repeatedly.</p>
+<h2><a name="Creating_and_setting_attributes_section">Creating and setting attributes 
+of agents </a></h2>
+<p><a title="INITIALISE-ATTRIBUTE" href="UPDATE-ATTRIBUTE.html">UPDATE-ATTRIBUTE</a> 
+-- Sets (and creates if needed) one of my attributes to a value</p>
+<p><a href="UPDATE-ATTRIBUTE-REPEATEDLY.html">UPDATE-ATTRIBUTE-REPEATEDLY</a> -- 
+Updates one of my attributes repeatedly</p>
+<p><a href="COPY-ATTRIBUTE.html">COPY-ATTRIBUTE</a> -- Copies the value of one of my attributes to the attribute of another.</p>
+<p>Here are some examples using these micro-behaviours:</p>
+<blockquote>
+	<p><a title="AGE-IS-ZERO" href="AGE-IS-ZERO.html">AGE-IS-ZERO</a> -- My age starts 
+off at zero</p>
+	<p><a title="GROW-OLDER" href="GROW-OLDER.html">GROW-OLDER</a> -- My age increases 
+repeatedly</p>
+	<p><a title="DIE-WHEN-TOO-OLD" href="DIE-WHEN-TOO-OLD.html">DIE-WHEN-TOO-OLD</a> 
+-- I die when I&#39;m very old</p>
+	<p><a href="SET-MAXIMUM-LIFE.html">SET-MAXIMUM-LIFE</a> -- I initialise my maximum lifespan</p>
+	<p>
+	<a title="UPDATE-MINIMUM-REPRODUCTION-AGE" href="UPDATE-MINIMUM-REPRODUCTION-AGE.html">UPDATE-MINIMUM-REPRODUCTION-AGE</a> -- Increase my minimum age before I can reproduce</p>
+	<p><a title="SET-SPECIES" href="SET-SPECIES.html">SET-SPECIES</a> -- Initialises 
+the name of my species</p>
+</blockquote>
+<h2><a name="Scheduling_section">Scheduling</a></h2>
+<p>Some of the following micro-behaviours are now provided directly from the BehaviourComposer by clicking
+on the button on micro-behaviour pages and selecting the <i>Enhance</i> pop-up sub-menu.
+These include modifications to a behaviour to do repeatedly, do later, do at a specified time, do conditionally, do probabilistically, 
+do once when a condition is true, and do every time a condition is true.
+The following provide access to the scheduling primitives added to NetLogo by the 
+BehaviourComposer.</p>
+<p><a href="ADD-BEHAVIOURS.html">ADD-BEHAVIOURS</a> -- I add behaviours 
+immediately</p>
+<p><a href="ADD-BEHAVIOURS-TO.html">ADD-BEHAVIOURS-TO</a> -- I add behaviours immediately 
+to a specified agent or set of agents</p>
+<p><a href="REMOVE-BEHAVIOURS.html">REMOVE-BEHAVIOURS</a> -- I remove behaviours 
+previously added</p>
+<p><a href="REMOVE-BEHAVIOURS-FROM.html">REMOVE-BEHAVIOURS-FROM</a> -- I remove 
+specified behaviours from an agent or set of agents</p>
+<p><a href="REMOVE-ALL-BEHAVIOURS.html">REMOVE-ALL-BEHAVIOURS</a> -- I remove all 
+behaviours previously added</p>
+<p><a href="REMOVE-ALL-BEHAVIOURS-FROM.html">REMOVE-ALL-BEHAVIOURS-FROM</a> -- I 
+remove all behaviours from a specified agent or set of agents</p>
+<p><a href="DO-WITH-PROBABILITIES.html">DO-WITH-PROBABILITIES</a> -- I choose 
+which 
+set of behaviours to add probabilistically</p>
+
+<p><a href="DO-AFTER-SETUP.html">DO-AFTER-SETUP</a>&nbsp; -- I delay the execution 
+of a list of micro-behaviours until after setup completes</p>
+<p><a href="DO-IF-ELSE.html">DO-IF-ELSE</a> -- I add different lists of micro-behaviours 
+depending upon whether condition is true or false now</p>
+<p> The following functionality is provided more effectively by using the <i>Enhance</i> pop up sub-menu
+on the micro-behaviour page one wants to schedule.</p>
+<p><a href="REPEATEDLY-DO-BEHAVIOURS.html">REPEATEDLY-DO-BEHAVIOURS</a> -- I add 
+behaviours repeatedly</p>
+<p><a href="DO-AFTER.html">DO-AFTER</a> -- I delay the execution of a list of micro-behaviours</p>
+<p><a href="DO-AT-TIME.html">DO-AT-TIME</a> -- I schedule the addition of a list of 
+	micro-behaviours</p>
+<p><a href="DO-WITH-PROBABILITY.html">DO-WITH-PROBABILITY</a> -- I add behaviours 
+probabilistically</p>
+<p><a href="DO-IF.html">DO-IF</a> -- I add micro-behaviours if condition is true 
+now</p>
+<p><a href="WHEN_v2.html">WHEN</a> -- I add and remove micro-behaviours the first time 
+that conditions are true</p>
+<p><a href="WHENEVER_v2.html">WHENEVER</a> -- I add and remove micro-behaviours every 
+time conditions are true</p>
+<h2><a name="Interaction_section">Interacting with other agents</a></h2>
+<p><a href="INTERACT-WITH-ANOTHER.html">INTERACT-WITH-ANOTHER</a> <b>--<i> </i>
+</b>I interact with anyone who meets my conditions</p>
+<p><a href="TURN-TOWARDS-OTHERS.html">TURN-TOWARDS-OTHERS</a>&nbsp; -- I update 
+my desired heading to face others.</p>
+<p><a href="TURN-AWAY-FROM-OTHERS.html">TURN-AWAY-FROM-OTHERS</a> -- I update my 
+desired heading to face away from others.</p>
+<h2><a name="Linking_micro-behaviours_section">Linking with other agents</a></h2>
+<p>These micro-behaviours are for creating and removing links between agents.</p>
+<p><a href="ADD-UNDIRECTED-LINK.html">ADD-UNDIRECTED-LINK</a> - I create an undirected 
+link to another</p>
+<p><a href="ADD-DIRECTED-LINK-FROM.html">ADD-DIRECTED-LINK-FROM</a> - I create a 
+directed link from another to me</p>
+<p><a href="ADD-DIRECTED-LINK.html">ADD-DIRECTED-LINK</a> - I create a directed 
+link to another</p>
+<p><a href="REMOVE-LINK.html">REMOVE-LINK</a> - I remove a link with another</p>
+<p><a href="ADD-UNDIRECTED-LINKS-TO-ALL-OTHERS.html">ADD-UNDIRECTED-LINKS-TO-ALL-OTHERS</a> 
+-- I add undirected links to all others</p>
+<p><a href="ADD-DIRECTED-LINKS-TO-ALL-OTHERS.html">ADD-DIRECTED-LINKS-TO-ALL-OTHERS</a> 
+-- I add directed links to all others</p>
+<p><a href="ADD-BEHAVIOURS-TO-LINKS.html">ADD-BEHAVIOURS-TO-LINKS</a> -- I add micro-behaviours 
+to links (rather than agents)</p>
+<p><a href="ALL-REACHABLE-NODES.html">ALL-REACHABLE-NODES</a> -- I report all 
+the nodes reachable from an initial list of node</p>
+<h2><a name="Agent_layout_section">Agent Layout</a></h2>
+<p>The following control the spatial layout of sets of agents.</p>
+<p><a href="LAYOUT-CIRCLE.html">LAYOUT-CIRCLE</a> -- I place a set of agents in 
+a circle</p>
+<p><a href="LAYOUT-GRID-V2.html">LAYOUT-GRID</a> -- I place a set of agents in a rectangular 
+grid</p>
+<p><a href="LAYOUT-SPRING-V2.html">LAYOUT-SPRING</a> -- I layout a set of agents where 
+the agents repel each other and the links between them act like springs</p>
+<h2><a name="Reproduction_section">Copying micro-behaviours</a></h2>
+<p><a title="ADD-COPIES" href="ADD-COPIES.html">ADD-COPIES</a> -- I make copies 
+of myself and add them to the model</p>
+<p><a title="ADD-COPY-OF-ANOTHER" href="ADD-COPY-OF-ANOTHER.html">ADD-COPY-OF-ANOTHER</a> 
+-- I make a copy of another individual</p>
+<p><a href="http://resources.modelling4all.org/libraries/basic-library/copying/create-agents">Create Agents</a>
+-- I make a number of instances of the specified kind</p>
+<p>Here are some examples using these micro-behaviours:</p>
+<blockquote>
+	<p><a title="ADD-SOME-OFFSPRING" href="ADD-SOME-OFFSPRING.html">ADD-SOME-OFFSPRING</a> 
+-- I create a random number of offspring whose age is set to zero</p>
+	<p><a title="REPRODUCE" href="REPRODUCE.html">REPRODUCE</a> -- I make a few copies 
+of myself when I meet the right mate </p>
+</blockquote>
+<h2><a name="Death_and_Killing_MicroBehaviours_section">Removal micro-behaviours
+</a></h2>
+<p><a title="DIE" href="DIE.html">DIE</a> -- Removes me from model</p>
+<p><a title="KILL" href="KILL.html">KILL</a> -- Removes other from model</p>
+<p><a href="REMOVE-THIS-LINK.html">REMOVE-THIS-LINK</a> -- Remove the receiving 
+link from the model</p>
+<h2><a name="Social_Network_section">Social Network</a> </h2>
+<p>The following should be associated with a single agent, e.g. the world or observer.</p>
+<p>
+<a title="INITIALISE-SOCIAL-NETWORK-SYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-CONSTANT-SYMMETRIC.html">
+INITIALISE-SOCIAL-NETWORK-CONSTANT-SYMMETRIC</a> -- Initialises the subset of other 
+agents that I &quot;know&quot; (everyone knows the same number of people). Everyone I know 
+knows me.</p>
+<p>
+<a title="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-SYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-SYMMETRIC.html">
+INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-SYMMETRIC</a> -- Initialises the subset 
+of other agents that I &quot;know&quot; (the number of people each person knows is normally 
+distributed). Everyone I know knows me.</p>
+<p>
+<a title="INITIALISE-SOCIAL-NETWORK-POWER-LAW-DISTRIBUTION-SYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-POWER-LAW-DISTRIBUTION-SYMMETRIC.html">
+INITIALISE-SOCIAL-NETWORK-POWER-LAW-DISTRIBUTION-SYMMETRIC</a> -- Initialises the 
+subset of other agents that I &quot;know&quot; (the number of people each person knows follows 
+a
+<a class="external text" title="http://en.wikipedia.org/wiki/Power_law" rel="nofollow" href="http://en.wikipedia.org/wiki/Power_law">
+power law</a>). Everyone I know knows me.</p>
+<p>The following should be associated with the prototype of the population. These 
+are only appropriate when a link from a to b does not entail there should be a corresponding 
+link from b to a.</p>
+<p>
+<a title="INITIALISE-SOCIAL-NETWORK-ASYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-CONSTANT-ASYMMETRIC.html">
+INITIALISE-SOCIAL-NETWORK-CONSTANT-ASYMMETRIC</a> -- Initialises the subset of other 
+agents that I &quot;know&quot; (everyone knows the same number of people). <i>Not</i> everyone 
+I know knows me.</p>
+<p>
+<a title="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-ASYMMETRIC" href="INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-ASYMMETRIC.html">
+INITIALISE-SOCIAL-NETWORK-NORMAL-DISTRIBUTION-ASYMMETRIC</a> -- Initialises the 
+subset of other agents that I &quot;know&quot; (the number of people each person knows is 
+normally distributed). <i>Not</i> everyone I know knows me.</p>
+<p><a href="REMOVE-SUPER-NODES.html">REMOVE-SUPER-NODES</a> -- Removes individuals 
+with the greatest number of acquaintances.</p>
+<p><a href="CREATE-NUMBER-OF-SUPER-NODES-REMOVED-SLIDER.html">CREATE-NUMBER-OF-SUPER-NODES-REMOVED-SLIDER</a> 
+-- Creates a slider to control the number of nodes removed by
+<a href="REMOVE-SUPER-NODES.html">REMOVE-SUPER-NODES</a>.</p>
+<p>To view social networks:</p>
+<p>
+<a title="DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES" href="DISPLAY-LINE-TO-EACH-OF-MY-ACQUAINTANCES.html">
+DISPLAY-LINE-TO-MY-ACQUAINTANCES</a> -- I draw a line to all my acquaintances.</p>
+<p>
+<a title="SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES" href="SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES.html">
+SET-SIZE-PROPORTIONAL-TO-NUMBER-OF-MY-ACQUAINTANCES</a> -- I change my size to reflect 
+the number of individuals in <i>my-acquaintances</i>.</p>
+<h2><a name="World_or_Environment_section">World or Environment </a></h2>
+<p>Micro-behaviours for controlling the &quot;world&quot; the individuals &quot;live&quot; in. </p>
+<p><a title="SET-WORLD-SIZE" href="SET-WORLD-SIZE.html">SET-WORLD-SIZE</a> -- I 
+set the size of the world</p>
+<p><a title="SET-PATCH-SIZE" href="SET-PATCH-SIZE.html">SET-PATCH-SIZE</a> -- I 
+set the size of each patch</p>
+<p><a title="SET-WORLD-TO-TORUS" href="SET-WORLD-TO-TORUS.html">SET-WORLD-TO-TORUS</a> 
+-- I set the geometry of the world to a torus (coordinates wrap both horizontally 
+and vertically)</p>
+<p><a title="SET-WORLD-TO-PLANE" href="SET-WORLD-TO-PLANE.html">SET-WORLD-TO-PLANE</a> 
+-- I set the geometry of the world to a plane (coordinates do not wrap)</p>
+<p>
+<a title="SET-WORLD-TO-PLANE-WITH-CAMERA-FOLLOWING-CENTROID" href="SET-WORLD-TO-PLANE-WITH-CAMERA-FOLLOWING-CENTROID.html">
+SET-WORLD-TO-PLANE-WITH-CAMERA-FOLLOWING-CENTROID</a> -- I set the geometry of the 
+world to a plane (coordinates do not wrap) but the display of the world is constantly 
+updated so the centre is the average position of all individuals</p>
+<p>
+<a title="SET-WORLD-TO-VERTICAL-CYLINDER" href="SET-WORLD-TO-VERTICAL-CYLINDER.html">
+SET-WORLD-TO-VERTICAL-CYLINDER</a> -- I set the geometry of the world to a vertical 
+cylinder (coordinates wrap only horizontally)</p>
+<p>
+<a title="SET-WORLD-TO-HORIZONTAL-CYLINDER" href="SET-WORLD-TO-HORIZONTAL-CYLINDER.html">
+SET-WORLD-TO-HORIZONTAL-CYLINDER</a> -- I set the geometry of the world to a horizontal 
+cylinder (coordinates wrap only vertically)</p>
+<p><a title="SET-WORLD-LOCATION" href="SET-WORLD-LOCATION.html">SET-WORLD-LOCATION</a> 
+-- I set where the display of the world is placed</p>
+<p><a href="SET-BACKGROUND-COLOR.html">SET-BACKGROUND-COLOR</a> - Sets the colour 
+of the every patch of the background.</p>
+<p><a href="PAUSE.html">PAUSE</a> -- Pauses the running of the model.</p>
+<p><a title="PAUSE-EVERYTHING-WHEN" href="STOP-EVERYTHING-WHEN.html">PAUSE-WHEN</a> 
+-- Pauses the running of the model when some condition is true</p>
+<p><a title="SET-DELTA-T" href="SET-FRAME-DURATION.html">SET-FRAME-DURATION</a> 
+-- Sets the value of <i>frame-duration</i> which controls how often the display 
+is updated.</p>
+<p><a href="TURN-OFF-CLOCKED-MODE.html">TURN-OFF-CLOCKED-MODE</a> -- I turn off 
+clocked mode.</p>
+<p><a title="MAKE-A-MOVIE-OF-A-MODEL" href="MAKE-A-MOVIE-OF-A-MODEL.html">MAKE-A-MOVIE-OF-A-MODEL</a> 
+-- Records a movie of a model running</p>
+<h2><span class="mw-headline"><a name="User_Input_section">User Input </a>
+</span></h2>
+<p><a href="ADD-BUTTON.html">ADD-BUTTON</a> -- I create a button with an 
+associated action</p>
+<blockquote>
+	<p>An example of using <a href="ADD-BUTTON.html">ADD-BUTTON</a> is
+	<a href="ADD-BEHAVIOURS.html#changes=et1EwuF1xUJbDODrd6K57b">
+	Add Navigation Buttons</a> which creates four buttons for turning and 
+	accelerating. </p>
+</blockquote>
+<p><a href="ADD-NETLOGO-BUTTON.html">ADD-NETLOGO-BUTTON</a> -- I create a button 
+with an action defined by NetLogo code</p>
+<h2><span class="mw-headline"><a name="Creating_Graphs_and_Plots_section">Creating 
+Graphs and Plots </a></span></h2>
+<p><a title="CREATE-PLOT" href="CREATE-PLOT.html">CREATE-PLOT</a> -- I create a 
+fully specified two-dimensional graph</p>
+<p><a href="CREATE-AUTO-PLOT.html">CREATE-AUTO-PLOT</a> -- I create a plot that 
+scales dynamically as the data is produced</p>
+<p><a title="CREATE-PLOT" href="CREATE-EMPTY-PLOT.html">CREATE-EMPTY-PLOT</a> -- 
+I create a fully specified area where other micro-behaviours can draw graphs</p>
+<p><a href="CREATE-EMPTY-AUTO-PLOT.html">CREATE-EMPTY-AUTO-PLOT</a> -- I create 
+an area that scales dynamically as where other micro-behaviours draw graphs</p>
+<p><a href="MULTIPLE-PLOT-GENERATIONS.html">MULTIPLE-PLOT-GENERATIONS</a> -- I 
+enable layers of graphs to accumulate for each run of the model</p>
+<p>
+
+	<a href="USE-PEN-TO-ADD-TO-PLOT.html">USE-PEN-TO-ADD-TO-PLOT</a> -- I use a previously declared pen add to a plot</p>
+<p><a href="ADD-TO-PLOT.html">ADD-TO-PLOT</a> --<i> </i>I use a temporary pen to 
+add to a plot</p>
+<p><a title="CREATE-HISTOGRAM" href="CREATE-HISTOGRAM.html">CREATE-HISTOGRAM</a> 
+-- I create a histogram</p>
+<h2><span class="mw-headline">
+<a name="Creating_Sliders,_Monitors,_and_other_Widgets_section">Creating Sliders, 
+Switches, Monitors, and other NetLogo Widgets </a></span></h2>
+<p><a title="CREATE-MONITOR" href="CREATE-MONITOR.html">CREATE-MONITOR</a> -- I 
+add a monitor to the NetLogo interface</p>
+<p><a title="CREATE-CHOOSER" href="CREATE-CHOOSER.html">CREATE-CHOOSER</a> -- I 
+add a chooser that behaves like a pull-down menu to the NetLogo interface</p>
+<p><a title="CREATE-COLOR-TEXT" href="CREATE-COLOR-TEXT.html">CREATE-TEXT</a> -- 
+I add some text to the NetLogo interface</p>
+<p>Sliders and input boxes can be created using <a href="DEFINE-PARAMETER.html">
+DEFINE-PARAMETER</a>. Switches can be created using
+<a href="DEFINE-BOOLEAN-PARAMETER.html">DEFINE-BOOLEAN-PARAMETER</a>.</p>
+<h2><span class="mw-headline"><a name="Creating_Event_Logs_section">Creating Event 
+Logs </a></span></h2>
+<p><a href="ADD-MESSAGE.html">ADD-MESSAGE</a> -- Adds a custom message to the output 
+area.</p>
+<p><a href="USER-MESSAGE.html">USER-MESSAGE</a> -- Displays a dialogue box.</p>
+<p><a href="SPECIFY-OUTPUT-AREA.html">SPECIFY-OUTPUT-AREA</a> -- Describes the size 
+and location of the output area.</p>
+<p><a title="LOG-ALL-BEHAVIOURS" href="LOG-ALL-BEHAVIOURS.html">LOG-ALL-BEHAVIOURS</a> 
+-- Adds to a log all behaviours I receive</p>
+<p><a title="LOG-SPECIFIED-BEHAVIOURS" href="LOG-SPECIFIED-BEHAVIOURS.html">LOG-SPECIFIED-BEHAVIOURS</a> 
+-- Adds to a log when I receive a specified behaviour</p>
+<p><a title="LOG-ALL-ATTRIBUTES" href="LOG-ALL-ATTRIBUTES.html">LOG-ALL-ATTRIBUTES</a> 
+-- Adds to a log every time any of my attributes is updated</p>
+<p><a title="LOG-SPECIFIED-ATTRIBUTES" href="LOG-SPECIFIED-ATTRIBUTES.html">LOG-SPECIFIED-ATTRIBUTES</a> 
+-- Adds to a log whenever any of the specified attributes is updated</p>
+<h2><span class="mw-headline"><a name="Adding_Comments_section">Add Comments</a></span></h2>
+<p><a href="COMMENT.html">COMMENT</a> -- A behaviour that does nothing but provides 
+a place to write comments.</p>
+<h2><span class="mw-headline"><a name="Extra_NetLogo_Code_section">Add NetLogo code 
+or new micro-behaviours</a></span></h2>
+<p><a title="NETLOGO-CODE" href="NETLOGO-CODE.html">NETLOGO-CODE</a> - This can 
+be used to define your own micro-behaviours or to add NetLogo reporters and commands 
+that can be used in other micro-behaviours.</p>
+<p><a title="NETLOGO-CODE" href="NEW-MICRO-BEHAVIOUR.html">NEW-MICRO-BEHAVIOUR</a> 
+- A template we recommend you use if you wish to define a complete micro-behaviour 
+(code, links, explanations, etc.). The code itself can be any NetLogo code as well 
+as the BehaviourComposer&#39;s 
+<a target="_blank" href="http://resources.modelling4all.org/documents/programming-guide#toc0">scheduling primitives</a> 
+and other extensions. References to attributes of a prototype should follow these
+<a target="_blank" href="http://resources.modelling4all.org/documents/programming-guide#toc5">attribute naming conventions</a>.</p>
+<h2><font color="#800000"><a name="Special_purpose_resources">Special-purpose resources for modelling topics ranging from 
+swarming to epidemics to opinion dynamics.</a></font></h2>
+<h2>
+<a name="Collective_decision-making_in_animal_groups_section">Collective decision-making 
+in animal groups </a></h2>
+<p>A specialised <a href="Collective%20decision-making.html">library of swarming 
+micro-behaviours</a> is available to build models found in Couzin, I. D., Krause, J., Franks, N. R. &amp; Levin, S.A.(2005)
+<a class="external text" title="http://www.princeton.edu/~icouzin/Couzinetal2005.pdf" rel="nofollow" target="_blank" href="http://www.princeton.edu/~icouzin/Couzinetal2005.pdf">
+Effective leadership and decision making in animal groups on the move</a> Nature 
+433, 513-516.</p>
+<p>
+Here is a <a href="../../../m/?frozen=AHXC20wZnnmxNTJ69UnD4h&MforAllModel=1">
+simple swarming model using some of these micro-behaviours.</a></p>
+<h2><a name="Relative_Agreement_Models_section">Opinion Dynamics Models</a></h2>
+<p>A <a href="Opinion%20Dynamics.html">library of opinion dynamics micro-behaviours</a> inspired by the paper &quot;How can extremism prevail? A study based on the relative agreement interaction 
+model&quot; by Guillaume Deffuant, Fr&eacute;d&eacute;ric Amblard, G&eacute;rard Weisbuch and Thierry Faure 
+(2002); Journal of Artificial Societies and Social Simulation vol. 5, no. 4; &lt;<a class="external free" title="http://jasss.soc.surrey.ac.uk/5/4/1.html" rel="nofollow" target="_blank" href="http://jasss.soc.surrey.ac.uk/5/4/1.html">http://jasss.soc.surrey.ac.uk/5/4/1.html</a>&gt;
+can be used to explore modelling opinion dynamics.</p>
+<p>
+Here is a <a href="../../../m/?frozen=nciiA0KZs0JI-39x_hkn66&MforAllModel=1">
+relative agreement model</a></p>
+<h2><span class="mw-headline"><a name="Vaccination_Models_section">Epidemic and 
+Vaccination Models </a></span></h2>
+<p>The <a href="Epidemic-Library.html">library of epidemic micro-behaviours</a> were designed to explore the SVIR model as presented in 
+&quot;Mathematical models of vaccination&quot;, Almut Scherer and Angela McLean, <i>British 
+Medical Bulletin</i> 2002;62 187-199. Here are some
+<a title="Suggestions for exploring vaccination models" target="_blank" href="Suggestions%20for%20exploring%20vaccination%20models.html">
+suggestions for exploring vaccination models</a>.</p>
+<p>Here is a <a href="http://resources.modelling4all.org/guides/Networks-and-vaccination-guide">step-by-step guide to modelling epidemics</a></p>
+<p>
+Click to load a <a href="../../../m/?frozen=D8bmwKMPfXyWLdgPHsj77g&MforAllModel=1">
+simple model of an epidemic spreading over a social network</a>
+</p>
+<p>
+Click to load a <a href="../../../m/?frozen=5vJ4GKtkMvordfncLYyo5_&MforAllModel=1">model of an epidemic spreading at home, school, and work</a> </p>
+<p>
+Click to try the 
+<a target="_blank" href="../../../m/?EGM=1">Epidemic Game 
+Maker</a> which automates much of the construction of epidemics spreading in 
+home, schools, and work.</p>
+<h2><span class="mw-headline">
+<a name="Sugarscape_--_Growing_Artificial_Societies_section">Sugarscape -- Growing 
+Artificial Societies </a></span></h2>
+<p>You can compose the elements of the <a href="Sugarscape-Library.html">Sugarscape library of micro-behaviours</a> to recreate the models in <i>Growing 
+Artificial Societies</i> by Joshua M. Epstein and Robert Axtell, Brookings Institute 
+Press, The MIT Press, 1996.</p>
+<p>Here is a <a href="http://resources.modelling4all.org/guides/Sugarscape-Guide">step-by-step guide to building Sugarscape models</a>.</p>
+<p>
+Click here to load a 
+<a href="../../../m/?frozen=DHrBruyCNlSHdt9wdHs67_&MforAllModel=1">Sugarscape model</a> using these micro-behaviours</p>
+<h2>
+<a name="Economic_Models_of_Network_Formation_section">Economic Models of Network 
+Formation </a></h2>
+<p><span class="mw-headline">Use this <a href="Network%20Formation.html">library 
+of network formation micro-behaviours</a> to model economic agents forming a 
+network.</span></p>
+<h2><span class="mw-headline"><a name="Predator_Prey_section">Predator Prey Models</a></span></h2>
+<p>Here is a
+<a href="../../../m/?frozen=jpe0tegIuZhvnGrs22gv76&MforAllModel=1">sample predator-prey model</a> 
+created using this 
+<a href="http://resources.modelling4all.org/guides/Predator-prey-guide">
+step-by-step guide to building an ecosystem</a>.</p>
+<h2>Acknowledgements</h2>
+<p>The micro-behaviours listed here were constructed for the BehaviourComposer as 
+part of the <a target="_blank" href="http://modelling4all.org/">Modelling4All</a> 
+Project at Oxford University funded by the
+<a target="_blank" href="http://www.eduserv.org.uk/">Eduserv Foundation</a>. </p>
+<p></p>
+
+</body>
+
+</html>

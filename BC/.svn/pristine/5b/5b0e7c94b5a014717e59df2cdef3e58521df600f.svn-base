@@ -1,0 +1,1242 @@
+; NetLogo library procedures and reporters used by the BehaviourComposer
+; New BSD license
+; See http://modelling4all.org
+
+breed [pens pen]
+
+globals [time cycle-finish-time behind-schedule times-scheduled frame-duration delta-t stop-running
+         world-geometry mean-x mean-y mean-z plotting-commands histogram-plotting-commands 
+         behaviour-procedure-numbers behaviour-names internal-the-other 
+         button-command radian need-to-clear-drawing
+         half-world-width half-world-height negative-half-world-width negative-half-world-height
+         log-patch-attributes
+         observer-commands
+         visual-trace-time-slice previous-whos
+         objects-with-something-to-do
+         maximum-plot-generations plot-generation
+         temp]
+
+to start
+ file-close
+ initialise
+ the-model
+ finish-setup  
+ create-pens 1 ; for drawing lines
+ ask pens [hide-turtle]                    
+end
+
+to setup
+ start
+ if go-until (delta-t - .000001) []  
+end
+
+to initialise
+ clear-patches
+ clear-output
+ if-else maximum-plot-generations > 0 and any? objects
+    [if-else plot-generation <= maximum-plot-generations 
+        [set plot-generation plot-generation + 1]
+        [clear-all-plots
+         set plot-generation 0]]
+    [clear-all-plots]
+ clear-turtles
+ clear-drawing
+ reset-ticks
+ ; above is like clear-all but doesn't reset global variables
+ reset-timer
+ set time -1
+ set times-scheduled []
+ set behind-schedule 0
+ set plotting-commands []
+ set histogram-plotting-commands []
+ set button-command ""
+ set radian 57.29577951308232
+ set need-to-clear-drawing false
+ set observer-commands []
+ set stop-running false
+ set visual-trace-time-slice 1
+ set previous-whos []
+ if delta-t = 0 [set delta-t 1] ; give default value if none given
+ if frame-duration = 0 [set frame-duration delta-t]
+ if world-geometry = 0 [set world-geometry 1]
+ if log-patch-attributes = 0 [set log-patch-attributes []]
+ set half-world-width world-width / 2
+ set half-world-height world-height / 2
+ set negative-half-world-width (- half-world-width)
+ set negative-half-world-height (- half-world-height)
+ initialise-patch-attributes
+end
+
+to initialise-object
+ set scheduled-behaviours []
+ set behaviour-removals []
+ set rules []
+ set log-behaviours []
+ set log-attributes []
+ set dead false
+ set my-visibility true
+ initialise-attributes
+end
+
+to finish-setup
+ ; faster than ask objects since doesn't shuffle
+ set objects-with-something-to-do objects
+ let ignore1 objects with [update-attributes]
+ ask objects with [rules != []] [run-rules]
+ update-all-turtle-states
+ set time 0
+end
+
+to go
+ reset-timer ; reset timer so pause and resume don't have left
+ if go-until -1 
+    [set stop-running false ; so it can be started up again 
+     stop]
+end
+
+to-report go-until [stop-time]
+ ; this is run by the 'go' button and runs the scheduled events and updates the turtle states and plots
+ if times-scheduled = 0 [setup] ; run setup if needed
+ no-display
+ if-else times-scheduled = []
+   ; following uses a hack to avoid the overhead of ask shuffling the agent set
+   [set objects-with-something-to-do objects with [rules != []]
+    ask objects-with-something-to-do [run-rules] ; nothing scheduled but rules may be triggered by time
+    ; rules may have added behaviours or set 'dead' so can't re-use objects-with-something-to-do
+    ask objects [finish-tick] 
+    if clocked 
+       [set behind-schedule behind-schedule - (frame-duration - timer)
+        if behind-schedule < 0
+           [wait (- behind-schedule)
+            set behind-schedule 0]
+        reset-timer]
+    set time time + frame-duration]
+   [if-else time <= 0
+      [set cycle-finish-time first times-scheduled]
+      [if clocked
+          [set behind-schedule behind-schedule - (frame-duration - timer)
+           if behind-schedule < 0
+              [wait (- behind-schedule)
+               set behind-schedule 0]
+           reset-timer]
+       set cycle-finish-time cycle-finish-time + frame-duration]
+     if stop-time > 0 [set cycle-finish-time stop-time]
+     while [times-scheduled != [] and first times-scheduled <= cycle-finish-time]
+       [; nothing happening so skip ahead to next event
+        set time first times-scheduled
+        set times-scheduled but-first times-scheduled
+        set objects-with-something-to-do objects with [scheduled-behaviours != [] or rules != []]
+        ask objects-with-something-to-do [start-tick]
+        ; above may have added behaviours or set 'dead' so can't re-use objects-with-something-to-do 
+        ask objects [finish-tick]
+        if need-to-clear-drawing
+           [clear-drawing
+            set need-to-clear-drawing false]]]
+ update-all-turtle-states
+ update-patch-attributes
+ tick-advance time - ticks
+ update-plots
+ if observer-commands != []
+    [let commands observer-commands
+     set observer-commands []
+     ; run each command without any commands pending
+     forEach commands [run ?]]
+ display
+ if count objects = 0 or stop-running or (stop-time > 0 and time >= stop-time)
+   [file-close-all ; in case any files are open
+    report true]
+ report false
+end
+
+to update-plots
+ forEach plotting-commands [if is-agent? first ? [ask first ? [update-plot second ? runresult third ? runresult fourth ?]]] 
+ forEach histogram-plotting-commands [if is-agent? first ? [ask first ? [update-histogram second ? third ? fourth ?]]]       
+end
+
+to add-to-plot [x y]
+  ; if using multiple plot generations need to get the pen back to the beginning without drawing a line
+  ; assumes the plot starts at zero (or very close to it -- after setup)
+  if-else x <= .000001
+     [plot-pen-up plotXY x y plot-pen-down]
+     [plotXY x y]       
+end
+
+to create-plot [name-of-plot x-label y-label x-code y-code]
+ ; working around a limitation of NetLogo that only via the Controller can new plots be created
+ ; some of the arguments are only of use to the BehaviourComposer
+  set plotting-commands fput (list self name-of-plot x-code y-code) plotting-commands
+end
+
+to create-histogram [name-of-plot x-label y-label x-code y-code]
+  set histogram-plotting-commands fput (list self name-of-plot x-code y-code) histogram-plotting-commands
+  set-current-plot name-of-plot
+  set-plot-pen-mode 1 ; bars
+end
+
+to update-plot [name-of-plot x y]
+ if time >= 0
+  [set-current-plot name-of-plot
+   plotxy x y]
+end
+
+to update-histogram [name-of-plot population-reporter value-reporter]
+ if time >= 0
+  [set-current-plot name-of-plot
+   histogram [runresult value-reporter] of runresult population-reporter]
+end
+
+;; behaviours are represented by a list:
+;; scheduled-time behaviour-name
+;; behaviours are kept in ascending order of the scheduled-time
+
+to add-behaviours-to [obj behaviours]
+  if-else is-agent? obj or is-agentset? obj
+    [ask obj [add-behaviours behaviours]]
+    [if-else is-list? obj
+      [add-behaviours-to list-to-agentset obj behaviours]
+      [if obj != 0.0  ; no need to warn if uninitialised variable
+       [user-message (word "Attempted to add the behaviours " behaviours " to NOBODY.")]]]
+end
+
+to add-behaviours [behaviours]
+ foreach behaviours [add-behaviour ?]
+end
+
+to add-behaviour-to [obj name]
+ if-else is-agent? obj or is-agentset? obj
+    [ask obj [add-behaviour name]]
+    [if obj != 0.0  ; no need to warn if uninitialised variable
+       [user-message (word "Attempted to add the behaviour " name " to NOBODY.")]]
+end
+
+to add-behaviour-to-me [name]
+ add-behaviour name
+end
+
+to add-behaviour [name]
+ if logging-behaviour? name
+    [output-print (word "Behaviour " name " added to (" kind " " who")" " after " time " seconds.")]
+ ; save current-behaviour in case this was called by a behaviour that isn't finished
+ let saved-current-behaviour current-behaviour
+ set current-behaviour (list maximum 0 time name)
+ procedure name
+ set current-behaviour saved-current-behaviour 
+end
+
+to add-link-behaviours-after [delay behaviours]
+ add-link-behaviours behaviours time + delay
+end
+
+to add-link-behaviour-after [delay name]
+ add-link-behaviour name time + delay
+end
+
+to add-link-behaviours [behaviours when-to-add]
+ foreach behaviours [add-link-behaviour ? when-to-add]
+end
+
+to add-link-behaviour [name when-to-add]
+ ; links don't have their own schedule
+ ; instead they use the agent at the "other end"
+ let this-link self
+ ask other-end [add-behaviour-to-link this-link name when-to-add]
+end
+
+to add-behaviour-to-link [this-link name when-to-add]
+ if logging-behaviour? name
+    [output-print (word "Behaviour " name " added to " this-link " after " time " seconds.")]
+ ; save current-behaviour in case this was called by a behaviour that isn't finished
+ let saved-current-behaviour current-behaviour
+ let full-name (list name this-link)
+ if-else when-to-add <= time
+    [set current-behaviour (list maximum 0 when-to-add full-name)
+     procedure full-name
+     set current-behaviour saved-current-behaviour]
+    [insert-behaviour when-to-add (list full-name)]
+end
+
+to-report logging-behaviour? [name]
+ if is-boolean? log-behaviours [report log-behaviours]
+ forEach log-behaviours [if member? ? name [report true]] 
+ report false
+end
+
+to do-every [interval actions]        
+ ; does it now and schedules the next occurrence interval seconds in the future
+ ; schedules first in case action updates the current-behvaviour variable
+ if-else time < 0 
+   [insert-behaviour 0 (list (list actions interval))]
+   [insert-behaviour time + interval (list (list actions interval))
+    procedure actions]
+end
+
+to do-at-setup [actions]
+ procedure actions
+end
+
+to do-now [actions]
+ procedure actions
+end
+
+to do-after-setup [actions] 
+ ; do actions 1/1000000 of a second after setup has completed
+ do-at-time .000001 actions
+end
+
+to do-with-probability [odds actions]
+ ; no longer generated
+ ; remove from MB.5 and above
+ if odds >= random-float 1
+    [run actions]
+end
+
+to do-repeatedly [repeat-count actions]
+ ; runs actions repeat-count times
+ ; if a non-integer uses the remainder as the odds of doing the action one additional time
+ repeat round repeat-count [procedure actions]
+ let extra repeat-count - round repeat-count 
+ if extra > 0 and extra >= random-float 1
+    [procedure actions]
+end
+
+to-report select-n [n agents]
+ ; selects n from agents 
+ ; if n is a non-integer uses the remainder as the odds of selecting an additional agent
+ ; if there are fewer than n agents then all agents run the actions just once 
+ let agent-count count agents
+ if-else agent-count >= n
+   [let n-floored floor n
+    let extra n - n-floored
+    if extra > 0 and agent-count > n
+       [if-else extra >= random-float 1
+          [set n n-floored + 1]
+          [set n n-floored]]
+        report n-of n agents]
+   [report agents]
+end
+
+to do-for-n [n agents actions]
+ ; set internal-the-other so each of the agents below can refer back to myself
+ ; internal-the-other is global but set it for each one in case reset in the meanwhile
+ ask select-n n agents [set internal-the-other myself procedure actions] 
+end
+
+to do-at-time [scheduled-time actions]
+ if-else scheduled-time <= time
+   [procedure actions]
+   [insert-behaviour scheduled-time (list actions)]
+end
+
+to do-after [duration actions]
+ ; schedules this duration seconds in the future 
+ if-else is-list? current-behaviour
+    ; from the time this event was scheduled to run; not necessarily the current time
+    [do-at-time first current-behaviour + duration actions]
+    [if-else time > 0 
+       [do-at-time  maximum 0 time + duration actions]
+       [do-at-time duration actions]]
+end
+
+to do-if [condition actions]
+ ; uses = true in case condition is an unitialised variable that has the value of 0
+ if runresult condition = true [procedure actions]
+end
+
+to add-copies [n behaviours]
+ hatch n
+       [set dead false
+        let ignore update-attributes
+        add-behaviours remove current-behaviour behaviours]
+end
+
+to-report add-copy [behaviours]
+  report add-copy-of-another self behaviours
+end
+
+to-report add-copy-of-another [another behaviours]
+ ; creates a copy of another (which can be another individual or the name of a kind of individual (if so a random one is chosen))
+ if is-string? another [set another any-of-kind another]
+ if not is-agent? another [report nobody]
+ let copy nobody
+ ask another [hatch 1
+               [set dead false
+                let ignore update-attributes
+                add-behaviours remove current-behaviour behaviours
+                set copy self]]
+ report copy
+end
+
+to-report copy-agentset-to-list [agentset]
+  let copies []
+  ask agentset
+      [hatch 1
+        [set copies fput self copies]]
+  report copies
+end
+
+to-report copy-agent [agent]
+  let result nobody
+  ask agent
+      [hatch 1
+        [set result self]]
+  report result
+end
+
+to-report add-to-agentset [agent agentset]
+  report objects with [member? self agentset or self = agent]
+end
+
+to start-tick
+  set current-behaviours scheduled-behaviours
+  set scheduled-behaviours []
+  while [current-behaviours != []]
+        [let simulation-time first first current-behaviours
+         if-else simulation-time > time 
+           [set scheduled-behaviours merge-behaviours scheduled-behaviours current-behaviours
+            set current-behaviours []] ; stop this round
+           [set current-behaviour first current-behaviours
+            procedure first but-first current-behaviour
+            ; procedure may have reset current-behaviours to []
+            if current-behaviours != [] 
+               [set current-behaviours but-first current-behaviours]]]
+  if rules != [] [run-rules]
+  if behaviour-removals != []
+     [forEach behaviour-removals
+         [ask first ? [remove-behaviour-now second ?]]
+      set behaviour-removals []]
+end
+
+to finish-tick
+ ; this should happen after all objects have run start-tick
+ let ignore update-attributes
+ set hidden? not my-visibility
+ if dead [die]
+end
+
+to turn-right [angle]
+ set my-next-heading-set true
+ set my-next-heading canonical-heading (my-next-heading + angle)
+end
+
+to turn-left [angle]
+ set my-next-heading-set true
+ set my-next-heading canonical-heading (my-next-heading - angle)
+end
+
+to-report not-me?
+ ; used in a with statement to create an agentset that doesn't include self
+ set internal-the-other myself
+ report self != myself
+end
+
+to-report can-pick-one [agents]
+ ; picks one and reports true unless there are no agents
+ if-else any? agents 
+   [set internal-the-other one-of agents
+    report true]
+   [report false]
+end
+
+to-report any [kind-name]
+ let agents objects with [kind = kind-name and self != myself and my-visibility]
+ if-else any? agents
+    [set internal-the-other one-of agents
+     report true]
+    [report false]
+end
+
+to-report any-of-kind [kind-name]
+ ; finds any individual whose kind is equal to kind-name
+ let agents objects with [kind = kind-name]
+ if-else any? agents
+    [report one-of agents]
+    [report nobody]
+end
+
+to-report all-of-kind [kind-name]
+ report objects with [kind = kind-name]
+end
+
+to-report anyone
+ report one-of objects with [self != myself and my-visibility] ; anyone who is visible and not me
+end
+
+to-report all-individuals
+ report objects with [my-visibility]
+end
+
+to-report all-others
+ report objects with [self != myself and my-visibility]
+end
+
+to all-who-are [predicate code] 
+ ; find other agents that match predicate and runs code on all of them
+ let agents objects with [not-me? and my-visibility and runresult predicate]
+ let me self
+ ask agents [set internal-the-other self ask me [procedure code]]
+end
+
+to anyone-who-is [predicate code] 
+ ; find other agents that match predicate and runs code on one of them
+ let agents objects with [not-me? and my-visibility and runresult predicate]
+ if any? agents
+   [let me self
+    ask one-of agents [set internal-the-other self ask me [procedure code]]]
+end
+
+to-report distance-to-me
+ report distance myself ; distance between myself and self
+end 
+
+to-report distance-within [max-distance]
+ report distance myself <= max-distance
+end
+
+to-report distance-between [min-distance max-distance]
+ let d distance myself 
+ report d > min-distance and d <= max-distance
+end 
+
+to when [condition action]
+ set rules fput (list condition action false) rules
+end
+
+to whenever [condition action]
+ set rules fput (list condition action true) rules
+end
+
+to run-rules
+ let current-rules rules
+ set rules []
+ ; so can remove a rule below while still going down the list
+ ;; could add error handling below
+ forEach current-rules
+    [if-else runresult first ?
+       [procedure first but-first ?
+        if item 2 ?
+           ; is a whenever rule so put it back on the list of rules
+           [set rules fput ? rules]]
+       [set rules fput ? rules]]
+end
+
+to insert-behaviour [scheduled-time rest-of-behaviour]
+ ; inserts in schedule keeping it sorted by scheduled time
+ set times-scheduled insert-ordered scheduled-time times-scheduled
+ set scheduled-behaviours insert-behaviour-in-list scheduled-time rest-of-behaviour scheduled-behaviours
+end
+
+to-report insert-ordered [new-time times]
+ if times = [] [report (list new-time)]
+ if first times = new-time [report times]
+ if first times > new-time [report fput new-time times]
+ report fput first times insert-ordered new-time but-first times
+end
+
+to-report insert-behaviour-in-list [scheduled-time rest-of-behaviour behaviours]
+ if behaviours = [] [report (list fput scheduled-time rest-of-behaviour)]
+ if first first behaviours > scheduled-time [report fput fput scheduled-time rest-of-behaviour behaviours]
+ report fput first behaviours insert-behaviour-in-list scheduled-time rest-of-behaviour but-first behaviours
+end
+
+to-report remove-behaviour-from-list [procedure-name behaviours]
+ if behaviours = [] [report []]
+ let first-behaviour-name behaviour-name first behaviours
+ if same-micro-behaviour? first-behaviour-name procedure-name 
+    [report but-first behaviours]
+ report fput first behaviours remove-behaviour-from-list procedure-name but-first behaviours
+end
+
+to-report behaviour-name [scheduled-behaviour]
+ if-else is-list? scheduled-behaviour
+    [let behaviour second scheduled-behaviour
+     if-else is-list? behaviour 
+        [report first behaviour] 
+        [report behaviour]]
+    [report scheduled-behaviour]
+end
+
+to-report same-micro-behaviour? [behaviour-1 behaviour-2]
+ ; different copies of the same micro-behaviour are the same when it comes to removals
+ if behaviour-1 = behaviour-2 [report true]
+ let index index-of-sequence-number behaviour-1
+ if index > 0
+    [let name-1 substring behaviour-1 0 index
+     let name-2 substring behaviour-2 0 index
+     report name-1 = name-2]
+ report false
+end
+
+to-report index-of-sequence-number [name]
+ ; e.g. TURN-GREEN-27 returns 9 (location of the last - unless they are repeated (e.g. TURN-GREEN---3 also returns 9)
+ let index (length name) - 1
+ let dash-found false
+ while [index > 0]
+       [let character substring name (index - 1) index
+        if-else character = "-"
+           [set dash-found true]
+           [if dash-found [report index]]
+        set index index - 1]
+ report -1
+end
+  
+
+to remove-behaviours [behaviours]
+ forEach behaviours [remove-behaviour ?]
+end
+
+to remove-behaviours-from [obj behaviours]
+  if-else is-agent? obj or is-agentset? obj
+    [ask obj [remove-behaviours behaviours]]
+    [if obj != 0.0  ; no need to warn if uninitialised variable
+       [user-message (word "Attempted to remove the behaviours " behaviours " from NOBODY.")]]
+end
+
+to remove-behaviour [name]
+  set behaviour-removals fput (list self name) behaviour-removals
+end
+
+to remove-behaviour-now [name]
+ if logging-behaviour? name
+    [output-print (word "Behaviour " name " removed from (" kind " " who")" " after " time " seconds.")]
+ set scheduled-behaviours remove-behaviour-from-list name scheduled-behaviours 
+end
+
+to remove-all-behaviours []
+  set scheduled-behaviours []
+  set current-behaviours []
+end
+
+to remove-all-behaviours-from [obj]
+  if-else is-agent? obj or is-agentset? obj
+    [ask obj [remove-all-behaviours]]
+    [if obj != 0.0  ; no need to warn if uninitialised variable
+       [user-message (word "Attempted to remove all behaviours from NOBODY.")]]
+end
+
+to-report merge-behaviours [behaviours1 behaviours2]
+ ;; both lists are already sorted
+ if behaviours1 = [] [report behaviours2]
+ if behaviours2 = [] [report behaviours1]
+ if-else first first behaviours1 < first first behaviours2 
+   [report fput first behaviours1 merge-behaviours but-first behaviours1 behaviours2]
+   [report fput first behaviours2 merge-behaviours behaviours1 but-first behaviours2]
+end
+
+to-report random-integer-between [n1 n2]
+ report n1 + random (1 + n2 - n1)
+end
+
+to-report random-number-between [n1 n2]
+ report n1 + random-float (n2 - n1)
+end
+
+to-report truncated-random-normal [mean-value the-standard-deviation]
+ ; truncated Gaussian
+ report within-range 0 (2 * mean-value) random-normal mean-value the-standard-deviation
+end
+
+to-report random-item [items]
+ report item random length items items
+end
+
+to-report maximum [n1 n2]
+ if-else n1 > n2
+   [report n1]
+   [report n2]
+end
+
+to-report minimum [n1 n2]
+ if-else n1 < n2
+   [report n1]
+   [report n2]
+end
+
+to-report second [l]
+ report first but-first l
+end
+
+to-report third [l]
+ report first but-first but-first l
+end
+
+to-report fourth [l]
+ report first but-first but-first but-first l
+end
+
+to-report unit-vector [v]
+ if (is-number? v) [report v]
+; if wrapping [set v canonical-vector v]
+ let distance-squared reduce [?1 + ?2] map [?1 * ?1] v
+ if distance-squared = 0 [report 0] ; or an error?
+ let dist sqrt distance-squared 
+ report map [?1 / dist] v
+end
+
+to-report add [v1 v2]
+ if is-number? v1 and is-number? v2 [report v1 + v2]
+ if is-number? v1 [report map [v1 + ?] v2]
+ if is-number? v2 [report map [? + v2] v1]
+ report canonical-distance (map [?1 + ?2] v1 v2)
+end
+
+to-report subtract [v1 v2]
+ if is-number? v1 and is-number? v2 [report v1 - v2]
+ if is-number? v1 [report map [v1 - ?] v2]
+ if is-number? v2 [report map [? - v2] v1]
+ report canonical-distance (map [?1 - ?2] v1 v2)
+end
+
+to-report multiply [v1 v2]
+ if is-number? v1 and is-number? v2 [report v1 * v2]
+ if is-number? v1 [report map [v1 * ?] v2]
+ if is-number? v2 [report map [? * v2] v1]
+ report canonical-distance (map [?1 * ?2] v1 v2)
+end
+
+to-report divide [v1 v2]
+ if is-number? v1 and is-number? v2 [report v1 / v2]
+ if is-number? v1 [report map [v1 / ?] v2]
+ if is-number? v2 [report map [? / v2] v1]
+ report canonical-distance (map [?1 / ?2] v1 v2)
+end
+
+to-report is-zero? [v]
+ if is-number? v [report v = 0]
+ if v = [] [report true]
+ if first v != 0 [report false]
+ report is-zero? butFirst v
+end
+
+to-report reciprocal [n]
+ ; avoids division by zero since often used in probability calculation
+ if n = 0 [report 2147483647]
+ report 1 / n
+end
+
+to-report direction-to-heading [direction]
+ if direction = 0 [report my-heading]
+ if direction = [0 0] [report my-heading]
+ if direction = [0 0 0] [report my-heading]
+ let x first direction
+ let y second direction
+ if horizontally-wrapping [set x remainder x world-width]
+ if vertically-wrapping [set y remainder y world-height]
+ report atan x y
+end
+
+to-report direction-vector [obj]
+ report heading-to-direction [my-heading] of obj
+end
+
+to-report turn-by [direction angle]
+ report heading-to-direction (direction-to-heading direction + angle)
+end
+
+to-report within-range [x minimum-value maximum-value]
+ if x < minimum-value [report minimum-value]
+ if x > maximum-value [report maximum-value]
+ report x
+end
+
+to-report canonical-heading [h]
+ if h > 180 [report h - 360] 
+ if h < -180 [report h + 360]
+ report h
+end
+
+to-report all-values [variable]
+ report [runresult variable] of all-individuals
+end
+
+to-report heading-towards [x y]
+ ; should move this out of here and also make a 3D variant
+ if xcor = x and ycor = y [report my-heading]
+ report towardsxy x y
+end
+
+to-report heading-towards-another [another]
+; should move this out of here and also make a 3D variant
+ if xcor = [xcor] of another and ycor = [ycor] of another [report my-heading]
+ report towards another
+end
+
+to move-horizontally-or-vertically-towards-patch [another speed]
+  if not is-agent? another [stop]
+  let patch-xcor [pxcor] of another
+  let patch-ycor [pycor] of another
+  if patch-xcor = pxcor and patch-ycor = pycor [stop]
+  let delta-x patch-xcor - pxcor
+  let delta-y patch-ycor - pycor
+  let abs-delta-x abs delta-x
+  let abs-delta-y abs delta-y
+  let change speed
+  if-else random-float (abs-delta-x + abs-delta-y) < abs-delta-x 
+     [set my-next-x-set true
+      if abs-delta-x < speed [set change abs-delta-x]
+      if-else delta-x > 0 [set my-next-x my-next-x + change] [set my-next-x my-next-x - change]]
+     [set my-next-y-set true
+      if abs-delta-y < speed [set change abs-delta-y]
+      if-else delta-y > 0 [set my-next-y my-next-y + change] [set my-next-y my-next-y - change]]
+end
+
+to ask-every-patch [procedure-name]
+ ; a hack but faster since doesn't randomise the patches as ask does
+ let ignore patches with [run-false procedure-name]
+end
+
+to-report run-false [procedure-name]
+  run procedure-name
+  report false
+end
+
+to-report coordinate-between [value min-value max-value modulo]
+ ; reports true if value is between min-value and max-value using modulo
+ ; assumes that negative values are shifted to between 0 and modulo
+ set value value mod modulo
+  if-else min-value >= 0
+   [if-else max-value < modulo
+      [report value >= min-value and value <= max-value]
+      [report value >= min-value or value <= (max-value mod modulo)]]
+   [if-else max-value < modulo
+      [report value <= max-value or value >= (min-value mod modulo)]
+      [report true]]
+end
+
+to-report canonical-coordinate [value min-value modulo]
+ report ((value - min-value) mod modulo) + min-value
+end
+
+to set-world-geometry [code]
+ set world-geometry code
+end
+
+to-report wrapping
+ report world-geometry < 4
+end
+
+to-report horizontally-wrapping
+ report world-geometry  < 3
+end
+
+to-report vertically-wrapping
+ report world-geometry = 1 or world-geometry = 3
+end
+
+to-report camera-tracks-centroid
+ report world-geometry = 5
+end
+
+to-report time-description
+ if time < 0 [report " during setup."]
+ if time <= .000001 [report " after setup."]
+ report (word " after " time " seconds.")
+end
+
+to-report corresponding-agentset [agent-list]
+  ; deprecated in favour of list-to-agentset 
+ report all-individuals with [member? self agent-list]
+end
+
+to-report list-to-agentset [agent-list]
+  report turtles with [member? self agent-list]
+end
+
+to-report update-turtle-state
+ update-turtle-position
+ set heading my-heading
+ ; e.g. 365 and 5
+ if heading != my-heading [set my-next-heading heading set my-next-heading-set true]
+ ; colour and pen could be added
+ report false
+end
+
+to update-turtle-position
+ if-else (xcor = previous-xcor) and (ycor = previous-ycor)
+ [set previous-xcor my-x
+  set previous-ycor my-y
+  if camera-tracks-centroid
+     [set previous-xcor previous-xcor - mean-x
+      set previous-ycor previous-ycor - mean-y]
+  if-else patch-at (previous-xcor - xcor) (previous-ycor - ycor) = nobody
+    [set hidden? true]
+    [setxy previous-xcor previous-ycor
+     ; reset previous-xcor since there may be a very tiny round-off error
+     set previous-xcor xcor
+     set previous-ycor ycor]]
+ [set my-x xcor
+  set my-y ycor
+  set previous-xcor my-x
+  set previous-ycor my-y]
+end
+
+to go-forward [steps]
+ let angle 90 - my-heading
+ ; subtract from 90 since if heading is straight up that is "really" -90
+ set my-next-x-set true
+ set my-next-x my-next-x + cos angle * steps
+ set my-next-y-set true
+ set my-next-y my-next-y + sin angle * steps
+end
+
+to update-all-turtle-states
+ if camera-tracks-centroid
+  [let visible-objects all-individuals
+   if any? visible-objects
+     [set mean-x mean [my-x] of visible-objects
+      set mean-y mean [my-y] of visible-objects]]
+ ; used to only do the following with objects-with-something-to-do but 
+ ; state may have been set by a different agent
+ let ignore objects with [update-turtle-state]
+end
+
+to-report my-location
+ report make-location my-x my-y
+end
+
+to-report location [obj]
+ report make-location [my-x] of obj [my-y] of obj
+end
+
+to-report heading-to-direction [h]
+ report list sin h cos h
+end
+
+to draw-line [object1 object2 pen-color]
+ ask pens [penup
+           setxy [xcor] of object1 [ycor] of object1
+           set color pen-color
+           face object2
+           pendown
+           jump distance object2]
+end
+
+to-report random-selection-of-unoccupied-locations [min-xcor max-xcor min-ycor max-ycor]
+ ; choose at random among the unoccupied locations
+ let available-locations unoccupied-locations min-xcor max-xcor min-ycor max-ycor
+ if-else empty? available-locations 
+   [report (list my-x my-y)]
+   [report random-item available-locations]
+end
+
+to-report random-location-found-to-be-unoccupied [min-xcor max-xcor min-ycor max-ycor max-tries]
+ ; choose random coordinates until an unoccupied one is found
+ ; note that this will keep trying max-tries times
+  if not horizontally-wrapping
+    [set min-xcor maximum min-pxcor min-xcor
+     set max-xcor minimum max-pxcor max-xcor]
+ if not vertically-wrapping
+    [set min-ycor maximum min-pycor min-ycor
+     set max-ycor minimum max-pycor max-ycor]
+ let x random-integer-between min-xcor max-xcor
+ let y random-integer-between min-ycor max-ycor
+ let my-kind kind
+ let possible-patch patch x y
+ while [any? [objects-here with [kind = my-kind and not hidden?]] of possible-patch]
+       [if max-tries <= 0 [report false]
+        set max-tries max-tries - 1
+        set x random-integer-between min-xcor max-xcor
+        set y random-integer-between min-ycor max-ycor
+        set possible-patch patch x y]
+ report (list x y)
+end
+
+to-report unoccupied-locations [min-xcor max-xcor min-ycor max-ycor]
+ ; could optimise this to use patch primitives now
+ if not horizontally-wrapping
+    [set min-xcor maximum 0 min-xcor
+     set max-xcor minimum world-width max-xcor]
+ if not vertically-wrapping
+    [set min-ycor maximum 0 min-ycor
+     set max-ycor minimum world-height max-ycor]
+ let width max-xcor - min-xcor + 1
+ let height max-ycor - min-ycor + 1
+ let my-kind kind
+ let objects-in-region objects with [coordinate-between my-x min-xcor max-xcor world-width and 
+                                     coordinate-between my-y min-ycor max-ycor world-height and
+                                     kind = my-kind and
+                                     my-visibility]
+ let locations []
+ let i 0
+ while [i < width]
+       [let j 0
+        let x (min-xcor + i) mod world-width 
+        while [j < height]
+              [let y (min-ycor + j) mod world-height 
+               if not any? objects-in-region with [x = my-x and y = my-y]
+                  [set locations fput (list x y) locations]
+               set j j + 1]
+        set i i + 1]
+ report locations 
+end
+
+to-report future-unoccupied-locations [min-xcor max-xcor min-ycor max-ycor]
+ ; considers where others are about to move to rather than where they currently are as unoccupied-locations does
+ if not horizontally-wrapping
+    [set min-xcor maximum 0 min-xcor
+     set max-xcor minimum world-width max-xcor]
+ if not vertically-wrapping
+    [set min-ycor maximum 0 min-ycor
+     set max-ycor minimum world-height max-ycor]
+ let width max-xcor - min-xcor + 1
+ let height max-ycor - min-ycor + 1
+ let my-kind kind
+ let objects-in-region objects with [coordinate-between my-next-x min-xcor max-xcor world-width and 
+                                     coordinate-between my-next-y min-ycor max-ycor world-height and 
+                                     kind = my-kind and
+                                     my-visibility]
+ let locations []
+ let i 0
+ while [i < width]
+       [let j 0
+        let x (min-xcor + i) mod world-width 
+        while [j < height]
+              [let y (min-ycor + j) mod world-height 
+               if not any? objects-in-region with [x = my-next-x and y = my-next-y]
+                  [set locations fput (list x y) locations]
+               set j j + 1]
+        set i i + 1]
+ report locations 
+end
+
+to-report canonical-vector [v]
+ let x first v
+ let y second v
+ if horizontally-wrapping [set x remainder x world-width]
+ if vertically-wrapping [set y remainder y world-height]
+ report (list x y)          
+end
+
+to-report canonical-distance [v]
+ let x first v
+ let y second v
+ if horizontally-wrapping [if-else x > half-world-width [set x x - world-width] [if x < negative-half-world-width [set x x + world-width]]]
+ if vertically-wrapping [if-else y > half-world-height [set y y - world-height] [if y < negative-half-world-height [set y y + world-height]]] 
+ report (list x y)          
+end
+
+to-report make-location [x y]
+ if horizontally-wrapping [set x canonical-coordinate x min-pxcor world-width]
+ if vertically-wrapping [set y canonical-coordinate y min-pycor world-height]
+ report (list x y) 
+end
+
+to-report angle-from-me
+ if distance myself = 0 [report 0]
+ report canonical-heading (towards myself - my-heading)
+end
+
+to-report patches-between [min-x max-x min-y max-y]
+ ; patches are ordered most distance first but ties are ordered randomly
+ set min-x int min-x
+ set min-y int min-y
+ set max-x int max-x
+ set max-y int max-y
+ if min-x > max-x [report []]
+ if min-y > max-y [report []]
+ if min-x = max-x [if min-y = max-y [report (list patch-with-coordinates min-x min-y)]
+                   report add-both-to-list patch-with-coordinates min-x min-y 
+                                           patch-with-coordinates min-x max-y
+                                           patches-between min-x max-x (min-y + 1) (max-y - 1)]
+ if min-y = max-y [report add-both-to-list patch-with-coordinates min-x min-y 
+                                           patch-with-coordinates max-x min-y
+                                           patches-between (min-x + 1) (max-x - 1) min-y max-y]
+ ; to do -- need to go around the outside so that the list is sorted by distance to the center
+end
+
+to-report add-both-to-list [a b l]
+ if-else random 2 = 0 
+    [report fput a fput b l]
+    [report fput b fput a l]
+end
+
+to-report patch-with-coordinates [x y]
+ if horizontally-wrapping [set x canonical-coordinate x min-pxcor world-width]
+ if vertically-wrapping [set y canonical-coordinate y min-pycor world-height]
+ report patch x y
+end 
+
+to-report unoccupied-patches [list-of-patches]
+ let result []
+ foreach list-of-patches
+         [if not any? (objects-on ?) with [not hidden?] [set result fput ? result]]
+ report result
+end
+
+to-report union [list1 list2]
+ if empty? list1 [report list2]
+ if empty? list2 [report list1]
+ if-else random 2 = 0 [report union1 list1 list2]
+                      [report union1 list2 list1]
+end
+
+to-report union1 [list1 list2]
+ if member? first list1 list2 [report union but-first list1 list2]
+ report fput first list1 union but-first list1 list2 
+end
+
+to-report uninitialised? [x]
+ report x = 0 ; uninitialised variables are zero
+end
+
+to procedure [name]
+ if-else is-list? name 
+    [let target-or-frequency first but-first name
+     if-else is-number? target-or-frequency
+        [do-every target-or-frequency first name]
+        [ask target-or-frequency [run first name]]] 
+    [run name]
+end      
+
+to-report transform-error-message [error name]
+   if-else (member? "WITH" error) and (member? "agentset" error) and (member? "0" error)
+          [report (word "A variable in the " name " micro-behaviour has not been initialised. At least one micro-behaviour is missing from the prototype " kind)]
+          [report (word error "\nNetLogo error in the micro-behaviour named " name)]
+end
+
+to-report transform-patch-error-message [error name]
+   report (word error "\nNetLogo error in the micro-behaviour named " name)
+end
+
+to-report the-other
+  if-else uninitialised? internal-the-other
+    [user-message 
+      "A micro-behaviour uses 'the-other' and it hasn't been set. It can be set by micro-behaviours with calls to do-for-n, can-pick-one, any, all-who-are, or anyone-who-is."
+     report nobody]
+    [report internal-the-other]
+end
+
+to set-the-other [agent]
+ set internal-the-other agent
+end
+
+to-report next-visual-state-of-all-individuals
+  if stop-running = true [report ""]
+  let time-remaining visual-trace-time-slice
+  let traces ""
+  while [time-remaining > 0]
+        [set traces (word traces "|" visual-state-of-all-individuals)
+         let finished go-until (time + frame-duration)
+         set time-remaining time-remaining - frame-duration]
+  report (word traces "|")
+end
+
+to-report visual-state-of-all-individuals
+  let state ""
+  let current-individuals all-individuals
+  if not any? current-individuals [report ""]
+  let current-individuals-sorted sort current-individuals
+  let added-removed additions-removals current-individuals-sorted
+  ask current-individuals [set state (word visual-state ";" state)]
+  report (word precision time 2 "=" added-removed "=" state)
+end
+
+to-report visual-state
+  let red-green-blue []
+  if-else is-list? color
+    [set red-green-blue color]
+    [set red-green-blue extract-rgb color]
+  report (word who "," precision my-x 2 "," precision my-y 2 "," precision my-heading 2 "," precision size 2 "," 
+               round first red-green-blue "," round second red-green-blue "," round third red-green-blue)
+  ;; removed "," shape since not clear how Second Life can deal with NetLogo shape names
+end
+
+to-report additions-removals [current-individuals-sorted]
+ set temp ""
+ let current-whos map [agent-who ?] current-individuals-sorted
+ if current-whos != previous-whos
+    [added-agents current-individuals-sorted
+     removed-agents current-whos
+     set previous-whos current-whos]
+ report temp
+end
+
+to added-agents [current-individuals-sorted]
+ forEach current-individuals-sorted
+    [if not member? agent-who ? previous-whos
+        [ask ? [agent-added]]]
+end
+
+to agent-added
+ set temp (word temp "+" who "," kind ":")
+end
+
+to removed-agents [current-whos]
+ forEach previous-whos
+    [if not member? ? current-whos
+        [set temp (word temp "-" ? ":")]]
+end
+
+to-report agent-who [agent]
+  let who-number 0
+  ask agent [set who-number who]
+  report who-number
+end
+
+to-report real-time
+  ; for backwards compatibility
+  report time
+end
+
+to-report add-to-list [x the-list]
+ if-else is-list? the-list
+    [report fput x the-list]
+    [report (list x)]
+end
+
+to layout-grid [agent-set-or-list lower-left-x lower-left-y width height]
+  let agent-list []
+  let agent-set nobody
+  if-else is-agentset? agent-set-or-list
+     [set agent-set agent-set-or-list
+      set agent-list [self] of agent-set-or-list]
+     [set agent-set list-to-agentset agent-set-or-list
+      set agent-list agent-set-or-list]
+  let x-min lower-left-x
+;  if x-min < min-pxcor [set x-min min-pxcor]
+  let x x-min
+  let x-max x + width
+;  if x-max > max-pxcor [set x-max max-pxcor]
+  let y-min lower-left-y
+;  if y-min < min-pycor [set y-min min-pycor]
+  let y y-min
+  let y-max y + height
+;  if y-max > max-pycor [set y-max max-pycor]
+  let maximum-agent-size max [size] of agent-set
+  if maximum-agent-size <= 0 [set maximum-agent-size 1]
+  while [y < y-max]
+    [set x x-min
+     while [x < x-max]
+       [let agent first agent-list
+        ask agent [setxy x y]
+        set agent-list but-first agent-list
+        if empty? agent-list [stop]
+        set x x + maximum-agent-size]
+    set y y + maximum-agent-size]
+end
+
+to-report other-objects-here
+ report objects-here with [self != myself and my-visibility]
+end
+ 
+to record-movie [file-name frame-count] ; for backwards compatibility
+  create-movie file-name frame-count true
+end
+
+to create-movie [file-name frame-count grab-view]
+  if-else netlogo-applet?
+    [user-message "Applets cannot record movies of a simulation. To record a movie you need to run your model within the NetLogo application."]
+    [set observer-commands fput (word "create-movie-internal \"" file-name "\" " frame-count " " grab-view) observer-commands]
+end
+
+to create-movie-internal [file-name frame-count grab-view]
+  output-print (word "Please wait while creating movie: " file-name)
+  movie-cancel ; in case a movie is already in progress
+  movie-start file-name
+  movie-set-frame-rate round (1 / frame-duration)
+  if-else grab-view
+    [repeat frame-count [movie-grab-view go]]
+    [repeat frame-count [movie-grab-interface go]]
+  movie-close
+  output-print "Movie created."
+end
+

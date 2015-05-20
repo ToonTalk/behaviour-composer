@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>INITIALISE-SUGAR-GROWTH-RATE</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I create the sugar growth rate of each patch.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>INITIALISE-SUGAR-GROWTH-RATE </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>ask-every-patch
+    [set sugar-growth-rate-of-patch the-sugar-growth-rate]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>A variant discussed in [1] is to have the sugar grow back immediately. 
+
+	Changing the 1 to a large number such as 1.0E12 (a trillion) will accomplish 
+
+	this. Also the growth rate could be randomly distributed among patches.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>
+
+	<a title="INITIALISE-SUGAR-CAPACITY" href="INITIALISE-SUGAR-CAPACITY.html">
+
+	INITIALISE-SUGAR-CAPACITY</a> and
+
+	<a title="INITIALISE-POLLUTION-PRODUCTION-RATE" href="INITIALISE-POLLUTION-PRODUCTION-RATE.html">
+
+	INITIALISE-POLLUTION-PRODUCTION-RATE</a> also initialise attributes of 
+
+	patches. <i>the-sugar-growth-rate</i> is defined by
+	<a href="http://modelling4all.nsms.ox.ac.uk/Resources/Composer/en/MB/CREATE-SLIDER.html#changes=4hLEX0_23zeomVmVbLND6g">
+	this slider</a>.</p>
+
+	<h2>How this works</h2>
+
+	<p>This sets the attribute <i>sugar-growth-rate-of-patch</i> of each patch 
+
+	to value of <i>the-sugar-growth-rate</i>. </p>
+
+	<h2>Source</h2>
+	<p>Based upon page 21 of [1] and this
+
+	<a class="external text" title="http://backspaces.net/Models/sugarscape.html" rel="nofollow" href="http://www.backspaces.net/models/sugarscape.html">NetLogo implementation</a>. </p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn. </p>
+
+	<h2>References</h2>
+
+	<p>[1] <i>Growing Artificial Societies</i> by Joshua M. Epstein and Robert 
+
+	Axtell, Brookings Institute Press, The MIT Press, 1996. </p>
+
+</body>
+
+</html>

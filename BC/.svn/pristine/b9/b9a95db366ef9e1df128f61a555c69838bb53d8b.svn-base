@@ -1,0 +1,208 @@
+
+
+
+
+
+/*
+
+This stylesheet sets out the basic layout of the page. If you are happy with the basic layout of the page, and only wish to make stylistic changes (changing colours, background images, etc.) or adding styling to particular page elements, then it is recommended that you leave this stylesheet as is, and affect any changes in the lookandfeel.css file, which is referenced AFTER this sheet, and will therefore override styles in this sheet.
+
+this stylesheet expect the following divs to be present in the HTML, in the order specified:
+
+body
+	div#all
+
+		div#header
+		div#content
+		div#mainnav
+		div#footer
+*/
+
+body
+{
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 30px;
+	background-color: #fff;
+	
+background-image: url('../images/site/banner.png');
+background-repeat: repeat-x;
+background-position: top left;
+	}
+
+
+
+
+
+
+div#all {
+
+	width: auto;
+	/* min width won't work in IE6, but it's not crucial to this layout, merely a nicety... */
+
+
+padding-top: 155px;
+}
+
+div#site-info
+{
+position: absolute;
+top: 0px;
+left: 0px;
+height: 120px;
+width: 100%;
+text-align: right;
+margin:0px;
+padding: 0px;
+
+font-size: 0px;
+
+
+
+}
+/* general style for stuff you want to hide off-screen*/
+div#site-info dl dt, .scram 
+{
+position: absolute;
+top: -11110px;
+left: -11110px;
+}
+div#site-info dd#instname 
+
+{
+
+
+}
+
+div#site-info dl, div#site-info dd, div#site-info dt
+{
+margin:0px;
+padding: 0px;
+font-size: 0px;
+line-height: 0px;
+}
+
+div#site-info dd#instname a
+
+{
+
+font-size: 0px;
+padding: 0px;
+margin: 0px;
+
+margin-left: 420px;
+border-style: none;
+line-height: 0px;
+/*
+padding-bottom: 156px;
+padding-left: 155px;
+background-color: white;
+background-image: url('../images/crestsq.png');
+background-repeat: no-repeat;
+background-position: 20px 20px ;
+
+border: 1px solid red;
+background-color: blue;
+*/
+
+}
+
+div#site-info dd#instname a img
+
+{
+border: 20px solid #fff;
+}
+
+
+div#site-info dd#sitename 
+{
+
+position: absolute;
+top: 0px;
+left: 0px;
+border-style: none;
+
+display: block;
+width: 400px;
+height: 155px;
+
+
+background-image: url('../images/site/logo.png');
+background-repeat: no-repeat;
+background-position: 0px 0px;
+
+}
+
+
+/* give padding to div's that directly contain content*/
+div#content, div#mainnav, div#additional, div#footer
+{
+	padding: 1em;
+}
+
+div#content
+{
+margin-top: 0px;
+padding-top: 0px;
+}
+
+
+
+/* make sure the footer div clears any floated items in the main content div*/
+div#footer
+{
+/*	margin-top: 42px; */
+	clear:both;
+}
+
+/* give additional padding to items inside the footer div*/
+div#footer 
+{
+	padding: 1em;
+}
+
+
+/* position mainnav div below the header div and to the left of the page*/
+ div#mainnav
+ {
+ 
+	 position: absolute;
+ 	top: 155px;
+ 	left: 0px;
+ 	width: 150px;
+ 	padding: 0px;
+ 	margin: 0px;
+ 	
+ }
+ /*  hide the main nav h2 - it makes sense to have it in the mark-up, but we don't want to show it,  as the purpose of the nav bar is obvious visually.
+ 
+To hide it, we set the position as absolute, and place it way off screen (this is recommended in preference to using display:none because "display:none" may hide it from screenreaders, which we don't want)
+ */
+  div#mainnav h2
+ {
+ 	position: absolute;
+ 	left: -3600px;
+ }
+
+
+ 
+
+/* for the div's below header that aren't absolutely positioned, give them a left margin as least as wide as the width of the absolutely positioned mainnav column, so that they don't overlap witht the mainnav column */
+div#content, div#footer, h1
+{
+	margin-left: 155px;
+	margin-right: 5%;
+	min-width: 400px;
+}
+
+/*  IE 6 only selector to force 'has-layout'  to fix the peekaboo bug   
+
+(only IE 6 will recognise "* html" as a valid selector)
+
+*/
+
+* html div#all
+{
+	height: 1%;
+	position: relative;
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>CREATE-ENCOUNTER-RATE-SLIDER</title>
+
+</head>
+
+
+
+<body>
+
+
+
+<div id="bodyContent">
+
+	
+
+	<h3><i>I create a slider controlling the number of encounters per time 
+	period an 
+
+	average infected individual has.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>CREATE-ENCOUNTER-RATE-SLIDER </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>create-slider 
+  &quot;the-encounter-rate&quot; 
+  "625" "10"&nbsp;<i>; lower left corner </i>
+  "875" "50"&nbsp;<i>; upper right corner</i>
+  &quot;0&quot; &quot;10&quot;&nbsp;<i>; minimum and maximum value</i>
+  &quot;.1&quot;&nbsp;<i>; increment</i> 
+  &quot;2&quot;&nbsp;<i>; initial value</i>
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+
+	<p>You can change the location, minimum and maximum values, increment, and 
+
+	initial value. </p>
+
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>
+
+	<a title="RANDOM-ENCOUNTER" href="RANDOM-ENCOUNTER.html">
+
+	RANDOM-ENCOUNTER</a> uses the parameter <i>the-encounter-rate</i> defined by 
+
+	this slider. Together with
+
+	<a title="CREATE-INFECTION-ODDS-SLIDER" href="CREATE-INFECTION-ODDS-SLIDER.html">
+
+	CREATE-INFECTION-ODDS-SLIDER</a> this specifies &#946; or the force of infection 
+
+	in [1].
+
+	<a title="CREATE-DEATH-RATE-SLIDER" href="CREATE-DEATH-RATE-SLIDER.html">
+
+	CREATE-DEATH-RATE-SLIDER</a>,
+
+	<a title="CREATE-RATE-OF-RECOVERY-SLIDER" href="CREATE-RATE-OF-RECOVERY-SLIDER.html">
+
+	CREATE-RATE-OF-RECOVERY-SLIDER</a>,
+
+	<a title="CREATE-FRACTION-VACCINATED-AT-BIRTH-SLIDER" href="CREATE-FRACTION-VACCINATED-AT-BIRTH-SLIDER.html">
+
+	CREATE-FRACTION-VACCINATED-AT-BIRTH-SLIDER</a> and
+
+	<a title="CREATE-RATE-OF-LOSS-OF-IMMUNITY-SLIDER" href="CREATE-RATE-OF-LOSS-OF-IMMUNITY-SLIDER.html">
+
+	CREATE-RATE-OF-LOSS-OF-IMMUNITY-SLIDER</a> create related sliders. </p>
+
+	<h2><span class="mw-headline">Relation to Mathematical Model </span></h2>
+
+	<p>The change in the number of infected is given in [1] as the product of 
+
+	the force of infection times the number of infected times the number of 
+
+	susceptible: </p>
+
+	<p>&#946;&#8729;I&#8729;S </p>
+
+	<p>In this model the expected change is </p>
+
+	<p><i>the-encounter-rate</i> &#8729; <i>the-infection-odds</i> &#8729; I &#8729; S/N </p>
+
+	<p>S/N is the odds that an encounter is with a susceptible individual. </p>
+
+	<p>If N (the total population) is constant then </p>
+
+	<p>&#946; = <i>the-encounter-rate</i> &#8729; <i>weeks-in-a-year</i> &#8729; <i>the-infection-odds</i> 
+
+	/ N </p>
+
+	<p>where <i>weeks-in-a-year</i> is introduced since <i>the-encounter-rate</i> is 
+
+	given in encounters per week while &#946; is per year. This calculation can be 
+
+	performed by
+
+	<a title="MONITOR-FORCE-OF-INFECTION" href="MONITOR-FORCE-OF-INFECTION.html">
+
+	MONITOR-FORCE-OF-INFECTION</a>. </p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </p>
+
+	<h2><span class="mw-headline">References </span></h2>
+
+	<p>[1]
+
+	<a class="external text" title="http://bmb.oxfordjournals.org/cgi/content/abstract/62/1/187" rel="nofollow" href="http://bmb.oxfordjournals.org/cgi/content/abstract/62/1/187">
+
+	&quot;Mathematical models of vaccination&quot;</a>, Almut Scherer and Angela McLean,
+
+	<i>British Medical Bulletin</i> 2002;62 187-199. </div>
+
+
+
+</body>
+
+
+
+</html>
+

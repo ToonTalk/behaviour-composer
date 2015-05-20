@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>SET-WORLD-TO-HORIZONTAL-CYLINDER</title>
+
+</head>
+
+<body>
+	<h3><i>I change the initial geometry of the world to be a horizontal 
+
+	cylinder. In other words, when an individual moves off the top or bottom 
+
+	edge it appears on the opposite edge as if the surface has been rolled into 
+
+	a tube. The individual can move off the right or left edge, however.</i> 
+	</h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>SET-WORLD-TO-HORIZONTAL-CYLINDER </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>set-world-geometry 3
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+
+	<p><i>set-world-geometry</i> expects one number which can have any of the 
+
+	following values: </p>
+
+	<ol>
+
+		<li>Torus (wraps horizontally and vertically)
+
+		<a title="SET-WORLD-TO-TORUS" href="SET-WORLD-TO-TORUS.html">
+
+		SET-WORLD-TO-TORUS</a> </li>
+
+		<li>Vertical cylinder (wraps horizontally)
+
+		<a title="SET-WORLD-TO-VERTICAL-CYLINDER" href="SET-WORLD-TO-VERTICAL-CYLINDER.html">
+
+		SET-WORLD-TO-VERTICAL-CYLINDER</a> </li>
+
+		<li>Horizontal cylinder (wraps vertically) <strong class="selflink">
+
+		SET-WORLD-TO-HORIZONTAL-CYLINDER</strong> </li>
+
+		<li>A plane (no wrapping -- objects become invisible if beyond the 
+
+		limits of the world)
+
+		<a title="SET-WORLD-TO-PLANE" href="SET-WORLD-TO-PLANE.html">
+
+		SET-WORLD-TO-PLANE</a> </li>
+
+		<li>A plane with a camera that follows the average position of all 
+
+		individuals
+
+		<a title="SET-WORLD-TO-PLANE-WITH-CAMERA-FOLLOWING-CENTROID" href="SET-WORLD-TO-PLANE-WITH-CAMERA-FOLLOWING-CENTROID.html">
+
+		SET-WORLD-TO-PLANE-WITH-CAMERA-FOLLOWING-CENTROID</a>
+
+		</li>
+
+	</ol>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>Due to current limitations of NetLogo this specifies only the <i>initial</i> 
+
+	geometry of the world and cannot be used to change the world's geometry 
+
+	during execution. </p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </p>
+
+</body>
+</html>

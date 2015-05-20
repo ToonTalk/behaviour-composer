@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>LOG-DESIRE-TO-REMOVE-A-LINK</title>
+
+</head>
+
+
+
+<body>
+
+	<h3><i>I add to the log when an individual decides to remove a link.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>LOG-DESIRE-TO-REMOVE-A-LINK</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for line-1 (word &quot;Individual &quot; who &quot; desired to remove a link to &quot; [who] of my-other-player &quot; at time " round time)    
+substitute-text-area-for line-2 (word "His utility of the network with this removal is " utility-of-network [] (list my-other-player))
+substitute-text-area-for line-3 (word " which is greater than the utility of his network with no changes " utility-of-network [] [])  
+do-if my-decision-to-unlink = true
+   [output-print line-1
+    output-print line-2
+    output-print line-3]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+
+	<p>You can change the text of the message.</p>
+
+	<h2>Related Micro-behaviours</h2>
+
+
+	<p>This behaviour relies upon
+
+	<a title="POSSIBLE-INFECTION" href="SIMPLE-REMOVE-LINK-DECISION.html">
+	SIMPLE-REMOVE-LINK-DECISION</a> to determine the value of <i>
+	my-desire-to-link</i>. <a href="LOG-DESIRE-TO-ADD-A-LINK.html">
+	LOG-DESIRE-TO-ADD-A-LINK</a> adds to the log decisions to add a link.</p>
+
+	<h2>How this works</h2>
+
+	<p>This checks if I've set a variable indicating I prefer to remove a link and 
+	if so adds a message to the log.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+
+</body>
+
+</html>

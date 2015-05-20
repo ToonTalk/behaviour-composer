@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+
+<title>CHANGE-OPINION-IN-NEIGHBOURHOOD</title>
+
+</head>
+
+<body>
+
+	<h3><i>If I get near someone I may change my opinion.</i> 
+	<span style="font-weight: 400">This implements 
+
+	part of the model in <a href="#ref_1">[1]</a>. </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>CHANGE-OPINION-IN-NEIGHBOURHOOD </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-every 1     
+   [anyone-who-is [1 / (1 + distance-to-me) &gt; random-number-between 0 1]
+       [add-behaviours-to self list-of-micro-behaviours "My Additional Behaviours" [RELATIVE-AGREEMENT.html]
+        add-behaviours-to the-other list-of-micro-behaviours "Other's Additional Behaviours" [RELATIVE-AGREEMENT.html]]]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants </span></h2>
+
+	<p>You can change the formula used to 
+
+	compute the probability of interacting. If you replace
+	<a href="http://resources.modelling4all.org/documents/programming-guide#anyone-who-is">anyone-who-is </a>with
+	<a href="http://resources.modelling4all.org/documents/programming-guide#all-who-are">all-who-are</a> then each agent will 
+	interact will a set agents instead of a single member of the set.</p>
+
+	<p>To see a log of the changes in opinion and uncertainty copy and paste the 
+	following before &quot;]]&quot;: </p>
+
+	<pre> output-print (word &quot;self: &quot; who  &quot; opinion: &quot; my-opinion &quot; next-opinion: &quot; my-next-opinion)
+ output-print (word &quot;other: &quot; who-of the-other &quot; uncertainty: &quot; my-uncertainty)
+</pre>
+
+	<h2>Related Micro-behaviours </span></h2>
+
+	<p>
+
+	This relies upon
+
+	<a title="RELATIVE-AGREEMENT" href="RELATIVE-AGREEMENT.html">RELATIVE-AGREEMENT</a>. 
+	<a title="CHANGE-OPINION-SOCIAL-NETWORK" href="CHANGE-OPINION-SOCIAL-NETWORK.html">CHANGE-OPINION-SOCIAL-NETWORK</a> 
+	differs from this in that the interaction is with acquaintances rather than 
+	someone located spatially nearby. </p>
+
+	<h2>How this works </span></h2>
+
+	<p>On every tick I select someone at random and the probability that I 
+
+	interact with him is inversely proportional to our distance. I interact by 
+
+	running the
+
+	<a title="RELATIVE-AGREEMENT" href="RELATIVE-AGREEMENT.html">RELATIVE-AGREEMENT</a> micro-behaviour which may change my opinion and 
+
+	uncertainty.&nbsp; It uses 
+	<b>
+	<a target="_blank" href="http://resources.modelling4all.org/documents/programming-guide#toc2">the-other</a></b> 
+	to refer to another agent.</p>
+
+	<h2>History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </p>
+
+	<h2>Footnotes </span></h2>
+
+	<p><a name="ref_1">[1] </a>An implementation of &quot;How can extremism prevail? A study based on the 
+
+	relative agreement interaction model&quot; by Guillaume Deffuant, Fr&eacute;d&eacute;ric 
+
+	Amblard, G&eacute;rard Weisbuch and Thierry Faure (2002); Journal of Artificial 
+
+	Societies and Social Simulation vol. 5, no. 4;
+	<a class="external free" title="http://jasss.soc.surrey.ac.uk/5/4/1.html#2.3" rel="nofollow" target="_blank" href="http://jasss.soc.surrey.ac.uk/5/4/1.html#2.3">http://jasss.soc.surrey.ac.uk/5/4/1.html#2.3</a> 
+	</p>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>POSSIBLY-VACCINATE-NEW-BORN</title>
+</head>
+<body>
+
+	<h3><i>I am possibly successfully vaccinated.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>POSSIBLY-VACCINATE-NEW-BORN </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-with-probability the-fraction-vaccinated-at-birth * the-fraction-of-vaccinations-that-take
+   [add-behaviours [<a title="SET-STATE-VACCINATED" href="SET-STATE-VACCINATED.html">SET-STATE-VACCINATED</a> <a title="POSSIBLY-LOSE-IMMUNITY" href="POSSIBLY-LOSE-IMMUNITY.html">POSSIBLY-LOSE-IMMUNITY</a>]]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Variants </span></h2>
+
+	<p>This models the odds of a new individual being successfully vaccinated as 
+
+	the product of <i>the-fraction-vaccinated-at-birth</i> which is controllable by 
+
+	policies and <i>the-fraction-of-vaccinations-that-take</i> which is a parameter 
+
+	determined by the technology. You can remove &quot;POSSIBLY-LOSE-IMMUNITY&quot; if a 
+
+	vaccination is always life-long. </p>
+
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>This probabilistically adds the
+
+	<a title="SET-STATE-VACCINATED" href="SET-STATE-VACCINATED.html">
+
+	SET-STATE-VACCINATED</a> and
+
+	<a title="POSSIBLY-LOSE-IMMUNITY" href="POSSIBLY-LOSE-IMMUNITY.html">
+
+	POSSIBLY-LOSE-IMMUNITY</a> micro-behaviours. </p>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>If the product of <i>the-fraction-vaccinated-at-birth</i> and <i>
+
+	the-fraction-of-vaccinations-that-take</i> is less than or equal to a random 
+
+	number between 0 and 1 then the the
+
+	<a title="SET-STATE-VACCINATED" href="SET-STATE-VACCINATED.html">
+
+	SET-STATE-VACCINATED</a> and
+
+	<a title="POSSIBLY-LOSE-IMMUNITY" href="POSSIBLY-LOSE-IMMUNITY.html">
+
+	POSSIBLY-LOSE-IMMUNITY</a> micro-behaviours are added. </p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </p>
+
+</body>
+
+</html>

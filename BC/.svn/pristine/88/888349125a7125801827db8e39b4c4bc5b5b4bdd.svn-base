@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>PAUSE-WHEN-TIME-EXCEEDS-50</title>
+
+</head>
+
+
+
+<body>
+	<h3><i>I pause the execution of the simulation when some condition is true.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>PAUSE-WHEN-TIME-EXCEEDS-50</b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for stop-condition time &gt; 50
+substitute-text-area-for time-exceeded-message &quot;Paused because time exceeds maximum."                          
+when [stop-condition]
+     [set stop-running true
+      output-print time-exceeded-message]
+</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+	<p>You can edit the number in the text box to any positive value. You can specify a different condition by replacing <i>time &gt; 50</i> with 
+	some other condition.</p>
+	<h2>How this works</h2>
+
+	<p>When the condition <i>(time &gt; 50)</i> is true it sets a flag telling the 
+
+	program to pause at the end of this step.</p>
+
+	<h2>History</h2>
+
+
+
+	<p>This was implemented by Ken Kahn.</p>
+</body>
+</html>

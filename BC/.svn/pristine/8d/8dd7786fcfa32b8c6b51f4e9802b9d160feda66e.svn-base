@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+
+
+<head>
+
+
+
+<title>BIRTH-RATE</title>
+
+</head>
+
+
+
+<body>
+
+
+
+<div id="bodyContent">
+
+	
+
+	<h3><i>I give birth with some probability.</i> </h3>
+
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>BIRTH-RATE </b></p>
+
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>do-every 1
+   [do-with-probability reciprocal the-average-life-expectancy
+       [add-copies 1 [<a title="NEW-BORN-INITIAL-STATE" href="NEW-BORN-INITIAL-STATE.html">NEW-BORN-INITIAL-STATE</a> 
+                      <a title="POSSIBLY-VACCINATE-NEW-BORN" href="POSSIBLY-VACCINATE-NEW-BORN.html">POSSIBLY-VACCINATE-NEW-BORN</a>]]]
+</pre>
+
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2><span class="mw-headline">Related Micro-behaviours </span></h2>
+
+	<p>
+
+	<a title="CREATE-DEATH-RATE-SLIDER" href="CREATE-DEATH-RATE-SLIDER.html">
+
+	CREATE-DEATH-RATE-SLIDER</a> sets <i>the-average-life-expectancy</i>.
+
+	<a title="DEATH-RATE" href="DEATH-RATE.html">
+
+	DEATH-RATE</a> works in a similar manner to this micro-behaviour. </p>
+
+	<h2><span class="mw-headline">How this works </span></h2>
+
+	<p>This computes the odds of giving birth in any week and uses it to 
+
+	determine whether I create a copy of myself initialised by
+
+	<a title="NEW-BORN-INITIAL-STATE" href="NEW-BORN-INITIAL-STATE.html">
+
+	NEW-BORN-INITIAL-STATE</a> and
+
+	<a title="POSSIBLY-VACCINATE-NEW-BORN" href="POSSIBLY-VACCINATE-NEW-BORN.html">
+
+	POSSIBLY-VACCINATE-NEW-BORN</a>. </p>
+
+	<h2><span class="mw-headline">History </span></h2>
+
+	<p>This was implemented by Ken Kahn. </div>
+
+
+
+</body>
+
+
+
+</html>
+

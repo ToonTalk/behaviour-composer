@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-gb">
+
+<title>ADD-DIRECTED-LINK-FROM</title>
+</head>
+
+<body>
+
+<h3><i>I create an directed link from another to me.</i></h3>
+	<font size="2" color="gray">Begin micro-behaviour</font>
+	<p><b>ADD-DIRECTED-LINK-FROM</b></p>
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for other-end-of-link the-other               
+create-link-from other-end-of-link</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+You can specify the other end of the link by editing the text area.
+	<h2>Related Micro-behaviours</h2>
+	<p><a href="ADD-UNDIRECTED-LINK.html">ADD-UNDIRECTED-LINK</a> creates an 
+	undirected link. <a href="REMOVE-LINK.html">REMOVE-LINK</a> removes a link.</p>
+	<h2>How this works</h2>
+	<p>This uses the NetLogo <b>
+	<a target="_blank" href="http://ccl.northwestern.edu/netlogo/docs/dictionary.html#create-link-to">create-link-from</a></b> primitive with the agent returned by <b>
+	<a target="_blank" href="http://resources.modelling4all.org/documents/programming-guide#the-other">the-other</a></b>.</p>
+	<h2>History</h2>
+	<p>This was implemented by Ken Kahn.
+
+</body>
+
+</html>

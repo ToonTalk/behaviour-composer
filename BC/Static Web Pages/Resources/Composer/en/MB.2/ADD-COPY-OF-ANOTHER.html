@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+
+<head>
+<title>ADD-COPY-OF-ANOTHER</title>
+</head>
+
+<body>
+	<h3><i>I make a copy of another prototype.</i> </h3>
+	<p><font size="2" color="gray">Begin micro-behaviour</font> </p>
+	<p><b>ADD-COPY-OF-ANOTHER </b></p>
+	<font size="2" color="gray">Begin NetLogo code:</font>
+	<pre>substitute-text-area-for name-of-prototype "Prototype1"    
+let new-copy add-copy-of-another name-of-prototype list-of-micro-behaviours "Additional behaviours" [SET-RANDOM-HEADING.html]
+let x my-x
+let y my-y
+ask new-copy [set my-next-x x
+              set my-next-y y]
+</pre>
+	<font size="2" color="gray">End NetLogo code</font>
+	<h2>Variants</h2>
+	<p>You should change the contents of the edit box to refer to the
+	<a title="Kind" href="Kind.html">kind</a> of prototype you want to copy. In 
+	this example the copy has the additional behaviour of&nbsp;
+	<a title="SET-RANDOM-HEADING" href="SET-RANDOM-HEADING.html">SET-RANDOM-HEADING</a> 
+	that can be removed or replaced by others. The copy is also given my position 
+	rather than of the prototype that was copied. </p>
+	<h2>Related Micro-behaviours</h2>
+	<p>This example uses
+	<a title="SET-RANDOM-HEADING" href="SET-RANDOM-HEADING.html">SET-RANDOM-HEADING</a>.
+	</p>
+	<h2>How this works</h2>
+	<p>The NetLogo reporter <i>add-copy-of-another</i> creates a copy of any individual 
+	whose <a title="Kind" href="Kind.html">kind</a> is the contents of the edit 
+	box. </p>
+	<h2>History</h2>
+	<p>This was implemented by Ken Kahn. </p>
+</font>
+
+</body>
+
+</html>
