@@ -8,3 +8,4 @@ BC/war/WEB-INF/appengine-generated/local_db.bin
 BC/war/WEB-INF/classes/uk/ac/lkl/client/BehaviourComposer$15.class
 BC/war/WEB-INF/classes/uk/ac/lkl/client/BehaviourComposer$17$1.class
 BC/war/WEB-INF/deploy/Model/rpcPolicyManifest/manifest.txt
+*.class
