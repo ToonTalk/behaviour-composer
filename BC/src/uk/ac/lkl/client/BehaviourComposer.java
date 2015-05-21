@@ -1226,18 +1226,18 @@ public class BehaviourComposer extends Modeller {
 		super.onSuccess(modelInfo);
 		Modeller.removeAlert(alert);
 		try {
-		    String appletID = modelInfo[0];
+		    String modelID = modelInfo[0];
 		    String dimensions = modelInfo[4];
 		    String warnings = modelInfo[5];
 		    runModelSucceededTime = System.currentTimeMillis();
-		    if (CommonUtils.isErrorResponse(appletID)) {
-			addToErrorLog(appletID);
+		    if (CommonUtils.isErrorResponse(modelID)) {
+			addToErrorLog(modelID);
 			if (modelInfo.length > 5) {
 			    addToErrorLog(warnings);
 			}
 			// in case user wants to try again due to intermittent network connections
 			invalidateRunShareTabs();
-			if (!appletID.startsWith("Warning")) {
+			if (!modelID.startsWith("Warning")) {
 			    addToErrorLog("<hr>"); // separate calls to Run
 			    return;
 			}
@@ -1245,10 +1245,10 @@ public class BehaviourComposer extends Modeller {
 		    // need to signal to StaticPageServlet where to get these
 		    // since not like static HTML files
 		    if (initiatingPanel != null) {
-			initiatingPanel.setModelGuid(appletID);
+			initiatingPanel.setModelGuid(modelID);
 		    }
-		    String appletPath = CommonUtils.getStaticPagePath() + appletID;
-		    final String nlogoFileName = dimensions.equals("3") ? appletPath + ".nlogo3d" : appletPath + ".nlogo";
+		    String nlogoFilePath = CommonUtils.getStaticPagePath() + modelID;
+		    final String nlogoFileName = dimensions.equals("3") ? nlogoFilePath + ".nlogo3d" : nlogoFilePath + ".nlogo";
 		    HorizontalPanel nLogoPanel = new HorizontalPanel();
 		    HTML nlogoLink = 
 			    new HTML("<a href='" + nlogoFileName + "' target='_blank'>" + constants.downloadtheModel() + "</a>");
@@ -1257,10 +1257,10 @@ public class BehaviourComposer extends Modeller {
 		    nLogoPanel.add(new HTML(NON_BREAKING_SPACE + constants.toRunInNetLogo()));
 		    int appletWidth = 0;
 		    int appletHeight = 0;
-		    String fullURL = appletPath + ".html";
-		    String appletURL = fullURL.replace(".html", ".template.html");
+		    String fullURL = nlogoFilePath + ".html";
+		    String webVersionURL = "http://li425-91.members.linode.com:9000/tortoise#" + nlogoFileName; // fullURL.replace(".html", ".template.html");
 		    HTML appletLink = 
-			    new HTML("<a href='" + appletURL + "' target='_blank'>" + constants.runTheModel() + "</a>"); 
+			    new HTML("<a href='" + webVersionURL + "' target='_blank'>" + constants.runTheModel() + "</a>"); 
 		    appletLink.setTitle(constants.copyThisLinkToShareTheApplet());
 		    HorizontalPanel appletPanel = new HorizontalPanel();
 		    appletPanel.add(appletLink);
@@ -1269,7 +1269,7 @@ public class BehaviourComposer extends Modeller {
 		    if (noError) { 
 			if (!dimensions.equals("3")) {
 			    if (Modeller.forWebVersion) {
-				final Frame frame = new Frame("http://li425-91.members.linode.com:9000/tortoise#" + nlogoFileName);
+				final Frame frame = new Frame(webVersionURL);
 				// tried modelInfo[1]), Integer.parseInt(modelInfo[2] but it wasn't better
 				frame.setPixelSize(Modeller.instance().getMainTabPanelWidth(), Modeller.instance().getMainTabPanelHeight());
 //				LoadHandler handler = new LoadHandler() {
@@ -1393,7 +1393,7 @@ public class BehaviourComposer extends Modeller {
 		    sharePanel.clear();
 		    sharePanel.setSpacing(12);
 		    sharePanel.add(new HTML("<br />" + constants.embedYourModelInWikisBlogsEtc()));
-		    String linkModelHTML = CommonUtils.joinPaths(moduleBaseURL, "?frozen=" + appletID);
+		    String linkModelHTML = CommonUtils.joinPaths(moduleBaseURL, "?frozen=" + modelID);
 		    linkModelHTML = CommonUtils.addAttributeToURL(linkModelHTML, CommonUtils.M4A_MODEL_URL_PARAMETER, "1");
 		    sharePanel.add(createLinkInfo(constants.linkToModelSnapshot(), linkModelHTML, null));
 		    String copyModelHTML = CommonUtils.joinPaths(moduleBaseURL, "?copy=" + readOnlySessionID);
@@ -1404,36 +1404,36 @@ public class BehaviourComposer extends Modeller {
 		    sharePanel.add(createLinkInfo(constants.linkToSession(), linkSessionHTML, null));
 		    String userHTML = CommonUtils.joinPaths(moduleBaseURL, "?user=" + userGuid + "&start=models");
 		    sharePanel.add(createLinkInfo(constants.maintainYourIdentity(), userHTML, null));
-		    if (!dimensions.equals("3")) {
-			String appletGadgetHTML = 
-				"<applet code='org.nlogo.lite.Applet' align='baseline' width='" +
-					(appletWidth+10) + "' height='" + (appletHeight+10) +
-					"' archive='" + CommonUtils.getStaticPagePath() +
-					"../netlogo/NetLogoLite.jar'> <param name='DefaultModel' value='" +
-					nlogoFileName + "'>" + 
-					"<param name='java_arguments' value='-Djnlp.packEnabled=true -Xmx1024m'>";
-			appletGadgetHTML += CommonUtils.NOAPPLET + "\n</applet>\n";
-			appletGadgetHTML += CommonUtils.FIREFOX_RESIZING_APPLET_JAVASCRIPT + "\n";
+		    if (!dimensions.equals("3") && Modeller.forWebVersion) {
+//			String appletGadgetHTML = 
+//				"<applet code='org.nlogo.lite.Applet' align='baseline' width='" +
+//					(appletWidth+10) + "' height='" + (appletHeight+10) +
+//					"' archive='" + CommonUtils.getStaticPagePath() +
+//					"../netlogo/NetLogoLite.jar'> <param name='DefaultModel' value='" +
+//					nlogoFileName + "'>" + 
+//					"<param name='java_arguments' value='-Djnlp.packEnabled=true -Xmx1024m'>";
+//			appletGadgetHTML += CommonUtils.NOAPPLET + "\n</applet>\n";
+//			appletGadgetHTML += CommonUtils.FIREFOX_RESIZING_APPLET_JAVASCRIPT + "\n";
 			sharePanel.add(
 				createEmbeddingInfo(
 					constants.linkToApplet(), 
-					appletURL, 
+					webVersionURL, 
 					constants.copyAndPasteThisToShareYourApplet()));
-			sharePanel.add(
-				createEmbeddingInfo(
-					constants.embedAsApplet(), 
-					appletGadgetHTML, 
-					constants.copyAndPasteThisToAddYourAppletToAWebPage()));
+//			sharePanel.add(
+//				createEmbeddingInfo(
+//					constants.embedAsApplet(), 
+//					appletGadgetHTML, 
+//					constants.copyAndPasteThisToAddYourAppletToAWebPage()));
 			// following copied from ResourcePageServiceImpl
 			// iframe has an extra EXTRA_APPLET_WIDTHxEXTRA_APPLET_HEIGHT pixels
 			String iframeGadgetHTML = 
-				"<iframe src='" + appletURL + 
+				"<iframe src='" + webVersionURL + 
 				"' width='" + (appletWidth + EXTRA_APPLET_WIDTH) + 
 				"' height='" + (appletHeight + EXTRA_APPLET_HEIGHT) +
 				"'></iframe>";
 			sharePanel.add(createEmbeddingInfo(constants.embedAsIFrame(), iframeGadgetHTML, constants.copyAndPasteThisToAddYourAppletToAWebPage()));
 			String linksGadgetHTML = 
-				"<a href='" + appletURL + "' target='_blank'>" + 
+				"<a href='" + webVersionURL + "' target='_blank'>" + 
 					constants.runTheModel() + " " + 
 					constants.inANewBrowserWinderOrTab() + "</a>";
 			sharePanel.add(
@@ -1442,13 +1442,10 @@ public class BehaviourComposer extends Modeller {
 					linksGadgetHTML, 
 					constants.copyAndPasteThisToAddYourAppletToAWebPage()));
 		    }
-		    String exportModelHTML = appletPath + ".xml";
+		    String exportModelHTML = nlogoFilePath + ".xml";
 		    String completeExportModelHTML = "<" + constants.urlToAnotherBehaviourComposerServer() + ">?frozen=" + CommonUtils.encodeColonAndSlash(exportModelHTML);
 		    sharePanel.add(createEmbeddingInfo(constants.linkToModelXML(), exportModelHTML, null));
 		    sharePanel.add(createEmbeddingInfo(constants.exportModelXML(), completeExportModelHTML, null));
-		    // TODO: restore this
-		    //		String visualTraceURL = CommonUtils.joinPaths(moduleBaseURL, "/Model/ResourcePage?trace=" + appletID);
-		    //		sharePanel.add(createEmbeddingInfo(constants.TraceURLForSecondLife(), visualTraceURL, null));
 		    String flattenedRenamings = modelInfo[3];
 		    if (!flattenedRenamings.isEmpty()) {
 			String[] renamings = flattenedRenamings.split("<");
@@ -1479,7 +1476,7 @@ public class BehaviourComposer extends Modeller {
 			addToErrorLog(warnings);
 		    }
 		    long currentTimeMillis = System.currentTimeMillis();
-		    Utils.logServerMessage(Level.INFO, "runModel generated &frozen=" + appletID + 
+		    Utils.logServerMessage(Level.INFO, "runModel generated &frozen=" + modelID + 
 			                               " time from start is " +
 		                                       (currentTimeMillis-runModelStartTime) + 
 		                                       " and time from success is " + (currentTimeMillis-runModelSucceededTime));
