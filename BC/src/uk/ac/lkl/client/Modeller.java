@@ -751,7 +751,22 @@ abstract public class Modeller implements EntryPoint {
 		
 	});
 	return option;
-    } 
+    }
+    
+    public static CheckBox webNetLogoVersionOption() {
+	final CheckBox option = new CheckBox(constants.generateWebNetLogoCompatibleCode());
+	option.setTitle(constants.clickIfYouWantToRunYourModelInTheWebVersionOfNetLogo());
+	option.addClickHandler(new ClickHandler() {
+
+	    @Override
+	    public void onClick(ClickEvent event) {
+		Modeller.forWebVersion = option.getValue();
+	    }
+		
+	});
+	return option;
+    }
+//    
        
     public void splitPanelFromRest(Widget panel, boolean split, boolean horizontally) {
 	if (split && splitPanel != null) {

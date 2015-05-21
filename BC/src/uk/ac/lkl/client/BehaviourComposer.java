@@ -227,6 +227,7 @@ public class BehaviourComposer extends Modeller {
 	});
 	optionsPanel.setSpacing(6);
 	optionsPanel.add(createReloadWithoutHistory());
+	optionsPanel.add(webNetLogoVersionOption());
 	optionsPanel.add(collaborateButton);
 //	optionsPanel.add(splitScreenCheckBox);
 	optionsPanel.add(enableEditorButton);

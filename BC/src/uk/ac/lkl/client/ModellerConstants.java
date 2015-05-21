@@ -909,6 +909,10 @@ public interface ModellerConstants extends Constants {
     
     String thisWillReloadYourCurrentSessionInThePreviousReleaseOfTheSoftware();
     
+    String generateWebNetLogoCompatibleCode();
+   
+    String clickIfYouWantToRunYourModelInTheWebVersionOfNetLogo();
+    
     String urlToAnotherBehaviourComposerServer();
 
     String maintainYourIdentity();
