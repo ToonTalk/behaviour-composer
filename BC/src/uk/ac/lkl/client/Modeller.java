@@ -745,8 +745,8 @@ abstract public class Modeller implements EntryPoint {
 		String queryString = Window.Location.getQueryString();
 		// while in principle one can go back multiple versions they are not always kept
 		// maybe by keeping a list of here it will be clearer which versions to keep
-		// 403, 414, 423, 448, 492, 497, 518, 536, 545, 560, 568, 593, 600, 623, 636, 642, 647
-		Window.Location.replace("http://666.m4a-gae.appspot.com/m/" + queryString);
+		// 403, 414, 423, 448, 492, 497, 518, 536, 545, 560, 568, 593, 600, 623, 636, 642, 647, 666
+		Window.Location.replace("http://719.m4a-gae.appspot.com/m/" + queryString);
 	    }
 		
 	});
