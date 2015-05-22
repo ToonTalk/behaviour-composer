@@ -765,6 +765,9 @@ public class Utils {
 	if (gwtParameter != null) {
 	    url += "&gwt.codesvr=" + gwtParameter;
 	}
+	if (Modeller.forWebVersion) {
+	    url += "&forWebVersion=1";
+	}
         return url;
     }
     
