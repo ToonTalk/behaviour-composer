@@ -744,6 +744,7 @@ public class MacroBehaviourView extends VerticalPanelWithDebugID implements HasH
 		    }
 		}; 
 		ArrayList<MacroBehaviourView> innerMacroBehaviours = behaviour.getMacroBehaviourViews();
+		microBehavioursAlreadyConsidered.add(behaviour);
 		if (!innerMacroBehaviours.isEmpty()) {
 		    for (MacroBehaviourView innerMacroBehaviour : innerMacroBehaviours) {
 			MicroBehaviourView microBehaviourViewOfWidget = 
