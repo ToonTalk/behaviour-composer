@@ -704,7 +704,9 @@ public class NetLogoModel implements VariableCollector {
 	    code += "\n\n" + auxiliaryCode;
 	    // nested display is obsolete since NetLogo update on ticks does it better
 	    code = code.replace("nested-no-display", "")
-	               .replace("nested-display", "");
+	               .replace("nested-display", "")
+	               .replace("no-display", "")
+	               .replace(" display ", " ");
 	    if (forWebVersion) { 
 		// work around to current primitives lacking in web version of NetLogo	
 		code = code.replace(" clear-drawing", " clear-drawing-replacement")
