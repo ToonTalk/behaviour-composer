@@ -98,4 +98,8 @@ public class RunPanel extends RunDownloadSharePanel {
         }
     }
 
+    public void removeWaitingMessage() {
+	waitingMessage.removeFromParent();	
+    }
+
 }

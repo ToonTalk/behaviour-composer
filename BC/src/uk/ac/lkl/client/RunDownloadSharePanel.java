@@ -20,6 +20,7 @@ public class RunDownloadSharePanel extends VerticalPanelWithDebugID {
     private boolean run;
     private String modelGuid = null;
     private String savedTitle;
+    protected HTML waitingMessage = null;
     
     public RunDownloadSharePanel(boolean run, boolean share) {
 	super();
@@ -59,7 +60,8 @@ public class RunDownloadSharePanel extends VerticalPanelWithDebugID {
 //	    // hack to work around problem that run panel reloads the entire page when the applet loads
 //	    add(new HTML("Internet Explorer no longer supports the Run tab. Click on the Download tab and use the the 'Run the model' link instead."));
 //	} else {
-	    add(new HTML(Modeller.constants.pleaseWait()));
+	    waitingMessage  = new HTML(Modeller.constants.pleaseWait());
+	    add(waitingMessage);
 //	}
 	setDirty(false);
     }

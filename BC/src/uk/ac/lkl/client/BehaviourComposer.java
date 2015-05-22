@@ -37,6 +37,8 @@ import uk.ac.lkl.shared.DeltaPageResult;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.LoadEvent;
+import com.google.gwt.event.dom.client.LoadHandler;
 import com.google.gwt.http.client.URL;
 import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.Window;
@@ -1273,15 +1275,15 @@ public class BehaviourComposer extends Modeller {
 				final Frame frame = new Frame(webVersionURL);
 				// tried modelInfo[1]), Integer.parseInt(modelInfo[2] but it wasn't better
 				frame.setPixelSize(Modeller.instance().getMainTabPanelWidth(), Modeller.instance().getMainTabPanelHeight());
-//				LoadHandler handler = new LoadHandler() {
-//
-//				    @Override
-//                                    public void onLoad(LoadEvent event) {
-//					setAlertsLine(...);
-//                                    }
-//				    
-//				};
-//				frame.addLoadHandler(handler);
+				LoadHandler handler = new LoadHandler() {
+
+				    @Override
+                                    public void onLoad(LoadEvent event) {
+					BehaviourComposer.runPanel.removeWaitingMessage();
+                                    }
+				    
+				};
+				frame.addLoadHandler(handler);
 				BehaviourComposer.runPanel.setFrame(frame);
 //				setAlertsLine("<i>Copy and paste</i> <b>" + nlogoFileName + "</b> into the bottom input area and press submit. This uses the Web version of NetLogo which is under development and incomplete.");
 			    } else {
