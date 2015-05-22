@@ -708,7 +708,8 @@ public class NetLogoModel implements VariableCollector {
 	    if (forWebVersion) { 
 		// work around to current primitives lacking in web version of NetLogo	
 		code = code.replace(" clear-drawing", " clear-drawing-replacement")
-	                   .replace("[clear-drawing", "[clear-drawing-replacement");               	    
+	                   .replace("[clear-drawing", "[clear-drawing-replacement")
+	                   .replace(" layout-circle", " layout-circle-replacement");               	    
 		code += getNetLogoCode("web-version-workarounds");
             }
 	    fileContents += netLogoEngineDeclarations + code; 

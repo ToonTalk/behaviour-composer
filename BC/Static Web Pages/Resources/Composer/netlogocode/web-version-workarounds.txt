@@ -2,3 +2,15 @@
 
 to clear-drawing-replacement
 end
+
+to layout-circle-replacement [agentset-or-list radius]
+  let agents ifelse-value is-list? agentset-or-list [agentset-or-list] [[self] of agentset-or-list]
+  if not empty? agents
+     [let angle 360 / length agents
+      let h 0
+      forEach agents
+         [ask ? [setxy 0 0
+                 set heading h
+                 set h h + angle
+                 forward radius]]]
+end
