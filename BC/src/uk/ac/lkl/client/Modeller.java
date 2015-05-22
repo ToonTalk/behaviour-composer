@@ -764,6 +764,7 @@ abstract public class Modeller implements EntryPoint {
 	    }
 		
 	});
+	option.setValue(Modeller.forWebVersion);
 	return option;
     }
 //    
