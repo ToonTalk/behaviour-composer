@@ -1,11 +1,13 @@
 BC/war/WEB-INF/classes/uk/ac/lkl/client/*.class
 BC/gwt-unitCache/*
+BC/war/Model/*
+BC/war/WEB-INF/classes/*
+BC/war/WEB-INF/deploy/*
 BC/war/WEB-INF/appengine-generated/*.bin
 BC/war/WEB-INF/appengine-generated/*.xml
 BC/war/Model/Model.nocache.js
 BC/war/WEB-INF/appengine-generated/datastore-indexes-auto.xml
 BC/war/WEB-INF/appengine-generated/local_db.bin
-BC/war/WEB-INF/classes/uk/ac/lkl/client/BehaviourComposer$15.class
-BC/war/WEB-INF/classes/uk/ac/lkl/client/BehaviourComposer$17$1.class
 BC/war/WEB-INF/deploy/Model/rpcPolicyManifest/manifest.txt
 *.class
+BC/war/google2b4c697652f2ab5e.html

@@ -1,0 +1,83 @@
+/*
+  This stylesheet provides styling for the main navigation elements in your site
+ */
+/*
+  NESTED NAV STYLINGS
+  These styles are for multi level navigation structured with nested lists
+ */
+/* nav bar stuff starts */
+div#mainnav ul {
+    padding: 0px;
+    margin: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    border-width: 0px;
+    padding-bottom: 0px;
+/*
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+ */
+}
+div#mainnav ul li {
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 0px;
+    margin-bottom:0px;
+    list-style: none;
+    border-width: 0px;
+/*
+   1 pixel border bottom on li is required to avoid unwanted space
+  in IE6
+ */
+    border-bottom: 1px solid #fff;
+}
+div#mainnav ul li a {
+    background-color: #699;
+    color: #fff;
+}
+div#mainnav ul li.currentsection a {
+    background-color: #8ab1b8;
+    color: #fff;
+}
+div#mainnav ul li a:hover, div#mainnav ul li a:focus {
+    background-color: #98f2b7;
+    color: #000;
+}
+div#mainnav ul li span.youarehere {
+    background-color: #f8a228;
+    color: #fff;
+}
+div#mainnav ul li a, div#mainnav ul li a#currentsection, div#mainnav ul li span.youarehere {
+    text-align: right;
+    display: block;
+    border-width: 0px;
+    font-size:0.95em;
+    padding: 15px;
+    padding-right: 0.4em;
+    text-decoration: none;
+}
+div#mainnav ul li a#currentsection {
+}
+div#mainnav ul li a, div#mainnav ul li, div#mainnav ul li span.youarehere {
+}
+div#mainnav ul li ul li a, div#mainnav ul li ul li span.youarehere {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-weight: normal;
+    border-width: 0px;
+    padding-right: 2.3em;
+}
+div#mainnav ul li.currentsection {
+    border-top: 1px solid #fff;
+}
+div#mainnav ul li ul {
+    margin: 0px;
+    padding: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+}
+/* indent sub-sub navigation further */
+div#mainnav ul li ul li ul li a, div#mainnav ul li ul li ul li span.youarehere {
+;
+    padding-right: 3.6em;
+}
