@@ -1689,7 +1689,7 @@ public class NetLogoModel implements VariableCollector {
 	    }
 	    token = tokenizer.nextToken(false); // for the legends (if any)
 	    // no auto-plot if dimensions specified explicitly
-	    commandToAddAPlot += "false" + "\n";
+	    commandToAddAPlot += "false\n";
 	} else {
 	    commandToAddAPlot += 0.0 + "\n" + 1.0 + "\n" + 0.0 + "\n" + 1.0 + "\n" + "true" + "\n";
 	}
@@ -1701,14 +1701,14 @@ public class NetLogoModel implements VariableCollector {
 //	    } // otherwise token is already correctly bound
 	    if (token == null || token.equalsIgnoreCase("false")) {
 		// no legend
-		commandToAddAPlot += "false\nPENS\n\"default\" 1.0 0 -16777216 true\n";
+		commandToAddAPlot += "false\n\"\" \"\"\nPENS\n\"default\" 1.0 0 -16777216 true\n";
 	    } else if (token.equalsIgnoreCase("true")) {
 		// legend when pens added
 		// need to add a pen but it doesn't need to be in the legend
-		commandToAddAPlot += "true\nPENS\n\"a name never used\" 1.0 0 -16777216 false\n";
+		commandToAddAPlot += "true\n\"\" \"\"\nPENS\n";
 	    } else {
 		// create a legend
-		commandToAddAPlot += "true\nPENS\n";
+		commandToAddAPlot += "true\n\"\" \"\"\nPENS\n";
 		// all that remains is alternating label and color names
 		while (token != null) {
 		    String label = token;
@@ -1859,7 +1859,7 @@ public class NetLogoModel implements VariableCollector {
 		} else if (legendString.equalsIgnoreCase("true")) {
 		    // legend when pens added
 		    // need to add a pen but it doesn't need to be in the legend
-		    commandToAddAPlot += "true\nPENS\n\"a name never used\" 1.0 0 -16777216 false\n";
+		    commandToAddAPlot += "true\n";
 		} else {
 		    // create a legend
 		    commandToAddAPlot += "true\nPENS\n";
