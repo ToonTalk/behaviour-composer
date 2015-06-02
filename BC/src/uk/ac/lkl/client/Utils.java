@@ -644,7 +644,7 @@ public class Utils {
 
     static public List<String> behaviourComposerPrimitives = 
 	    Arrays.asList(
-    	"do-every", "do-at-setup", "do-after-setup", "when", "whenever", "do-after", "do-at-time", "do-now", 
+    	"do-every", "do-every-dynamic", "do-at-setup", "do-after-setup", "when", "whenever", "do-after", "do-at-time", "do-now", 
     	"do-for-n", "select-n", 
     	"do-repeatedly", "do-with-probability", "do-with-probabilities", 
     	"add-behaviour", "add-behaviours", "add-behaviours-to", "add-behaviour-to", 

@@ -236,6 +236,11 @@ to do-every-internal [interval actions]
  run-procedure actions
 end
 
+to do-every-dynamic [interval-reporter actions]
+ insert-behaviour time + run-result interval-reporter (list (list actions interval-reporter))
+ run-procedure actions
+end
+
 to do-after-setup [actions] 
  ; do actions 1/1000000 of a tick after setup has completed
  do-at-time .000001 actions
@@ -696,10 +701,12 @@ end
 
 to run-procedure [name]
  if-else is-list? name 
-    [let target-or-frequency first but-first name
+    [let target-or-frequency item 1 name
      if-else is-number? target-or-frequency
         [do-every-internal target-or-frequency first name]
-        [ask target-or-frequency [run first name]]] 
+        [if-else is-agent? target-or-frequency
+            [ask target-or-frequency [run first name]]
+            [do-every-dynamic target-or-frequency first name] ]]
     [run name]
 end
 

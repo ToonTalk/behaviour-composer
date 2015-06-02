@@ -50,17 +50,17 @@ public class MicroBehaviour {
     private static int unnamedCounter = 1;
     
     protected static String[] operationsExpectingABracketedExpression = 
-	{ "do-now", "do-every", "do-after", "do-with-probability", "do-with-probabilities",
+	{ "do-now", "do-every", "do-every-dynamic", "do-after", "do-with-probability", "do-with-probabilities",
 	  "do-repeatedly", "do-for-n", "do-at-time", "do-at-setup", "do-after-setup",
 	  "do-if", "do-if-else", "ask-every-patch", "when", "whenever", "anyone-is", 
 	  "anyone-who-is", "all-who-are", "create-objects", "create-agents", "create-agents-from-data"};
     protected static String[] operationsExpectingASecondBracketedExpression = 
 	    // above is a superset of this list
-	{ "when", "whenever", "anyone-who-is", "all-who-are", "do-if-else"};
+	{ "when", "whenever", "anyone-who-is", "all-who-are", "do-if-else", "do-every-dynamic"};
     protected static String[] operationsExpectingBracketedExpressionAsFirstArgument = 
 	    // used to produce warnings if first argument is not a square bracket
 	{ "do-now", "do-at-setup", "do-after-setup", "do-with-probabilities",
-	  "when", "whenever", "anyone-who-is", "all-who-are" };
+	  "when", "whenever", "anyone-who-is", "all-who-are", "do-every-dynamic" };
     protected static String[] topLevelNetLogoPrimitives =
 	{ "to", "to-report", "extensions", "globals"};
     //public static Pattern operationExpectingSquareBracketedExpression = Pattern.compile(
