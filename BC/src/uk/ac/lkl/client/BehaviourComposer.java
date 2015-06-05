@@ -1418,11 +1418,11 @@ public class BehaviourComposer extends Modeller {
 //					"<param name='java_arguments' value='-Djnlp.packEnabled=true -Xmx1024m'>";
 //			appletGadgetHTML += CommonUtils.NOAPPLET + "\n</applet>\n";
 //			appletGadgetHTML += CommonUtils.FIREFOX_RESIZING_APPLET_JAVASCRIPT + "\n";
-//			sharePanel.add(
-//				createEmbeddingInfo(
-//					constants.linkToApplet(), 
-//					webVersionURL, 
-//					constants.copyAndPasteThisToShareYourApplet()));
+			sharePanel.add(
+				createEmbeddingInfo(
+					constants.linkToApplet(), 
+					webVersionURL, 
+					constants.copyAndPasteThisToShareYourApplet()));
 //			sharePanel.add(
 //				createEmbeddingInfo(
 //					constants.embedAsApplet(), 
