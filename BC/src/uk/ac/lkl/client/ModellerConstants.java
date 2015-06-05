@@ -1011,6 +1011,8 @@ public interface ModellerConstants extends Constants {
 
     String browserDownloadHelp();
     
+    String openModelInNewTab();
+    
     String goToYourModelAppletPage();
     
     String goToYourGame();

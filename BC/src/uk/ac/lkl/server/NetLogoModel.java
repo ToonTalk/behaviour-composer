@@ -1881,7 +1881,7 @@ public class NetLogoModel implements VariableCollector {
 		}
 	    }
 	}
-	commandToAddAPlot += "\n";
+	commandToAddAPlot += " \"\" \"\"\n";
 	widgetsToCreate.add(commandToAddAPlot);
     }
    
@@ -2068,10 +2068,16 @@ public class NetLogoModel implements VariableCollector {
 		              "1\n" + // not clear what this does
 		              units + "\n" +
 		              (horizontal ? "HORIZONTAL\n" : "VERTICAL\n");
-	if (widgetsToCreate.indexOf(commandToAddASlider) < 0) {
-	    // haven't already planned to create this one
-	    widgetsToCreate.add(commandToAddASlider);
+	for (int i = 0; i < widgetsToCreate.size(); i++) {
+	    String widget = widgetsToCreate.get(i);
+	    if (widget.startsWith("SLIDER") && widget.indexOf(variableName) > 0) {
+		// already defined a slider for this variable
+		// replace the old one with this one
+		widgetsToCreate.set(i, commandToAddASlider);
+		return;
+	    }
 	}
+	widgetsToCreate.add(commandToAddASlider);
     }
     
     public void addCommandToAddInputBox(String variableName, 
@@ -2101,6 +2107,7 @@ public class NetLogoModel implements VariableCollector {
 	commandToAddASwitch += 
 		variableName + "\n" + variableName + "\n" + 
 		(initialValue.equalsIgnoreCase("true") ? "0\n" : "1\n");
+	commandToAddASwitch += "1\n-1000\n";
 	if (widgetsToCreate.indexOf(commandToAddASwitch) < 0) {
 	    // haven't already planned to create this one
 	    widgetsToCreate.add(commandToAddASwitch);
@@ -2565,9 +2572,6 @@ public class NetLogoModel implements VariableCollector {
 	if (variable.equals("the-other")) {
 	    // could rename the-other instead but too many micro-behaviours use it (13 as of 22 Oct 2008)
 	    return false;
-	}
-	if (variable.equals("the-global-susceptibles")) {
-	    System.out.println("debug this");
 	}
 	if (!expectedGlobalVariables.contains(variable)) {
 	    expectedGlobalVariables.add(variable);

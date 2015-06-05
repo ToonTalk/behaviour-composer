@@ -1042,7 +1042,16 @@ abstract public class Modeller implements EntryPoint {
 	String useAuxiliaryFileString = Utils.getLocationParameter("useAuxiliaryFile");
 	useAuxiliaryFile = useAuxiliaryFileString != null && useAuxiliaryFileString.equals("1");
 	String forWebVersionString = Utils.getLocationParameter("forWebVersion");
-	forWebVersion = forWebVersionString != null && forWebVersionString.equals("1");
+	if (forWebVersionString == null) {
+	    // default is web version if mobile device
+	    // see http://www.useragentstring.com/pages/Mobile%20Browserlist/
+	    String agent = Window.Navigator.getUserAgent();
+	    forWebVersion = agent.contains("Android") || agent.contains("BlackBerry") || 
+		            agent.contains("Windows Phone") || agent.contains("Nokia") || agent.contains("Opera Mini") ||
+		            agent.contains("SonyEricsson") || agent.contains("iPhone");
+	} else {
+	    forWebVersion = forWebVersionString.equals("1");
+	}
 	if (userGuid == null) {
 	    // first recorded event will create one and save it
 	    // test cookies

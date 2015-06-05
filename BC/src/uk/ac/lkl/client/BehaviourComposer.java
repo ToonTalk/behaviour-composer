@@ -1261,7 +1261,7 @@ public class BehaviourComposer extends Modeller {
 		    int appletWidth = 0;
 		    int appletHeight = 0;
 		    String fullURL = nlogoFilePath + ".html";
-		    String webVersionURL = "http://li425-91.members.linode.com:9000/tortoise#" + nlogoFileName; // fullURL.replace(".html", ".template.html");
+		    String webVersionURL = "http://li425-91.members.linode.com:9000/create-standalone#" + nlogoFileName;
 		    HTML appletLink = 
 			    new HTML("<a href='" + webVersionURL + "' target='_blank'>" + constants.runTheModel() + "</a>"); 
 		    appletLink.setTitle(constants.copyThisLinkToShareTheApplet());
@@ -1408,6 +1408,7 @@ public class BehaviourComposer extends Modeller {
 		    String userHTML = CommonUtils.joinPaths(moduleBaseURL, "?user=" + userGuid + "&start=models");
 		    sharePanel.add(createLinkInfo(constants.maintainYourIdentity(), userHTML, null));
 		    if (!dimensions.equals("3") && Modeller.forWebVersion) {
+			sharePanel.insert(new HTML(constants.openModelInNewTab().replace("***WEB-NETLOGO-URL***", webVersionURL)), 0);
 //			String appletGadgetHTML = 
 //				"<applet code='org.nlogo.lite.Applet' align='baseline' width='" +
 //					(appletWidth+10) + "' height='" + (appletHeight+10) +
@@ -1417,11 +1418,11 @@ public class BehaviourComposer extends Modeller {
 //					"<param name='java_arguments' value='-Djnlp.packEnabled=true -Xmx1024m'>";
 //			appletGadgetHTML += CommonUtils.NOAPPLET + "\n</applet>\n";
 //			appletGadgetHTML += CommonUtils.FIREFOX_RESIZING_APPLET_JAVASCRIPT + "\n";
-			sharePanel.add(
-				createEmbeddingInfo(
-					constants.linkToApplet(), 
-					webVersionURL, 
-					constants.copyAndPasteThisToShareYourApplet()));
+//			sharePanel.add(
+//				createEmbeddingInfo(
+//					constants.linkToApplet(), 
+//					webVersionURL, 
+//					constants.copyAndPasteThisToShareYourApplet()));
 //			sharePanel.add(
 //				createEmbeddingInfo(
 //					constants.embedAsApplet(), 
