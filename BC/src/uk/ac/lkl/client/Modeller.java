@@ -1048,7 +1048,8 @@ abstract public class Modeller implements EntryPoint {
 	    String agent = Window.Navigator.getUserAgent();
 	    forWebVersion = agent.contains("Android") || agent.contains("BlackBerry") || 
 		            agent.contains("Windows Phone") || agent.contains("Nokia") || agent.contains("Opera Mini") ||
-		            agent.contains("SonyEricsson") || agent.contains("iPhone");
+		            agent.contains("SonyEricsson") || agent.contains("iPhone") ||
+		            BehaviourComposer.epidemicGameMakerMode();
 	} else {
 	    forWebVersion = forWebVersionString.equals("1");
 	}
@@ -1085,7 +1086,11 @@ abstract public class Modeller implements EntryPoint {
 			&& BehaviourComposer.epidemicGameMakerMode()) {
 		    // change in policy about restarting EGM -- always get initial model
 //			&& (newSessionGuid == null || newSessionGuid.equals("new"))) {
-		    BehaviourComposer.initialModelID = "keJ0rKKMf19IqBb6IwYy4_";
+		    if (Modeller.forWebVersion) {
+			BehaviourComposer.initialModelID = "p-H7keNjmSMdYNkwB8A75g";
+		    } else {
+			BehaviourComposer.initialModelID = "keJ0rKKMf19IqBb6IwYy4_";
+		    }
 		}
 		String newUserGuid = Utils.getLocationParameter("user");
 		if (newUserGuid != null) {
