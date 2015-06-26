@@ -36,7 +36,6 @@ to setup-except [globals-not-to-be-initialised]
  set total-time 0
  if go-until (delta-t - .000001) []  ; ignore result
  ask objects [initialise-previous-state]
- reset-ticks
 end
 
 to initialise
@@ -67,6 +66,7 @@ to initialise
  if world-geometry = 0 [set world-geometry 1]
  ask-every-patch task [initialise-patch-attributes]
  set state-restored-after-setup saved-state-restored-after-setup
+ reset-ticks
 end
 
 to initialise-object
