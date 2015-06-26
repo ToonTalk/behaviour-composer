@@ -36,6 +36,7 @@ to setup-except [globals-not-to-be-initialised]
  set total-time 0
  if go-until (delta-t - .000001) []  ; ignore result
  ask objects [initialise-previous-state]
+ reset-ticks
 end
 
 to initialise
@@ -50,7 +51,6 @@ to initialise
         [clear-all
          set plot-generation 0]]
     [clear-all]
- reset-ticks
  reset-timer
  set time -1
  set times-scheduled []
