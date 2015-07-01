@@ -23,7 +23,8 @@
   <inherits name="com.allen_sauer.gwt.log.gwt-log-RemoteLogger" />
 
   <!-- Specify the app entry point class.                         -->
-  <entry-point class='uk.ac.lkl.client.BehaviourComposer' /> <extend-property name="user.agent" values="ie8,ie9" />
+  <entry-point class='uk.ac.lkl.client.BehaviourComposer' /> 
+  <extend-property name="user.agent" values="ie8,ie9" />
 <!-- enable GWT Super Dev mode -->
   <add-linker name="xsiframe"/>
 <set-configuration-property name="devModeRedirectEnabled" value="true"/>
