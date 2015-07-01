@@ -588,11 +588,13 @@ public class NetLogoModel implements VariableCollector {
 		    String url = shapeName;
 		    String oldShapeDefinition = urlToShapeDefinitionMap.get(url); 
 		    String shapeDefinition;
+		    int definitionStart = -1;
+		    String errorMessage = null;
 		    if (oldShapeDefinition == null) {
 			shapeDefinition = ServerUtils.urlToString(shapeName, clientState, true);
 			if (shapeDefinition != null) {
 			    shapeDefinition = CommonUtils.getInnerText(shapeDefinition);
-			    int definitionStart = shapeDefinition.indexOf(BEGIN_NET_LOGO_SHAPE_TOKEN);
+			    definitionStart = shapeDefinition.indexOf(BEGIN_NET_LOGO_SHAPE_TOKEN);
 			    if (definitionStart >= 0) {
 				definitionStart += BEGIN_NET_LOGO_SHAPE_TOKEN.length();
 				int definitionEnd = shapeDefinition.indexOf(END_NET_LOGO_SHAPE_TOKEN, definitionStart);
@@ -605,7 +607,7 @@ public class NetLogoModel implements VariableCollector {
 		    } else {
 			shapeDefinition = oldShapeDefinition;
 		    }
-		    if (shapeDefinition != null) {
+		    if (shapeDefinition != null && definitionStart >= 0) {
 			String[] parts = shapeDefinition.split("(\\s)+", 2);
 			if (parts.length > 1) {
 			    codeChanged = true;
@@ -616,9 +618,14 @@ public class NetLogoModel implements VariableCollector {
 				urlToShapeDefinitionMap.put(url, shapeDefinition);
 			    }
 			} else {
-			    clientState.warn("The contents of the shape URL: " + url + "\nis not correct: " + shapeDefinition);
+			    errorMessage = "The contents of the shape URL: " + url + "\nis not correct. Perhaps the URL is incorrect or else something is wrong with this shape defintion: " + shapeDefinition;
 			}
-		    } // else urlToString should have produced some warnings
+		    } else {
+			errorMessage = "The contents of the shape URL: " + url + "\nis not correct. Perhaps the URL is incorrect.";
+		    } 
+		    if (errorMessage != null) {
+			clientState.warn(errorMessage);
+		    }
 		} else {
 		    if (!shapeNameTrimmed.equals(shapeName)) {
 			codeChanged = true;
