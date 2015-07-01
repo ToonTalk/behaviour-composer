@@ -609,7 +609,8 @@ public class NetLogoModel implements VariableCollector {
 			String[] parts = shapeDefinition.split("(\\s)+", 2);
 			if (parts.length > 1) {
 			    codeChanged = true;
-			    shapeName = parts[0];
+			    shapeName = parts[0].toLowerCase();
+			    shapeDefinition = shapeName + "\n" + parts[1];
 			    pieces[i] = "\"" + shapeName + pieces[i].substring(endQuote);
 			    if (oldShapeDefinition == null) {
 				urlToShapeDefinitionMap.put(url, shapeDefinition);
