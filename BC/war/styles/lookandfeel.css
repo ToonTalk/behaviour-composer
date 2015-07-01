@@ -182,21 +182,26 @@ border-color: #000;
 /* for every headline link, give it an id and then specify an appropriate image*/
 #headline-1
 {
+/* not clear what the following does but these images aren't available
 background-image: url('../images/chameleon.jpg');
 background-repeat: no-repeat;
-background-position: bottom left;
+background-position: bottom left; */
 }
 #headline-2
 {
+/* 
 background-image: url('../images/flower.jpg');
 background-repeat: no-repeat;
 background-position: bottom left;
+*/
 }
 #headline-3
 {
+/*
 background-image: url('../images/chillies.jpg');
 background-repeat: no-repeat;
 background-position: bottom left; 
+*/
 }
 
 /* panels stuff */
