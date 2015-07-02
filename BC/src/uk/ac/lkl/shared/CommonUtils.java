@@ -1130,7 +1130,7 @@ public class CommonUtils {
 	String result = piece.substring(0, openBracket) + taskList;
 	if (closeBracket+1 < piece.length() && result.indexOf(START_ALREADY_PROCESSED_LEAVE_ALONE) < 0) {
 	    // adding ALREADY_PROCESSED_LEAVE_ALONE protects the rest for additional processing - e.g. taskifyList
-	    result = "\n" + START_ALREADY_PROCESSED_LEAVE_ALONE + "\n" + result + "\n" + END_ALREADY_PROCESSED_LEAVE_ALONE + "\n" + piece.substring(closeBracket+1);
+	    result = "\n" + START_ALREADY_PROCESSED_LEAVE_ALONE + "\n" + result + "\n" + piece.substring(closeBracket+1) + END_ALREADY_PROCESSED_LEAVE_ALONE + "\n";
 	}
 	return result;
     }
