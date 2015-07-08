@@ -3290,7 +3290,7 @@ abstract public class Modeller implements EntryPoint {
 //	if (Modeller.useLocalHost) {
 //	    return
 //		string.replaceAll(
-//			"http://http://m.modelling4all.org/p", 
+//			"http://m.modelling4all.org/p", 
 //		        "file://c:/eclipse/Modeller/Static Web Pages/Resources");
 //	} else {
 //	    return string;
