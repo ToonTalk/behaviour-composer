@@ -724,6 +724,10 @@ public class BrowsePanel extends ScrollPanelInTabPanel {
     public void loadURL(String urlString, AsyncCallback<String[]> callback) {
 	String fullUrl = CommonUtils.fullUrl(urlString, getCurrentURLBase());
 	fullUrl = localeVersion(fullUrl);
+	if (fullUrl.startsWith("http://http://")) {
+	    // users do this -- sloppy copy and paste
+	    fullUrl = fullUrl.substring(7); 
+	}
 	// check for version specific URLs and revise to use default version
 	String[] split = fullUrl.split("\\d+.m4a-gae.appspot.com", 2);
 	if (split.length == 2) {

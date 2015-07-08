@@ -181,6 +181,10 @@ public class ResourcePageServiceImpl extends RemoteServiceServlet implements Res
 	    e1.printStackTrace();
 	}
 	removeOldEntriesFromMicroBehaviourURLTable(System.currentTimeMillis()-sessionCacheLifetime);
+	if (urlString.startsWith("http://http://")) {
+	    // users do this -- sloppy copy and paste
+	    urlString = urlString.substring(7); 
+	}
 	urlString = CommonUtils.cannonicaliseURL(urlString);
 	String baseURL = CommonUtils.getBaseURL(urlString);
 	String answer[] = new String[8];
