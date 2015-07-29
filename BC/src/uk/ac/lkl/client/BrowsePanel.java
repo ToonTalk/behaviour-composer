@@ -1832,7 +1832,8 @@ public class BrowsePanel extends ScrollPanelInTabPanel {
 
     public void addWarningIfNeeded() {
 	if (microBehaviour.isWarnThatTextAreasHaveChanged()) { 
-	    Warning warning = new Warning(Modeller.constants.differentTextAreasCountWarning());
+	    String warning_string = Modeller.constants.differentTextAreasCountWarning();
+	    Warning warning = new Warning(warning_string);
 	    Command loadCommand = new Command() {
 
 		@Override
@@ -1844,6 +1845,8 @@ public class BrowsePanel extends ScrollPanelInTabPanel {
 	    };
 	    warning.addLoadCommand(loadCommand);
 	    warningPanel.setWidget(warning);
+	    // warningPanel isn't always attached so added following:
+	    Modeller.addAlert(warning_string);
 	} else {
 	    warningPanel.setWidget(null);
 	}
