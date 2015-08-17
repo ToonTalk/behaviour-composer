@@ -1261,7 +1261,7 @@ public class BehaviourComposer extends Modeller {
 		    int appletWidth = 0;
 		    int appletHeight = 0;
 		    String fullURL = nlogoFilePath + ".html";
-		    String webVersionURL = "http://li425-91.members.linode.com:9000/create-standalone#" + nlogoFileName;
+		    String webVersionURL = "http://www.netlogoweb.org/launch#" + nlogoFileName;
 		    HTML appletLink = 
 			    new HTML("<a href='" + webVersionURL + "' target='_blank'>" + constants.runTheModel() + "</a>"); 
 		    appletLink.setTitle(constants.copyThisLinkToShareTheApplet());
