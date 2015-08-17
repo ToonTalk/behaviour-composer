@@ -1683,16 +1683,16 @@ public class NetLogoModel implements VariableCollector {
 	}
 	boolean rangeSpecified = number != null;
 	if (rangeSpecified) {
-	    commandToAddAPlot += number + "\n";
-	    // and do the other 3 as well
-	    for (int i = 0; i < 3; i++) {
-		token = tokenizer.nextToken(false);
+	    for (int i = 0; i < 4; i++) {
 		Double range = CommonUtils.doubleIfQuoted(token);
 		if (number != null) {
 		    commandToAddAPlot += range + "\n";
 		} else {
 		    clientState.warn("Expected all four arguments specifying the range of values to create-plot or create-histogram to be numbers.\n" + arguments);
 		    return null;
+		}
+		if (i < 3) {
+		    token = tokenizer.nextToken(false);
 		}
 	    }
 	    token = tokenizer.nextToken(false); // for the legends (if any)
@@ -1709,7 +1709,7 @@ public class NetLogoModel implements VariableCollector {
 //	    } // otherwise token is already correctly bound
 	    if (token == null || token.equalsIgnoreCase("false")) {
 		// no legend
-		commandToAddAPlot += "false\n\"\" \"\"\nPENS\n\"default\" 1.0 0 -16777216 true\n";
+		commandToAddAPlot += "false\n\"\" \"\"\nPENS\n\"default\" 1.0 0 -16777216 true \"\" \"\"\n";
 	    } else if (token.equalsIgnoreCase("true")) {
 		// legend when pens added
 		// need to add a pen but it doesn't need to be in the legend
@@ -1735,7 +1735,7 @@ public class NetLogoModel implements VariableCollector {
 		    }
 		    String colorNumber = colorNumber(colorName);
 		    if (colorNumber != null) {
-			commandToAddAPlot += "\"" + label + "\"" + " 1.0 0 " + colorNumber + " true\n";
+			commandToAddAPlot += "\"" + label + "\"" + " 1.0 0 " + colorNumber + " true \"\" \"\"\n";
 		    } else {
 			clientState.warn(colorName + " is not a recognised pen color (in create-plot or create-histogram)");
 		    }
@@ -2385,7 +2385,7 @@ public class NetLogoModel implements VariableCollector {
 	}
 	commandToAddAButton += "1\nT\nOBSERVER\nNIL\n";
 	// not sure if these parameters are worth providing an interface
-	commandToAddAButton += shortcut + "\nNIL\nNIL\n\n";
+	commandToAddAButton += shortcut + "\nNIL\nNIL\n1\n\n";
 	if (widgetsToCreate.indexOf(commandToAddAButton) < 0) {
 	    // don't already plan to create this one
 	    widgetsToCreate.add(commandToAddAButton);
