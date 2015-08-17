@@ -138,6 +138,11 @@ public class StaticPageServlet extends HttpServlet {
 	    // according to http://stackoverflow.com/questions/6520231/how-to-force-browser-to-download-file
 	    // this needs be before writing the content of the response
 	    setContentType(response, extension);
+	    // see http://stackoverflow.com/questions/16351849/origin-is-not-allowed-by-access-control-allow-origin-how-to-enable-cors-using
+	    response.addHeader("Access-Control-Allow-Origin", "*");
+	    response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
+	    response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
+	    response.addHeader("Access-Control-Max-Age", "1728000");
 	    if (pathInfo.equals("/bc2netlogo.txt")) {
 		String queryString = request.getQueryString();
 		String userGuid = CommonUtils.getURLParameter("user", queryString);
