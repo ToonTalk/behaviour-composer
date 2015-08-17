@@ -37,6 +37,8 @@ public class RunDownloadSharePanel extends VerticalPanelWithDebugID {
 	if (visible && isAttached()) {
 	    BehaviourComposer.runPanel.runDownloadSharePanelDisplayed(this);
 	    if (dirty || (!share && BehaviourComposer.runPanel.runEvenIfClean()) && enabled) {
+		// NetLogo Web should be used if there is a run tab
+		Modeller.forWebVersion = true;
 		BehaviourComposer.instance().runModel(run, share, this);
 	    } 
 	}
