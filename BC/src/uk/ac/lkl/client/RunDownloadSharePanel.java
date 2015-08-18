@@ -36,9 +36,14 @@ public class RunDownloadSharePanel extends VerticalPanelWithDebugID {
 	super.setVisible(visible);
 	if (visible && isAttached()) {
 	    BehaviourComposer.runPanel.runDownloadSharePanelDisplayed(this);
-	    if (dirty || (!share && BehaviourComposer.runPanel.runEvenIfClean()) && enabled) {
+	    if (!enabled) {
+		this.add(new HTML(Modeller.constants.waitUntilModelFullyLoaded()));
+	    } else if (dirty || (!share && Modeller.instance().getNetLogo2BCChannelToken() == null) || (!share && BehaviourComposer.runPanel.runEvenIfClean())) {
 		// NetLogo Web should be used if there is a run tab
-		Modeller.forWebVersion = true;
+		// it used to be that switching between run and download didn't recompute the model
+		// but unless running the BC to NetLogo tool they need to be recomputed with run is NetLogo web compatible
+		// if NetLogo Web compatibility is either explicitly required or the run tab is activated then set the compatiblity
+		Modeller.forWebVersion = Modeller.forWebVersionRequested || this.run;
 		BehaviourComposer.instance().runModel(run, share, this);
 	    } 
 	}
