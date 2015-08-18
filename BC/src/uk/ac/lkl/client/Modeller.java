@@ -173,7 +173,8 @@ abstract public class Modeller implements EntryPoint {
     public static boolean cachingEnabled;
     public static boolean internetAccess;
     public static boolean useAuxiliaryFile = false;
-    public static boolean forWebVersion = false;
+    public static boolean forWebVersion = false; // current compatibility with NetLogo Web
+    public static boolean forWebVersionRequested = false; // user requested compatibility with NetLogo Web
     private static boolean alertsLineClear = true;
     // null indicates not yet initialised
     protected Boolean advancedMode = null;
@@ -745,8 +746,8 @@ abstract public class Modeller implements EntryPoint {
 		String queryString = Window.Location.getQueryString();
 		// while in principle one can go back multiple versions they are not always kept
 		// maybe by keeping a list of here it will be clearer which versions to keep
-		// 403, 414, 423, 448, 492, 497, 518, 536, 545, 560, 568, 593, 600, 623, 636, 642, 647, 666
-		Window.Location.replace("http://719.m4a-gae.appspot.com/m/" + queryString);
+		// 403, 414, 423, 448, 492, 497, 518, 536, 545, 560, 568, 593, 600, 623, 636, 642, 647, 666, 719
+		Window.Location.replace("http://761.m4a-gae.appspot.com/m/" + queryString);
 	    }
 		
 	});
@@ -761,6 +762,7 @@ abstract public class Modeller implements EntryPoint {
 	    @Override
 	    public void onClick(ClickEvent event) {
 		Modeller.forWebVersion = option.getValue();
+		Modeller.forWebVersionRequested = Modeller.forWebVersion;
 	    }
 		
 	});
@@ -1052,6 +1054,7 @@ abstract public class Modeller implements EntryPoint {
 		            BehaviourComposer.epidemicGameMakerMode();
 	} else {
 	    forWebVersion = forWebVersionString.equals("1");
+	    forWebVersionRequested = forWebVersion;
 	}
 	if (userGuid == null) {
 	    // first recorded event will create one and save it
