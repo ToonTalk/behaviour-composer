@@ -281,24 +281,18 @@ public class NetLogoModel implements VariableCollector {
 			        "12\n"; // 12 point font
 		worldURY += outputAreaBottom; // need more room for the applet if output area included
 	    }
+	    // see https://github.com/NetLogo/NetLogo/wiki/Widget-Format
 	    String world = "GRAPHICS-WINDOW\n" + worldLLX + "\n"
-	                   + worldLLY + "\n" + worldURX + "\n" + worldURY
-	                   + "\n" + halfWidth + "\n"
-	                   + halfHeight
-	                   + "\n"
-	                   + patchSize
-	                   + "\n"
-	                   + // patch size
-	                   1
-	                   + "\n"
-	                   + // turtle shapes
-	                   labelFontSize + "\n" + 1 + "\n" + 1 + "\n" + 1
-	                   + "\n" + 0 + "\n" + horizontallyWrapping
-	                   + "\n"
-	                   + // x-wrap
-	                   verticallyWrapping + "\n"
-	                   + // y-wrap
-	                   1 + "\n" + minPxcor + "\n" + maxPxcor + "\n"
+	                   + worldLLY + "\n" + worldURX + "\n" + worldURY + "\n" 
+	                   + halfWidth + "\n"
+	                   + halfHeight + "\n"
+	                   + patchSize  + "\n"
+	                   + 1 + "\n"
+	                   + labelFontSize + "\n" + 1 + "\n" + 1 + "\n" + 1
+	                   + "\n" + 0 + "\n" + horizontallyWrapping + "\n"
+	                   + verticallyWrapping + "\n"
+	                   + 1 + "\n"
+	                   + minPxcor + "\n" + maxPxcor + "\n"
 	                   + minPycor + "\n" + maxPycor + "\n";
 	    if (dimensions == 3) {
 		world += minPzcor + "\n" + maxPzcor + "\n";
@@ -308,8 +302,7 @@ public class NetLogoModel implements VariableCollector {
 	    // on 9/10/12
 //	    world += "0\n0\n1\ntime\n30.0\n";
 	    if (tickBasedUpdates) {
-		// not sure why there are two 1s
-		world += "1\n1\n";
+		world += "1\n0\n";
 	    } else {
 		world += "0\n0\n";
 	    }
@@ -2100,7 +2093,7 @@ public class NetLogoModel implements VariableCollector {
 	    initialValue = "NIL";
 	}
 	commandToAddAnInputBox = commandToAddAnInputBox + variableName + "\n" +
-                                 initialValue + "\n1\n" + (multiLine ? "1" : "0") + "\n" +
+                                 initialValue + "\n" + (multiLine ? "1" : "0") + "\n0\n" +
                                  typeString + "\n";
 	if (widgetsToCreate.indexOf(commandToAddAnInputBox) < 0) {
 	    // haven't already planned to create this one
@@ -2305,7 +2298,8 @@ public class NetLogoModel implements VariableCollector {
 		"\n" + quoted[9] + "\n" + quoted[11] + ".0\n" + 
 		(quoted[13].equalsIgnoreCase("false") ? "0\n\n" : "1\n\n");
 	} else {
-	    commandToAddATextBox += "\n\n";
+	    // following not tested since updated but only very old micro-behaviours will have no includeFontAndColor
+	    commandToAddATextBox += "12\n0\n\0\n\n";
 	}
 	if (widgetsToCreate.indexOf(commandToAddATextBox) < 0) {
 	    // haven't already planned to create this one
