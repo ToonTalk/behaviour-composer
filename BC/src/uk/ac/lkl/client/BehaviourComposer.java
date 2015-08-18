@@ -1260,7 +1260,7 @@ public class BehaviourComposer extends Modeller {
 		    nLogoPanel.add(new HTML(NON_BREAKING_SPACE + constants.toRunInNetLogo()));
 		    int appletWidth = 0;
 		    int appletHeight = 0;
-		    String fullURL = nlogoFilePath + ".html";
+//		    String fullURL = nlogoFilePath + ".html";
 		    String webVersionURL = "http://www.netlogoweb.org/launch#" + nlogoFileName;
 		    HTML appletLink = 
 			    new HTML("<a href='" + webVersionURL + "' target='_blank'>" + constants.runTheModel() + "</a>"); 
@@ -1287,76 +1287,75 @@ public class BehaviourComposer extends Modeller {
 				BehaviourComposer.runPanel.setFrame(frame);
 //				setAlertsLine("<i>Copy and paste</i> <b>" + nlogoFileName + "</b> into the bottom input area and press submit. This uses the Web version of NetLogo which is under development and incomplete.");
 			    } else {
-				// no applet support for 3D
-				try {
-				    appletWidth = Integer.parseInt(modelInfo[1]);
-				    appletHeight = Integer.parseInt(modelInfo[2]);
-				} catch (NumberFormatException e) {
-				    addToErrorLog("Error while parsing the applet size: " + e.toString());
-				    return;
-				}
-				String agent = Window.Navigator.getUserAgent();
-				// IE9 was causing the entire page to reload
-				// but instead declaring the home page to be compatible with IE8 fixes the problem
-				// see http://code.google.com/p/google-web-toolkit/issues/detail?id=7682
-				boolean internetExplorer = false; // agent.indexOf("MSIE") >= 0;
-				if (!internetExplorer) {
-				    int fireFoxIndex = agent.indexOf("FireFox");
-				    boolean browserNeedingMoreRoomForApplet = fireFoxIndex >= 0;
-				    if (browserNeedingMoreRoomForApplet) {
-					int versionIndex = agent.indexOf("/", fireFoxIndex);
-					if (versionIndex >= 0) {
-					    // not sure when this problem was fixed (even whether NetLogo 5 fixed it)
-					    // but sure that 13+ is OK
-					    if (Double.parseDouble(agent.substring(versionIndex+1)) >= 13) {
-						browserNeedingMoreRoomForApplet = false; // is a version of FireFox without this problem
-					    }
-					}
-				    }
-				    if (!browserNeedingMoreRoomForApplet) {
-					// Safari (at least on Window 7) is a mystery and extra space doesn't seem to help
-					browserNeedingMoreRoomForApplet = agent.indexOf("Safari") >= 0;
-				    }
-				    BehaviourComposer.runPanel.clear();
-				    String urlForFrame;
-				    String appletTemplateURL = Window.Location.getParameter("template");
-				    if (epidemicGameMakerMode() || appletTemplateURL != null) {
-					if (appletTemplateURL == null) {
-					    appletWidth = 1024;
-					    appletHeight = 924;
-					} else {
-					    String widthString = Window.Location.getParameter("template-width");
-					    if (widthString != null) {
-						try {
-						    appletWidth = Integer.parseInt(widthString);
-						} catch (NumberFormatException e) {
-						    System.err.println("template-width not a number: " + widthString);
-						}
-					    }
-					    String heightString = Window.Location.getParameter("template-height");
-					    if (heightString != null) {
-						try {
-						    appletHeight = Integer.parseInt(heightString);
-						} catch (NumberFormatException e) {
-						    System.err.println("template-width not a number: " + heightString);
-						} 
-					    }
-					}
-					// want the HTML that provides the legend
-					// need to signal to StaticPageServlet where to get these
-					urlForFrame = fullURL.replace(".html", ".template.html"); 
-				    } else {
-					urlForFrame = fullURL.replace(".html", ".raw.html");
-				    }
-				    Frame frame = new Frame(urlForFrame);
-				    if (browserNeedingMoreRoomForApplet) {
-					// workaround a FireFox bug displaying applets
-					frame.setPixelSize(appletWidth+EXTRA_APPLET_WIDTH+90, appletHeight+EXTRA_APPLET_HEIGHT+110);
-				    } else {
-					frame.setPixelSize(appletWidth+EXTRA_APPLET_WIDTH+10, appletHeight+EXTRA_APPLET_HEIGHT+10);
-				    }
-				    BehaviourComposer.runPanel.setFrame(frame);
-				}
+//				try {
+//				    appletWidth = Integer.parseInt(modelInfo[1]);
+//				    appletHeight = Integer.parseInt(modelInfo[2]);
+//				} catch (NumberFormatException e) {
+//				    addToErrorLog("Error while parsing the applet size: " + e.toString());
+//				    return;
+//				}
+//				String agent = Window.Navigator.getUserAgent();
+//				// IE9 was causing the entire page to reload
+//				// but instead declaring the home page to be compatible with IE8 fixes the problem
+//				// see http://code.google.com/p/google-web-toolkit/issues/detail?id=7682
+//				boolean internetExplorer = false; // agent.indexOf("MSIE") >= 0;
+//				if (!internetExplorer) {
+//				    int fireFoxIndex = agent.indexOf("FireFox");
+//				    boolean browserNeedingMoreRoomForApplet = fireFoxIndex >= 0;
+//				    if (browserNeedingMoreRoomForApplet) {
+//					int versionIndex = agent.indexOf("/", fireFoxIndex);
+//					if (versionIndex >= 0) {
+//					    // not sure when this problem was fixed (even whether NetLogo 5 fixed it)
+//					    // but sure that 13+ is OK
+//					    if (Double.parseDouble(agent.substring(versionIndex+1)) >= 13) {
+//						browserNeedingMoreRoomForApplet = false; // is a version of FireFox without this problem
+//					    }
+//					}
+//				    }
+//				    if (!browserNeedingMoreRoomForApplet) {
+//					// Safari (at least on Window 7) is a mystery and extra space doesn't seem to help
+//					browserNeedingMoreRoomForApplet = agent.indexOf("Safari") >= 0;
+//				    }
+//				    BehaviourComposer.runPanel.clear();
+//				    String urlForFrame;
+//				    String appletTemplateURL = Window.Location.getParameter("template");
+//				    if (epidemicGameMakerMode() || appletTemplateURL != null) {
+//					if (appletTemplateURL == null) {
+//					    appletWidth = 1024;
+//					    appletHeight = 924;
+//					} else {
+//					    String widthString = Window.Location.getParameter("template-width");
+//					    if (widthString != null) {
+//						try {
+//						    appletWidth = Integer.parseInt(widthString);
+//						} catch (NumberFormatException e) {
+//						    System.err.println("template-width not a number: " + widthString);
+//						}
+//					    }
+//					    String heightString = Window.Location.getParameter("template-height");
+//					    if (heightString != null) {
+//						try {
+//						    appletHeight = Integer.parseInt(heightString);
+//						} catch (NumberFormatException e) {
+//						    System.err.println("template-width not a number: " + heightString);
+//						} 
+//					    }
+//					}
+//					// want the HTML that provides the legend
+//					// need to signal to StaticPageServlet where to get these
+//					urlForFrame = fullURL.replace(".html", ".template.html"); 
+//				    } else {
+//					urlForFrame = fullURL.replace(".html", ".raw.html");
+//				    }
+//				    Frame frame = new Frame(urlForFrame);
+//				    if (browserNeedingMoreRoomForApplet) {
+//					// workaround a FireFox bug displaying applets
+//					frame.setPixelSize(appletWidth+EXTRA_APPLET_WIDTH+90, appletHeight+EXTRA_APPLET_HEIGHT+110);
+//				    } else {
+//					frame.setPixelSize(appletWidth+EXTRA_APPLET_WIDTH+10, appletHeight+EXTRA_APPLET_HEIGHT+10);
+//				    }
+//				    BehaviourComposer.runPanel.setFrame(frame);
+//				}
 			    }
 			} else {
 			    BehaviourComposer.runPanel.setFrame(null);
