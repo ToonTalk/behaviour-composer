@@ -25,8 +25,8 @@ public class SplitScreenOptions extends HorizonalPanelWithDebugID {
    
     public SplitScreenOptions(final Widget widget) {
 	String groupName = "split-screen-options-" + counter++;
-	horizontally = new RadioButton(groupName, Modeller.constants.horizontally());
-	vertically = new RadioButton(groupName, Modeller.constants.vertically());
+	horizontally = new RadioButton(groupName, Modeller.constants.sideBySide());
+	vertically = new RadioButton(groupName, Modeller.constants.oneAboveAnother());
 	ValueChangeHandler<Boolean> directionHandler = new ValueChangeHandler<Boolean>() {
 
 	    @Override

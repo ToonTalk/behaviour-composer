@@ -1776,5 +1776,9 @@ public interface ModellerConstants extends Constants {
     String saveDisabledTitle();
 
     String waitUntilModelFullyLoaded();
+
+    String sideBySide();
+
+    String oneAboveAnother();
     
 }
