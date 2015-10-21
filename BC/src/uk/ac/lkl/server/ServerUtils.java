@@ -942,7 +942,7 @@ public class ServerUtils {
     public static String insertExperiments(String experiments, String modelString) {
 	// from:
         // @#$#@#$#@
-        // NetLogo 5.2.0
+        // NetLogo 5.2.1
         // @#$#@#$#@
 	// to
 	// @#$#@#$#@

@@ -330,7 +330,7 @@ public class NetLogoModel implements VariableCollector {
 	                          + "\n"
 	                          + separator
 	                          + shapesUsed()
-	                          + separator + "NetLogo 5.2.0" + (dimensions == 3 ? " 3D" : "") + "\n" + separator 
+	                          + separator + "NetLogo 5.2.1" + (dimensions == 3 ? " 3D" : "") + "\n" + separator 
 	                          + linkShapesText + 
 	                          separator + separator + separator + separator + 
 	                          "default\n" +
