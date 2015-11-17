@@ -410,7 +410,9 @@ public class NetLogoModel implements VariableCollector {
 	    String procedureName = remaining.substring(nameStart, nameEnd);
 	    if (containsProcedureCall(afterContainsCode, procedureName) || 
 		containsProcedureCall(processedAlready, procedureName) || 
-		topLevelProcedures.contains(procedureName)) {
+		topLevelProcedures.contains(procedureName) ||
+		// keep explicit commands --- good for typing to command center
+		procedureName.endsWith("-command")) {
 		processedAlready = processedAlready + before + procedure;
 	    } else {
 		processedAlready = processedAlready + before;
