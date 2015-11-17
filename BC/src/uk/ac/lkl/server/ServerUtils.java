@@ -818,7 +818,7 @@ public class ServerUtils {
         return Character.isWhitespace(c) || c == ']' || c == '[' || c == ')' || c == '(' || c == ',' || c == '"' || c == '\n';
     }
 
-    public static final String STATIC_RESOURCES_ZIP = "static_resources_v175.zip";
+    public static final String STATIC_RESOURCES_ZIP = "static_resources_v176.zip";
 
     // 60 seconds is the maximum GAE allows 
     // but odd things are happening (fast time outs) so used 10 seconds instead of the old limit of 30

@@ -39,14 +39,15 @@ to setup-except [globals-not-to-be-initialised]
 end
 
 to initialise
- let saved-state-restored-after-setup state-restored-after-setup
  if-else maximum-plot-generations > 0
     [if-else plot-generation <= maximum-plot-generations 
-        [set plot-generation plot-generation + 1
-          ; clear all but plots and output
+        [let next-plot-generation plot-generation + 1
+         ; clear all but plots and output
          clear-patches
          clear-drawing
-         clear-turtles]
+         clear-turtles
+         clear-globals
+         set plot-generation next-plot-generation]
         [clear-all
          set plot-generation 0]]
     [clear-all]
@@ -65,7 +66,6 @@ to initialise
  if frame-duration = 0 [set frame-duration delta-t]
  if world-geometry = 0 [set world-geometry 1]
  ask-every-patch task [initialise-patch-attributes]
- set state-restored-after-setup saved-state-restored-after-setup
  reset-ticks
 end
 
