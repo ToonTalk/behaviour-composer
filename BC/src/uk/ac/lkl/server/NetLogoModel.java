@@ -712,7 +712,10 @@ public class NetLogoModel implements VariableCollector {
 		// work around to current primitives lacking in web version of NetLogo	
 		code = code.replace(" clear-drawing", " clear-drawing-replacement")
 	                   .replace("[clear-drawing", "[clear-drawing-replacement")
-	                   .replace(" layout-circle", " layout-circle-replacement");               	    
+	                   .replace(" layout-circle", " layout-circle-replacement")
+	                   // clear-globals not-yet-implemented so clear everything
+	                   // only problem is plots are reset
+	                   .replace("clear-globals", "clear-all");               	    
 		code += getNetLogoCode("web-version-workarounds");
             }
 	    fileContents += netLogoEngineDeclarations + code; 
