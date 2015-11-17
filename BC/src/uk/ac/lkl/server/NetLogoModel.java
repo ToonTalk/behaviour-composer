@@ -481,18 +481,18 @@ public class NetLogoModel implements VariableCollector {
 	}
 	int turtlesOwnIndexEnd = CommonUtils.indexOfNetLogoCodeOnly(']', netLogoFileContents, turtlesOwnIndexStart);
 	netLogoFileContents = netLogoFileContents.substring(0, turtlesOwnIndexEnd) 
-		              + CommonUtils.listWithSeparator(CommonUtils.NETLOGO_TURTLE_VARIABLES_3D, " ") + "\n" 
+		              + (contains3DTurtleVariables(netLogoFileContents) ? CommonUtils.listWithSeparator(CommonUtils.NETLOGO_TURTLE_VARIABLES_3D, " ") : "") + "\n" 
 		              + netLogoFileContents.substring(turtlesOwnIndexEnd);
 	int patchesOwnIndexStart = netLogoFileContents.indexOf("patches-own [");
 	if (patchesOwnIndexStart >= 0) {
 	    // following finds next ] ignoring comments  
 	    int patchesOwnIndexEnd = CommonUtils.indexOfNetLogoCodeOnly(']', netLogoFileContents, patchesOwnIndexStart);
 	    netLogoFileContents = netLogoFileContents.substring(0, patchesOwnIndexEnd) + "\n  " 
-	                          + CommonUtils.listWithSeparator(CommonUtils.NETLOGO_PATCH_VARIABLES_3D, " ") + "\n" 
+	                          + (contains3DPatchVariables(netLogoFileContents) ? CommonUtils.listWithSeparator(CommonUtils.NETLOGO_PATCH_VARIABLES_3D, " ") : "") + "\n" 
 		                  + netLogoFileContents.substring(patchesOwnIndexEnd);
 	} else {
 	    netLogoFileContents = netLogoFileContents.substring(0, turtlesOwnIndexStart) + "\npatches-own [" 
-                                  + CommonUtils.listWithSeparator(CommonUtils.NETLOGO_PATCH_VARIABLES_3D, " " ) + "]\n\n" 
+                                  + (contains3DPatchVariables(netLogoFileContents) ? CommonUtils.listWithSeparator(CommonUtils.NETLOGO_PATCH_VARIABLES_3D, " ") : "") + "]\n\n" 
                                   + netLogoFileContents.substring(turtlesOwnIndexStart);
 	}
 	int codeEndIndex = netLogoFileContents.indexOf(CommonUtils.NETLOGO_SECTION_SEPARATOR);
