@@ -57,7 +57,7 @@ to initialise [globals-not-to-be-initialised]
  while [i < length globals-not-to-be-initialised]
        [let variable item i globals-not-to-be-initialised
         let value item i saved-global-values
-        if (not is-number? value and not is-boolean? value) [set value (word "\"" value "\"")]
+        if (not is-number? value and not is-boolean? value and not is-list? value) [set value (word "\"" value "\"")]
         run (word "set " variable " " value)
         set i i + 1]
  reset-timer
