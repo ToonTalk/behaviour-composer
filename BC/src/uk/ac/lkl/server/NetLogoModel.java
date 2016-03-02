@@ -172,6 +172,7 @@ public class NetLogoModel implements VariableCollector {
 	    "within-range",
 	    "power-law-random",
 	    "power-law-list",
+	    "power-law-list-no-zeros",
 	    "hfunction",
 	    "hinv",
 	    "log-log-histogram"));

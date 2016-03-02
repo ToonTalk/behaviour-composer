@@ -660,7 +660,7 @@ public class Utils {
     	"random-unoccupied-location",
     	"canonical-heading", "canonical-distance",
     	"log-log-histogram",
-    	"power-law-random", "power-law-list", "power-law-list-with-mean");
+    	"power-law-random", "power-law-list", "power-law-list-no-zeros", "power-law-list-with-mean");
     
     static public List<String> netLogoPrimitives = 
 	    Arrays.asList(
