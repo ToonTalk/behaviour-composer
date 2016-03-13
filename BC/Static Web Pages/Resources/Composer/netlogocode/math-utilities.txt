@@ -72,6 +72,10 @@ to-report power-law-list [n power maximum-value]
   report n-values n [power-law-random power maximum-value]
 end
 
+to-report power-law-list-no-zeros [n power maximum-value]
+  report n-values n [power-law-random-no-zeros power maximum-value]
+end
+
 to-report power-law-random [s maximum-value]
   let one-minus-s 1.0 - s
   let one-minus-s-inverse 1.0 / one-minus-s
@@ -81,6 +85,20 @@ to-report power-law-random [s maximum-value]
     [let ur hxm + random-float 1.0 * hx0MinusHxm
      let x hinv ur one-minus-s one-minus-s-inverse
      let k floor (x + 0.5)
+     if ((k - x) <= s) or ((ur >= ((hfunction k one-minus-s one-minus-s-inverse + 0.5) - exp(-1 * (ln (k + 1.0) * s)))))
+        [report k]
+    ]  
+end
+
+to-report power-law-random-no-zeros [s maximum-value]
+  let one-minus-s 1.0 - s
+  let one-minus-s-inverse 1.0 / one-minus-s
+  let hxm hfunction (maximum-value + 0.5) one-minus-s one-minus-s-inverse
+  let hx0MinusHxm (hfunction 0.5 one-minus-s one-minus-s-inverse) - exp (ln 1.0 * (-1 * s)) - hxm;
+  while [true]
+    [let ur hxm + random-float 1.0 * hx0MinusHxm
+     let x hinv ur one-minus-s one-minus-s-inverse
+     let k ceiling (x + 0.5)
      if ((k - x) <= s) or ((ur >= ((hfunction k one-minus-s one-minus-s-inverse + 0.5) - exp(-1 * (ln (k + 1.0) * s)))))
         [report k]
     ]  
