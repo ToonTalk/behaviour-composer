@@ -865,26 +865,28 @@ public class ServerUtils {
      * @return the RemoteAPI associated with the current thread
      */
     public static RemoteAPI getFreeRemoteAPI(ServletRequest servletRequest) {
-	if (!runningLocalHost(servletRequest)) { // not running local host
-	    return null;
-	}
-	try {
-	    RemoteAPI remoteAPI = remoteAPIThreadLocal.get();
-	    if (remoteAPI == null) {
-		remoteAPI = new RemoteAPI();
-		remoteAPIThreadLocal.set(remoteAPI);
-	    }
-	    if (remoteAPI.isRemoteAPIInUse()) {
-		// already remote
-		return null;
-	    } else {
-		return remoteAPI;
-	    }
-	} catch (IOException ioException) {
-	    System.err.println("Exception while creating connection to remote API.");
-	    ioException.printStackTrace();
-	    return null;
-	}
+	// if this is needed for debugging then need to update with the new authentication scheme
+	return null;
+//	if (!runningLocalHost(servletRequest)) { // not running local host
+//	    return null;
+//	}
+//	try {
+//	    RemoteAPI remoteAPI = remoteAPIThreadLocal.get();
+//	    if (remoteAPI == null) {
+//		remoteAPI = new RemoteAPI();
+//		remoteAPIThreadLocal.set(remoteAPI);
+//	    }
+//	    if (remoteAPI.isRemoteAPIInUse()) {
+//		// already remote
+//		return null;
+//	    } else {
+//		return remoteAPI;
+//	    }
+//	} catch (IOException ioException) {
+//	    System.err.println("Exception while creating connection to remote API.");
+//	    ioException.printStackTrace();
+//	    return null;
+//	}
     }
     
     public static String hashSHA256(String serialisation) {

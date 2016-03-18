@@ -35,7 +35,8 @@ public class RemoteAPI {
         // once during construction and then store the credentials for reuse.
         this.options = new RemoteApiOptions()
             .server("m4a-gae.appspot.com", 443)
-            .credentials(username, password);
+//            .credentials(username, password);
+            .useDevelopmentServerCredential();
         RemoteApiInstaller installer = new RemoteApiInstaller();
         installOptions(installer);
         try {
