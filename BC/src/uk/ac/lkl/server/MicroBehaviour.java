@@ -559,6 +559,20 @@ public class MicroBehaviour {
 			             netLogoModel, 
 			             netLogoModel.getClientState());
 	    }
+	    if (code.startsWith("constant-list")) {
+		// this is a workaround for dealing with large lists that otherwise cause server to 
+		// run out of memory or overflow the stack
+		int openBracket = code.indexOf('[');
+		int dataEnd = CommonUtils.closeBracket(code, openBracket+1);
+		if (dataEnd >= 0) {
+		    return alreadyProcessed + code.substring(openBracket, dataEnd+1) +
+			    transformCode(code.substring(dataEnd+1), 
+				          behaviourName, 
+				          prototypeActive, 
+				          netLogoModel, 
+				          netLogoModel.getClientState());
+		}
+	    }
 	    int operationIndex = indexOfFirstOperationExpectingABracketedExpression(code);
 	    if (operationIndex >= 0) {
 		// spit out the code before the operator and transform the rest
