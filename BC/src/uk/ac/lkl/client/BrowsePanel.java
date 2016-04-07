@@ -1132,6 +1132,7 @@ public class BrowsePanel extends ScrollPanelInTabPanel {
         	    dirtyMicroBehaviours.put(microBehaviour, microBehaviour);
         	}
         	if (microBehaviour.isWaitingToBeCopied()) {
+        	    if (microBehaviour.getSharedState() != this.getMicroBehaviour().getSharedState()) {
         		Utils.logServerMessage(Level.SEVERE, "Sending server the URLs on a micro behaviour page but page is waiting for a new URL. Old URL=" + microBehaviour.getUrl());
         	    }
         	    // continue added as an attempt to address Issue 841
