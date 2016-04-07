@@ -16,6 +16,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.xml.client.Element;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -149,7 +150,7 @@ public class MacroBehaviourView extends VerticalPanelWithDebugID implements HasH
     }
     
     public MacroBehaviourView copyFor(String microBehaviourUrl, 
-	                              ArrayList<MicroBehaviourView> freshCopies) {
+	                              HashMap<MicroBehaviourView, MicroBehaviourView> freshCopies) {
 	MacroBehaviourView copy = new MacroBehaviourView(nameHTML, microBehaviourUrl);
 	// if shareMicroBehaviourList the copy shares the same list of micro-behaviours (now and in the future)
 	copy.addMicroBehaviours(getMicroBehaviours(), freshCopies);
@@ -284,7 +285,7 @@ public class MacroBehaviourView extends VerticalPanelWithDebugID implements HasH
 	}
     }
        
-    public String getModelXML(ArrayList<MicroBehaviourView> dirtyMicroBehaviours,
+    public String getModelXML(HashMap<MicroBehaviourView, MicroBehaviourView> dirtyMicroBehaviours,
 	                      ArrayList<MicroBehaviourView> seenBefore,
 	                      int level) {
 	StringBuilder xml = new StringBuilder("<macrobehaviour");
@@ -898,6 +899,13 @@ public class MacroBehaviourView extends VerticalPanelWithDebugID implements HasH
 //	    }
 //	    BehaviourComposer.originalMicroBehaviourWaitingToBeAdded = null;
 //	}
+//	String microBehaviourUrl2 = this.getMicroBehaviourUrl();
+//	String url = BehaviourComposer.microBehaviourWaitingToBeAdded.getUrl();
+	BrowsePanel containingBrowsePanel = this.getContainingBrowsePanel();
+	MicroBehaviourView thisMicroBehaviour = containingBrowsePanel == null ? null : containingBrowsePanel.getMicroBehaviour();
+	if (BehaviourComposer.microBehaviourWaitingToBeAddedOriginal == thisMicroBehaviour) {
+	    BehaviourComposer.microBehaviourWaitingToBeAdded = BehaviourComposer.microBehaviourWaitingToBeAddedOriginal.copy();
+	}
 	if (addMicroBehaviour(BehaviourComposer.microBehaviourWaitingToBeAdded, insertionIndex, true, true)) {
 	    if (microBehaviourUrl == null || CommonUtils.hasChangesGuid(microBehaviourUrl)) {
 		AddMicroBehaviourEvent addMicroBehaviourEvent = 
@@ -1153,7 +1161,7 @@ public class MacroBehaviourView extends VerticalPanelWithDebugID implements HasH
     }
 
     protected void addMicroBehaviours(ArrayList<MicroBehaviourView> microBehaviours,
-	                              ArrayList<MicroBehaviourView> freshCopies) {
+	                              HashMap<MicroBehaviourView, MicroBehaviourView> freshCopies) {
         for (MicroBehaviourView behaviour : microBehaviours) {
 	    MicroBehaviourView copy;
 	    if (freshCopies == null) { // sharing, e.g. when loading/restoring

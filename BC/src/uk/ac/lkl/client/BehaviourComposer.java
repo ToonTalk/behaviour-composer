@@ -3,7 +3,10 @@ package uk.ac.lkl.client;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.logging.Level;
 
 import uk.ac.lkl.client.composer.AttributesDisplay;
@@ -114,6 +117,7 @@ public class BehaviourComposer extends Modeller {
     private long runModelStartTime;
     private long runModelSucceededTime;
     private static boolean interfaceEnabled = true;
+    public static MicroBehaviourView microBehaviourWaitingToBeAddedOriginal;
     public static final String SETTINGS_ANCHOR = "#_Settings_";
     public static final String SETTINGS_PARAMETER = "start=settings";
     public static final String HISTORY_ANCHOR = "#_History_";
@@ -1167,7 +1171,7 @@ public class BehaviourComposer extends Modeller {
 	// remove the existing run panel 
 	// do this early so that old applet is likely to be shut down by the time this creates a new one
 //	removeRunShareTabs();
-	final ArrayList<MicroBehaviourView> dirtyMicroBehaviours = new ArrayList<MicroBehaviourView>();
+	final HashMap<MicroBehaviourView, MicroBehaviourView> dirtyMicroBehaviours = new HashMap<MicroBehaviourView, MicroBehaviourView>();
 	final String modelXML = getModelXML(allPrototypes, dirtyMicroBehaviours);
 	if (dirtyMicroBehaviours.isEmpty()) {
 	    modelRunner.runModelNow(modelXML, run, share, initiatingPanel, alert);
@@ -1535,19 +1539,21 @@ public class BehaviourComposer extends Modeller {
 		                          callback);
     }
     
-    public static void createDeltaPages(final ArrayList<MicroBehaviourView> dirtyMicroBehaviours, 
+    public static void createDeltaPages(final HashMap<MicroBehaviourView, MicroBehaviourView> freshCopies, 
 	                                final boolean subMicroBehavioursNeedNewURLs,
 	                                final boolean firstDirtyMicroBehaviourIsForCopying,
 	                                final Command commandAfterAllCopied) {
 	// process dirtyMicroBehaviours in reverse order so that leaves are copied before higher nodes
 	// since the higher nodes refer to lower ones
-	if (dirtyMicroBehaviours.isEmpty()) {
+	if (freshCopies.isEmpty()) {
 	    commandAfterAllCopied.execute();
 	    return;
 	}
-	int size = dirtyMicroBehaviours.size();
+	int size = freshCopies.size();
 	final boolean forCopying = firstDirtyMicroBehaviourIsForCopying && size == 1;
-	final MicroBehaviourView microBehaviourView = dirtyMicroBehaviours.get(size-1);
+	Iterator<MicroBehaviourView> iterator = freshCopies.values().iterator();
+	// used to be .get(size-1) of an array - so this found the most recent copy not just any one
+	final MicroBehaviourView microBehaviourView = iterator.next(); 
 	BrowsePanelCommand commandToCreateDeltaCopy = new BrowsePanelCommand() {
 
 	    @Override
@@ -1569,18 +1575,28 @@ public class BehaviourComposer extends Modeller {
 			super.execute(microBehaviourView, deltaPageResult, panelIsNew, subMicroBehavioursNeedNewURLs, forCopying);
 			MicroBehaviourView whoToRemove = null;
 			String url = microBehaviourView.getUrl();
-			for (MicroBehaviourView dirtyMicroBehaviour : dirtyMicroBehaviours) {
+			for (MicroBehaviourView dirtyMicroBehaviour : freshCopies.values()) {
 			    if (dirtyMicroBehaviour.getUrl().equals(url)) {
 				whoToRemove = dirtyMicroBehaviour;
 				break;
 			    }
 			}
 			if (whoToRemove != null) {
-			    dirtyMicroBehaviours.remove(whoToRemove);
+			    Set<Entry<MicroBehaviourView, MicroBehaviourView>> entrySet = freshCopies.entrySet();
+			    MicroBehaviourView key = null;
+			    for (Entry<MicroBehaviourView, MicroBehaviourView> entry : entrySet) {
+				if (entry.getValue() == whoToRemove) {
+				    key = entry.getKey();
+				    break;
+				}
+			    }
+			    if (key != null) {
+				freshCopies.remove(key);
+			    }
 			} else {
 			    System.err.println("Expected to find a dirty micro behaviour to remove.");
 			}
-			createDeltaPages(dirtyMicroBehaviours, subMicroBehavioursNeedNewURLs, firstDirtyMicroBehaviourIsForCopying, commandAfterAllCopied);
+			createDeltaPages(freshCopies, subMicroBehavioursNeedNewURLs, firstDirtyMicroBehaviourIsForCopying, commandAfterAllCopied);
 		    }
 
 		};
@@ -1599,7 +1615,7 @@ public class BehaviourComposer extends Modeller {
     }
 
     public String getModelXML(ArrayList<MacroBehaviourView> macrobehaviours, 
-	                      ArrayList<MicroBehaviourView> dirtyMicroBehaviours) {
+	                      HashMap<MicroBehaviourView, MicroBehaviourView> dirtyMicroBehaviours) {
 	StringBuilder modelString = new StringBuilder("<model version='7'>");
 	// 5 uses CDATA for macro behaviour name rather than encoded attribute
 	// 6 setCopyMicroBehaviourWhenExportingURL(true) only if dirty

@@ -177,8 +177,13 @@ public class MicroBehaviourView extends ButtonWithDebugID {
 	return microBehaviourSearchResult;
     }
     
-    public MicroBehaviourView copyWithoutSharing(ArrayList<MicroBehaviourView> freshCopies) {
+    public MicroBehaviourView copyWithoutSharing(HashMap<MicroBehaviourView, MicroBehaviourView> freshCopies) {
 	// copying an inactive mB will make an active copy 
+	// among other purposes freshCopies prevents infinite recursion when copying a recursive micro-behaviour
+	MicroBehaviourView microBehaviourViewAlreadyCopied = freshCopies.get(this);
+	if (microBehaviourViewAlreadyCopied != null) {
+	    return microBehaviourViewAlreadyCopied;
+	}
 	String url = getUrl();
 	HashMap<Integer, String> textAreaValues = getTextAreaValues();
 //	MicroBehaviourView preexistingCopy = Modeller.getMicroBehaviourFromTabPanel(url);
@@ -203,7 +208,7 @@ public class MicroBehaviourView extends ButtonWithDebugID {
 		                   getOriginalTextAreasCount(),
 		                   true);
 	copy.setActive(isActive());
-	freshCopies.add(copy);
+	freshCopies.put(this, copy);
 //	if (preexistingCopy != null) {
 //	    // no need to clone the following since found a copy of the same micro-behaviour
 //	    copy.setMacroBehaviourViews(preexistingCopy.getMacroBehaviourViews());
@@ -231,7 +236,7 @@ public class MicroBehaviourView extends ButtonWithDebugID {
 	return getModelXML(null, new ArrayList<MicroBehaviourView>(), 2);
     }
     
-    public String getModelXML(ArrayList<MicroBehaviourView> dirtyMicroBehaviours, 
+    public String getModelXML(HashMap<MicroBehaviourView, MicroBehaviourView> dirtyMicroBehaviours, 
 	                      ArrayList<MicroBehaviourView> seenBefore,
 	                      int level) {
 	if (seenBefore.contains(this)) {
@@ -249,7 +254,7 @@ public class MicroBehaviourView extends ButtonWithDebugID {
 	if (dirtyMicroBehaviours != null && isCopyMicroBehaviourWhenExportingURL()) {
 	    // so that changes aren't clobbered by fetchAndUpdateTextAreas when loaded
 //	    xml.append(" dirty='true'");
-	    dirtyMicroBehaviours.add(this);
+	    dirtyMicroBehaviours.put(this, this);
 	}
 	xml.append(">");
 	String url = getUrl();
@@ -440,6 +445,7 @@ public class MicroBehaviourView extends ButtonWithDebugID {
     protected void createMicroBehaviourWaitingToBeAdded() {
 	boolean onABrowsePanel = getContainingMacroBehaviour() == null;
 	CustomisationPopupPanel customisationPanel = Utils.getAncestorWidget(this, CustomisationPopupPanel.class);
+	BehaviourComposer.microBehaviourWaitingToBeAddedOriginal = this;
 	if (customisationPanel != null && 
             Utils.getAncestorWidget(this, MacroBehaviourView.class) == null &&
             this.getContainingMacroBehaviour() == null) {
@@ -457,9 +463,9 @@ public class MicroBehaviourView extends ButtonWithDebugID {
 //		}
 	    } else {
 		// really copying from a list of micro-behaviours to elsewhere
-		final ArrayList<MicroBehaviourView> freshCopies = new ArrayList<MicroBehaviourView>();
+		final HashMap<MicroBehaviourView, MicroBehaviourView> freshCopies = new HashMap<MicroBehaviourView, MicroBehaviourView>();
 		BehaviourComposer.microBehaviourWaitingToBeAdded = copyWithoutSharing(freshCopies);
-		for (MicroBehaviourView copy : freshCopies) {
+		for (MicroBehaviourView copy : freshCopies.values()) {
 		    // since about to inform server
 		    copy.setCopyMicroBehaviourWhenExportingURL(false);
 		    copy.setWaitingToBeCopied(true);
@@ -468,7 +474,7 @@ public class MicroBehaviourView extends ButtonWithDebugID {
 
 		    @Override
 		    public void execute() {
-			for (MicroBehaviourView copy : freshCopies) {
+			for (MicroBehaviourView copy : freshCopies.values()) {
 			    // since about to inform server
 			    copy.setWaitingToBeCopied(false);
 			}
@@ -1037,7 +1043,7 @@ public class MicroBehaviourView extends ButtonWithDebugID {
     }
 
     public void addMacroBehaviourViews(ArrayList<MacroBehaviourView> macroBehaviourViews,
-	                               ArrayList<MicroBehaviourView> freshCopies) {
+	                               HashMap<MicroBehaviourView, MicroBehaviourView> freshCopies) {
 	sharedState.addMacroBehaviourViews(macroBehaviourViews, freshCopies);
     }
     

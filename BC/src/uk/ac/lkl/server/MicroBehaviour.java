@@ -303,11 +303,10 @@ public class MicroBehaviour {
 		    macroBehaviour.isCopyOfElementOf(macroBehavioursCopiesSoFar)) {
 		    macroBehavioursCopy.add(macroBehaviour);
 		} else {
-		    MacroBehaviour copy = macroBehaviour.copy(macroBehavioursCopiesSoFar);
 		    if (macroBehavioursCopiesSoFar == null) {
 			macroBehavioursCopiesSoFar = new ArrayList<MacroBehaviour>();
 		    }
-		    macroBehavioursCopiesSoFar.add(copy);
+		    MacroBehaviour copy = macroBehaviour.copy(macroBehavioursCopiesSoFar);
 		    macroBehavioursCopy.add(copy);
 		}
 	    }

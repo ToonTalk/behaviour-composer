@@ -47,6 +47,7 @@ public class MacroBehaviour {
     
     public MacroBehaviour copy(ArrayList<MacroBehaviour> macroBehavioursCopiesSoFar) {
 	MacroBehaviour macroBehaviour = new MacroBehaviour(nameHTML, netLogoModel, resourcePageServiceImpl);
+	macroBehavioursCopiesSoFar.add(macroBehaviour);
 	for (MicroBehaviour microBehaviour : microBehaviours) {
 	    macroBehaviour.add(microBehaviour.copy(macroBehavioursCopiesSoFar), macroBehaviour.isActive(microBehaviour));
 	}

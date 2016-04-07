@@ -300,7 +300,7 @@ public class MicroBehaviourSharedState {
     }
 
     public void addMacroBehaviourViews(ArrayList<MacroBehaviourView> newMacroBehaviourViews,
-	                               ArrayList<MicroBehaviourView> freshCopies) {
+	                               HashMap<MicroBehaviourView, MicroBehaviourView> freshCopies) {
 	if (newMacroBehaviourViews != null) {
 	    for (MacroBehaviourView macroBehaviourView : newMacroBehaviourViews) {
 		MacroBehaviourView copy = macroBehaviourView.copyFor(url, freshCopies);
@@ -375,6 +375,9 @@ public class MicroBehaviourSharedState {
     }
 
     public void setCopyMicroBehaviourWhenExportingURL(boolean copyMicroBehaviourWhenExportingURL) {
+	if (this.copyMicroBehaviourWhenExportingURL == copyMicroBehaviourWhenExportingURL) {
+	    return;
+	}
         this.copyMicroBehaviourWhenExportingURL = copyMicroBehaviourWhenExportingURL;
         // if this micro-behaviour has changed then the containing micro-behaviour (if there is one)
         // also has changed

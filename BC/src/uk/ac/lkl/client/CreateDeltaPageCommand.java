@@ -4,6 +4,7 @@
 package uk.ac.lkl.client;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.logging.Level;
 
@@ -45,7 +46,7 @@ public class CreateDeltaPageCommand {
 			    ArrayList<MicroBehaviourView> microBehaviours = macroBehaviourView.getMicroBehaviours();
 			    Iterator<String> newURLIterator = newURLs.iterator();
 			    newURLIterator.next(); // first element is macro-behaviour name
-			    ArrayList<MicroBehaviourView> freshCopies = new ArrayList<MicroBehaviourView>();
+			    HashMap<MicroBehaviourView, MicroBehaviourView> freshCopies = new HashMap<MicroBehaviourView, MicroBehaviourView>();
 			    for (int i = 0; i < microBehaviours.size(); i++) {
 				MicroBehaviourView childMicroBehaviourView = microBehaviours.get(i);
 				MicroBehaviourView copy = childMicroBehaviourView.copyWithoutSharing(freshCopies);

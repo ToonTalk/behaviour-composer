@@ -4,6 +4,7 @@
 package uk.ac.lkl.client.composer;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import uk.ac.lkl.client.BehaviourComposer;
@@ -86,7 +87,7 @@ public class MacroBehaviourAsMicroBehaviourView extends MicroBehaviourView {
     }
     
     @Override
-    public String getModelXML(ArrayList<MicroBehaviourView> dirtyMicroBehaviours, 
+    public String getModelXML(HashMap<MicroBehaviourView, MicroBehaviourView> dirtyMicroBehaviours, 
 	                      ArrayList<MicroBehaviourView> seenBefore,
 	                      int level) {
 	return "<MacroBehaviourAsMicroBehaviour><name>" +
@@ -120,9 +121,9 @@ public class MacroBehaviourAsMicroBehaviourView extends MicroBehaviourView {
     }
     
     @Override
-    public MicroBehaviourView copyWithoutSharing(ArrayList<MicroBehaviourView> freshCopies) {
+    public MicroBehaviourView copyWithoutSharing(HashMap<MicroBehaviourView, MicroBehaviourView> freshCopies) {
 	MicroBehaviourView copy = copy();
-	freshCopies.add(copy);
+	freshCopies.put(this, copy);
 	return copy;
     }
     

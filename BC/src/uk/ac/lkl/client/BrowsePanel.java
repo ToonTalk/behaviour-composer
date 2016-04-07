@@ -1048,7 +1048,7 @@ public class BrowsePanel extends ScrollPanelInTabPanel {
                                  final boolean subMicroBehavioursNeedNewURLs,
                                  final CreateDeltaPageCommand browsePanelCommand,
                                  final AsyncCallbackNetworkFailureCapable<DeltaPageResult> callback) {
-	final ArrayList<MicroBehaviourView> dirtyMicroBehaviours = new ArrayList<MicroBehaviourView>();
+	final HashMap<MicroBehaviourView, MicroBehaviourView> dirtyMicroBehaviours = new HashMap<MicroBehaviourView, MicroBehaviourView>();
 	MicroBehaviourListCommand command = new MicroBehaviourListCommand() {
 
 	    @Override
@@ -1095,7 +1095,7 @@ public class BrowsePanel extends ScrollPanelInTabPanel {
 
     private void getMicroBehaviours(MicroBehaviourListCommand command, 
 	                            ArrayList<MacroBehaviourView> macroBehaviours,
-	                            ArrayList<MicroBehaviourView> dirtyMicroBehaviours) {
+	                            HashMap<MicroBehaviourView, MicroBehaviourView> dirtyMicroBehaviours) {
 	if (macroBehaviours.isEmpty()) {
 	    command.createDeltaPage(null);
 	    return;
@@ -1109,7 +1109,7 @@ public class BrowsePanel extends ScrollPanelInTabPanel {
 	                                    Iterator<MicroBehaviourView> microBehavioursIterator, 
 	                                    ArrayList<String> nameAndUrls,
 	                                    final ArrayList<ArrayList<String>> listOfMicrobehaviours, 
-	                                    final ArrayList<MicroBehaviourView> dirtyMicroBehaviours,
+	                                    final HashMap<MicroBehaviourView, MicroBehaviourView> dirtyMicroBehaviours,
 	                                    final MicroBehaviourListCommand command) {
         while (microBehavioursIterator != null || macroBehavioursIterator.hasNext()) {
             // if there are 'inner' iterations to do (microBehavioursIterator) then
@@ -1128,10 +1128,12 @@ public class BrowsePanel extends ScrollPanelInTabPanel {
             while (microBehavioursIterator.hasNext()) {
         	MicroBehaviourView microBehaviour = microBehavioursIterator.next();
         	if (microBehaviour.isCopyMicroBehaviourWhenExportingURL()) {
-        	    dirtyMicroBehaviours.add(microBehaviour);
+        	    // dirtyMicroBehaviours doubles as freshCopies when copying micro behaviours and it needs the hash table
+        	    dirtyMicroBehaviours.put(microBehaviour, microBehaviour);
         	}
         	if (microBehaviour.isWaitingToBeCopied()) {
-        	    Utils.logServerMessage(Level.SEVERE, "Sending server the URLs on a micro behaviour page but page is waiting for a new URL. Old URL=" + microBehaviour.getUrl());
+        		Utils.logServerMessage(Level.SEVERE, "Sending server the URLs on a micro behaviour page but page is waiting for a new URL. Old URL=" + microBehaviour.getUrl());
+        	    }
         	    // continue added as an attempt to address Issue 841
         	    continue;
         	}
@@ -1735,7 +1737,7 @@ public class BrowsePanel extends ScrollPanelInTabPanel {
 		    final String newURL = simpleURLTextBox.getText();
 		    if (!CommonUtils.hasChangesGuid(newURL)) {
 			final String alert = Modeller.addAlert(Modeller.constants.newMicroBehaviourBeingCreatedWithCurrentCustomisations());
-			final ArrayList<MicroBehaviourView> dirtyMicroBehaviours = new ArrayList<MicroBehaviourView>();
+			final HashMap<MicroBehaviourView, MicroBehaviourView> dirtyMicroBehaviours = new HashMap<MicroBehaviourView, MicroBehaviourView>();
 			MicroBehaviourListCommand command = new MicroBehaviourListCommand() {
 
 			    @Override
