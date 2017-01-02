@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry excluding="uk/ac/lkl/server/MathDiLSServiceImpl.java" kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_55"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/objectify-3.1.jar" sourcepath="C:/eclipse/objectify-3.1/src"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-gae-channel-0.4-alpha.jar"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
-	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-log-3.2.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/nekohtml.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/xercesImpl.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-remote-api.jar"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
