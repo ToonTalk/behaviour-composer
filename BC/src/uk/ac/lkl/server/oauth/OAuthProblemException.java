@@ -70,10 +70,7 @@ public class OAuthProblemException extends OAuthException {
             }
         }
         response = getHttpStatusCode();
-        if (response != null) {
-            return HttpMessage.STATUS_CODE + " " + response;
-        }
-        return null;
+        return HttpMessage.STATUS_CODE + " " + response;
     }
 
     public void setParameter(String name, Object value) {
