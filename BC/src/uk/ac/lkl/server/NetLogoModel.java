@@ -677,7 +677,7 @@ public class NetLogoModel implements VariableCollector {
                         ";; The model can be found at " + CommonUtils.joinPaths(CommonUtils.getHostBaseURL(), "?frozen=" + uniqueID) + "\n";
         if (dimensions == 3) {
             // if the following text is updated then also update the string in the BC2NetLogo class
-            fileContents += ";; This is a 3D model that needs to be run by the 3D versioni of NetLogo.\n";
+            fileContents += ";; This is a 3D model that needs to be run by the 3D version of NetLogo.\n";
         }
         fileContents += "\n";
         if (useAuxiliaryFile) {
