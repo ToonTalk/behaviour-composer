@@ -13,38 +13,38 @@ end
 to-report unit-vector [v]
  if (is-number? v) [report v]
 ; if wrapping [set v canonical-vector v]
- let distance-squared reduce [?1 + ?2] map [?1 * ?1] v
+ let distance-squared reduce [ [?1 ?2] -> ?1 + ?2 ] map [ [?1] -> ?1 * ?1 ] v
  if distance-squared = 0 [report 0] ; or an error?
- let dist sqrt distance-squared 
- report map [?1 / dist] v
+ let dist sqrt distance-squared
+ report map [ [?1] -> ?1 / dist ] v
 end
 
 to-report add [v1 v2]
  if is-number? v1 and is-number? v2 [report v1 + v2]
- if is-number? v1 [report map [v1 + ?] v2]
- if is-number? v2 [report map [? + v2] v1]
- report canonical-distance (map [?1 + ?2] v1 v2)
+ if is-number? v1 [report map [ [?1] -> v1 + ?1 ] v2]
+ if is-number? v2 [report map [ [?1] -> ?1 + v2 ] v1]
+ report canonical-distance (map [ [?1 ?2] -> ?1 + ?2 ] v1 v2)
 end
 
 to-report subtract [v1 v2]
  if is-number? v1 and is-number? v2 [report v1 - v2]
- if is-number? v1 [report map [v1 - ?] v2]
- if is-number? v2 [report map [? - v2] v1]
- report canonical-distance (map [?1 - ?2] v1 v2)
+ if is-number? v1 [report map [ [?1] -> v1 - ?1 ] v2]
+ if is-number? v2 [report map [ [?1] -> ?1 - v2 ] v1]
+ report canonical-distance (map [ [?1 ?2] -> ?1 - ?2 ] v1 v2)
 end
 
 to-report multiply [v1 v2]
  if is-number? v1 and is-number? v2 [report v1 * v2]
- if is-number? v1 [report map [v1 * ?] v2]
- if is-number? v2 [report map [? * v2] v1]
- report canonical-distance (map [?1 * ?2] v1 v2)
+ if is-number? v1 [report map [ [?1] -> v1 * ?1 ] v2]
+ if is-number? v2 [report map [ [?1] -> ?1 * v2 ] v1]
+ report canonical-distance (map [ [?1 ?2] -> ?1 * ?2 ] v1 v2)
 end
 
 to-report divide [v1 v2]
  if is-number? v1 and is-number? v2 [report v1 / v2]
- if is-number? v1 [report map [v1 / ?] v2]
- if is-number? v2 [report map [? / v2] v1]
- report canonical-distance (map [?1 / ?2] v1 v2)
+ if is-number? v1 [report map [ [?1] -> v1 / ?1 ] v2]
+ if is-number? v2 [report map [ [?1] -> ?1 / v2 ] v1]
+ report canonical-distance (map [ [?1 ?2] -> ?1 / ?2 ] v1 v2)
 end
 
 to-report is-zero? [v]
@@ -87,7 +87,7 @@ to-report power-law-random [s maximum-value]
      let k floor (x + 0.5)
      if ((k - x) <= s) or ((ur >= ((hfunction k one-minus-s one-minus-s-inverse + 0.5) - exp(-1 * (ln (k + 1.0) * s)))))
         [report k]
-    ]  
+    ]
 end
 
 to-report power-law-random-no-zeros [s maximum-value]
@@ -101,7 +101,7 @@ to-report power-law-random-no-zeros [s maximum-value]
      let k ceiling (x + 0.5)
      if ((k - x) <= s) or ((ur >= ((hfunction k one-minus-s one-minus-s-inverse + 0.5) - exp(-1 * (ln (k + 1.0) * s)))))
         [report k]
-    ]  
+    ]
 end
 
 to-report hfunction [x one-minus-s one-minus-s-inverse]
@@ -119,11 +119,11 @@ to log-log-histogram [unsorted-data increment]
   let high low + increment
   let max-index length data
   let index 0
-  while [index < max-index] 
+  while [index < max-index]
     [let c 0
      let element item index data
-     while [element >= low and element < high and index < max-index] 
-           [set c c + 1 
+     while [element >= low and element < high and index < max-index]
+           [set c c + 1
             set index index + 1
             if index < max-index [set element item index data]]
      if c > 0
@@ -132,4 +132,3 @@ to log-log-histogram [unsorted-data increment]
      set low high
      set high low + increment]
 end
-

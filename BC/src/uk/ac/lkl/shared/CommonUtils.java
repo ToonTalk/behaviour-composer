@@ -22,7 +22,7 @@ public class CommonUtils {
     private static final String CHANGES_EQUAL = "changes=";
     final static String encodingTable = 
 	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-"; 
-    public static final String COMMON_BEHAVIOUR_COMPOSER_NLS = "bc_auxiliary_file_from_download_tab_version_20.nls";
+    public static final String COMMON_BEHAVIOUR_COMPOSER_NLS = "bc_auxiliary_file_from_download_tab_version_21.nls";
     public static final String M4A_MODEL_URL_PARAMETER = "MforAllModel";
     public static final String OLD_M4A_MODEL_URL_PARAMETER = "M4AlModel";
     public static final String TOP_LEVEL_MACRO_BEHAVIOUR_TOKEN = "top-level-macro-behaviour: ";
