@@ -66,8 +66,6 @@ to-report within-range [x minimum-value maximum-value]
  report x
 end
 
-; following based on http://www.nr.com/forum/showthread.php?t=1396
-
 to-report power-law-list [n power maximum-value]
   report n-values n [power-law-random power maximum-value]
 end
@@ -77,6 +75,7 @@ to-report power-law-list-no-zeros [n power maximum-value]
 end
 
 to-report power-law-random [s maximum-value]
+  ; based on http://www.nr.com/forum/showthread.php?t=1396
   let one-minus-s 1.0 - s
   let one-minus-s-inverse 1.0 / one-minus-s
   let hxm hfunction (maximum-value + 0.5) one-minus-s one-minus-s-inverse
