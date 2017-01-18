@@ -538,23 +538,27 @@ to-report behaviour-name [scheduled-behaviour]
     [report scheduled-behaviour]
 end
 
-to-report equivalent-micro-behaviour? [task-1 task-2]
- if (task-1 = task-2) [report true]
- ; different copies of the same micro-behaviour are equivalent for removals
- let serial-number-length 6
- let task-description-1 (word task-1)
- ; need to obtain the procedure name of the task by extracting it from print format
- ; ignore first 30 characters, serial number, and final parenthesis
- if (length task-description-1 - (serial-number-length + 1) <= 30) [report false]
- let name-1 substring task-description-1 30 (length task-description-1 - (serial-number-length + 1))
- let name-2 0
- if-else (is-string? task-2)
-   ; older way was to use strings rather than tasks
-   [set name-2 substring task-2 0 (length task-2 - serial-number-length)]
-   [let task-description-2 (word task-2)
-    if (length task-description-2 - (serial-number-length + 1) <= 30) [report false]
-    set name-2 substring task-description-2 30 (length task-description-2 - (serial-number-length + 1))]
- report name-1 = name-2
+to-report equivalent-micro-behaviour? [name-1 name-2]
+ if (not is-string? name-1)
+    [set name-1 (anonymous-function-to-name name-1)]
+ if (not is-string? name-2)
+    [set name-2 (anonymous-function-to-name name-2)]
+ if (name-1 = name-2) [report true]
+ ; ignore serial number since can be multiple occurrences of the same micro-behaviour
+ if (substring name-1 0 (length name-1 - 8) = substring name-2 0 (length name-2 - 8)) [report true]
+ report false
+end
+
+to-report anonymous-function-to-name [f]
+  ; extracts the name where the anonymous function was defined
+  let s (word f)
+  let start-index position " procedure " s
+  if (start-index = false) [report s]
+  set start-index start-index + length " procedure "
+  set s substring s start-index (length s - 1)
+  let stop-index position ": " s
+  if (stop-index = false) [report s]
+  report substring s 0 stop-index
 end
 
 to remove-behaviours [behaviours]
