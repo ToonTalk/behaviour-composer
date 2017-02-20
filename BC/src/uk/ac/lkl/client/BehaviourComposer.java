@@ -830,7 +830,7 @@ public class BehaviourComposer extends Modeller {
                 new AddVirusTrailSessionEventsCheckBox(
                         "add virus trails",
                         constants.addVirusTrails(), 
-                        "ZLY_y0qCf8Z1WoupcHPB49", 
+                        "QifomepaBB3s1VkjrWxX7h", 
                         constants.virusTrailsLeftByInfectedPeopleAddedToYourGame(), 
                         constants.virusTrailsLeftByInfectedPeopleRemovedFromYourGame(),
                         constants.addVirusTrailsTitle(),

@@ -1090,7 +1090,7 @@ abstract public class Modeller implements EntryPoint {
                     // change in policy about restarting EGM -- always get initial model
                     //			&& (newSessionGuid == null || newSessionGuid.equals("new"))) {
                     if (Modeller.forWebVersion) {
-                        BehaviourComposer.initialModelID = "p-H7keNjmSMdYNkwB8A75g";
+                        BehaviourComposer.initialModelID = "IS5YQKEIX1U72jQLUnyz7a";
                     } else {
                         BehaviourComposer.initialModelID = "keJ0rKKMf19IqBb6IwYy4_";
                     }
