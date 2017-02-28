@@ -1085,12 +1085,17 @@ abstract public class Modeller implements EntryPoint {
                     //		    try again with old name
                     BehaviourComposer.initialModelID = Utils.getLocationParameter("model");
                 }
+                String fadingImmunity = Utils.getLocationParameter("immunity-fades");
                 if ((BehaviourComposer.initialModelID == null || BehaviourComposer.initialModelID.isEmpty())
                         && BehaviourComposer.epidemicGameMakerMode()) {
                     // change in policy about restarting EGM -- always get initial model
                     //			&& (newSessionGuid == null || newSessionGuid.equals("new"))) {
                     if (Modeller.forWebVersion) {
-                        BehaviourComposer.initialModelID = "IS5YQKEIX1U72jQLUnyz7a";
+                        if (fadingImmunity != null) {
+                            BehaviourComposer.initialModelID = "3awbzeZQnBtLbTZPe4ko57";
+                        } else {
+                            BehaviourComposer.initialModelID = "IS5YQKEIX1U72jQLUnyz7a";
+                        }
                     } else {
                         BehaviourComposer.initialModelID = "keJ0rKKMf19IqBb6IwYy4_";
                     }

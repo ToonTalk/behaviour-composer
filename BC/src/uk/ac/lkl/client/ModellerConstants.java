@@ -1107,6 +1107,12 @@ public interface ModellerConstants extends Constants {
     
     String infectionDurationSliderRemovedFromYourGame();
     
+    String immunityDurationSlider();
+    
+    String immunityDurationSliderAddedToYourGame();
+    
+    String immunityDurationSliderRemovedFromYourGame();
+    
     String virusDurationSlider();
     
     String virusDurationSliderAddedToYourGame();
@@ -1284,6 +1290,8 @@ public interface ModellerConstants extends Constants {
     String encounterRateSliderTitle();
 
     String infectionDurationSliderTitle();
+    
+    String immunityDurationSliderTitle();
 
     String symptomsDelaySliderTitle();
 

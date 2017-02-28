@@ -908,7 +908,7 @@ public class BehaviourComposer extends Modeller {
                 new SliderCheckBox(
                         "infection odds slider",
                         constants.infectionOddsSlider(), 
-                        "wf_VkeiCS3RLjaEK44Qh6e", 
+                        Utils.getLocationParameter("immunity-fades") == null ? "wf_VkeiCS3RLjaEK44Qh6e" : "dmM3DeTz1uJ7ZYXAcIe544", 
                         constants.infectionOddsSliderAddedToYourGame(), 
                         constants.infectionOddsSliderRemovedFromYourGame(), 
                         constants.infectionOddsSliderTitle(), 
@@ -917,7 +917,7 @@ public class BehaviourComposer extends Modeller {
                 new SliderCheckBox(
                         "encounter rate slider",
                         constants.encounterRateSlider(), 
-                        "TvPUK0j8NCdJKQ7o4qmR5b", 
+                        Utils.getLocationParameter("immunity-fades") == null ? "TvPUK0j8NCdJKQ7o4qmR5b" : "_0rzPeI1A_gzGZdl9PeF4a", 
                         constants.encounterRateSliderAddedToYourGame(), 
                         constants.encounterRateSliderRemovedFromYourGame(), 
                         constants.encounterRateSliderTitle(), 
@@ -926,16 +926,27 @@ public class BehaviourComposer extends Modeller {
                 new SliderCheckBox(
                         "infection duration slider",
                         constants.infectionDurationSlider(), 
-                        "weAxJ0Law8k2qrq0cX6P5-", 
+                        Utils.getLocationParameter("immunity-fades") == null ? "weAxJ0Law8k2qrq0cX6P5-" : "Xa3K507l6HuxYfjdyiCi4a", 
                         constants.infectionDurationSliderAddedToYourGame(), 
                         constants.infectionDurationSliderRemovedFromYourGame(),
                         constants.infectionDurationSliderTitle(), 
                         this));
+        if (Utils.getLocationParameter("immunity-fades") != null) {
+            slidersPanel1.add(
+                    new SliderCheckBox(
+                            "immunity duration slider",
+                            constants.immunityDurationSlider(), 
+                            "817kJuIszUjdJfTsW9KN4f", 
+                            constants.immunityDurationSliderAddedToYourGame(), 
+                            constants.immunityDurationSliderRemovedFromYourGame(),
+                            constants.immunityDurationSliderTitle(), 
+                            this));            
+        }
         slidersPanel1.add(
                 new SliderCheckBox(
                         "symptoms delay slider",
                         constants.symptomsDelaySlider(), 
-                        "QpQTeesAoHoGaKIe1njb58", 
+                        Utils.getLocationParameter("immunity-fades") == null ? "QpQTeesAoHoGaKIe1njb58" : "_10Wwe4_Ipn0YKLn5LL57c", 
                         constants.symptomsDelaySliderAddedToYourGame(), 
                         constants.symptomsDelaySliderRemovedFromYourGame(), 
                         constants.symptomsDelaySliderTitle(), 
@@ -947,7 +958,7 @@ public class BehaviourComposer extends Modeller {
                 new SliderCheckBox(
                         "virus duration slider",
                         constants.virusDurationSlider(), 
-                        "rW3M-0cm5dyUpucZ4LE-68", 
+                        Utils.getLocationParameter("immunity-fades") == null ? "rW3M-0cm5dyUpucZ4LE-68" : "1N7bPKBZv4fJP3Sl4c7i4g",          
                         constants.virusDurationSliderAddedToYourGame(), 
                         constants.virusDurationSliderRemovedFromYourGame(), 
                         constants.virusDurationSliderTitle(), 
@@ -958,7 +969,7 @@ public class BehaviourComposer extends Modeller {
                 new SliderCheckBox(
                         "trail reduction slider",
                         constants.trailReductionSlider(), 
-                        "lCaSXK6UnQp3hTAOGb_S68", 
+                        Utils.getLocationParameter("immunity-fades") == null ? "lCaSXK6UnQp3hTAOGb_S68" : "Zke5aKsnWtH51MD7d0S55-", 
                         constants.trailReductionSliderAddedToYourGame(), 
                         constants.trailReductionSliderRemovedFromYourGame(), 
                         constants.trailReductionSliderTitle(), 
@@ -969,7 +980,7 @@ public class BehaviourComposer extends Modeller {
                 new SliderCheckBox(
                         "infection trails slider",
                         constants.infectionTrailsSlider(), 
-                        "ComPjemW7jUWrkJtH01Z4d", 
+                        Utils.getLocationParameter("immunity-fades") == null ? "ComPjemW7jUWrkJtH01Z4d" : "xNNOMub88NUajislhu8F57", 
                         constants.infectionTrailsSliderAddedToYourGame(), 
                         constants.infectionTrailsSliderRemovedFromYourGame(), 
                         constants.infectionTrailsSliderTitle(), 
@@ -980,7 +991,7 @@ public class BehaviourComposer extends Modeller {
                 new SliderCheckBox(
                         "hand washing factor slider",
                         constants.handWashingFactorSlider(), 
-                        "RZVdbKKvlA2uLpMOrL7b7d", 
+                        Utils.getLocationParameter("immunity-fades") == null ? "RZVdbKKvlA2uLpMOrL7b7d" : "h3MeYKOlc9PDwHp1xv5Z64", 
                         constants.handWashingFactorSliderAddedToYourGame(), 
                         constants.handWashingFactorSliderRemovedFromYourGame(),
                         constants.handWashingFactorSliderTitle(), 
@@ -994,7 +1005,7 @@ public class BehaviourComposer extends Modeller {
                 new SliderCheckBox(
                         "school closing cost slider",
                         constants.schoolClosingCostSlider(), 
-                        "J18vmef3d90gyWQ8hmR15c", 
+                        Utils.getLocationParameter("immunity-fades") == null ? "J18vmef3d90gyWQ8hmR15c" : "-zojc08OtCcWFj4Fvw0Z57", 
                         constants.schoolClosingCostSliderAddedToYourGame(), 
                         constants.schoolClosingCostSliderRemovedFromYourGame(), 
                         constants.schoolClosingCostSliderTitle(), 
@@ -1005,7 +1016,7 @@ public class BehaviourComposer extends Modeller {
                 new SliderCheckBox(
                         "hand washing ad reach slider",
                         constants.handWashingAdReachSlider(), 
-                        "HMOHguT80kpWq70smYiZ4a", 
+                        Utils.getLocationParameter("immunity-fades") == null ? "HMOHguT80kpWq70smYiZ4a" : "r-1xxuLYDpxm6YusEGaj6-", 
                         constants.handWashingAdReachSliderAddedToYourGame(), 
                         constants.handWashingAdReachSliderRemovedFromYourGame(), 
                         constants.handWashingAdReachSliderTitle(), 
@@ -1016,7 +1027,7 @@ public class BehaviourComposer extends Modeller {
                 new SliderCheckBox(
                         "stay home ad reach slider",
                         constants.stayHomeAdReachSlider(), 
-                        "M_cAXuwGtG2hmhQpk04k54", 
+                        Utils.getLocationParameter("immunity-fades") == null ? "M_cAXuwGtG2hmhQpk04k54" : "shd6KeD4iEWg5RZRQlft57", 
                         constants.stayHomeAdReachSliderAddedToYourGame(), 
                         constants.stayHomeAdReachSliderRemovedFromYourGame(),
                         constants.stayHomeAdReachSliderTitle(), 
@@ -1027,7 +1038,7 @@ public class BehaviourComposer extends Modeller {
                 new SliderCheckBox(
                         "catch it ad reach slider",
                         constants.catchItAdReachSlider(), 
-                        "48NETut-Ry4ce1r5130069", 
+                        Utils.getLocationParameter("immunity-fades") == null ? "48NETut-Ry4ce1r5130069" : "o9CWguonZL2hUO7mIERn55", 
                         constants.catchItAdReachSliderAddedToYourGame(), 
                         constants.catchItAdReachSliderRemovedFromYourGame(),
                         constants.catchItAdReachSliderTitle(),
