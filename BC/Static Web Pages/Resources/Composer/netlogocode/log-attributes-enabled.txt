@@ -15,7 +15,8 @@ to log-changed-attributes
        [; first time
         let new-log-attributes []
         forEach log-attributes
-                [let attribute-value runresult ?
+                [[?] -> 
+                 let attribute-value runresult ?
                  log-attribute ? attribute-value
                  set new-log-attributes lput (list ? attribute-value) new-log-attributes]
         set log-attributes new-log-attributes]]

@@ -15,7 +15,8 @@ to log-changed-patch-attributes
        [; first time
         let new-log-patch-attributes []
         forEach log-patch-attributes
-                [let attribute-value runresult ?
+                [[?] ->
+                 let attribute-value runresult ?
                  log-patch-attribute ? attribute-value
                  set new-log-patch-attributes lput (list ? attribute-value) new-log-patch-attributes]
         set log-patch-attributes new-log-patch-attributes]]
