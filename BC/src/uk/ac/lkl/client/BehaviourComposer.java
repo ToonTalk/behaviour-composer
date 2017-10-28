@@ -238,7 +238,7 @@ public class BehaviourComposer extends Modeller {
                 //	optionsPanel.add(splitScreenCheckBox);
                 optionsPanel.add(enableEditorButton);
                 optionsPanel.add(enableLocalResourceEditingButton);
-                optionsPanel.add(createOldVersionOption());
+//                optionsPanel.add(createOldVersionOption());
                 //	optionsPanel.add(createExportVersionOption());
                 if (gameMaker) {
                     advancedCheckBox = new CheckBox(constants.advancedMode());
@@ -1395,7 +1395,7 @@ public class BehaviourComposer extends Modeller {
                         if (Modeller.useAuxiliaryFile) {
                             downloadPanel.add(new HTML(auxiliaryFileMessage));
                         }
-                        downloadPanel.add(new HTML(constants.bc2NetLogoBetterThanDownload()));
+//                        downloadPanel.add(new HTML(constants.bc2NetLogoBetterThanDownload()));
                         //			if (!dimensions.equals("3")) {
                         //			    downloadPanel.add(new HTML(constants.or()));
                         //			    downloadPanel.add(appletPanel);
@@ -1471,13 +1471,13 @@ public class BehaviourComposer extends Modeller {
                     }
                     if (noError) { 
                         if (run) {
-                            if (Modeller.forWebVersion) {
-                                // no warning -- but instructions will appear
-                            } else if (epidemicGameMakerMode()) { 
-                                setAlertsLine(constants.modelIsReadyToRun() + " " + CommonUtils.stronglyHighlight(constants.javaAppletProblemsEpidemicGameMaker()));
-                            } else {
-                                setAlertsLine(constants.modelIsReadyToRun() + " " + CommonUtils.stronglyHighlight(constants.javaAppletProblems()));
-                            }
+//                            if (Modeller.forWebVersion) {
+//                                // no warning -- but instructions will appear
+//                            } else if (epidemicGameMakerMode()) { 
+//                                setAlertsLine(constants.modelIsReadyToRun() + " " + CommonUtils.stronglyHighlight(constants.javaAppletProblemsEpidemicGameMaker()));
+//                            } else {
+//                                setAlertsLine(constants.modelIsReadyToRun() + " " + CommonUtils.stronglyHighlight(constants.javaAppletProblems()));
+//                            }
                         } else if (share) {
                             setAlertsLine(constants.modelIsReadyToShare());
                         } else if (Modeller.instance().getNetLogo2BCChannelToken() != null) {

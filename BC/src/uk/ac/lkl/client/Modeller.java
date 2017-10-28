@@ -1043,19 +1043,21 @@ abstract public class Modeller implements EntryPoint {
         cachingEnabled = cachingEnabledString != null && cachingEnabledString.equals("1");
         String useAuxiliaryFileString = Utils.getLocationParameter("useAuxiliaryFile");
         useAuxiliaryFile = useAuxiliaryFileString != null && useAuxiliaryFileString.equals("1");
-        String forWebVersionString = Utils.getLocationParameter("forWebVersion");
-        if (forWebVersionString == null) {
-            // default is web version if mobile device
-            // see http://www.useragentstring.com/pages/Mobile%20Browserlist/
-            String agent = Window.Navigator.getUserAgent();
-            forWebVersion = agent.contains("Android") || agent.contains("BlackBerry") || 
-                    agent.contains("Windows Phone") || agent.contains("Nokia") || agent.contains("Opera Mini") ||
-                    agent.contains("SonyEricsson") || agent.contains("iPhone") ||
-                    BehaviourComposer.epidemicGameMakerMode();
-        } else {
-            forWebVersion = forWebVersionString.equals("1");
-            forWebVersionRequested = forWebVersion;
-        }
+//        String forWebVersionString = Utils.getLocationParameter("forWebVersion");
+//        if (forWebVersionString == null) {
+//            // default is web version if mobile device
+//            // see http://www.useragentstring.com/pages/Mobile%20Browserlist/
+//            String agent = Window.Navigator.getUserAgent();
+//            forWebVersion = agent.contains("Android") || agent.contains("BlackBerry") || 
+//                    agent.contains("Windows Phone") || agent.contains("Nokia") || agent.contains("Opera Mini") ||
+//                    agent.contains("SonyEricsson") || agent.contains("iPhone") ||
+//                    BehaviourComposer.epidemicGameMakerMode();
+//        } else {
+//            forWebVersion = forWebVersionString.equals("1");
+//            forWebVersionRequested = forWebVersion;
+//        }
+        forWebVersion = true;
+        forWebVersionRequested = true;
         if (userGuid == null) {
             // first recorded event will create one and save it
             // test cookies
@@ -1160,6 +1162,8 @@ abstract public class Modeller implements EntryPoint {
         bc2NetLogoChannelToken = Utils.getLocationParameter("bc2NetLogoChannelToken");
         if (bc2NetLogoChannelToken != null) {
             bc2NetLogoOriginalSessionGuid = Utils.getLocationParameter("bc2NetLogoOriginalSessionGuid");
+            bc2NetLogoChannelToken = null;
+            Window.alert("The BC2NetLogo tool stopped working on 31 October, 2017 -- use the orindary Behaviour Composer to run and download instead.");
         }
         //	String urlParameter = Utils.getLocationParameter("reconstructedChannelNumber");
         //	if (urlParameter != null) {
@@ -1167,11 +1171,13 @@ abstract public class Modeller implements EntryPoint {
         //	}
         String netLogo2BCChannelToken = Utils.getLocationParameter("netLogo2BCChannelToken");
         if (netLogo2BCChannelToken != null) {
-            if (netLogo2BCChannelToken.equals("new")) {
-                reloadWithNetLogo2BCChannelToken();
-                return;
-            }
-            listenToGAEChannel(netLogo2BCChannelToken);
+            bc2NetLogoChannelToken = null;
+            Window.alert("The BC2NetLogo tool stopped working on 31 October, 2017 -- use the orindary Behaviour Composer to run and download instead.");
+//            if (netLogo2BCChannelToken.equals("new")) {
+//                reloadWithNetLogo2BCChannelToken();
+//                return;
+//            }
+//            listenToGAEChannel(netLogo2BCChannelToken);
         }
         locale = Utils.getLocationParameter("locale");
         if (locale == null) {
