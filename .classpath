@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="BC/src"/>
+	<classpathentry kind="lib" path="BC/User/applets.2/NetLogoLite.jar"/>
+	<classpathentry kind="lib" path="BC/User/applets.4.1/NetLogoLite.jar"/>
+	<classpathentry kind="lib" path="BC/war/netlogo/NetLogoLite.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/appengine-api-labs-1.7.6.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/appengine-api-labs.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/appengine-api.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/appengine-endpoints.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/appengine-local-runtime-shared.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/appengine-remote-api.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/appengine-tools-api.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/datanucleus-appengine-1.0.10.final.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/datanucleus-core-1.1.5.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/datanucleus-jpa-1.1.5.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/el-api.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/geronimo-jpa_3.0_spec-1.1.1.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/geronimo-jta_1.1_spec-1.1.1.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/gwt-gae-channel-0.4-alpha.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/gwt-log-3.2.1.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/gwt-servlet.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/jdo2-api-2.3-eb.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/jsr107cache-1.1.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/nekohtml.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/objectify-3.1.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/repackaged-appengine-ant-1.7.1.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/repackaged-appengine-ant-launcher-1.7.1.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/repackaged-appengine-jasper-6.0.29.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/repackaged-appengine-jasper-el-6.0.29.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/repackaged-appengine-tomcat-juli-6.0.29.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="BC/war/WEB-INF/lib/xercesImpl.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="BC/war/WEB-INF/classes"/>
+</classpath>

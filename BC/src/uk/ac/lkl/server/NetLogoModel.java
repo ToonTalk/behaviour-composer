@@ -74,7 +74,8 @@ public class NetLogoModel implements VariableCollector {
     protected double frameRate = 30.0;
     protected boolean ShowTickCounter = true;
     protected String tickLabel = "time";
-    protected ConcurrentHashMap<String, Boolean> shapesReferenced = new ConcurrentHashMap<String, Boolean>();
+    // the following was ConcurrentHashMap but that caused Google App Engine errors when getting the set of keys
+    protected HashMap<String, Boolean> shapesReferenced = new HashMap<String, Boolean>();
     protected ConcurrentHashMap<String, String> urlToShapeDefinitionMap = new ConcurrentHashMap<String, String>();
     // following used to generate NetLogo lists such as behaviour-procedure-numbers
     //    protected ArrayList<MicroBehaviour> behaviours = new ArrayList<MicroBehaviour>();
