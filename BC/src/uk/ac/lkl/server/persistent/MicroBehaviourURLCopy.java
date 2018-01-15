@@ -3,9 +3,10 @@
  */
 package uk.ac.lkl.server.persistent;
 
-import javax.persistence.Id;
+//import javax.persistence.Id;
 
 import com.googlecode.objectify.annotation.Cached;
+import com.googlecode.objectify.annotation.Id;
 
 /**
  * Links a micro-behaviour URL with the original copy that holds the data

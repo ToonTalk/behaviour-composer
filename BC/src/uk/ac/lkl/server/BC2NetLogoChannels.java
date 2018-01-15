@@ -3,9 +3,10 @@
  */
 package uk.ac.lkl.server;
 
-import javax.persistence.Id;
+//import javax.persistence.Id;
 
 import com.googlecode.objectify.annotation.Cached;
+import com.googlecode.objectify.annotation.Id;
 
 /**
  * Uses Objectify to maintain store the channels in a BC2NetLogo connection

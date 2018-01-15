@@ -49,9 +49,9 @@ import uk.ac.lkl.server.persistent.NetLogoNameSerialNumber;
 import uk.ac.lkl.shared.CommonUtils;
 import uk.ac.lkl.shared.NetLogoTokenizer;
 import uk.ac.lkl.client.Modeller;
-import net.sf.jsr107cache.Cache;
-import net.sf.jsr107cache.CacheException;
-import net.sf.jsr107cache.CacheManager;
+import javax.cache.Cache;
+import javax.cache.CacheException;
+import javax.cache.CacheManager;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;

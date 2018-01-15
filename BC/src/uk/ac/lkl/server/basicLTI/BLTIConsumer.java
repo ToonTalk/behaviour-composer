@@ -27,12 +27,13 @@ package uk.ac.lkl.server.basicLTI;
 
 import java.util.Random;
 
-import javax.persistence.Id;
+//import javax.persistence.Id;
 
 import uk.ac.lkl.server.persistent.DataStore;
 
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.annotation.Cached;
+import com.googlecode.objectify.annotation.Id;
 
 @Cached
 public class BLTIConsumer {

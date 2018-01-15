@@ -8,12 +8,13 @@ import java.util.ConcurrentModificationException;
 import java.util.List;
 
 import javax.jdo.annotations.Persistent;
-import javax.persistence.Id;
+//import javax.persistence.Id;
 
 import uk.ac.lkl.shared.CommonUtils;
 
 import com.google.appengine.api.datastore.Text;
 import com.googlecode.objectify.annotation.Cached;
+import com.googlecode.objectify.annotation.Id;
 
 /**
  * Stores the NetLogo behaviour code associated with the URL

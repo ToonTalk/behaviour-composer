@@ -3,7 +3,8 @@
  */
 package uk.ac.lkl.server;
 
-import javax.persistence.Id;
+// import javax.persistence.Id;
+import com.googlecode.objectify.annotation.Id;
 
 import uk.ac.lkl.server.persistent.DataStore;
 
